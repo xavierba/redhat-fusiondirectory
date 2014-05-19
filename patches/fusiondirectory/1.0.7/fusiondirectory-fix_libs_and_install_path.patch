@@ -1,6 +1,9 @@
---- contrib/bin/fusiondirectory-setup	2014-02-04 11:00:56.000000000 +0100
-+++ contrib/bin/fusiondirectory-setup	2014-03-20 15:17:26.290922097 +0100
-@@ -34,7 +34,7 @@
+--- contrib/bin/fusiondirectory-setup	2014-05-19 12:46:13.000000000 +0200
++++ contrib/bin/fusiondirectory-setup.new	2014-05-19 15:35:10.318435163 +0200
+@@ -31,12 +31,12 @@
+ 
+ # fd's directory and class.cache file's path declaration
+ my %vars = (
 - fd_home          => "/var/www/fusiondirectory",
 + fd_home          => "/usr/share/fusiondirectory",
   fd_cache         => "/var/cache/fusiondirectory",
@@ -8,5 +11,8 @@
 - fd_smarty_dir    => "/usr/share/php/smarty3",
 + fd_smarty_dir    => "/usr/share/php/Smarty3",
   fd_spool_dir     => "/var/spool/fusiondirectory",
+- ldap_conf        => "/etc/ldap/ldap.conf",
++ ldap_conf        => "/etc/openldap/ldap.conf",
   config_file      => "fusiondirectory.conf",
   secrets_file     => "fusiondirectory.secrets",
+  locale_dir       => "locale",
