@@ -1,0 +1,12 @@
+--- contrib/bin/fusiondirectory-setup	2014-02-04 11:00:56.000000000 +0100
++++ contrib/bin/fusiondirectory-setup	2014-03-20 15:17:26.290922097 +0100
+@@ -34,7 +34,7 @@
+- fd_home          => "/var/www/fusiondirectory",
++ fd_home          => "/usr/share/fusiondirectory",
+  fd_cache         => "/var/cache/fusiondirectory",
+  fd_config_dir    => "/etc/fusiondirectory",
+- fd_smarty_dir    => "/usr/share/php/smarty3",
++ fd_smarty_dir    => "/usr/share/php/Smarty3",
+  fd_spool_dir     => "/var/spool/fusiondirectory",
+  config_file      => "fusiondirectory.conf",
+  secrets_file     => "fusiondirectory.secrets",
