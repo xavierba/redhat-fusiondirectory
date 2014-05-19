@@ -1,0 +1,9 @@
+%files schema
+%defattr(-,root,root,-)
+%{_mandir}/man1/fusiondirectory-insert-schema.1.gz
+
+%{_datadir}/doc/fusiondirectory-schema/AUTHORS
+%{_datadir}/doc/fusiondirectory-schema/COPYING
+%{_datadir}/doc/fusiondirectory-schema/Changelog
+
+

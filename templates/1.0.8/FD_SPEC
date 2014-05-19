@@ -1,0 +1,153 @@
+# This is the header.spec file
+Name:       fusiondirectory
+Version:    VERSION_FD
+Release:    JENKINSBUILD 
+Summary:    Web Based LDAP Administration Program
+
+Group:      Applications/System
+License:    GPLv2
+URL:        http://www.fusiondirectory.org
+
+Buildarch:  noarch
+Source0:    fusiondirectory-%{version}.tar.gz
+
+Patch0:     fusiondirectory-fix_libs_and_install_path-%{version}.patch
+Patch1:     fusiondirectory-fix_variables-%{version}.patch
+Patch2:     fusiondirectory-fix_openldap_schema_directory_path.patch
+Patch3:     fusiondirectory-fix_variables_common-%{version}.patch
+Patch4:     fusiondirectory-fix_apache.patch
+Patch5:     fusiondirectory-fix_headers-%{version}.patch
+Patch6:     fusiondirectory-fix_password-%{version}.patch
+
+
+Requires:   php >= 5.2, php-ldap >= 5.2, php-imap >= 5.2, php-mbstring >= 5.2, php-pecl-imagick, php-fpdf
+
+Requires:   perl-Path-Class, perl-Crypt-PasswdMD5, perl-File-Copy-Recursive, perl-Archive-Extract, perl-XML-Twig
+Requires:   perl-Crypt-CBC, perl-LDAP, perl
+
+Requires:   httpd, gettext, openldap-servers, openldap-clients, perl-ExtUtils-MakeMaker
+Requires:   prototype, prototype-httpd, scriptaculous, scriptaculous-httpd
+
+Requires:   php-Smarty3, php-Smarty3-i18n, schema2ldif
+
+%description 
+FusionDirectory is a combination of system-administrator and end-user web
+interface, designed to handle LDAP based setups.
+Provided is access to posix, shadow, samba, proxy, fax, and Kerberos
+accounts. It is able to manage the Postfix/Cyrus server combination
+and can write user adapted sieve scripts.
+
+
+# This is the package.spec file
+%package schema
+Group:			Applications/System
+Summary:		Schema Definitions for the %{name} package
+Requires:		openldap-servers
+
+%description schema
+Contains the Schema definition files for the %{name} admin package.
+
+
+%package plugin-database-connector
+Group:			Applications/System
+Summary:		Database management framework for %{name}
+Requires:		%{name} >= %{version}, php-pear-MDB2
+
+%description plugin-database-connector
+This package contains a database framework which allows connecting
+%{name} to a database for storing specific datas. (Used only by specific
+plugins)
+
+
+# This is the prep.spec file
+%prep
+
+# Create build directory
+%setup -c -q -n fusiondirectory-%{version}
+
+# Source FD-core
+# Extract Source
+%setup -T -D -b 0
+
+# Apply all the patches
+%patch0
+%patch1
+%patch2
+%patch3
+%patch4
+%patch5
+%patch6
+
+
+# This is the install.spec file
+%install
+# Installation of FD-core
+# Create %{buildroot}%{_datadir}/fusiondirectory/
+mkdir -p %{buildroot}%{_datadir}/%{name}
+
+DIRS="ihtml plugins html include locale setup"
+for i in $DIRS ; do
+  cp -ua $i %{buildroot}%{_datadir}/%{name}
+done
+
+# Create spool and cache directories 
+install -d -m 0770 %{buildroot}/var/spool/fusiondirectory/
+install -d -m 0770 %{buildroot}/var/cache/fusiondirectory/{tmp,fai}/
+
+# Create other directories
+mkdir -p %{buildroot}%{_datadir}/man/man1/
+mkdir -p %{buildroot}%{_datadir}/man/man5/
+mkdir -p %{buildroot}%{_sysconfdir}/httpd/conf.d/
+mkdir -p %{buildroot}%{_sbindir}
+mkdir -p %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
+mkdir -p %{buildroot}%{_datadir}/php/Smarty3/plugins/
+
+# Set the rights
+chmod 750 contrib/bin/*
+
+# Prepare the man pages
+gzip contrib/man/fusiondirectory.conf.5
+gzip contrib/man/fusiondirectory-setup.1
+gzip contrib/man/fusiondirectory-insert-schema.1
+
+# Move man files
+cp contrib/man/fusiondirectory-setup.1.gz %{buildroot}%{_datadir}/man/man1
+cp contrib/man/fusiondirectory-insert-schema.1.gz %{buildroot}%{_datadir}/man/man1
+cp contrib/man/fusiondirectory.conf.5.gz %{buildroot}%{_datadir}/man/man5
+
+# Copy docs
+mkdir -p %{buildroot}%{_datadir}/doc/{%{name},%{name}-plugin-database-connector,%{name}-schema}
+cp ./AUTHORS ./Changelog ./COPYING %{buildroot}%{_datadir}/doc/%{name}/
+cp ./AUTHORS ./Changelog ./COPYING %{buildroot}%{_datadir}/doc/%{name}-plugin-database-connector/
+cp ./AUTHORS ./Changelog ./COPYING %{buildroot}%{_datadir}/doc/%{name}-schema/
+cp contrib/fusiondirectory.conf %{buildroot}%{_datadir}/doc/%{name}/
+
+# Move smarty functions and create php lib directory if it exist
+cp contrib/smarty/plugins/function.msgPool.php %{buildroot}%{_datadir}/php/Smarty3/plugins/function.msgPool.php
+cp contrib/smarty/plugins/function.filePath.php %{buildroot}%{_datadir}/php/Smarty3/plugins/function.filePath.php
+cp contrib/smarty/plugins/block.render.php %{buildroot}%{_datadir}/php/Smarty3/plugins/block.render.php
+
+# Move the schemas
+cp -a contrib/openldap/* %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
+mkdir -p %{buildroot}%{_datadir}/doc/%{name}/
+mv %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/slapd.conf %{buildroot}%{_datadir}/doc/%{name}/slapd.conf-example
+
+# Move executables
+cp contrib/bin/* %{buildroot}%{_sbindir}
+
+# Move apache configuration
+cp contrib/apache/fusiondirectory-apache.conf %{buildroot}%{_sysconfdir}/httpd/conf.d/
+
+
+%clean
+rm -Rf %{buildroot}
+
+
+# This is the post_core.spec file
+%post
+%{_sbindir}/%{name}-setup --yes --check-directories --update-locales --update-cache
+ln -s /usr/share/doc/%{name}/fusiondirectory.conf /var/cache/%{name}/template/%{name}.conf
+
+%post plugin-database-connector
+%{_sbindir}/%{name}-setup --yes --check-directories --update-locales --update-cache
+

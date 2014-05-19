@@ -1,0 +1,7 @@
+%files plugin-database-connector
+%defattr(-,root,root,-)
+%{_datadir}/doc/fusiondirectory-plugin-database-connector/AUTHORS
+%{_datadir}/doc/fusiondirectory-plugin-database-connector/COPYING
+%{_datadir}/doc/fusiondirectory-plugin-database-connector/Changelog
+
+
