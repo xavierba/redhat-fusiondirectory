@@ -1,0 +1,47 @@
+# File for plugins info
+# pluginName;description;depends1,depends2
+# If the plugin have no depends set none or late empty
+addressbook;Simple addressbook plugin;none
+alias;Manage fonctional aliases;fusiondirectory-plugin-mail
+apache2;Apache2 vhost management;fusiondirectory-plugin-systems
+argonaut;Communication layer between various software and the JSON-RPC Argonaut Server;fusiondirectory-plugin-systems
+asterisk;Phone backend management with report functionality;fusiondirectory-plugin-systems,fusiondirectory-plugin-database-connector
+autofs;Management of automount entries;fusiondirectory-plugin-systems
+cyrus;Cyrus account management;fusiondirectory-plugin-mail
+dashboard;Allows administrators to have several useful information;none
+debconf;Management of debconf profile;fusiondirectory-plugin-argonaut
+desktop-management;Management of desktop mime & Applications;none
+dhcp;DHCP service management;fusiondirectory-plugin-systems
+dns;DNS service management;fusiondirectory-plugin-systems
+dovecot;Dovecot account management;fusiondirectory-plugin-systems
+dsa;Manage service security account in the LDAP;none
+fai;Linux system deployment management;fusiondirectory-plugin-systems,fusiondirectory-plugin-argonaut
+fax;Fax management backend with report functionality;fusiondirectory-plugin-systems,fusiondirectory-plugin-database-connector
+freeradius;Manage users and groups for a freeradius server;none
+fusioninventory;Fusioninventory inventory Management;fusiondirectory-plugin-systems
+game;A tutorial plugin to discover FusionDirectory;fusiondirectory-plugin-systems,fusiondirectory-plugin-mail
+ipmi;Basic ipmi support;fusiondirectory-plugin-systems
+kolab;Kolab2 management;fusiondirectory-plugin-mail,fusiondirectory-plugin-cyrus
+ldapdump;Ldap raw visualisation;none
+ldapmanager;Simple LDAP backup and insertion tasks;openldap-clients
+mail;Mail management base;fusiondirectory-plugin-systems
+nagios;Nagios account settings management;none
+netgroups;Nis Netgroups account management;none
+openstack-compute;Create users in Nova;none
+opsi;Opsi deployment management for Windows clients;fusiondirectory-plugin-systems,fusiondirectory-plugin-dns,fusiondirectory-plugin-samba
+puppet;Manage a puppet server;none
+pureftpd;PureFTPD connectivity plugin;none
+quota;Plugin for storing filesystem quota per user inside LDAP tree;none
+repository;Plugin to manage repository for build systems;fusiondirectory-plugin-systems
+rolemanagement;Role Management plugin;none
+rsyslog;Rsyslog logging plugin;fusiondirectory-plugin-systems,fusiondirectory-plugin-database-connector
+samba;Samba 3 integration;fusiondirectory-plugin-systems
+sogo;SOgo Account Management;fusiondirectory-plugin-systems
+squid;Squid connectivity plugin;none
+ssh;SSH key plugin;none
+sudo;Sudo manager;none
+supann;This Plugin aims to provide a full LDAP interface to SUPANN schema;none
+sympa;Management of alias list of sympa;fusiondirectory-plugin-systems,fusiondirectory-plugin-alias
+systems;System management base plugin;none
+uw-imap;UW imap mail method;fusiondirectory-plugin-mail
+weblink;Plugin to access remote management of systems;fusiondirectory-plugin-systems
