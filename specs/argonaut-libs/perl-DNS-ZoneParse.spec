@@ -1,6 +1,6 @@
 Name:           perl-DNS-ZoneParse
-Version:        _VERSION_
-Release:        1%{dist}
+Version:        1.10
+Release:        _SUB-VERSION_
 Summary:        Perl extension for parsing and manipulating DNS Zone Files 
 License:	Artistic or GPL-1+
 Group:          Development/Libraries

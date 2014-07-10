@@ -1,11 +1,11 @@
 Name:           perl-JSON-RPC
-Version:        _VERSION_
-Release:        1%{?dist}
+Version:        0.96
+Release:        _SUB-VERSION_
 Summary:        Perl implementation of JSON-RPC 1.1 protocol
 License:        CHECK(GPL+ or Artistic)
 Group:          Development/Libraries
-URL:            http://search.cpan.org/dist/JSON-RPC/
-Source0:        http://search.cpan.org/CPAN/authors/id/D/DM/DMAKI/JSON-RPC-%{version}.tar.gz
+URL:            http://search.cpan.org/~makamaka/JSON-RPC-0.96/
+Source0:        http://search.cpan.org/CPAN/authors/id/M/MA/MAKAMAKA/JSON-RPC-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 BuildRequires:  perl(CGI) >= 2.92

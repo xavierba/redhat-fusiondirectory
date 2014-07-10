@@ -1,6 +1,6 @@
 Name:           perl-POE-Component-Server-JSONRPC
-Version:        _VERSION_ 
-Release:        1%{dist}
+Version:        0.05
+Release:        _SUB-VERSION_
 Summary:        POE tcp and http based JSON-RPC 1.0 server
 License:	Artistic or GPL-1+
 Group:          Development/Libraries

@@ -1,8 +1,8 @@
 # Not use mock for this file he must have an personnal version of perl-DateTime-TimeZone!!!
 
 Name:           perl-POE-Component-Schedule
-Version:        _VERSION_
-Release:        1%{dist}
+Version:        0.95
+Release:        _SUB-VERSION_
 Summary:        Schedule POE events using DateTime::Set iterators
 License:	Artistic or GPL-1+
 Group:          Development/Libraries

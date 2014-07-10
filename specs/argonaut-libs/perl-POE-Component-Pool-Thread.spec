@@ -1,6 +1,6 @@
 Name:           perl-POE-Component-Pool-Thread
-Version:        _VERSION_
-Release:        1%{dist}
+Version:        0.015
+Release:        _SUB-VERSION_
 Summary:        A POE Managed Boss/Worker threadpool
 License:	Artistic or GPL-1+
 Group:          Development/Libraries
