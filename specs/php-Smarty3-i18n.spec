@@ -10,7 +10,7 @@ Source0:	http://repos.fusiondirectory.org/sources/1.0/smarty3-i18n-%{version}.ta
 BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 Requires:	php-Smarty3
 BuildArch:	noarch
-Obsoletes:	smarty-gettext
+Obsoletes:	php-Smarty-gettext
 
 %description
 Smarty gettext plug-in provides an internationalization support
