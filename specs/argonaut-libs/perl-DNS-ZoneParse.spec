@@ -6,7 +6,7 @@ License:	Artistic or GPL-1+
 Group:          Development/Libraries
 
 URL:            http://search.cpan.org/dist/DNS-ZoneParse/
-Source0:        http://search.cpan.org/CPAN/authors/id/M/MS/MSCHILLI/DNS-ZoneParse-%{version}.tar.gz
+Source0:        http://cpan.metacpan.org/authors/id/M/MS/MSCHILLI/DNS-ZoneParse-%{version}.tar.gz
 Source1:	copyright-DNS-ZoneParse
 BuildRoot:      %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 BuildArch:      noarch
@@ -69,5 +69,5 @@ rm -rf %{buildroot}
 %doc Changes README copyright
 
 %changelog
-* Fri May 9 2014 Jonathan SWAELENS <swaelens.jonathan@openmailbox.org>
+* Fri May 9 2014 Jonathan SWAELENS <swaelens.jonathan@openmailbox.org> - 1.10-1
 - Initial Release

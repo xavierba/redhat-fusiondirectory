@@ -8,7 +8,7 @@ License:	Artistic or GPL-1+
 Group:          Development/Libraries
 
 URL:            http://search.cpan.org/dist/POE-Component-Schedule/
-Source0:        http://search.cpan.org/CPAN/authors/id/D/DO/DOLMEN/POE-Component-Schedule-%{version}.tar.gz
+Source0:        http://cpan.metacpan.org/authors/id/D/DO/DOLMEN/POE-Component-Schedule-%{version}.tar.gz
 Source1:	copyright-POE-Component-Schedule
 BuildRoot:      %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 BuildArch:      noarch
@@ -66,5 +66,5 @@ rm -rf %{buildroot}
 %doc Changes README copyright
 
 %changelog
-* Fri May 9 2014 Jonathan SWAELENS <swaelens.jonathan@openmailbox.org>
+* Fri May 9 2014 Jonathan SWAELENS <swaelens.jonathan@openmailbox.org> - 0.95-1
 - Initial Release

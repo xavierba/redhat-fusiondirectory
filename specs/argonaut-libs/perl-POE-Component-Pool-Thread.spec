@@ -6,7 +6,7 @@ License:	Artistic or GPL-1+
 Group:          Development/Libraries
 
 URL:            http://search.cpan.org/dist/POE-Component-Pool-Thread/
-Source0:        http://search.cpan.org/CPAN/authors/id/T/TA/TAG/POE-Component-Pool-Thread-%{version}.tar.gz
+Source0:        http://cpan.metacpan.org/authors/id/T/TA/TAG/POE-Component-Pool-Thread-%{version}.tar.gz
 Source1:	copyright-POE-Component-Pool-Thread
 BuildRoot:      %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 BuildArch:      noarch
@@ -64,5 +64,5 @@ rm -rf %{buildroot}
 %doc CHANGES copyright
 
 %changelog
-* Thu May 8 2014 Jonathan SWAELENS <swaelens.jonathan@openmailbox.org>
+* Thu May 8 2014 Jonathan SWAELENS <swaelens.jonathan@openmailbox.org> - 0.015-1
 - Initial Release
