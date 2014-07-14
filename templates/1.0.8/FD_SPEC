@@ -23,7 +23,7 @@ Patch6:     fusiondirectory-fix_password-%{version}.patch
 Requires:   php >= 5.2, php-ldap >= 5.2, php-imap >= 5.2, php-mbstring >= 5.2, php-pecl-imagick, php-fpdf
 
 Requires:   perl-Path-Class, perl-Crypt-PasswdMD5, perl-File-Copy-Recursive, perl-Archive-Extract, perl-XML-Twig
-Requires:   perl-Crypt-CBC, perl-LDAP, perl, perl-MIME-Base64
+Requires:   perl-Crypt-CBC, perl-LDAP, perl
 
 Requires:   httpd, gettext, openldap-servers, openldap-clients, perl-ExtUtils-MakeMaker
 Requires:   prototype, prototype-httpd, scriptaculous, scriptaculous-httpd
