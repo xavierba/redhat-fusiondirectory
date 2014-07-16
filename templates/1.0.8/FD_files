@@ -1,10 +1,10 @@
 %files
 %defattr(-,root,root,-)
-%{_mandir}/man1/fusiondirectory-setup.1.gz
-%{_mandir}/man5/fusiondirectory.conf.5.gz
+%{_mandir}/man1/%{name}-setup.1.gz
+%{_mandir}/man5/%{name}.conf.5.gz
 
-%{_datadir}/doc/fusiondirectory/AUTHORS
-%{_datadir}/doc/fusiondirectory/COPYING
-%{_datadir}/doc/fusiondirectory/Changelog
+%{_datadir}/doc/%{name}/AUTHORS
+%{_datadir}/doc/%{name}/COPYING
+%{_datadir}/doc/%{name}/Changelog
 
 

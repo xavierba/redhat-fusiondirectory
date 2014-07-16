@@ -223,8 +223,8 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
     
     # Contrib section for samba and supann
     if [ "${cur_plugin}" = "samba" ] ; then
-      mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-samba/
-      cp -a ./contrib/fix_munged %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-samba/
+      mkdir -p %{buildroot}%{_datadir}/doc/%{name}-samba/
+      cp -a ./contrib/fix_munged %{buildroot}%{_datadir}/doc/%{name}-samba/
       
     elif [ "${cur_plugin}" = "supann" ] ; then
       mkdir -p %{buildroot}%{_sysconfdir}/fusiondirectory/
@@ -235,8 +235,8 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
     # Openldap section
     if [ -d ./contrib/openldap ] ; then
       mkdir -p %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
-      mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
-      cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/   
+      mkdir -p %{buildroot}%{_datadir}/doc/%{name}-${cur_plugin}-schema/
+      cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/%{name}-${cur_plugin}-schema/   
  
       # Directories
       for cur_openldap in $(find ./contrib/openldap -mindepth 1 -maxdepth 1 -type d) ; do
@@ -254,27 +254,27 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
     
     # SQL section
     if [ -d ./contrib/sql ] ; then
-      mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
-      cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/   
+      mkdir -p %{buildroot}%{_datadir}/doc/%{name}-${cur_plugin}-schema/
+      cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/%{name}-${cur_plugin}-schema/   
  
       # Directories
       for cur_sql in $(find ./contrib/sql -mindepth 1 -maxdepth 1 -type d) ; do
         sql_line="$(echo ${cur_sql} | sed "s#./contrib/sql/##")" 
-        cp -a ./contrib/sql/${sql_line} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
+        cp -a ./contrib/sql/${sql_line} %{buildroot}%{_datadir}/doc/%{name}-${cur_plugin}-schema/
       done
     
       # Files
       for cur_sql in $(find ./contrib/sql -mindepth 1 -maxdepth 1 -type f ! -name 'example.ldif' ) ; do
         sql_line="$(echo ${cur_sql} | sed "s#./contrib/sql/##")" 
-        cp -a ./contrib/sql/${sql_line} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
+        cp -a ./contrib/sql/${sql_line} %{buildroot}%{_datadir}/doc/%{name}-${cur_plugin}-schema/
       done   
     fi
   fi
   
 
 	# Docs
-	mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
-	cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/ 
+	mkdir -p %{buildroot}%{_datadir}/doc/%{name}-${cur_plugin}/
+	cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/%{name}-${cur_plugin}/ 
  
 	# Exiting plugin directory
 	cd ..

@@ -9,15 +9,15 @@ License:    GPLv2
 URL:        http://www.fusiondirectory.org
 
 Buildarch:  noarch
-Source0:    fusiondirectory-%{version}.tar.gz
+Source0:    %{name}-%{version}.tar.gz
 
-Patch0:     fusiondirectory-fix_libs_and_install_path-%{version}.patch
-Patch1:     fusiondirectory-fix_variables-%{version}.patch
-Patch2:     fusiondirectory-fix_openldap_schema_directory_path.patch
-Patch3:     fusiondirectory-fix_variables_common-%{version}.patch
-Patch4:     fusiondirectory-fix_apache.patch
-Patch5:     fusiondirectory-fix_headers-%{version}.patch
-Patch6:     fusiondirectory-fix_password-%{version}.patch
+Patch0:     %{name}-fix_libs_and_install_path-%{version}.patch
+Patch1:     %{name}-fix_variables-%{version}.patch
+Patch2:     %{name}-fix_openldap_schema_directory_path.patch
+Patch3:     %{name}-fix_variables_common-%{version}.patch
+Patch4:     %{name}-fix_apache.patch
+Patch5:     %{name}-fix_headers-%{version}.patch
+Patch6:     %{name}-fix_password-%{version}.patch
 
 
 Requires:   php >= 5.2, php-ldap >= 5.2, php-imap >= 5.2, php-mbstring >= 5.2, php-pecl-imagick, php-fpdf
@@ -25,7 +25,7 @@ Requires:   php >= 5.2, php-ldap >= 5.2, php-imap >= 5.2, php-mbstring >= 5.2, p
 Requires:   perl-Path-Class, perl-Crypt-PasswdMD5, perl-File-Copy-Recursive, perl-Archive-Extract, perl-XML-Twig
 Requires:   perl-Crypt-CBC, perl-LDAP, perl
 
-Requires:   httpd, gettext, openldap-servers, openldap-clients, perl-ExtUtils-MakeMaker
+Requires:   httpd, gettext, perl-ExtUtils-MakeMaker
 Requires:   prototype, prototype-httpd, scriptaculous, scriptaculous-httpd
 
 Requires:   php-Smarty3, php-Smarty3-i18n, schema2ldif
@@ -42,7 +42,7 @@ and can write user adapted sieve scripts.
 %package schema
 Group:			Applications/System
 Summary:		Schema Definitions for the %{name} package
-Requires:		openldap-servers
+Requires:		openldap-clients
 
 %description schema
 Contains the Schema definition files for the %{name} admin package.
@@ -63,7 +63,7 @@ plugins)
 %prep
 
 # Create build directory
-%setup -c -q -n fusiondirectory-%{version}
+%setup -c -q -n %{name}-%{version}
 
 # Source FD-core
 # Extract Source
@@ -91,36 +91,36 @@ for i in $DIRS ; do
 done
 
 # Create spool and cache directories 
-install -d -m 0770 %{buildroot}/var/spool/fusiondirectory/
-install -d -m 0770 %{buildroot}/var/cache/fusiondirectory/{tmp,fai}/
+install -d -m 0770 %{buildroot}/var/spool/%{name}/
+install -d -m 0770 %{buildroot}/var/cache/%{name}/{tmp,fai}/
 
 # Create other directories
 mkdir -p %{buildroot}%{_datadir}/man/man1/
 mkdir -p %{buildroot}%{_datadir}/man/man5/
 mkdir -p %{buildroot}%{_sysconfdir}/httpd/conf.d/
 mkdir -p %{buildroot}%{_sbindir}
-mkdir -p %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
+mkdir -p %{buildroot}%{_sysconfdir}/openldap/schema/%{name}/
 mkdir -p %{buildroot}%{_datadir}/php/Smarty3/plugins/
 
 # Set the rights
 chmod 750 contrib/bin/*
 
 # Prepare the man pages
-gzip contrib/man/fusiondirectory.conf.5
-gzip contrib/man/fusiondirectory-setup.1
-gzip contrib/man/fusiondirectory-insert-schema.1
+gzip contrib/man/%{name}.conf.5
+gzip contrib/man/%{name}-setup.1
+gzip contrib/man/%{name}-insert-schema.1
 
 # Move man files
-cp contrib/man/fusiondirectory-setup.1.gz %{buildroot}%{_datadir}/man/man1
-cp contrib/man/fusiondirectory-insert-schema.1.gz %{buildroot}%{_datadir}/man/man1
-cp contrib/man/fusiondirectory.conf.5.gz %{buildroot}%{_datadir}/man/man5
+cp contrib/man/%{name}-setup.1.gz %{buildroot}%{_datadir}/man/man1
+cp contrib/man/%{name}-insert-schema.1.gz %{buildroot}%{_datadir}/man/man1
+cp contrib/man/%{name}.conf.5.gz %{buildroot}%{_datadir}/man/man5
 
 # Copy docs
 mkdir -p %{buildroot}%{_datadir}/doc/{%{name},%{name}-plugin-database-connector,%{name}-schema}
 cp ./AUTHORS ./Changelog ./COPYING %{buildroot}%{_datadir}/doc/%{name}/
 cp ./AUTHORS ./Changelog ./COPYING %{buildroot}%{_datadir}/doc/%{name}-plugin-database-connector/
 cp ./AUTHORS ./Changelog ./COPYING %{buildroot}%{_datadir}/doc/%{name}-schema/
-cp contrib/fusiondirectory.conf %{buildroot}%{_datadir}/doc/%{name}/
+cp contrib/%{name}.conf %{buildroot}%{_datadir}/doc/%{name}/
 
 # Move smarty functions and create php lib directory if it exist
 cp contrib/smarty/plugins/function.msgPool.php %{buildroot}%{_datadir}/php/Smarty3/plugins/function.msgPool.php
@@ -128,15 +128,15 @@ cp contrib/smarty/plugins/function.filePath.php %{buildroot}%{_datadir}/php/Smar
 cp contrib/smarty/plugins/block.render.php %{buildroot}%{_datadir}/php/Smarty3/plugins/block.render.php
 
 # Move the schemas
-cp -a contrib/openldap/* %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
+cp -a contrib/openldap/* %{buildroot}%{_sysconfdir}/openldap/schema/%{name}/
 mkdir -p %{buildroot}%{_datadir}/doc/%{name}/
-mv %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/slapd.conf %{buildroot}%{_datadir}/doc/%{name}/slapd.conf-example
+mv %{buildroot}%{_sysconfdir}/openldap/schema/%{name}/slapd.conf %{buildroot}%{_datadir}/doc/%{name}/slapd.conf-example
 
 # Move executables
 cp contrib/bin/* %{buildroot}%{_sbindir}
 
 # Move apache configuration
-cp contrib/apache/fusiondirectory-apache.conf %{buildroot}%{_sysconfdir}/httpd/conf.d/
+cp contrib/apache/%{name}-apache.conf %{buildroot}%{_sysconfdir}/httpd/conf.d/
 
 
 %clean
@@ -146,7 +146,7 @@ rm -Rf %{buildroot}
 # This is the post_core.spec file
 %post
 %{_sbindir}/%{name}-setup --yes --check-directories --update-locales --update-cache
-ln -s /usr/share/doc/%{name}/fusiondirectory.conf /var/cache/%{name}/template/%{name}.conf
+ln -s /usr/share/doc/%{name}/%{name}.conf /var/cache/%{name}/template/%{name}.conf
 
 %post plugin-database-connector
 %{_sbindir}/%{name}-setup --yes --check-directories --update-locales --update-cache

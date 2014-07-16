@@ -1,9 +1,9 @@
 %files schema
 %defattr(-,root,root,-)
-%{_mandir}/man1/fusiondirectory-insert-schema.1.gz
+%{_mandir}/man1/%{name}-insert-schema.1.gz
 
-%{_datadir}/doc/fusiondirectory-schema/AUTHORS
-%{_datadir}/doc/fusiondirectory-schema/COPYING
-%{_datadir}/doc/fusiondirectory-schema/Changelog
+%{_datadir}/doc/%{name}-schema/AUTHORS
+%{_datadir}/doc/%{name}-schema/COPYING
+%{_datadir}/doc/%{name}-schema/Changelog
 
 
