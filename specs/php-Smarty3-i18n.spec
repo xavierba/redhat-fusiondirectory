@@ -18,6 +18,7 @@ for the PHP template engine Smarty version 3.
 
 %prep
 %setup -q -n smarty3-i18n-%{version}
+gzip tsmarty2c.1
 
 %build
 
@@ -32,6 +33,8 @@ install -p -m 0644 block.t.php %{buildroot}%{_datadir}/php/Smarty3/plugins
 # Install the command line utility
 install -d %{buildroot}%{_bindir}
 install -p -m 0755 tsmarty2c.php %{buildroot}%{_bindir}/tsmarty2c
+install -d %{buildroot}%{_mandir}/man1/
+install -p -m 0644 ./tsmarty2c.1.gz %{buildroot}%{_mandir}/man1/
 
 %clean
 rm -rf %{buildroot} 
@@ -39,6 +42,7 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root,-)
 %doc README COPYING ChangeLog AUTHORS
+%attr(0644,root,root) %{_mandir}/man1/tsmarty2c.1.gz
 %{_datadir}/php/Smarty3/plugins/block.t.php
 %{_bindir}/tsmarty2c
 
