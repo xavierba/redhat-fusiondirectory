@@ -25,8 +25,7 @@ Requires:   php >= 5.3, php-ldap >= 5.3, php-imap >= 5.3, php-mbstring >= 5.3, p
 Requires:   perl-Path-Class, perl-Crypt-PasswdMD5, perl-File-Copy-Recursive, perl-Archive-Extract, perl-XML-Twig
 Requires:   perl-Crypt-CBC, perl-LDAP, perl
 
-Requires:   httpd, gettext, perl-ExtUtils-MakeMaker
-Requires:   prototype, prototype-httpd, scriptaculous, scriptaculous-httpd
+Requires:   httpd, gettext, perl-ExtUtils-MakeMaker, prototype, prototype-httpd, scriptaculous, scriptaculous-httpd
 
 Requires:   php-Smarty3, php-Smarty3-i18n, schema2ldif
 
