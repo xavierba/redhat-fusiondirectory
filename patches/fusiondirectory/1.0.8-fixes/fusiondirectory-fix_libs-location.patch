@@ -1,0 +1,23 @@
+--- a/ihtml/themes/default/headers.tpl	2014-04-24 17:13:29.000000000 +0200
++++ b/ihtml/themes/default/headers.tpl	2014-04-25 12:08:30.812002659 +0200
+@@ -15,14 +15,14 @@
+ 
+   <link rel="shortcut icon" href="favicon.ico"/>
+ 
+-  <script src="include/prototype.js" type="text/javascript"></script>
++  <script src="/prototype.js" type="text/javascript"></script>
+   <script src="include/fusiondirectory.js" type="text/javascript"></script>
+ {if $usePrototype == 'true'}
+-  <script src="include/scriptaculous.js" type="text/javascript"></script>
+-  <script src="include/builder.js" type="text/javascript"></script>
+-  <script src="include/effects.js" type="text/javascript"></script>
+-  <script src="include/dragdrop.js" type="text/javascript"></script>
+-  <script src="include/controls.js" type="text/javascript"></script>
++  <script src="/scriptaculous/scriptaculous.js" type="text/javascript"></script>
++  <script src="/scriptaculous/builder.js" type="text/javascript"></script>
++  <script src="/scriptaculous/effects.js" type="text/javascript"></script>
++  <script src="/scriptaculous/dragdrop.js" type="text/javascript"></script>
++  <script src="/scriptaculous/controls.js" type="text/javascript"></script>
+   <script src="include/pulldown.js" type="text/javascript"></script>
+   <script src="include/datepicker.js" type="text/javascript"></script>
+ {/if}

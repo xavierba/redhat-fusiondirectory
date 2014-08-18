@@ -1,0 +1,11 @@
+--- a/include/variables.inc	2014-04-24 17:13:29.000000000 +0200
++++ b/include/variables.inc	2014-04-29 10:32:27.176001530 +0200
+@@ -42,7 +42,7 @@
+ /*!
+  * \brief Path for smarty3 libraries
+  */
+-define("SMARTY", "/usr/share/php/smarty3/Smarty.class.php");
++define("SMARTY", "/usr/share/php/Smarty3/Smarty.class.php");
+ 
+ /*!
+  * \brief Smarty compile dir
