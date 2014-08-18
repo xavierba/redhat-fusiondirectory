@@ -1,0 +1,52 @@
+policy_module(fusiondirectory,_SELINUX-VERSION_);
+
+require {
+	type unconfined_t;
+	type fs_t;
+	type httpd_t;
+	type restorecon_t;
+	type setfiles_t;
+	type setroubleshootd_t;
+	type locate_t;
+	type rpm_script_t;
+	type rpm_t;
+	type initrc_t;
+	type tmpreaper_t;
+}
+
+# Fusiondirectory SELinux type declaration
+type httpd_fdir_content_t;
+
+allow httpd_fdir_content_t fs_t : filesystem { associate };
+
+# Privileges for httpd process
+allow httpd_t httpd_fdir_content_t:file manage_file_perms;; 
+allow httpd_t httpd_fdir_content_t:dir manage_dir_perms;
+
+# Privileges for local users (root)
+allow unconfined_t httpd_fdir_content_t:file all_file_perms; 
+allow unconfined_t httpd_fdir_content_t:dir all_dir_perms;
+
+# Privileges for restorecon process
+allow restorecon_t httpd_fdir_content_t:dir relabel_dir_perms;
+allow restorecon_t httpd_fdir_content_t:file relabel_file_perms;;
+
+# Privileges for setfiles process
+allow setfiles_t httpd_fdir_content_t:dir { list_dir_perms relabel_dir_perms };
+allow setfiles_t httpd_fdir_content_t:file { read_file_perms relabel_file_perms };
+
+# Privileges for audit process and SELinux log analysis
+allow setroubleshootd_t httpd_fdir_content_t:dir { read getattr search };
+
+# Privileges for locate database generation
+allow locate_t httpd_fdir_content_t:dir { read search open getattr };
+
+# Privileges for RPM processes
+allow rpm_t httpd_fdir_content_t:file all_file_perms;
+allow rpm_t httpd_fdir_content_t:dir all_dir_perms;
+allow rpm_script_t httpd_fdir_content_t:file all_file_perms;
+allow rpm_script_t httpd_fdir_content_t:dir all_dir_perms;
+
+# Others needed privlieges raised
+allow initrc_t httpd_fdir_content_t:dir { search getattr };
+allow tmpreaper_t httpd_fdir_content_t:file getattr;
