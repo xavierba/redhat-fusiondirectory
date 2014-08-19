@@ -3878,6 +3878,8 @@ LDAP schema for FusionDirectory webservice plugin
 # Directories
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/jsonrpc.php
+# Locale section
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/en/fusiondirectory.po
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/COPYING
