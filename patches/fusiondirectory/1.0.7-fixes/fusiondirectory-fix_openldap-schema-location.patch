@@ -1,0 +1,11 @@
+--- a/contrib/bin/fusiondirectory-insert-schema	2014-08-18 11:31:23.000000000 +0200
++++ b/contrib/bin/fusiondirectory-insert-schema	2014-08-19 11:46:01.543000239 +0200
+@@ -32,7 +32,7 @@
+ my $search_cmd      = $ldapsearch." -b \"cn=schema,cn=config\" cn={*}";
+ my $list_cmd        = $search_cmd."* cn 2>/dev/null";
+ my $cnconfig_cmd    = $ldapsearch." -b \"cn=config\" cn=config dn 2>/dev/null | grep dn:";
+-my $path            = "/etc/ldap/schema/fusiondirectory/";
++my $path            = "/etc/openldap/schema/fusiondirectory/";
+ my $full_cmd        = "";
+ my $ldap_utils_path = "/usr/bin/ldapadd";
+ my $schema2ldif     = "schema2ldif";

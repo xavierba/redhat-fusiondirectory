@@ -1,0 +1,11 @@
+--- a/include/variables_common.inc	2014-08-18 11:31:23.000000000 +0200
++++ b/include/variables_common.inc	2014-08-19 11:49:24.294000212 +0200
+@@ -49,7 +49,7 @@
+ /*!
+  * \brief php pear path
+  */
+-define ("PEAR_DIR", "/usr/share/php"); /*! Define PEAR directory */
++define ("PEAR_DIR", "/usr/share/pear"); /*! Define PEAR directory */
+ 
+ /*!
+  * \brief fpdf library path
