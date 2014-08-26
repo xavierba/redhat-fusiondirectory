@@ -12,11 +12,6 @@ Buildarch:  noarch
 Source0:    fusiondirectory-%{version}.tar.gz
 Source1:    fusiondirectory-plugins-%{version}.tar.gz
 
-Requires:   php >= 5.2, php-ldap >= 5.2, php-imap >= 5.2, php-mbstring >= 5.2, php-pecl-imagick, php-fpdf
-Requires:   httpd, gettext, openldap-servers, openldap-clients, perl-ExtUtils-MakeMaker
-Requires:   prototype, prototype-httpd, scriptaculous, scriptaculous-httpd
-Requires:   php-Smarty3, php-Smarty3-i18n, schema2ldif
-
 %description 
 FusionDirectory is a combination of system-administrator and end-user web
 interface, designed to handle LDAP based setups.
@@ -270,7 +265,16 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
       done   
     fi
   fi
-  
+ 
+    if [ -d ./contrib/docs ] ; then
+      mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
+      # Files
+      for cur_docs in $(find ./contrib/docs -mindepth 1 -maxdepth 1 -type f) ; do
+        docs_line="$(echo ${cur_docs} | sed "s#./contrib/docs/##")"
+        cp -a ./contrib/docs/${docs_line} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
+      done
+    fi
+ 
 
 	# Docs
 	mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
@@ -3880,6 +3884,9 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/jsonrpc.php
 # Locale section
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/en/fusiondirectory.po
+# Include section
+%attr (-,root,root)     %{_datadir}/fusiondirectory/include/jsonrpcphp/jsonRPCServer.php
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/jsonrpc.php.doc
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/COPYING
