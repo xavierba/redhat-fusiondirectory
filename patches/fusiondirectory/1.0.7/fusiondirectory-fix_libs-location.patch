@@ -1,5 +1,5 @@
---- ihtml/themes/default/headers.tpl	2014-03-31 17:43:57.067390501 +0200
-+++ ihtml/themes/default/headers.tpl	2014-03-31 17:46:28.835421517 +0200
+--- a/ihtml/themes/default/headers.tpl	2014-05-19 12:46:13.000000000 +0200
++++ b/ihtml/themes/default/headers.tpl	2014-08-26 15:09:21.539000293 +0200
 @@ -13,14 +13,14 @@
  
    <link rel="shortcut icon" href="favicon.ico">

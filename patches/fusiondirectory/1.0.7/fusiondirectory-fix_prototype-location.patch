@@ -1,5 +1,5 @@
---- ihtml/themes/default/password.tpl	2014-03-31 18:01:18.227423520 +0200
-+++ ihtml/themes/default/password.tpl	2014-03-31 18:03:02.844428883 +0200
+--- a/ihtml/themes/default/password.tpl	2014-05-19 12:46:13.000000000 +0200
++++ b/ihtml/themes/default/password.tpl	2014-08-26 15:31:17.345000279 +0200
 @@ -12,7 +12,7 @@
    <style type="text/css">@import url('themes/default/password-style.css');</style>
    <link rel="shortcut icon" href="favicon.ico">
