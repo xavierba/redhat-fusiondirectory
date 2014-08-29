@@ -337,14 +337,6 @@ Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems
 %description autofs
 Management of automount entries
 
-%package board
-Group:		Applications/System
-Summary:	Management plugin for board
-Requires:	fusiondirectory >= %{version}
-
-%description board
-Management plugin for board
-
 %package cyrus
 Group:		Applications/System
 Summary:	Cyrus account management
@@ -1042,10 +1034,6 @@ LDAP schema for FusionDirectory webservice plugin
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
-%post board
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
 %post cyrus
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
@@ -1230,10 +1218,6 @@ LDAP schema for FusionDirectory webservice plugin
 
 
 %postun autofs
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
-%postun board
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
@@ -1742,37 +1726,6 @@ LDAP schema for FusionDirectory webservice plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-autofs/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-autofs/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-autofs/COPYING
-
-
-%files board
-%defattr(0644,root,root)
-# Locale section
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/fa_IR/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/id/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/ru@petr1708/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/zh/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/nb/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/vi_VN/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/ug/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/es/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/cs_CZ/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/fr/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/pt_BR/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/ru/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/lv/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/de/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/it/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/pl/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/es_VE/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/sv/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/pt/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/ar/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/nl/fusiondirectory.po
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-board/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-board/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-board/COPYING
 
 
 %files cyrus
