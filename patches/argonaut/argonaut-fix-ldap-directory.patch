@@ -1,0 +1,11 @@
+--- argonaut-common/argonaut.conf	2014-07-10 11:07:31.302434658 +0200
++++ argonaut-common/argonaut.conf	2014-07-10 11:07:46.870432742 +0200
+@@ -5,7 +5,7 @@
+ client_ip  = 127.0.0.1
+ 
+ [ldap]
+-config   = /etc/ldap/ldap.conf
++config   = /etc/openldap/ldap.conf
+ dn       = cn=admin,dc=fusiondirectory,dc=org
+ password = secret
+ tls      = off
