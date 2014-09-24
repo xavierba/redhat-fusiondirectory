@@ -548,7 +548,7 @@ PureFTPD connectivity plugin
 %package quota
 Group:		Applications/System
 Summary:	Plugin for storing filesystem quota per user inside LDAP tree
-Requires:	fusiondirectory >= %{version}
+Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems
 
 %description quota
 Plugin for storing filesystem quota per user inside LDAP tree

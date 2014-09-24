@@ -1,7 +1,7 @@
 # This is the header.spec file
 Name:       fusiondirectory-plugin
 Version:    _VERSION_
-Release:    _RELEASE_ 
+Release:    _RELEASE_
 Summary:    Web Based LDAP Administration Program
 
 Group:      Applications/System
@@ -18,276 +18,6 @@ interface, designed to handle LDAP based setups.
 Provided is access to posix, shadow, samba, proxy, fax, and Kerberos
 accounts. It is able to manage the Postfix/Cyrus server combination
 and can write user adapted sieve scripts.
-
-
-# This is the prep.spec file
-%prep
-
-# Create build directory
-%setup -c -q -n fusiondirectory-%{version}
-
-# Source FD-core
-# Extract Source
-%setup -T -D -b 0 -n fusiondirectory-%{version}
-
-# Builroot
-cd ..
-
-# Extract Source 1
-%setup -T -D -b 1 -n fusiondirectory-plugins-%{version}
-
-# This is the install.spec file
-%install
-# Builroot
-cd ..
-
-#Installation of FD-plugins
-# Core plugins installation
-PLUGINS_LIST=`find fusiondirectory-plugins-%{version}/ -mindepth 1 -maxdepth 1 -type d ! -name heimdal -a ! -name mit-krb5 -a ! -name log -a ! -name .tx`
-
-# Entering plugins topdir
-cd fusiondirectory-plugins-%{version}/
-
-for cur_plugin_line in ${PLUGINS_LIST} ; do
-	# Entering Plugins Directory
-	cur_plugin=$(basename ${cur_plugin_line})
-  cd ${cur_plugin}
-
-
-  # Plugin developers
-  if [ "${cur_plugin}" = "developers" ] ; then
-    mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
-    mkdir -p %{buildroot}%{_datadir}/fusiondirectory/plugins/
-    mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/debug-help
-    cp -a ./CODING %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
-    cp -a ./Doxyfile %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
-    cp -a ./FDStandard %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
-    cp -a ./filter.xsd  %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
-    cp -a ./list.xsd %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
-    cp -a ./simple-plugin %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
-    cp -a ./debug-help %{buildroot}%{_datadir}/fusiondirectory/plugins/
-    cp -a ./debug-help/html/images %{buildroot}%{_datadir}/fusiondirectory/html/plugins/debug-help
-    
-  else
-    # Addons section
-    if [ -d ./addons ] ; then
-      mkdir -p %{buildroot}%{_datadir}/fusiondirectory/plugins/addons/
-      
-      # Directories
-      for cur_addons in $(find ./addons -mindepth 1 -maxdepth 1 -type d) ; do
-        addons_line="$(echo ${cur_addons} | sed "s#./addons/##")" 
-        cp -a ./addons/${addons_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/addons/
-      done
-    
-      # Files
-      for cur_addons in $(find ./addons -mindepth 1 -maxdepth 1 -type f) ; do
-        addons_line="$(echo ${cur_addons} | sed "s#./addons/##")" 
-        cp -a ./addons/${addons_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/addons/
-      done
-    fi
-    
-    
-    # Admin section
-    if [ -d ./admin ] ; then
-      mkdir -p %{buildroot}%{_datadir}/fusiondirectory/plugins/admin/
-    
-      # Directories
-      for cur_admin in $(find ./admin -mindepth 1 -maxdepth 1 -type d) ; do
-        admin_line="$(echo ${cur_admin} | sed "s#./admin/##")" 
-        cp -a ./admin/${admin_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/admin/
-      done
-    
-      # Files
-      for cur_admin in $(find ./admin -mindepth 1 -maxdepth 1 -type f) ; do
-        admin_line="$(echo ${cur_admin} | sed "s#./admin/##")" 
-        cp -a ./admin/${admin_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/admin/${admin_line}
-      done
-    fi
-    
-    
-    # Config section
-    if [ -d ./config ] ; then
-      mkdir -p %{buildroot}%{_datadir}/fusiondirectory/plugins/config/
-    
-      # Directories
-      for cur_config in $(find ./config -mindepth 1 -maxdepth 1 -type d) ; do
-        config_line="$(echo ${cur_config} | sed "s#./config/##")" 
-        cp -a ./config/${config_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/config/
-      done
-
-      # Files
-      for cur_config in $(find ./config -mindepth 1 -maxdepth 1 -type f) ; do
-        config_line="$(echo ${cur_config} | sed "s#./config/##")" 
-        cp -a ./config/${config_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/config/
-      done
-    fi
-    
-    
-    # HTML section
-    if [ -d ./html ] ; then
-      if [ "${cur_plugin}" = "addressbook" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        cp -a ./html/getvcard.php %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        
-      elif [ "${cur_plugin}" = "argonaut" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        
-      elif [ "${cur_plugin}" = "fax" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        cp -a ./html/getfax.php %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        
-      elif [ "${cur_plugin}" = "fusioninventory" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        cp -a ./html/collect.php %{buildroot}%{_datadir}/fusiondirectory/html/
-        cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        cp -a ./html/plugins/inventory.css %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        
-      else
-        # Directories
-        for cur_html in $(find ./html -mindepth 1 -maxdepth 1 -type d) ; do
-          mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-          html_line="$(echo ${cur_html} | sed "s#./html/##")" 
-          cp -a ./html/${html_line} %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        done
-
-        # Files
-        for cur_html in $(find ./html -mindepth 1 -maxdepth 1 -type f) ; do
-          mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
-          html_line="$(echo ${cur_html} | sed "s#./html/##")" 
-          cp -a ./html/${html_line} %{buildroot}%{_datadir}/fusiondirectory/html/
-        done
-      fi
-    fi
-    
-    
-    # Include section
-    if [ -d ./include ] ; then
-      mkdir -p %{buildroot}%{_datadir}/fusiondirectory/include/    
-      # Directories
-      for cur_include in $(find ./include -mindepth 1 -maxdepth 1 -type d) ; do
-        include_line="$(echo ${cur_include} | sed "s#./include/##")" 
-        cp -a ./include/${include_line}/ %{buildroot}%{_datadir}/fusiondirectory/include/
-      done
-      
-      # Files
-      for cur_include in $(find ./include -mindepth 1 -maxdepth 1 -type f) ; do
-        include_line="$(echo ${cur_include} | sed "s#./include/##")" 
-        cp -a ./include/${include_line} %{buildroot}%{_datadir}/fusiondirectory/include/
-      done
-    fi
-    
-    
-    # Locale section
-    if [ -d ./locale ] ; then
-      mkdir -p %{buildroot}%{_datadir}/fusiondirectory/locale/plugins/${cur_plugin}/locale/
-      
-      # Directories
-      for cur_locale in $(find ./locale -mindepth 1 -maxdepth 1 -type d) ; do
-        locale_line="$(echo ${cur_locale} | sed "s#./locale/##")" 
-        cp -a ./locale/${locale_line} %{buildroot}%{_datadir}/fusiondirectory/locale/plugins/${cur_plugin}/locale/
-      done
-      
-      # Files
-      for cur_locale in $(find ./locale -mindepth 1 -maxdepth 1 -type f) ; do
-        locale_line="$(echo ${cur_locale} | sed "s#./locale/##")" 
-        cp -a ./locale/${locale_line} %{buildroot}%{_datadir}/fusiondirectory/locale/plugins/${cur_plugin}/locale/
-      done
-    fi
-
-    
-    # Personal section
-    if [ -d ./personal ] ; then
-      mkdir -p %{buildroot}%{_datadir}/fusiondirectory/plugins/personal/
-    
-      # Directories
-      for cur_personal in $(find ./personal -mindepth 1 -maxdepth 1 -type d) ; do
-        personal_line="$(echo ${cur_personal} | sed "s#./personal/##")" 
-        cp -a ./personal/${personal_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/personal/
-      done
-    
-      # Files
-      for cur_personal in $(find ./personal -mindepth 1 -maxdepth 1 -type f) ; do
-        personal_line="$(echo ${cur_personal} | sed "s#./personal/##")" 
-        cp -a ./personal/${personal_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/personal/
-      done
-    fi
-    
-    # Contrib section for samba and supann
-    if [ "${cur_plugin}" = "samba" ] ; then
-      mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-samba/
-      cp -a ./contrib/fix_munged %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-samba/
-      
-    elif [ "${cur_plugin}" = "supann" ] ; then
-      mkdir -p %{buildroot}%{_sysconfdir}/fusiondirectory/
-      cp -a ./contrib/supann/* %{buildroot}%{_sysconfdir}/fusiondirectory/
-    fi 
-    
-    
-    # Openldap section
-    if [ -d ./contrib/openldap ] ; then
-      mkdir -p %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
-      mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
-      cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/   
- 
-      # Directories
-      for cur_openldap in $(find ./contrib/openldap -mindepth 1 -maxdepth 1 -type d) ; do
-        openldap_line="$(echo ${cur_openldap} | sed "s#./contrib/openldap/##")" 
-        cp -a ./contrib/openldap/${openldap_line} %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
-      done
-    
-      # Files
-      for cur_openldap in $(find ./contrib/openldap -mindepth 1 -maxdepth 1 -type f ! -name 'example.ldif' ) ; do
-        openldap_line="$(echo ${cur_openldap} | sed "s#./contrib/openldap/##")" 
-        cp -a ./contrib/openldap/${openldap_line} %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
-      done
-    fi
-    
-    
-    # SQL section
-    if [ -d ./contrib/sql ] ; then
-      mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
-      cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/   
- 
-      # Directories
-      for cur_sql in $(find ./contrib/sql -mindepth 1 -maxdepth 1 -type d) ; do
-        sql_line="$(echo ${cur_sql} | sed "s#./contrib/sql/##")" 
-        cp -a ./contrib/sql/${sql_line} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
-      done
-    
-      # Files
-      for cur_sql in $(find ./contrib/sql -mindepth 1 -maxdepth 1 -type f ! -name 'example.ldif' ) ; do
-        sql_line="$(echo ${cur_sql} | sed "s#./contrib/sql/##")" 
-        cp -a ./contrib/sql/${sql_line} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
-      done   
-    fi
-  fi
- 
-    if [ -d ./contrib/docs ] ; then
-      mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
-      # Files
-      for cur_docs in $(find ./contrib/docs -mindepth 1 -maxdepth 1 -type f) ; do
-        docs_line="$(echo ${cur_docs} | sed "s#./contrib/docs/##")"
-        cp -a ./contrib/docs/${docs_line} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
-      done
-    fi
- 
-
-	# Docs
-	mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
-	cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/ 
- 
-	# Exiting plugin directory
-	cd ..
-done
-
-
-%clean
-rm -Rf %{buildroot}
-
 
 %package addressbook
 Group:		Applications/System
@@ -337,6 +67,14 @@ Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems
 %description autofs
 Management of automount entries
 
+%package board
+Group:		Applications/System
+Summary:	Management plugin for board
+Requires:	fusiondirectory >= %{version}
+
+%description board
+Management plugin for board
+
 %package cyrus
 Group:		Applications/System
 Summary:	Cyrus account management
@@ -344,14 +82,6 @@ Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-mail
 
 %description cyrus
 Cyrus account management
-
-%package dashboard
-Group:		Applications/System
-Summary:	Allows administrators to have several useful information
-Requires:	fusiondirectory >= %{version}
-
-%description dashboard
-Allows administrators to have several useful information
 
 %package debconf
 Group:		Applications/System
@@ -561,6 +291,14 @@ Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems
 %description repository
 Plugin to manage repository for build systems
 
+%package rolemanagement
+Group:		Applications/System
+Summary:	Role Management plugin
+Requires:	fusiondirectory >= %{version}
+
+%description rolemanagement
+Role Management plugin
+
 %package rsyslog
 Group:		Applications/System
 Summary:	Rsyslog logging plugin
@@ -649,14 +387,6 @@ Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems
 %description weblink
 Plugin to access remote management of systems
 
-%package webservice
-Group:		Applications/System
-Summary:	Management plugin for webservice
-Requires:	fusiondirectory >= %{version}
-
-%description webservice
-Management plugin for webservice
-
 %package alias-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory alias plugin
@@ -702,21 +432,21 @@ LDAP schema for FusionDirectory autofs plugin
 
 
 
+%package board-schema
+Group:		Applications/System
+Summary:	LDAP schema for FusionDirectory board plugin
+
+%description board-schema
+LDAP schema for FusionDirectory board plugin
+
+
+
 %package cyrus-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory cyrus plugin
 
 %description cyrus-schema
 LDAP schema for FusionDirectory cyrus plugin
-
-
-
-%package dashboard-schema
-Group:		Applications/System
-Summary:	LDAP schema for FusionDirectory dashboard plugin
-
-%description dashboard-schema
-LDAP schema for FusionDirectory dashboard plugin
 
 
 
@@ -997,15 +727,268 @@ Summary:	LDAP schema for FusionDirectory weblink plugin
 %description weblink-schema
 LDAP schema for FusionDirectory weblink plugin
 
+############################
+
+# This is the prep.spec file
+%prep
+
+# Create build directory
+%setup -c -q -n fusiondirectory-%{version}
+
+# Extract Source 0
+%setup -T -D -b 0 -n fusiondirectory-%{version}
+
+# Extract Source 1
+%setup -T -D -b 1 -n fusiondirectory-plugins-%{version}
+
+# This is the install.spec file
+%install
+#Installation of FD-plugins
+
+# Builroot
+cd ..
+
+# Core plugins installation
+PLUGINS_LIST=`find fusiondirectory-plugins-%{version}/ -mindepth 1 -maxdepth 1 -type d ! -name heimdal -a ! -name mit-krb5 -a ! -name log -a ! -name .tx`
+
+# Entering plugins topdir
+cd fusiondirectory-plugins-%{version}/
+
+for cur_plugin_line in ${PLUGINS_LIST} ; do
+	# Entering Plugins Directory
+	cur_plugin=$(basename ${cur_plugin_line})
+  cd ${cur_plugin}
 
 
-%package webservice-schema
-Group:		Applications/System
-Summary:	LDAP schema for FusionDirectory webservice plugin
+  # Plugin developers
+  if [ "${cur_plugin}" = "developers" ] ; then
+    mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
+    mkdir -p %{buildroot}%{_datadir}/fusiondirectory/plugins/
+    mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/debug-help
+    cp -a ./CODING %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
+    cp -a ./Doxyfile %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
+    cp -a ./FDStandard %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
+    cp -a ./filter.xsd  %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
+    cp -a ./list.xsd %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
+    cp -a ./simple-plugin %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
+    cp -a ./debug-help %{buildroot}%{_datadir}/fusiondirectory/plugins/
+    cp -a ./debug-help/html/images %{buildroot}%{_datadir}/fusiondirectory/html/plugins/debug-help
+    
+  else
+    # Addons section
+    if [ -d ./addons ] ; then
+      mkdir -p %{buildroot}%{_datadir}/fusiondirectory/plugins/addons/
+      
+      # Directories
+      for cur_addons in $(find ./addons -mindepth 1 -maxdepth 1 -type d) ; do
+        addons_line="$(echo ${cur_addons} | sed "s#./addons/##")" 
+        cp -a ./addons/${addons_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/addons/
+      done
+    
+      # Files
+      for cur_addons in $(find ./addons -mindepth 1 -maxdepth 1 -type f) ; do
+        addons_line="$(echo ${cur_addons} | sed "s#./addons/##")" 
+        cp -a ./addons/${addons_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/addons/
+      done
+    fi
+    
+    
+    # Admin section
+    if [ -d ./admin ] ; then
+      mkdir -p %{buildroot}%{_datadir}/fusiondirectory/plugins/admin/
+    
+      # Directories
+      for cur_admin in $(find ./admin -mindepth 1 -maxdepth 1 -type d) ; do
+        admin_line="$(echo ${cur_admin} | sed "s#./admin/##")" 
+        cp -a ./admin/${admin_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/admin/
+      done
+    
+      # Files
+      for cur_admin in $(find ./admin -mindepth 1 -maxdepth 1 -type f) ; do
+        admin_line="$(echo ${cur_admin} | sed "s#./admin/##")" 
+        cp -a ./admin/${admin_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/admin/${admin_line}
+      done
+    fi
+    
+    
+    # Config section
+    if [ -d ./config ] ; then
+      mkdir -p %{buildroot}%{_datadir}/fusiondirectory/plugins/config/
+    
+      # Directories
+      for cur_config in $(find ./config -mindepth 1 -maxdepth 1 -type d) ; do
+        config_line="$(echo ${cur_config} | sed "s#./config/##")" 
+        cp -a ./config/${config_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/config/
+      done
 
-%description webservice-schema
-LDAP schema for FusionDirectory webservice plugin
+      # Files
+      for cur_config in $(find ./config -mindepth 1 -maxdepth 1 -type f) ; do
+        config_line="$(echo ${cur_config} | sed "s#./config/##")" 
+        cp -a ./config/${config_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/config/
+      done
+    fi
+    
+    
+    # HTML section
+    if [ -d ./html ] ; then
+      if [ "${cur_plugin}" = "addressbook" ] ; then
+        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
+        cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
+        cp -a ./html/getvcard.php %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
+        
+      elif [ "${cur_plugin}" = "argonaut" ] ; then
+        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
+        cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
+        
+      elif [ "${cur_plugin}" = "fax" ] ; then
+        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
+        cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
+        cp -a ./html/getfax.php %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
+        
+      elif [ "${cur_plugin}" = "fusioninventory" ] ; then
+        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
+        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
+        cp -a ./html/collect.php %{buildroot}%{_datadir}/fusiondirectory/html/
+        cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
+        cp -a ./html/plugins/inventory.css %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
+        
+      else
+        # Directories
+        for cur_html in $(find ./html -mindepth 1 -maxdepth 1 -type d) ; do
+          mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
+          html_line="$(echo ${cur_html} | sed "s#./html/##")" 
+          cp -a ./html/${html_line} %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
+        done
 
+        # Files
+        for cur_html in $(find ./html -mindepth 1 -maxdepth 1 -type f) ; do
+          mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
+          html_line="$(echo ${cur_html} | sed "s#./html/##")" 
+          cp -a ./html/${html_line} %{buildroot}%{_datadir}/fusiondirectory/html/
+        done
+      fi
+    fi
+    
+    
+    # Include section
+    if [ -d ./include ] ; then
+      mkdir -p %{buildroot}%{_datadir}/fusiondirectory/include/    
+      # Directories
+      for cur_include in $(find ./include -mindepth 1 -maxdepth 1 -type d) ; do
+        include_line="$(echo ${cur_include} | sed "s#./include/##")" 
+        cp -a ./include/${include_line}/ %{buildroot}%{_datadir}/fusiondirectory/include/
+      done
+      
+      # Files
+      for cur_include in $(find ./include -mindepth 1 -maxdepth 1 -type f) ; do
+        include_line="$(echo ${cur_include} | sed "s#./include/##")" 
+        cp -a ./include/${include_line} %{buildroot}%{_datadir}/fusiondirectory/include/
+      done
+    fi 
+    
+    # Locale section
+    if [ -d ./locale ] ; then
+      mkdir -p %{buildroot}%{_datadir}/fusiondirectory/locale/plugins/${cur_plugin}/locale/
+      
+      # Directories
+      for cur_locale in $(find ./locale -mindepth 1 -maxdepth 1 -type d) ; do
+        locale_line="$(echo ${cur_locale} | sed "s#./locale/##")" 
+        cp -a ./locale/${locale_line} %{buildroot}%{_datadir}/fusiondirectory/locale/plugins/${cur_plugin}/locale/
+      done
+      
+      # Files
+      for cur_locale in $(find ./locale -mindepth 1 -maxdepth 1 -type f) ; do
+        locale_line="$(echo ${cur_locale} | sed "s#./locale/##")" 
+        cp -a ./locale/${locale_line} %{buildroot}%{_datadir}/fusiondirectory/locale/plugins/${cur_plugin}/locale/
+      done
+    fi
+
+    
+    # Personal section
+    if [ -d ./personal ] ; then
+      mkdir -p %{buildroot}%{_datadir}/fusiondirectory/plugins/personal/
+    
+      # Directories
+      for cur_personal in $(find ./personal -mindepth 1 -maxdepth 1 -type d) ; do
+        personal_line="$(echo ${cur_personal} | sed "s#./personal/##")" 
+        cp -a ./personal/${personal_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/personal/
+      done
+    
+      # Files
+      for cur_personal in $(find ./personal -mindepth 1 -maxdepth 1 -type f) ; do
+        personal_line="$(echo ${cur_personal} | sed "s#./personal/##")" 
+        cp -a ./personal/${personal_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/personal/
+      done
+    fi
+   
+ 
+    # Contrib section for samba and supann
+    if [ "${cur_plugin}" = "samba" ] ; then
+      mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-samba/
+      cp -a ./contrib/fix_munged %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-samba/
+      
+    elif [ "${cur_plugin}" = "supann" ] ; then
+      mkdir -p %{buildroot}%{_sysconfdir}/fusiondirectory/
+      cp -a ./contrib/supann/* %{buildroot}%{_sysconfdir}/fusiondirectory/
+    fi 
+    
+    
+    # Openldap section
+    if [ -d ./contrib/openldap ] ; then
+      mkdir -p %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
+      mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
+      cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/   
+ 
+      # Directories
+      for cur_openldap in $(find ./contrib/openldap -mindepth 1 -maxdepth 1 -type d) ; do
+        openldap_line="$(echo ${cur_openldap} | sed "s#./contrib/openldap/##")" 
+        cp -a ./contrib/openldap/${openldap_line} %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
+      done
+    
+      # Files
+      for cur_openldap in $(find ./contrib/openldap -mindepth 1 -maxdepth 1 -type f ! -name 'example.ldif' ) ; do
+        openldap_line="$(echo ${cur_openldap} | sed "s#./contrib/openldap/##")" 
+        cp -a ./contrib/openldap/${openldap_line} %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
+      done
+    fi
+    
+    
+    # SQL section
+    if [ -d ./contrib/sql ] ; then
+      mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
+      cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/   
+ 
+      # Directories
+      for cur_sql in $(find ./contrib/sql -mindepth 1 -maxdepth 1 -type d) ; do
+        sql_line="$(echo ${cur_sql} | sed "s#./contrib/sql/##")" 
+        cp -a ./contrib/sql/${sql_line} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
+      done
+    
+      # Files
+      for cur_sql in $(find ./contrib/sql -mindepth 1 -maxdepth 1 -type f ! -name 'example.ldif' ) ; do
+        sql_line="$(echo ${cur_sql} | sed "s#./contrib/sql/##")" 
+        cp -a ./contrib/sql/${sql_line} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
+      done   
+    fi
+  fi
+ 
+
+  if [ "${cur_plugin}" = "developers" ] ; then
+    # Docs
+    mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
+    cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/ 
+  else
+    # Docs
+    mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
+    cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/ 
+  fi
+
+  # Exiting plugin directory
+  cd ..
+done
+
+%clean
+rm -Rf %{buildroot}
 
 
 # Generated by script generate_post_plugins.sh
@@ -1034,11 +1017,11 @@ LDAP schema for FusionDirectory webservice plugin
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
-%post cyrus
+%post board
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
-%post dashboard
+%post cyrus
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
@@ -1146,6 +1129,10 @@ LDAP schema for FusionDirectory webservice plugin
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
+%post rolemanagement
+%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
+
+
 %post rsyslog
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
@@ -1190,10 +1177,6 @@ LDAP schema for FusionDirectory webservice plugin
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
-%post webservice
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
 
 # Generated by script generate_postun_plugins.sh
 # This is the postun_plugins.spec file
@@ -1221,11 +1204,11 @@ LDAP schema for FusionDirectory webservice plugin
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
-%postun cyrus
+%postun board
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
-%postun dashboard
+%postun cyrus
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
@@ -1333,6 +1316,10 @@ LDAP schema for FusionDirectory webservice plugin
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
+%postun rolemanagement
+%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
+
+
 %postun rsyslog
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
@@ -1377,10 +1364,8 @@ LDAP schema for FusionDirectory webservice plugin
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
-%postun webservice
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
+%files
+%defattr(-,root,root,-)
 
 %files addressbook
 %defattr(0644,root,root)
@@ -1433,13 +1418,17 @@ LDAP schema for FusionDirectory webservice plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/alias/class_aliasManagement.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/alias/main.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/alias/alias-list.xml
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/alias/class_mailAliasDistribution.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/alias/alias-filter.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/alias/class_mailAliasRedirection.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/alias/remove.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/alias/alias-filter.xml
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/alias/alias-list.tpl
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/alias/class_aliasConfig.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/alias/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/alias/images/iconMiniMailDistribution.png
@@ -1491,6 +1480,11 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/apache2/serviceApacheVhostEditFooter.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/apache2/tabs_serviceApacheVhostEdit.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/apache2/class_serviceApacheVhost.inc
+# HTML section
+# Files in the directory
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/apache2/images/iconMini.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/apache2/images/icon.png
+# Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/apache2
 # Files
@@ -1527,6 +1521,7 @@ LDAP schema for FusionDirectory webservice plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/main.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/deploy-list.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/argonaut_log_view.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/class_argonautQueue.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/argonaut_import_file.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/class_filterArgonautEvents.inc
@@ -1543,6 +1538,7 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/deploy-list.xml
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/remove.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/deploy-filter.xml
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/class_argonautLogView.inc
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/argonaut/class_argonautDNSConfig.inc
@@ -1633,7 +1629,6 @@ LDAP schema for FusionDirectory webservice plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/asterisk/class_asteriskPluginConfig.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/asterisk/images/options.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/asterisk/images/iconMini.png
@@ -1686,15 +1681,20 @@ LDAP schema for FusionDirectory webservice plugin
 %defattr(0644,root,root)
 # Admin section
 # Files
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/autofs/autofs-filter.xml
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/autofs/main.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/autofs/tabs_nisObject.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/autofs/autofs-list.xml
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/autofs/class_nisMap.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/autofs/class_nisObject.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/autofs/autofs-filter.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/autofs/class_autofsManagement.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/autofs/remove.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/autofs/tabs_nisMap.inc
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/autofs/class_autofsConfig.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/autofs/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/autofs/images/iconMiniNisMap.png
@@ -1728,13 +1728,66 @@ LDAP schema for FusionDirectory webservice plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-autofs/COPYING
 
 
+%files board
+%defattr(0644,root,root)
+# Addons section
+# Files
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/board/users_accounts.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/board/main.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/board/contents.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/board/systems_pcids.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/board/tabs_board.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/board/class_boardSystems.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/board/class_board.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/board/network_dhcp.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/board/main_stats.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/board/class_boardUserAccounts.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/board/class_boardNetwork.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/board/users_stats.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/board/systems_stats.tpl
+# Config section
+# Files
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/board/class_boardConfig.inc
+# HTML section
+# Files in the directory
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/board/images/iconMini.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/board/images/icon.png
+# Files
+# Locale section
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board
+# Files
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/fa_IR/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/id/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/ru@petr1708/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/zh/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/nb/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/vi_VN/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/ug/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/es/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/cs_CZ/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/fr/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/pt_BR/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/ru/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/lv/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/de/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/it/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/pl/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/es_VE/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/sv/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/pt/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/ar/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/nl/fusiondirectory.po
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-board/AUTHORS
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-board/Changelog
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-board/COPYING
+
+
 %files cyrus
 %defattr(0644,root,root)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/cyrus/class_serviceCyrus.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/cyrus/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/cyrus/images/icon.png
@@ -1774,64 +1827,21 @@ LDAP schema for FusionDirectory webservice plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus/COPYING
 
 
-%files dashboard
-%defattr(0644,root,root)
-# Addons section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/users_accounts.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/class_dashBoardUsers.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/main.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/contents.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/systems_pcids.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/tabs_dashBoard.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/network_dhcp.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/class_dashBoardSystems.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/main_stats.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/class_dashBoard.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/users_stats.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/systems_stats.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/class_dashBoardNetwork.inc
-# Config section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/dashboard/class_dashBoardConfig.inc
-# Locale section
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/fa_IR/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/id/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/ru@petr1708/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/zh/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/nb/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/vi_VN/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/ug/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/es/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/cs_CZ/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/fr/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/pt_BR/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/ru/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/de/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/it/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/pl/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/es_VE/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/pt/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/nl/fusiondirectory.po
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dashboard/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dashboard/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dashboard/COPYING
-
-
 %files debconf
 %defattr(0644,root,root)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/debconf/class_debconfStartup.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/debconfProfile/debconfProfile-filter.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/debconfProfile/tabs_debconfProfiles.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/debconfProfile/main.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/debconfProfile/class_debconfProfileManagement.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/debconfProfile/debconfProfile-filter.xml
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/debconfProfile/debconfProfile-list.xml
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/debconfProfile/debconfProfile-list.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/debconfProfile/remove.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/debconfProfile/class_debconfProfileGeneric.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/debconf/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/debconf/images/icon.png
@@ -1873,20 +1883,30 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/applications/main.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/applications/parameters.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/applications/class_applicationGeneric.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/applications/application-list.xml
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/applications/application-filter.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/applications/class_applicationManagement.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/applications/remove.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/applications/tabs_application.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/applications/class_applicationParameters.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/applications/application-filter.xml
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/groups/apps/class_groupApplication.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/groups/apps/app_list.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/groups/apps/edit_entry.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/mimetypes/class_mimetypeManagement.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/mimetypes/mimetype-filter.xml
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/mimetypes/main.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/mimetypes/class_mimetypeGeneric.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/mimetypes/mimetype-list.xml
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/mimetypes/paste_generic.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/mimetypes/generic.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/mimetypes/remove.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/mimetypes/mimetype-filter.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/mimetypes/tabs_mimetypes.inc
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/desktop-management/class_desktopPluginConfig.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/desktop-management/images/iconApplication.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/desktop-management/images/select_mimetype.png
@@ -1981,7 +2001,6 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/serviceDHCP.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_dhcpNetwork.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/dhcp/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/dhcp/images/icon.png
@@ -2031,7 +2050,6 @@ LDAP schema for FusionDirectory webservice plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/dns/class_dnsConfig.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/dns/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/dns/images/icon.png
@@ -2072,7 +2090,6 @@ LDAP schema for FusionDirectory webservice plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dovecot/class_serviceDovecot.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/dovecot/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/dovecot/images/icon.png
@@ -2121,7 +2138,6 @@ LDAP schema for FusionDirectory webservice plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/dsa/class_dsaConfig.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/dsa/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/dsa/images/icon.png
@@ -2162,7 +2178,6 @@ LDAP schema for FusionDirectory webservice plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/repository/fai_repository.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/repository/class_serviceRepository.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_faiLogView.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_faiStartup.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/faiVariableEntry.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/class_faiProfile.inc
@@ -2233,7 +2248,6 @@ LDAP schema for FusionDirectory webservice plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/fai/class_faiConfig.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/fai/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/fai/images/fai_small.png
@@ -2304,7 +2318,14 @@ LDAP schema for FusionDirectory webservice plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/fax/class_serviceFax.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/blocklists/main.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/blocklists/blocklist-filter.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/blocklists/blocklist-filter.xml
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/blocklists/tabs_blocklist.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/blocklists/paste_generic.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/blocklists/blocklist-list.xml
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/blocklists/generic.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/blocklists/class_blocklistGeneric.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/blocklists/remove.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/blocklists/class_blocklistManagement.inc
 # Config section
 # Files
@@ -2362,7 +2383,6 @@ LDAP schema for FusionDirectory webservice plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/freeradius/class_freeradiusGroup.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/freeradius/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/freeradius/images/icon.png
@@ -2457,7 +2477,6 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/game/class_Game.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/game/class_Mission.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/game/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/game/images/win.png
@@ -2502,7 +2521,6 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/gpg/main.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/gpg/class_pgpServerInfo.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/gpg/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/gpg/images/icon.png
@@ -2540,6 +2558,7 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/gpg/pgpKeySelect/class_pgpKeySelect.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/gpg/pgpKeySelect/pgpKeySelect-filter.xml
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/gpg/pgpKeySelect/pgpKeySelect-list.xml
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/gpg/pgpKeySelect/pgpKeySelect-filter.tpl
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-gpg/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-gpg/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-gpg/COPYING
@@ -2549,7 +2568,11 @@ LDAP schema for FusionDirectory webservice plugin
 %defattr(0644,root,root)
 # Admin section
 # Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/ipmi/class_ipmiClient.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/ipmi/class_ipmiCredentials.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/ipmi/class_ipmiGeneric.inc
+# Config section
+# Files
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/ipmi/class_ipmiConfig.inc
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/ipmi
 # Files
@@ -2585,11 +2608,7 @@ LDAP schema for FusionDirectory webservice plugin
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/kolab/class_serviceKolab.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/ogroups/kolab/class_mailogroup.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/ogroups/kolab/mail.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/ogroups/kolab/paste_mail.tpl
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/kolab/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/kolab/images/icon.png
@@ -2670,13 +2689,15 @@ LDAP schema for FusionDirectory webservice plugin
 %defattr(0644,root,root)
 # Addons section
 # Files
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/ldapmanager/class_export.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/ldapmanager/main.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/ldapmanager/class_csvimport.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/ldapmanager/class_import.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/ldapmanager/contentexport.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/ldapmanager/contentimport.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/ldapmanager/tabs_ldif.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/ldapmanager/contentcsv.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/ldapmanager/class_ldapmanager.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/ldapmanager/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/ldapmanager/images/icon.png
@@ -2720,15 +2741,30 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/spam/class_serviceSpamAssassin.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/postfix/class_servicePostfix.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/groups/mail/class_groupMail.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/ogroups/mail/class_mailogroup.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/ogroups/mail/mail.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/ogroups/mail/paste_mail.tpl
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/mail/class_mailPluginConfig.inc
 # HTML section
-# Directories
 # Files in the directory
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/mail/images/iconMini.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/mail/images/sieve_move_object_down.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/mail/images/sieve_add_new_top.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/mail/images/sieve_add_new_bottom.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/mail/images/sieve_del_object.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/mail/images/alternatemail.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/mail/images/envelope.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/mail/images/iconMiniImap.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/mail/images/shared_folder.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/mail/images/sieve_move_object_up.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/mail/images/sieve_add_test.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/mail/images/iconMiniSharedFolder.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/mail/images/iconMiniSpamassassin.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/mail/images/icon.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/mail/images/iconMiniSmtp.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/mail/images/iconMiniAntivirus.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/mail
@@ -2816,6 +2852,10 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_sieveElement_Fileinto.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_sieveElement_Require.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/mailAddressSelect/class_mailAddressSelect.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/mailAddressSelect/selectMailAddress-list.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/mailAddressSelect/selectMailAddress-filter.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/mailAddressSelect/selectMailAddress-list.xml
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/mailAddressSelect/selectMailAddress-filter.xml
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/class_mail-methods.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/class_mailAccount.inc
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-mail/AUTHORS
@@ -2829,7 +2869,6 @@ LDAP schema for FusionDirectory webservice plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/nagios/class_nagiosConfig.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/nagios/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/nagios/images/icon.png
@@ -2878,12 +2917,16 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/netgroups/class_netgroupManagement.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/netgroups/class_filterNetGroupLDAP.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/netgroups/memberNisnetgroupSelect/class_memberNisnetgroupSelect.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/netgroups/memberNisnetgroupSelect/memberNisnetgroup-list.xml
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/netgroups/memberNisnetgroupSelect/class_filterMemberNisnetgroupLDAP.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/netgroups/memberNisnetgroupSelect/memberNisnetgroup-filter.xml
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/netgroups/memberNisnetgroupSelect/memberNisnetgroup-list.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/netgroups/memberNisnetgroupSelect/memberNisnetgroup-filter.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/netgroups/class_netgroup.inc
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/netgroups/class_netgroupConfig.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/netgroups/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/netgroups/images/icon.png
@@ -2925,7 +2968,6 @@ LDAP schema for FusionDirectory webservice plugin
 %files openstack-compute
 %defattr(0644,root,root)
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/openstack-compute/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/openstack-compute/images/icon.png
@@ -2982,7 +3024,6 @@ LDAP schema for FusionDirectory webservice plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/opsi/class_opsiConfig.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/opsi/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/opsi/images/iconSoftwareList.png
@@ -3028,7 +3069,6 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/puppet/class_servicePuppet.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/puppet/class_puppetNode.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/puppet/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/puppet/images/icon.png
@@ -3064,7 +3104,6 @@ LDAP schema for FusionDirectory webservice plugin
 %files pureftpd
 %defattr(0644,root,root)
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/pureftpd/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/pureftpd/images/icon.png
@@ -3110,7 +3149,6 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/quota/service_quota_parameters.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/quota/class_serviceQuota.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/quota/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/quota/images/icon.png
@@ -3163,7 +3201,6 @@ LDAP schema for FusionDirectory webservice plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/repository/class_repositoryConfig.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/repository/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/repository/images/icon.png
@@ -3200,6 +3237,56 @@ LDAP schema for FusionDirectory webservice plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-repository/COPYING
 
 
+%files rolemanagement
+%defattr(0644,root,root)
+# Admin section
+# Files
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/roleManagement/class_roleGeneric.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/roleManagement/main.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/roleManagement/class_roleManagement.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/roleManagement/role-list.xml
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/roleManagement/paste_generic.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/roleManagement/role-filter.xml
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/roleManagement/role-filter.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/roleManagement/remove.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/roleManagement/roleGeneric.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/roleManagement/tabs_roles.inc
+# HTML section
+# Files in the directory
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/rolemanagement/images/iconMini.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/rolemanagement/images/occupant.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/rolemanagement/images/icon.png
+# Files
+# Locale section
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rolemanagement
+# Files
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rolemanagement/locale/fa_IR/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rolemanagement/locale/id/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rolemanagement/locale/ca/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rolemanagement/locale/ru@petr1708/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rolemanagement/locale/zh/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rolemanagement/locale/nb/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rolemanagement/locale/vi_VN/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rolemanagement/locale/ug/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rolemanagement/locale/es/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rolemanagement/locale/cs_CZ/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rolemanagement/locale/fr/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rolemanagement/locale/pt_BR/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rolemanagement/locale/ru/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rolemanagement/locale/lv/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rolemanagement/locale/de/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rolemanagement/locale/it/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rolemanagement/locale/pl/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rolemanagement/locale/es_VE/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rolemanagement/locale/sv/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rolemanagement/locale/pt/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rolemanagement/locale/ar/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rolemanagement/locale/nl/fusiondirectory.po
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-rolemanagement/AUTHORS
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-rolemanagement/Changelog
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-rolemanagement/COPYING
+
+
 %files rsyslog
 %defattr(0644,root,root)
 # Addons section
@@ -3212,7 +3299,6 @@ LDAP schema for FusionDirectory webservice plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/rsyslog/class_serviceSyslog.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/rsyslog/images/server.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/rsyslog/images/clock.png
@@ -3255,13 +3341,15 @@ LDAP schema for FusionDirectory webservice plugin
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/samba/class_winstationGeneric.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/samba/main.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/samba/class_sambaDomainManagement.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/samba/class_sambaDomain.inc
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/samba/class_sambaPluginConfig.inc
 %attr (-,root,root)	%{_datadir}/doc/fusiondirectory-plugin-samba/fix_munged
+# HTML section
+# Files in the directory
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/samba/images/iconMini.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/samba/images/icon.png
+# Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba
 # Files
@@ -3310,7 +3398,6 @@ LDAP schema for FusionDirectory webservice plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/sogo/class_sogoConfig.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/sogo/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/sogo/images/icon.png
@@ -3348,7 +3435,6 @@ LDAP schema for FusionDirectory webservice plugin
 %files squid
 %defattr(0644,root,root)
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/squid/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/squid/images/icon.png
@@ -3391,7 +3477,6 @@ LDAP schema for FusionDirectory webservice plugin
 %files ssh
 %defattr(0644,root,root)
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/ssh/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/ssh/images/icon.png
@@ -3434,14 +3519,19 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/sudo/usedoptions_section.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/sudo/main.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/sudo/class_sudoGeneric.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/sudo/sudo-list.xml
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/sudo/sudo-filter.xml
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/sudo/sudo-filter.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/sudo/paste_generic.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/sudo/class_sudoOption.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/sudo/tabs_sudo.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/sudo/class_sudoManagement.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/sudo/remove.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/sudo/sudo-list.tpl
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/sudo/class_sudoConfig.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/sudo/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/sudo/images/negate.png
@@ -3487,7 +3577,14 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/supannStructures/class_supannStructuresManagement.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/supannStructures/class_entite.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/supannStructures/main.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/supannStructures/entite.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/supannStructures/supannStructures-list.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/supannStructures/supannStructures-list.xml
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/supannStructures/class_etablissement.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/supannStructures/remove.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/supannStructures/etablissement.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/supannStructures/supannStructures-filter.xml
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/supannStructures/supannStructures-filter.tpl
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/supann/class_supannConfig.inc
@@ -3510,7 +3607,6 @@ LDAP schema for FusionDirectory webservice plugin
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/typediplome_SISE
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/discipline_SISE
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/supann/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/supann/images/iconMiniEntite.png
@@ -3564,7 +3660,6 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/sympa/class_serviceSympa.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/sympa/class_sympaAlias.inc
 # HTML section
-# Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/sympa/images/iconMini.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/sympa/images/icon.png
@@ -3603,6 +3698,7 @@ LDAP schema for FusionDirectory webservice plugin
 %defattr(0644,root,root)
 # Admin section
 # Files
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/selectUserToPrinterDialog.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/serverService-filter.xml
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/printer.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/tabs_workstation.inc
@@ -3628,7 +3724,6 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/cups/serviceCUPS.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/cups/class_serviceCUPS.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/gencd.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/server_import.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/tabs_printers.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/serverService-filter.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/network.tpl
@@ -3640,8 +3735,14 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_filterServerService.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/serverService-list.xml
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/tabs_component.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/tabs_mobile.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_SelectDeviceType.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/remove.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/systemSelect/selectSystem-list.xml
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/systemSelect/selectSystem-filter.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/systemSelect/selectSystem-list.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/systemSelect/selectSystem-filter.xml
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/systemSelect/class_systemSelect.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_workstationGeneric.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/phoneSelect/class_phoneSelect.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/phoneSelect/phoneSelect-filter.tpl
@@ -3657,6 +3758,7 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/tabs_server.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_networkSettings.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/network_section.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_selectUserToPrinterDialog.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_filterSYSTEMS.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/system-filter.xml
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/password.tpl
@@ -3666,10 +3768,12 @@ LDAP schema for FusionDirectory webservice plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/systems/class_systemsPluginConfig.inc
 # HTML section
-# Directories
 # Files in the directory
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/server.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/clock.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/server_error.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_server.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/network.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_default.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_imap.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/branch.png
@@ -3678,6 +3782,7 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/prio_decrease.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/drives.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/prio_increase.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_component.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/freeze.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/terminal_locked.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/localboot.png
@@ -3686,7 +3791,11 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_new_terminal.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/reinstall.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/scanner.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/update.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_mobilephone.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_apache.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/cdrom.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_workstation.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/edit_share.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/sysinfo.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/status_start_all.png
@@ -3708,8 +3817,11 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/hardware.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/view_logs.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/iconHotplugDevices.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/icon.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_winstation.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/mouse.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_new_server.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_printer.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/kiosk.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/workstation_busy.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_print.png
@@ -3723,7 +3835,9 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_terminal.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_device.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/list_new_device.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_terminal.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_ntp.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_phone.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/systems
@@ -3826,47 +3940,6 @@ LDAP schema for FusionDirectory webservice plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-weblink/COPYING
 
 
-%files webservice
-%defattr(0644,root,root)
-# Config section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/class_webserviceConfig.inc
-# HTML section
-# Directories
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/jsonrpc.php
-# Locale section
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/en/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/ar/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/ca/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/cs_CZ/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/de/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/es/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/es_VE/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/fa_IR/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/fr/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/id/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/it/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/lv/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/nb/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/nl/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/pl/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/pt/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/pt_BR/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/ru/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/ru@petr1708/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/sv/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/ug/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/vi_VN/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/zh/fusiondirectory.po
-# Include section
-%attr (-,root,root)     %{_datadir}/fusiondirectory/include/jsonrpcphp/jsonRPCServer.php
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/jsonrpc.php.doc
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/COPYING
-
-
 %files alias-schema
 %defattr(0644,root,root)
 # Files
@@ -3916,6 +3989,15 @@ LDAP schema for FusionDirectory webservice plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-autofs-schema/COPYING
 
 
+%files board-schema
+%defattr(0644,root,root)
+# Files
+%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/board-fd-conf.schema
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-board-schema/AUTHORS
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-board-schema/Changelog
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-board-schema/COPYING
+
+
 %files cyrus-schema
 %defattr(0644,root,root)
 # Files
@@ -3923,15 +4005,6 @@ LDAP schema for FusionDirectory webservice plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus-schema/COPYING
-
-
-%files dashboard-schema
-%defattr(0644,root,root)
-# Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dashboard-fd-conf.schema
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dashboard-schema/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dashboard-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dashboard-schema/COPYING
 
 
 %files debconf-schema
@@ -4049,6 +4122,7 @@ LDAP schema for FusionDirectory webservice plugin
 %files ipmi-schema
 %defattr(0644,root,root)
 # Files
+%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/ipmi-fd-conf.schema
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/ipmi-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi-schema/Changelog
@@ -4243,25 +4317,13 @@ LDAP schema for FusionDirectory webservice plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-weblink-schema/COPYING
 
 
-%files webservice-schema
-%defattr(0644,root,root)
-# Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/webservice-fd-conf.schema
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice-schema/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice-schema/COPYING
+# This is the files_exclude.spec file
+# Use these for add and exclude files manual
 
 
 ########################
 
 %changelog
-
-* Tue Apr 1 2014 Jonathan SWAELENS <swaelens.jonathan@openmailbox.org> - 1.0.7.3-2.el6
-- Add scriptaculous and prototype in the requires
-- Add the patches for headers.tpl and password.tpl
-
-* Mon Mar 31 2014 Jonathan SWAELENS <swaelens.jonathan@openmailbox.org> - 1.0.7.3-2.el6
-- Adapt the scripts and patchs for the version 1.0.7.3
 
 * Sun Jun 09 2013 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.6-2.el6
 - Reorganize include directory files declaration in order to avoid multiple

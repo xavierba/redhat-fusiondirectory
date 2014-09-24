@@ -12,6 +12,11 @@ Buildarch:  noarch
 Source0:    fusiondirectory-%{version}.tar.gz
 Source1:    fusiondirectory-plugins-%{version}.tar.gz
 
+Requires:   php >= 5.2, php-ldap >= 5.2, php-imap >= 5.2, php-mbstring >= 5.2, php-pecl-imagick, php-fpdf
+Requires:   httpd, gettext, openldap-servers, openldap-clients, perl-ExtUtils-MakeMaker
+Requires:   prototype, prototype-httpd, scriptaculous, scriptaculous-httpd
+Requires:   php-Smarty3, php-Smarty3-i18n, schema2ldif
+
 %description 
 FusionDirectory is a combination of system-administrator and end-user web
 interface, designed to handle LDAP based setups.
@@ -265,16 +270,7 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
       done   
     fi
   fi
- 
-    if [ -d ./contrib/docs ] ; then
-      mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
-      # Files
-      for cur_docs in $(find ./contrib/docs -mindepth 1 -maxdepth 1 -type f) ; do
-        docs_line="$(echo ${cur_docs} | sed "s#./contrib/docs/##")"
-        cp -a ./contrib/docs/${docs_line} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
-      done
-    fi
- 
+  
 
 	# Docs
 	mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
@@ -336,6 +332,14 @@ Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems
 
 %description autofs
 Management of automount entries
+
+%package board
+Group:		Applications/System
+Summary:	Management plugin for board
+Requires:	fusiondirectory >= %{version}
+
+%description board
+Management plugin for board
 
 %package cyrus
 Group:		Applications/System
@@ -1034,6 +1038,10 @@ LDAP schema for FusionDirectory webservice plugin
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
+%post board
+%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
+
+
 %post cyrus
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
@@ -1218,6 +1226,10 @@ LDAP schema for FusionDirectory webservice plugin
 
 
 %postun autofs
+%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
+
+
+%postun board
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
@@ -1726,6 +1738,37 @@ LDAP schema for FusionDirectory webservice plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-autofs/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-autofs/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-autofs/COPYING
+
+
+%files board
+%defattr(0644,root,root)
+# Locale section
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board
+# Files
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/fa_IR/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/id/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/ru@petr1708/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/zh/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/nb/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/vi_VN/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/ug/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/es/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/cs_CZ/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/fr/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/pt_BR/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/ru/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/lv/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/de/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/it/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/pl/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/es_VE/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/sv/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/pt/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/ar/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/board/locale/nl/fusiondirectory.po
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-board/AUTHORS
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-board/Changelog
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-board/COPYING
 
 
 %files cyrus
@@ -3835,33 +3878,6 @@ LDAP schema for FusionDirectory webservice plugin
 # Directories
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/jsonrpc.php
-# Locale section
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/en/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/ar/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/ca/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/cs_CZ/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/de/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/es/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/es_VE/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/fa_IR/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/fr/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/id/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/it/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/lv/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/nb/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/nl/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/pl/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/pt/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/pt_BR/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/ru/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/ru@petr1708/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/sv/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/ug/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/vi_VN/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/zh/fusiondirectory.po
-# Include section
-%attr (-,root,root)     %{_datadir}/fusiondirectory/include/jsonrpcphp/jsonRPCServer.php
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/jsonrpc.php.doc
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/COPYING
