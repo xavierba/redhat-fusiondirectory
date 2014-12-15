@@ -222,8 +222,8 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
       cp -a ./contrib/fix_munged %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-samba/
       
     elif [ "${cur_plugin}" = "supann" ] ; then
-      mkdir -p %{buildroot}%{_sysconfdir}/fusiondirectory/
-      cp -a ./contrib/supann/* %{buildroot}%{_sysconfdir}/fusiondirectory/
+      mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/examples/
+      cp -a ./contrib/supann/* %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/examples/
     fi 
     
     
@@ -3413,23 +3413,23 @@ LDAP schema for FusionDirectory personal plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/supann/class_supannConfig.inc
 # Files contrib supann
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/corps
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/eturegimeinscription_SISE
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/discipline_EXAMPLE
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/entite
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/etuelementpedagogique_EXAMPLE
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/diplome_SISE
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/etablissement_SUPANN
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/role
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/etuetape_EXAMPLE
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/activite_CNU
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/diplome_EXAMPLE
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/activite_REFERENS
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/affiliation
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/typediplome_EXAMPLE
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/eturegimeinscription_EXAMPLE
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/typediplome_SISE
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/discipline_SISE
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/corps
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/eturegimeinscription_SISE
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/discipline_EXAMPLE
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/entite
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/etuelementpedagogique_EXAMPLE
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/diplome_SISE
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/etablissement_SUPANN
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/role
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/etuetape_EXAMPLE
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/activite_CNU
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/diplome_EXAMPLE
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/activite_REFERENS
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/affiliation
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/typediplome_EXAMPLE
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/eturegimeinscription_EXAMPLE
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/typediplome_SISE
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/discipline_SISE
 # HTML section
 # Directories
 # Files in the directory
