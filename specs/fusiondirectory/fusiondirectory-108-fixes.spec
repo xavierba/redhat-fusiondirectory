@@ -93,7 +93,7 @@ SEPolicy needed for Fusiondirectory.
 
 # Source FD-core
 # Extract Source
-%setup -T -D -b 0
+%setup -T -D -b 0 
 
 # Apply all the patches
 %patch0 -p1
@@ -150,7 +150,7 @@ install -d -m 0770 %{buildroot}/var/cache/%{name}/{tmp,fai}/
 # Create other directories
 mkdir -p %{buildroot}%{_datadir}/man/man1/
 mkdir -p %{buildroot}%{_datadir}/man/man5/
-mkdir -p %{buildroot}%{_sysconfdir}/httpd/conf.d/
+mkdir -p %{buildroot}%{_sysconfdir}/%{name}/
 mkdir -p %{buildroot}%{_sbindir}
 mkdir -p %{buildroot}%{_sysconfdir}/openldap/schema/%{name}/
 mkdir -p %{buildroot}%{_datadir}/php/Smarty3/plugins/
@@ -189,7 +189,7 @@ mv %{buildroot}%{_sysconfdir}/openldap/schema/%{name}/slapd.conf %{buildroot}%{_
 cp contrib/bin/* %{buildroot}%{_sbindir}
 
 # Move apache configuration
-cp contrib/apache/%{name}-apache.conf %{buildroot}%{_sysconfdir}/httpd/conf.d/
+cp contrib/apache/%{name}-apache.conf %{buildroot}%{_sysconfdir}/%{name}/
 
 ############################
 # SELINUX INSTALL
@@ -209,11 +209,6 @@ done
 %clean
 rm -Rf %{buildroot}
 
-
-# This is the post_core.spec file
-%post
-%{_sbindir}/%{name}-setup --yes --check-directories --update-locales --update-cache
-ln -s /usr/share/doc/%{name}/%{name}.conf /var/cache/%{name}/template/%{name}.conf
 
 %post plugin-database-connector
 %{_sbindir}/%{name}-setup --yes --check-directories --update-locales --update-cache
@@ -245,6 +240,49 @@ if [ $1 -eq 0 ] ; then
   /sbin/restorecon -R /var/spool/%{name}
   /sbin/restorecon -R /var/cache/%{name}
 
+%post
+if [ -d /etc/httpd/conf.d ]; then
+
+  # Copy FusionDirectory configuration to conf.d directories
+  if [ ! -L /etc/httpd/conf.d/fusiondirectory.conf ]; then
+
+    # Remove old instances of this file
+    if [ -f /etc/httpd/conf.d/fusiondirectory.conf ]; then
+      echo "Found old fusiondirectory apache configuration in /etc/httpd/conf.d - moving it to fusiondirectory.conf.orig..."
+      echo "Please check for changes in /etc/fusiondirectory/fusiondirectory-apache.conf if you modified this file!"
+      mv /etc/httpd/conf.d/fusiondirectory.conf /etc/httpd/conf.d/fusiondirectory.conf.orig
+    fi
+
+    echo "Making /fusiondirectory available in /etc/httpd/conf.d"
+
+    # Add FusionDirectory include file
+    ln -s /etc/fusiondirectory/fusiondirectory-apache.conf /etc/httpd/conf.d/fusiondirectory.conf
+  fi
+
+  service httpd reload
+fi
+
+# Remove old instances of this file
+if [ -f /var/cache/fusiondirectory/template/fusiondirectory.conf ]; then
+  #link the template to /var/cache/fusiondirectory/template from usr
+  rm -f /var/cache/fusiondirectory/template/fusiondirectory.conf
+  ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondirectory/template/fusiondirectory.conf
+else
+  #link the configuration template to /var/cache/fusiondirectory/template from /usr/share/doc/fusiondirectory/
+  ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondirectory/template/fusiondirectory.conf
+fi
+
+%postun
+if [ -d /etc/httpd/conf.d ]; then
+  # Remove FusionDirectory include
+  [ -L /etc/httpd/conf.d/fusiondirectory.conf ] && rm -f /etc/httpd/conf.d/fusiondirectory.conf
+
+  # Restart servers
+  if [ -x /usr/sbin/httpd ]; then
+    service httpd restart
+  fi
+fi
+
 %files
 %defattr(-,root,root,-)
 %{_mandir}/man1/%{name}-setup.1.gz
@@ -253,16 +291,6 @@ if [ $1 -eq 0 ] ; then
 %{_datadir}/doc/%{name}/AUTHORS
 %{_datadir}/doc/%{name}/COPYING
 %{_datadir}/doc/%{name}/Changelog
-
-############################
-# FILES SELINUX
-############################
-
-%files selinux
-%defattr(-,root,root,0755)
-%doc SELinux/%{name}.te
-%doc SELinux/%{name}.fc
-%{_datadir}/selinux/*/%{name}.pp
 
 %{_sbindir}/%{name}-setup
 %{_datadir}/%{name}/html/images
@@ -322,12 +350,13 @@ if [ $1 -eq 0 ] ; then
 %{_datadir}/%{name}/locale
 %{_datadir}/%{name}/plugins
 %{_datadir}/%{name}/setup
-%{_sysconfdir}/httpd/conf.d/%{name}-apache.conf
+%{_sysconfdir}/%{name}/%{name}-apache.conf
 %{_datadir}/doc/%{name}/slapd.conf-example
 %{_datadir}/doc/%{name}/%{name}.conf
 %{_datadir}/php/Smarty3/plugins/block.render.php
 %{_datadir}/php/Smarty3/plugins/function.msgPool.php
 %{_datadir}/php/Smarty3/plugins/function.filePath.php
+
 %files schema
 %defattr(-,root,root,-)
 %{_mandir}/man1/%{name}-insert-schema.1.gz
@@ -336,7 +365,6 @@ if [ $1 -eq 0 ] ; then
 %{_datadir}/doc/%{name}-schema/COPYING
 %{_datadir}/doc/%{name}-schema/Changelog
 
-
 %{_sysconfdir}/openldap/schema/%{name}/core-fd.schema
 %{_sysconfdir}/openldap/schema/%{name}/rfc2307bis.schema
 %{_sysconfdir}/openldap/schema/%{name}/ldapns.schema
@@ -344,11 +372,22 @@ if [ $1 -eq 0 ] ; then
 %{_sysconfdir}/openldap/schema/%{name}/recovery-fd.schema
 %{_sysconfdir}/openldap/schema/%{name}/core-fd-conf.schema
 %{_sbindir}/%{name}-insert-schema
+
 %files plugin-database-connector
 %defattr(-,root,root,-)
 %{_datadir}/doc/%{name}-plugin-database-connector/AUTHORS
 %{_datadir}/doc/%{name}-plugin-database-connector/COPYING
 %{_datadir}/doc/%{name}-plugin-database-connector/Changelog
 
-
 %{_datadir}/%{name}/include/class_databaseManagement.inc
+
+############################
+# FILES SELINUX
+############################
+
+%files selinux
+%defattr(-,root,root,0755)
+%doc SELinux/%{name}.te
+%doc SELinux/%{name}.fc
+%{_datadir}/selinux/*/%{name}.pp
+
