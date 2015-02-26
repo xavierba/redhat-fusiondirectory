@@ -139,7 +139,7 @@ gzip ./%{name}-client/man/%{name}-client.1
 gzip ./%{name}-ldap2zone/man/%{name}-ldap2zone.1
 gzip ./%{name}-quota/man/%{name}-quota.1
 gzip ./%{name}-fai-mirror/man/%{name}-repository.1
-gzip ./%{name}-fai-nfsroot/man/%{name}-ldap2fai
+gzip ./%{name}-fai-nfsroot/man/%{name}-ldap2fai.1
 gzip ./%{name}-fuse/man/%{name}-fuse.1
 
 %build
