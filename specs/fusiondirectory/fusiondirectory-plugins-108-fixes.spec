@@ -3924,7 +3924,28 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/plugins/ppolicy/themes/default/icons/16/apps/ppolicy.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/plugins/ppolicy/themes/default/icons/48/apps/ppolicy.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/en/fusiondirectory.po
-
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/ar/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/ca/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/cs_CZ/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/de/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/es/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/es_VE/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/fa_IR/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/fr/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/id/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/it/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/lv/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/nb/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/nl/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/pl/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/pt/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/pt_BR/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/ru/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/ru@petr1708/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/sv/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/ug/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/vi_VN/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/zh/fusiondirectory.po
 
 
 %files alias-schema
@@ -4330,6 +4351,9 @@ LDAP schema for FusionDirectory ppolicy plugin
 ########################
 
 %changelog
+* Thu Feb 26 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.4.el6
+- Add locales for ppolicy plugin
+
 * Sun Feb 01 2015 Jonathan SWAELENS <FD.K1412@openaliasbox.org> - 1.0.8.4-1.el6
 - Add ppolicy plugin
 
