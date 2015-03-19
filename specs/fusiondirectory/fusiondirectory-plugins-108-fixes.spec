@@ -3530,6 +3530,11 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/password.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/ogroups/goto/termgroup.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/ogroups/goto/class_termgroup.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/dashboard/class_dashBoardNetwork.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/dashboard/class_dashBoardSystems.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/dashboard/network_dhcp.tpl
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/dashboard/systems_pcids.tpl
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/dashboard/systems_stats.tpl
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/systems/class_systemsPluginConfig.inc
@@ -3741,7 +3746,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/ejbca/class_ejbcaManagement.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/ejbca/main.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/ejbca/class_ejbcaCertSelect.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/ejbca/class_ejbcaCertificates.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/ejbca/certificates/class_ejbcaCertificates.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/ejbca/certificates/main.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/config/ejbca/class_ejbcaConfig.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/plugins/ejbca/themes/default/icons/16/apps/ejbca.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/plugins/ejbca/themes/default/icons/48/apps/ejbca.png
@@ -3850,6 +3856,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/config/ppolicy/class_ppolicyConfig.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/ppolicy/class_ppolicyAccount.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/ppolicy/main.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/dashboard/class_dashBoardPPolicy.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/dashboard/ppolicy_locked_accounts.tpl
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/plugins/ppolicy/themes/default/icons/16/apps/ppolicy.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/plugins/ppolicy/themes/default/icons/48/apps/ppolicy.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/en/fusiondirectory.po
