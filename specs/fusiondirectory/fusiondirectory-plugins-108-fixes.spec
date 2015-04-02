@@ -3841,6 +3841,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/personal/locale/ug/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/personal/locale/vi_VN/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/personal/locale/zh/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/config/personal/class_personalConfig.inc
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-personal/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-personal/COPYING
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-personal/Changelog
@@ -4262,6 +4263,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 %files personal-schema
 %attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/personal-fd.schema
+%attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/personal-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-personal-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-personal-schema/COPYING
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-personal-schema/Changelog
@@ -4279,10 +4281,11 @@ LDAP schema for FusionDirectory ppolicy plugin
 ########################
 
 %changelog
-* Thu Feb 26 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.4-1.el6
+* Thu Apr 02 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.5-1.el6
 - Move dashbord in core
 - Add locales for ppolicy plugin
 - Add ppolicy plugin
+- Add some files for personal plugin
 
 * Tue Dec 13 2014 Jonathan SWAELENS <FD.K1412@openaliasbox.org> - 1.0.8.3-1.el6
 - Add personal plugin
