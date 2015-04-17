@@ -14,6 +14,7 @@ Source3:        %{name}-server.init
 Source4:        %{name}-client.default
 Source5:        %{name}-server.default
 Source6:        %{name}-fuse.logrotate
+Source7:        %{name}-fai-monitor.init
 
 Patch0:         %{name}-fix-ldap-directory.patch
 
@@ -58,19 +59,11 @@ Requires: 	perl-Config-IniFiles, debmirror
 %description fai-mirror
 This package contains the tools to manage local mirror and external mirrors.
 
-#%package fai-nfsroot
-#Summary:        Tools, queues and status management
-#Requires:	%{name}-common, %{name}-common-fai, fai-client >= 3.2.8, libconfig-inifiles-perl
-#Requires:	libnet-ldap-perl, libjson-perl >= 2.07-1, libjson-rpc-perl, liblog-handler-perl
-#Requires:	console-utilities, debootstrap
-#%description fai-nfsroot
-#Tools, queues and status management for FAI (Fully Automated Install) installations.
-
-#%package fai-server
-#Summary:        Scripts to enable Argonaut integration with FAI
-#Requires:	%{name}-common, fai-client >= 3.2.8, fai-server >= 3.2.8, libnet-ldap-perl
-#%description fai-server
-#Programs, script and FAI nfsroot hooks to Integrate Argonaut into an FAI server nfsroot.
+%package fai-monitor
+Summary:        argonaut-fai-monitor - read status of installation and send information to argonaut-server for FusionDirectory
+Requires:	%{name}-client
+%description fai-monitor
+argonaut-fai-monitor replaces fai-monitor and send information to argonaut-server for FusionDirectory to show them in deployment queue
 
 %package fuse
 Summary:        Modular TFTP/Fuse supplicant
@@ -139,8 +132,8 @@ gzip ./%{name}-client/man/%{name}-client.1
 gzip ./%{name}-ldap2zone/man/%{name}-ldap2zone.1
 gzip ./%{name}-quota/man/%{name}-quota.1
 gzip ./%{name}-fai-mirror/man/%{name}-repository.1
-gzip ./%{name}-fai-nfsroot/man/%{name}-ldap2fai.1
 gzip ./%{name}-fuse/man/%{name}-fuse.1
+gzip ./%{name}-fai-server/man/%{name}-fai-monitor.1
 
 %build
 
@@ -167,6 +160,7 @@ mkdir -p %{buildroot}/%{_sysconfdir}/init.d/*
 cp %{S:1} %{buildroot}/%{_sysconfdir}/init.d/%{name}-client
 cp %{S:2} %{buildroot}/%{_sysconfdir}/init.d/%{name}-fuse
 cp %{S:3} %{buildroot}/%{_sysconfdir}/init.d/%{name}-server
+cp %{S:7} %{buildroot}/%{_sysconfdir}/init.d/%{name}-fai-monitor
 
 # Copy default files
 cp %{S:4} %{buildroot}/%{_sysconfdir}/default/%{name}-client
@@ -212,18 +206,11 @@ cp ./bin/* %{buildroot}/%{_sbindir}/
 cp ./man/%{name}-repository.1.gz %{buildroot}/%{_datadir}/man1/
 cd ..
 
-# Install argonaut-fai-nfsroot
-#cd ./%{name}-fai-nfsroot
-#cp ./bin/* %{buildroot}/%{_sbindir}/
-#cp ./lib/get-config-dir-%{name} %{buildroot}/usr/lib/fai/
-#cp ./man/ldap2fai.1.gz %{buildroot}/%{_datadir}/man1/
-#cd ..
-
-# Install argonaut-fai-server
-#cd ./%{name}-fai-server
-#cp ./nfsroot-hooks/%{name}-nfsroot-integration %{buildroot}/%{_sysconfdir}/fai/nfsroot-hooks/
-#cp ./bin/* %{buildroot}/%{_sbindir}/
-#cd .. 
+# Install argonaut-fai-monitor
+cd ./%{name}-fai-server
+cp ./bin/argonaut-fai-monitor %{buildroot}/%{_sbindir}/
+cp ./man/%{name}-fai-monitor.1.gz %{buildroot}/%{_datadir}/man1/
+cd .. 
 
 # Install argonaut-fuse-module-fai
 cd ./%{name}-fuse
@@ -326,31 +313,40 @@ rm -rf %{buildroot}
 %{_sbindir}/%{name}-fuse
 %{_datadir}/man1/argonaut-fuse.1.gz
 
-#%files fai-server
-#/etc/fai/nfsroot-hooks/%{name}-nfsroot-integration
-#/usr/sbin/fai2ldif
-#/usr/sbin/%{name}-fai-monitor
-
-#%files fai-nfsroot
-#/usr/sbin/ldap2fai
-#/usr/lib/fai/get-config-dir-%{name}
-#/usr/share/man1/ldap2fai.1.gz
+%files fai-monitor
+%defattr(-,root,root,-)
+%doc README AUTHORS Changelog
+/usr/sbin/%{name}-fai-monitor
+%{_datadir}/man1/%{name}-fai-monitor.1.gz
+%{_sysconfdir}/init.d/%{name}-fai-monitor
 
 %files fai-mirror
+%defattr(-,root,root,-)
+%doc README AUTHORS Changelog
 /usr/sbin/%{name}-repository
 /usr/sbin/%{name}-debconf-crawler
 %{_datadir}/man1/%{name}-repository.1.gz
 
 %files dovecot
+%defattr(-,root,root,-)
+%doc README AUTHORS Changelog
 %{_datadir}/perl5/Argonaut/ClientDaemon/Modules/Dovecot.pm
 
 %files server-module-fai
+%defattr(-,root,root,-)
+%doc README AUTHORS Changelog
 %{_datadir}/perl5/Argonaut/Server/Modules/FAI.pm
 
 %files common-fai
+%defattr(-,root,root,-)
+%doc README AUTHORS Changelog
 %{_datadir}/perl5/Argonaut/Libraries/FAI.pm
+
 
 #date + "%a %b %d %Y"
 %changelog
-* Thu Jul 10 2014 SWAELENS Jonathan <swaelens.jonathan@openmailbox.org> - 0.9.1-1
+* Fri Apr 17 2015 SWAELENS Jonathan <jonathan@opensides.be> - 0.9.2-1
+- Add argonaut-fai-monitor package
+
+* Thu Jul 10 2014 SWAELENS Jonathan <jonathan@opensides.be> - 0.9.1-1
 - First upstream release in RPM
