@@ -114,6 +114,12 @@ Requires:	%{name}-server
 %description server-module-fai
 Argonaut server module to manage FAI (Fully Automated Install) installation.
 
+%package server-module-opsi
+Summary:        Argonaut json rpc server module to manage OPSI installation
+Requires:       %{name}-server
+%description server-module-opsi
+Argonaut server module to manage OPSI installation.
+
 %package yumgroup2yumi
 Summary:        Command to convert yumgroup to yumi for FAI classes
 %description yumgroup2yumi
@@ -166,6 +172,10 @@ cp %{S:5} %{buildroot}/%{_sysconfdir}/default/%{name}-server
 # Install argonaut-server-module-fai
 cd ./%{name}-server
 cp ./Argonaut/Server/Modules/FAI.pm %{buildroot}/%{_datadir}/perl5/Argonaut/Server/Modules/
+
+# Install argonaut-server-module-fai
+cd ./%{name}-server
+cp ./Argonaut/Server/Modules/OPSI.pm %{buildroot}/%{_datadir}/perl5/Argonaut/Server/Modules/
 
 # Install argonaut-server
 cp ./bin/* %{buildroot}/%{_sbindir}/
@@ -327,6 +337,11 @@ rm -rf %{buildroot}
 %doc README AUTHORS Changelog
 %{_datadir}/perl5/Argonaut/Server/Modules/FAI.pm
 
+%files server-module-opsi
+%defattr(-,root,root,-)
+%doc README AUTHORS Changelog
+%{_datadir}/perl5/Argonaut/Server/Modules/OPSI.pm
+
 %files common-fai
 %defattr(-,root,root,-)
 %doc README AUTHORS Changelog
@@ -339,6 +354,7 @@ rm -rf %{buildroot}
 - Add argonaut-fai-monitor package
 - Add yumgroup2yumi package
 - Remove argonaut-fai-mirror because it is only for Debian repository
+- Add argonaut-server-module-opsi
 
 * Thu Jul 10 2014 SWAELENS Jonathan <jonathan@opensides.be> - 0.9.1-1
 - First upstream release in RPM
