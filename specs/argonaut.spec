@@ -51,14 +51,6 @@ Summary:        Argonaut client-module for dovecot
 %description dovecot
 Argonaut client module to manage the creation of the directory for the user where is mailbox is created.
 
-%package fai-mirror
-Summary:        Scripts to manage debian mirrors
-Requires:	%{name}-common, perl-Net-LDAP-Server, perl-Log-Handler
-Requires: 	perl-Config-IniFiles, debmirror
-#Requires:       libwww-perl
-%description fai-mirror
-This package contains the tools to manage local mirror and external mirrors.
-
 %package fai-monitor
 Summary:        argonaut-fai-monitor - read status of installation and send information to argonaut-server for FusionDirectory
 Requires:	%{name}-client
@@ -136,7 +128,6 @@ gzip ./%{name}-server/man/%{name}-server.1
 gzip ./%{name}-client/man/%{name}-client.1
 gzip ./%{name}-ldap2zone/man/%{name}-ldap2zone.1
 gzip ./%{name}-quota/man/%{name}-quota.1
-gzip ./%{name}-fai-mirror/man/%{name}-repository.1
 gzip ./%{name}-fuse/man/%{name}-fuse.1
 gzip ./%{name}-fai-server/man/%{name}-fai-monitor.1
 gzip ./%{name}-fai-server/man/yumgroup2yumi.1
@@ -204,12 +195,6 @@ cd ..
 # Install argonaut-dovecot
 cd ./%{name}-dovecot
 cp ./Argonaut/ClientDaemon/Modules/Dovecot.pm %{buildroot}/%{_datadir}/perl5/Argonaut/ClientDaemon/Modules/
-cd ..
-
-# Install argonaut-fai-mirror
-cd ./%{name}-fai-mirror
-cp ./bin/* %{buildroot}/%{_sbindir}/
-cp ./man/%{name}-repository.1.gz %{buildroot}/%{_datadir}/man1/
 cd ..
 
 # Install argonaut-fai-monitor and argonaut-yumgroup2youmi
@@ -332,13 +317,6 @@ rm -rf %{buildroot}
 /usr/sbin/yumgroup2yumi
 %{_datadir}/man1/yumgroup2yumi.1.gz
 
-%files fai-mirror
-%defattr(-,root,root,-)
-%doc README AUTHORS Changelog
-/usr/sbin/%{name}-repository
-/usr/sbin/%{name}-debconf-crawler
-%{_datadir}/man1/%{name}-repository.1.gz
-
 %files dovecot
 %defattr(-,root,root,-)
 %doc README AUTHORS Changelog
@@ -360,6 +338,7 @@ rm -rf %{buildroot}
 * Fri Apr 26 2015 SWAELENS Jonathan <jonathan@opensides.be> - 0.9.2-1
 - Add argonaut-fai-monitor package
 - Add yumgroup2yumi package
+- Remove argonaut-fai-mirror because it is only for Debian repository
 
 * Thu Jul 10 2014 SWAELENS Jonathan <jonathan@opensides.be> - 0.9.1-1
 - First upstream release in RPM
