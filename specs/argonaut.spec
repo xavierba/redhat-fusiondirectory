@@ -169,12 +169,9 @@ cp %{S:7} %{buildroot}/%{_sysconfdir}/init.d/%{name}-fai-monitor
 cp %{S:4} %{buildroot}/%{_sysconfdir}/default/%{name}-client
 cp %{S:5} %{buildroot}/%{_sysconfdir}/default/%{name}-server
 
-# Install argonaut-server-module-fai
+# Install argonaut-server-module-fai and argonaut-server-module-opsi
 cd ./%{name}-server
 cp ./Argonaut/Server/Modules/FAI.pm %{buildroot}/%{_datadir}/perl5/Argonaut/Server/Modules/
-
-# Install argonaut-server-module-fai
-cd ./%{name}-server
 cp ./Argonaut/Server/Modules/OPSI.pm %{buildroot}/%{_datadir}/perl5/Argonaut/Server/Modules/
 
 # Install argonaut-server
