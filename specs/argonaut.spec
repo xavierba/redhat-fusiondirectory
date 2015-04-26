@@ -122,6 +122,11 @@ Requires:	%{name}-server
 %description server-module-fai
 Argonaut server module to manage FAI (Fully Automated Install) installation.
 
+%package yumgroup2yumi
+Summary:        Command to convert yumgroup to yumi for FAI classes
+%description yumgroup2yumi
+Command that convert yumgroup in yumi for FAI classes
+
 %prep
 %setup -q -n %{name}-%{version}
 %patch0
@@ -134,6 +139,7 @@ gzip ./%{name}-quota/man/%{name}-quota.1
 gzip ./%{name}-fai-mirror/man/%{name}-repository.1
 gzip ./%{name}-fuse/man/%{name}-fuse.1
 gzip ./%{name}-fai-server/man/%{name}-fai-monitor.1
+gzip ./%{name}-fai-server/man/yumgroup2yumi.1
 
 %build
 
@@ -206,10 +212,10 @@ cp ./bin/* %{buildroot}/%{_sbindir}/
 cp ./man/%{name}-repository.1.gz %{buildroot}/%{_datadir}/man1/
 cd ..
 
-# Install argonaut-fai-monitor
+# Install argonaut-fai-monitor and argonaut-yumgroup2youmi
 cd ./%{name}-fai-server
-cp ./bin/argonaut-fai-monitor %{buildroot}/%{_sbindir}/
-cp ./man/%{name}-fai-monitor.1.gz %{buildroot}/%{_datadir}/man1/
+cp ./bin/{argonaut-fai-monitor,yumgroup2yumi} %{buildroot}/%{_sbindir}/
+cp ./man/{argonaut-fai-monitor.1.gz,yumgroup2yumi.1.gz} %{buildroot}/%{_datadir}/man1/
 cd .. 
 
 # Install argonaut-fuse-module-fai
@@ -320,6 +326,12 @@ rm -rf %{buildroot}
 %{_datadir}/man1/%{name}-fai-monitor.1.gz
 %{_sysconfdir}/init.d/%{name}-fai-monitor
 
+%files yumgroup2yumi
+%defattr(-,root,root,-)
+%doc README AUTHORS Changelog
+/usr/sbin/yumgroup2yumi
+%{_datadir}/man1/yumgroup2yumi.1.gz
+
 %files fai-mirror
 %defattr(-,root,root,-)
 %doc README AUTHORS Changelog
@@ -345,8 +357,9 @@ rm -rf %{buildroot}
 
 #date + "%a %b %d %Y"
 %changelog
-* Fri Apr 17 2015 SWAELENS Jonathan <jonathan@opensides.be> - 0.9.2-1
+* Fri Apr 26 2015 SWAELENS Jonathan <jonathan@opensides.be> - 0.9.2-1
 - Add argonaut-fai-monitor package
+- Add yumgroup2yumi package
 
 * Thu Jul 10 2014 SWAELENS Jonathan <jonathan@opensides.be> - 0.9.1-1
 - First upstream release in RPM
