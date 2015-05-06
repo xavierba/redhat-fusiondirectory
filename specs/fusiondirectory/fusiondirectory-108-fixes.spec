@@ -241,6 +241,9 @@ if [ $1 -eq 0 ] ; then
   /sbin/restorecon -R /var/cache/%{name}
 
 %post
+# Create all cache and directories we need after install
+%{_sbindir}/%{name}-setup -y --check-directories --update-cache --update-locales
+
 if [ -d /etc/httpd/conf.d ]; then
 
   # Copy FusionDirectory configuration to conf.d directories
@@ -391,8 +394,9 @@ fi
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
-* May Wed 06 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.5-2.el6
+* Wed May 06 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.5-2.el6
 - Remove schema rfc2307bis
+- Correct the post script
 
 * Tue Dec 13 2014 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.3-1.el6
 - Correct the errors for the post scripts
