@@ -225,20 +225,19 @@ do
     %{_datadir}/selinux/${selinuxvariant}/%{name}.pp &> /dev/null || :
 done
 
-  # Apply context for spool and cache directroy considering the %{name} policy
-  /sbin/restorecon -R /var/spool/%{name}
-  /sbin/restorecon -R /var/cache/%{name}
+# Apply context for spool and cache directroy considering the %{name} policy
+/sbin/restorecon -R /var/spool/%{name}
+/sbin/restorecon -R /var/cache/%{name}
 
 %postun selinux
-if [ $1 -eq 0 ] ; then
-  for selinuxvariant in %{selinux_variants}
-  do
-    /usr/sbin/semodule -s ${selinuxvariant} -r %{name} &> /dev/null || :
-  done
+for selinuxvariant in %{selinux_variants}
+do
+  /usr/sbin/semodule -s ${selinuxvariant} -r %{name} &> /dev/null || :
+done
 
-  # Apply context for spool and cache directroy without the %{name} policy
-  /sbin/restorecon -R /var/spool/%{name}
-  /sbin/restorecon -R /var/cache/%{name}
+# Apply context for spool and cache directroy without the %{name} policy
+/sbin/restorecon -R /var/spool/%{name}
+/sbin/restorecon -R /var/cache/%{name}
 
 %post
 # Create all cache and directories we need after install
@@ -284,6 +283,14 @@ if [ -d /etc/httpd/conf.d ]; then
   if [ -x /usr/sbin/httpd ]; then
     service httpd restart
   fi
+fi
+
+if [ -d /var/cache/fusiondirectory ]; then
+  # Remove cache directory
+  rm -Rf /var/cache/fusiondirectory
+  
+  # Remove spool directory
+  rm -Rf /var/spool/fusiondirectory
 fi
 
 %files
