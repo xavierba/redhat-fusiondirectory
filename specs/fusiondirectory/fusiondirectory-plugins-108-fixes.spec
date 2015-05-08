@@ -145,7 +145,11 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
         cp -a ./html/collect.php %{buildroot}%{_datadir}/fusiondirectory/html/
         cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
         cp -a ./html/plugins/inventory.css %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        
+
+      elif [ "${cur_plugin}" = "ejbca" ] ; then
+        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
+        cp -a ./html/themes/ %{buildroot}%{_datadir}/fusiondirectory/html/
+
       else
         # Directories
         for cur_html in $(find ./html -mindepth 1 -maxdepth 1 -type d) ; do
@@ -3749,8 +3753,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/ejbca/certificates/class_ejbcaCertificates.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/ejbca/certificates/main.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/config/ejbca/class_ejbcaConfig.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/html/plugins/ejbca/themes/default/icons/16/apps/ejbca.png
-%attr (-,root,root)     %{_datadir}/fusiondirectory/html/plugins/ejbca/themes/default/icons/48/apps/ejbca.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/ejbca.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/ejbca.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ejbca/locale/ar/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ejbca/locale/ca/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ejbca/locale/cs_CZ/fusiondirectory.po
@@ -4281,6 +4285,9 @@ LDAP schema for FusionDirectory ppolicy plugin
 ########################
 
 %changelog
+* Fri May 08 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.6-1.el6
+- Correct the place of EJBCA icon's
+
 * Thu Apr 02 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.5-1.el6
 - Move dashbord in core
 - Add locales for ppolicy plugin
