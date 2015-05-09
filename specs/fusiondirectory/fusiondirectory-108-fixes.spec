@@ -240,6 +240,10 @@ done
 /sbin/restorecon -R /var/cache/%{name}
 
 %post
+# Remove cache and spool
+rm -Rf /var/cache/fusiondirectory/
+rm -Rf /var/spool/fusiondirectory/
+
 # Create all cache and directories we need after install
 %{_sbindir}/%{name}-setup -y --check-directories --update-cache --update-locales
 
@@ -264,15 +268,9 @@ if [ -d /etc/httpd/conf.d ]; then
   service httpd reload
 fi
 
-# Remove old instances of this file
-if [ -f /var/cache/fusiondirectory/template/fusiondirectory.conf ]; then
-  #link the template to /var/cache/fusiondirectory/template from usr
-  rm -f /var/cache/fusiondirectory/template/fusiondirectory.conf
-  ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondirectory/template/fusiondirectory.conf
-else
-  #link the configuration template to /var/cache/fusiondirectory/template from /usr/share/doc/fusiondirectory/
-  ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondirectory/template/fusiondirectory.conf
-fi
+# Link fusiondirectory.conf to cache/template directory
+ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondirectory/template/fusiondirectory.conf
+
 
 %postun
 if [ -d /etc/httpd/conf.d ]; then
@@ -404,6 +402,7 @@ fi
 * Wed May 06 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.5-2.el6
 - Remove schema rfc2307bis
 - Correct the post script
+- Correct postun scriptlet of fusiondirectory and fusiondirectory-selinux
 
 * Tue Dec 13 2014 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.3-1.el6
 - Correct the errors for the post scripts
