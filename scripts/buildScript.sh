@@ -8,10 +8,10 @@
 MOCK_CONF='epel-6-i386'
 
 # RPMBUILD directory
-RPMBUILD='/home/jswaelens/rpmbuild'
+RPMBUILD="$HOME/rpmbuild"
 
 # BUILD directory
-BUILDDIR='/home/jswaelens/build_result'
+BUILDDIR="$HOME/build_result"
 
 # Version
 version=''
