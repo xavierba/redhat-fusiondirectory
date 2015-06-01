@@ -378,6 +378,7 @@ fi
 %{_sysconfdir}/openldap/schema/%{name}/samba.schema
 %{_sysconfdir}/openldap/schema/%{name}/recovery-fd.schema
 %{_sysconfdir}/openldap/schema/%{name}/core-fd-conf.schema
+%{_sysconfdir}/openldap/schema/%{name}/rfc2307bis.schema
 %{_sbindir}/%{name}-insert-schema
 
 %files plugin-database-connector
@@ -399,6 +400,9 @@ fi
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Mon Jun 01 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.6-1.el6
+- Add again rfc2307bis schema
+
 * Wed May 06 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.5-2.el6
 - Remove schema rfc2307bis
 - Correct the post script
