@@ -1584,7 +1584,6 @@ LDAP schema for FusionDirectory webservice plugin
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/asterisk/class_serviceAsterisk.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/asterisk/class_phoneIAX.inc
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/asterisk/class_asteriskPluginConfig.inc
@@ -1624,7 +1623,6 @@ LDAP schema for FusionDirectory webservice plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/es_VE/fusiondirectory.po
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/pt/fusiondirectory.po
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/nl/fusiondirectory.po
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/asterisk/class_asteriskAccount.inc
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-asterisk/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-asterisk/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-asterisk/COPYING
@@ -3992,101 +3990,6 @@ LDAP schema for FusionDirectory webservice plugin
 
 %changelog
 
-* Tue Apr 1 2014 Jonathan SWAELENS <swaelens.jonathan@openmailbox.org> - 1.0.7.3-2.el6
-- Add scriptaculous and prototype in the requires
-- Add the patches for headers.tpl and password.tpl
+* Tue Jun 2 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
+- Remove class_phoneIAX.inc and class_asteriskAccount.inc from asterisk plugin
 
-* Mon Mar 31 2014 Jonathan SWAELENS <swaelens.jonathan@openmailbox.org> - 1.0.7.3-2.el6
-- Adapt the scripts and patchs for the version 1.0.7.3
-
-* Sun Jun 09 2013 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.6-2.el6
-- Reorganize include directory files declaration in order to avoid multiple
-  declaration in serveral RPMS (Closes #2504)
-- Move the config/systems directory from sympa plugin to systems plugin (Closes #2423)
-- Move the class_mailPluginConfig.inc file from core RPM to mail plugin (Closed #2485)
-- Backport bugfix #2424 : Try to use PHP hash function if mhash is not available.
-- Backport bugfix #2449 : Allow users with SAMBA attributes to be deleted properly.
-
-* Sat May 12 2013 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.6-1.el6
-- Upgrade to 1.0.6 Version
-- Schema are now only provided in .schema format
-- Plugins reorganisation and simplification
-- Gofax plugin new name : fax
-- Gofon plugin new name : asterisk
-- Obsolete plugins removed : netatalk, opengroupware,openxchange,pptp, phpschedule-it, webdav, connectivity, scalix
-- New plugins : alias, autofs, cyrus, debconf, DSA, freeradius, game, opsi, puppet
-
-* Fri Nov 23 2012 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.4-1
-- Upgrade to 1.0.4 Version
-- Remove Obsoletes directives
-- Remove devel package
-- Update default apache configuration. Memory size set to 128M.
-- Dependency list update
-- New package : database-management
-- Update scripts integration.
-
-* Sat Jul 14 2012 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.3-2
-- Move Lost Password Feature files from argonaut plugin to core RPM - Closes #1161
-
-* Sat Jun 23 2012 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.3-1.el6
-- Upgrade to 1.0.3 Version
-- New plugins : argonaut, openstack-compute, quota, supann
-- Merge goto plugin into system plugin
-- Remove obsolete plugins : php-gw 
-- Remove obsolete patches
-- Add missing dependency on perl-ExtUtils-MakeMaker
-- SELinux policy update
-- Update memory_limite parameter in the Apache Configuration file
-- Remove the spool purge cleaning step in %%pre and %%postun steps
-- Add devel package
-
-* Sun Oct 23 2011 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.2-1
-- Upgrade to 1.0.2 Version
-- [rpm] SELinux policy update
-- [rpm] Mail Queue Plugin disabled
-- [rpm] Patch for get_i18n and get_classs method on fusiondirectory-setup
-- [rpm] Patch for removing debug messages
-- [feature] Remove online doc
-- [feature] Add netgroups plugin
-- [feature] Removed old GOsa-si code
-- [feature] Added jsonrpc client library
-- [feature] Added new daemon class with json rpc methods
-- [feature] All deployment are now done through the Argonaut json rpc server
-- [feature] New system to get the packages and debconf without a local mirror
-- [fix] Cvs import fixes to make it more flexible and usable
-- [fix] Corrected css for Firefox 5 and beyond
-- [feature] New setup command fusiondirectory-setup that help fixes common setup issues
-- [feature] Added tools to easily convert and upload schema in an ldap-tree
-- [feature] Completely test and rewrote the help to use php safe mode
-- [feature] Put all the application data into /var/cache/fusiondirectory
-- [fix] Fixed timezone issues
-- [fix] Corrected FSF address
-- [feature] Removed the opsi (pending rewrite)
-- [feature] Removed log plugin, everything is done with the rsyslog plugin
-
-* Sun Jul 03 2011 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.1-3
-- Compliancy to Fedora Policy (fc15)
-- Remove gosa-ldap Obsoletes block
-* Sat Jun 18 2011 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.1-2
-- Fixes #308: Remove the heimdal package
-- Fixes #309: Remove the goAgent.pl from plugin-squid package 
-* Mon May 09 2011 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.1-1
-- Update to 1.0.1 version
-- Remov advanced options from setup
-- Correct online help
-- Correct wording on plugins
-- Remove the need for magic_quotes_gpc
-- Remove the fusiondirectory-desktop package
-- Remove program version checking from svn
-- Add the apache plugin
-- Put final logo
-- Full italian language
-- Creation of the fusiondirectory SELinux package
-- Fixes bugs #104 #118 #154 #163 #187 #188 #189 #191 #192 #193
-- Fixes bugs #194 #197 #198 #199 #207 #208 #210 #217 #224 #230
-- Fixes bugs #234 #251 #252
-* Sat Apr 17 2011 Olivier BONHOMME <obonhomme@nerim.net> - 1.0-1
-- First Plugin integration
-- Update packager identity
-* Fri Apr 15 2011 Benoit Mortier <benoit.mortier@opensides.be> 
-- First build of FusionDirectory 1.0 as an RPM, should work on SuSE and RedHat
