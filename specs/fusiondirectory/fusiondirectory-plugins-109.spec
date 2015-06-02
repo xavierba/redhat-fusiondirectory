@@ -609,14 +609,6 @@ Requires:	fusiondirectory >= %{version}
 %description systems
 System management base plugin
 
-%package uw-imap
-Group:		Applications/System
-Summary:	UW imap mail method
-Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-mail
-
-%description uw-imap
-UW imap mail method
-
 %package weblink
 Group:		Applications/System
 Summary:	Plugin to access remote management of systems
@@ -1119,10 +1111,6 @@ LDAP schema for FusionDirectory webservice plugin
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
-%post uw-imap
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
 %post weblink
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
@@ -1291,10 +1279,6 @@ LDAP schema for FusionDirectory webservice plugin
 
 
 %postun systems
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
-%postun uw-imap
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
@@ -3249,39 +3233,6 @@ LDAP schema for FusionDirectory webservice plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-systems/COPYING
 
 
-%files uw-imap
-%defattr(0644,root,root)
-# Locale section
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/uw-imap
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/uw-imap/locale/fa_IR/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/uw-imap/locale/id/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/uw-imap/locale/ca/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/uw-imap/locale/ru@petr1708/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/uw-imap/locale/zh/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/uw-imap/locale/nb/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/uw-imap/locale/vi_VN/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/uw-imap/locale/ug/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/uw-imap/locale/es/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/uw-imap/locale/cs_CZ/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/uw-imap/locale/fr/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/uw-imap/locale/pt_BR/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/uw-imap/locale/ru/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/uw-imap/locale/de/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/uw-imap/locale/it/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/uw-imap/locale/pl/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/uw-imap/locale/es_VE/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/uw-imap/locale/pt/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/uw-imap/locale/nl/fusiondirectory.po
-# Personal section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/uw-imap/class_mail-methods-uwimap.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/uw-imap/procmail_script.tpl
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-uw-imap/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-uw-imap/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-uw-imap/COPYING
-
-
 %files weblink
 %defattr(0644,root,root)
 # Admin section
@@ -3692,3 +3643,4 @@ LDAP schema for FusionDirectory webservice plugin
 - Remove desktop-management plugin
 - Remove old patch of goticus
 - Remove openstack plugin
+- Remove uw-imap plugin
