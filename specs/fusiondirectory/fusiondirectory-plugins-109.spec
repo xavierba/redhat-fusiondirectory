@@ -497,14 +497,6 @@ Requires:	fusiondirectory >= %{version}
 %description netgroups
 Nis Netgroups account management
 
-%package openstack-compute
-Group:		Applications/System
-Summary:	Create users in Nova
-Requires:	fusiondirectory >= %{version}
-
-%description openstack-compute
-Create users in Nova
-
 %package opsi
 Group:		Applications/System
 Summary:	Opsi deployment management for Windows clients
@@ -830,15 +822,6 @@ LDAP schema for FusionDirectory netgroups plugin
 
 
 
-%package openstack-compute-schema
-Group:		Applications/System
-Summary:	LDAP schema for FusionDirectory openstack-compute plugin
-
-%description openstack-compute-schema
-LDAP schema for FusionDirectory openstack-compute plugin
-
-
-
 %package opsi-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory opsi plugin
@@ -1080,10 +1063,6 @@ LDAP schema for FusionDirectory webservice plugin
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
-%post openstack-compute
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
 %post opsi
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
@@ -1256,10 +1235,6 @@ LDAP schema for FusionDirectory webservice plugin
 
 
 %postun netgroups
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
-%postun openstack-compute
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
@@ -2534,42 +2509,6 @@ LDAP schema for FusionDirectory webservice plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-netgroups/COPYING
 
 
-%files openstack-compute
-%defattr(0644,root,root)
-# HTML section
-# Directories
-# Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/openstack-compute/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/openstack-compute/images/icon.png
-# Files
-# Locale section
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/openstack-compute
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/openstack-compute/locale/fa_IR/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/openstack-compute/locale/id/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/openstack-compute/locale/ru@petr1708/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/openstack-compute/locale/zh/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/openstack-compute/locale/vi_VN/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/openstack-compute/locale/ug/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/openstack-compute/locale/es/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/openstack-compute/locale/cs_CZ/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/openstack-compute/locale/fr/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/openstack-compute/locale/pt_BR/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/openstack-compute/locale/ru/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/openstack-compute/locale/de/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/openstack-compute/locale/it/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/openstack-compute/locale/pl/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/openstack-compute/locale/es_VE/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/openstack-compute/locale/nl/fusiondirectory.po
-# Personal section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/openstack-compute/main.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/openstack-compute/class_novaAccount.inc
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-openstack-compute/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-openstack-compute/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-openstack-compute/COPYING
-
-
 %files opsi
 %defattr(0644,root,root)
 # Addons section
@@ -3597,15 +3536,6 @@ LDAP schema for FusionDirectory webservice plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-netgroups-schema/COPYING
 
 
-%files openstack-compute-schema
-%defattr(0644,root,root)
-# Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/nova_openldap.schema
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-openstack-compute-schema/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-openstack-compute-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-openstack-compute-schema/COPYING
-
-
 %files opsi-schema
 %defattr(0644,root,root)
 # Files
@@ -3761,3 +3691,4 @@ LDAP schema for FusionDirectory webservice plugin
 - Dashboard is merged in core
 - Remove desktop-management plugin
 - Remove old patch of goticus
+- Remove openstack plugin
