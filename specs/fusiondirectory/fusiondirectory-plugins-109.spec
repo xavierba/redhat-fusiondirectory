@@ -1614,9 +1614,46 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/asterisk/images/iconMiniConference.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/asterisk/images/sound.png
 # Files
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/fonreports/class_fonreport.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/fonreports/contents.tpl
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/fonreports/main.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/conference/class_phoneConferenceGeneric.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/conference/class_phoneConferenceManagment.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/conference/conf-filter.tpl
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/conference/conf-filter.xml
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/conference/conf-list.xml
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/conference/generic.tpl
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/conference/main.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/conference/paste_generic.tpl
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/conference/remove.tpl
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/conference/tabs_conference.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/class_gofonMacro.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/class_gofonMacroManagement.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/class_gofonMacroParameters.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/generic.tpl
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/macro-filter.tpl
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/macro-filter.xml
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/macro-list.xml
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/main.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/parameter.tpl
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/paste_generic.tpl
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/remove.tpl
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/tabs_macros.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/ogroups/asterisk/class_phonequeue.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/ogroups/asterisk/phonequeue.tpl
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/asterisk/class_phoneGeneric.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/asterisk/phone.tpl
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/asterisk/phonesettings.tpl
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/asterisk/tabs_phone.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/phoneaccount/class_phoneAccount.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/phoneaccount/generic.tpl
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/phoneaccount/main.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/phoneaccount/paste_generic.tpl
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/remove.tpl
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/system-filter.tpl
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/system-filter.xml
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk
-# Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/fa_IR/fusiondirectory.po
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/id/fusiondirectory.po
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/ca/fusiondirectory.po
@@ -1720,6 +1757,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/cyrus/locale/es_VE/fusiondirectory.po
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/cyrus/locale/pt/fusiondirectory.po
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/cyrus/locale/nl/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/mail/mail-methods/sieve_script.tpl
 # Personal section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/mail-methods/class_mail-methods-cyrus.inc
@@ -2471,6 +2509,9 @@ LDAP schema for FusionDirectory ppolicy plugin
 # Directories
 # Files in the directory
 # Files
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/plugins/mail/images/sieve_add_new_bottom.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/plugins/mail/images/sieve_add_new_top.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/plugins/mail/images/sieve_add_test.png
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/mail
 # Files
@@ -2493,6 +2534,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/mail/locale/es_VE/fusiondirectory.po
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/mail/locale/pt/fusiondirectory.po
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/mail/locale/nl/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/mail/class_sieve.inc
 # Personal section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/main.inc
@@ -3153,6 +3195,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/supann/main.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/supann/student_subscription.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/supann/class_supannAccount.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/supannStructures/class_supann.inc
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/COPYING
@@ -3310,6 +3353,11 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/list_new_device.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_ntp.png
 # Files
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/dashboard/class_dashBoardNetwork.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/dashboard/class_dashBoardSystems.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/dashboard/network_dhcp.tpl
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/dashboard/systems_pcids.tpl
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/dashboard/systems_stats.tpl
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/systems
 # Files
@@ -3374,8 +3422,30 @@ LDAP schema for FusionDirectory ppolicy plugin
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/class_webserviceConfig.inc
-# HTML section
-# Directories
+# Locales
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/ar/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/ca/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/cs_CZ/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/de/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/el_GR/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/es/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/es_VE/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/fa_IR/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/fr/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/id/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/it/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/lv/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/nb/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/nl/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/pl/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/pt/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/pt_BR/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/ru/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/ru@petr1708/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/sv/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/ug/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/vi_VN/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/zh/fusiondirectory.po
 # Files
 %{_datadir}/fusiondirectory/include/jsonrpcphp/jsonRPCServer.php
 %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/en/fusiondirectory.po
@@ -3418,6 +3488,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ejbca/locale/ug/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ejbca/locale/vi_VN/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ejbca/locale/zh/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ejbca/locale/el_GR/fusiondirectory.po
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ejbca/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ejbca/COPYING
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ejbca/Changelog
@@ -3454,6 +3525,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/applications/locale/ar/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/applications/locale/lv/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/applications/locale/sv/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/applications/locale/el_GR/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/personal/locale/el_GR/fusiondirectory.po
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-applications/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-applications/COPYING
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-applications/Changelog
@@ -3529,6 +3602,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/ug/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/vi_VN/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/zh/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/el_GR/fusiondirectory.po
 
 %files certificates
 %defattr(0644,root,root)
@@ -3558,6 +3632,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/certificates/locale/ug/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/certificates/locale/vi_VN/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/certificates/locale/zh/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/certificates/locale/el_GR/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/certificates/class_userCertificates.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/certificates/main.inc
 
@@ -3600,6 +3675,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-asterisk-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-asterisk-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-asterisk-schema/COPYING
+%attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-asterisk-schema/asteriskcdrdb.sql
 
 
 %files autofs-schema
@@ -3957,3 +4033,10 @@ LDAP schema for FusionDirectory ppolicy plugin
 - Remove openstack plugin
 - Remove uw-imap plugin
 - Add applications, ejbca, personal and ppolicy plugin
+- Add asteriskcdrdb.sql
+- Add sieve_add png in mail plugin
+- Add locales for applications, certificates, ejbca, personal, ppolicy and webservice
+- Add dashboard part in systems
+- Rewrite a part of asterisk plugin
+- Correction of sieve support in cyrus and mail plugin
+- Missed class_supann.inc
