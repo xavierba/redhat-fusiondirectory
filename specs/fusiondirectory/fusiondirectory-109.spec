@@ -317,7 +317,7 @@ if [ $1 -eq 0 ] ; then
 %{_datadir}/%{name}/include/php_setup.inc
 %{_datadir}/%{name}/include/variables_common.inc
 %{_datadir}/%{name}/include/variables.inc
-%{_datadir}/%{name}/class_template.inc
+%{_datadir}/%{name}/include/class_template.inc
 %{_datadir}/%{name}/locale
 %{_datadir}/%{name}/plugins
 %{_datadir}/%{name}/setup
@@ -353,5 +353,6 @@ if [ $1 -eq 0 ] ; then
 %{_datadir}/%{name}/include/class_databaseManagement.inc
 
 %changelog
-* Mon Jun 02 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
+* Tue Jun 02 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
 - Recovery schema is merged in core
+- Correct bad path for class_template.inc
