@@ -353,14 +353,6 @@ Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-argonaut
 %description debconf
 Management of debconf profile
 
-%package desktop-management
-Group:		Applications/System
-Summary:	Management of desktop mime & Applications
-Requires:	fusiondirectory >= %{version}
-
-%description desktop-management
-Management of desktop mime & Applications
-
 %package developers
 Group:		Applications/System
 Summary:	Management plugin for developers
@@ -712,15 +704,6 @@ LDAP schema for FusionDirectory debconf plugin
 
 
 
-%package desktop-management-schema
-Group:		Applications/System
-Summary:	LDAP schema for FusionDirectory desktop-management plugin
-
-%description desktop-management-schema
-LDAP schema for FusionDirectory desktop-management plugin
-
-
-
 %package dhcp-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory dhcp plugin
@@ -1025,10 +1008,6 @@ LDAP schema for FusionDirectory webservice plugin
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
-%post desktop-management
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
 %post developers
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
@@ -1205,10 +1184,6 @@ LDAP schema for FusionDirectory webservice plugin
 
 
 %postun debconf
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
-%postun desktop-management
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
@@ -1733,67 +1708,6 @@ LDAP schema for FusionDirectory webservice plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-debconf/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-debconf/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-debconf/COPYING
-
-
-%files desktop-management
-%defattr(0644,root,root)
-# Admin section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/applications/main.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/applications/parameters.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/applications/class_applicationGeneric.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/applications/class_applicationManagement.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/applications/class_applicationParameters.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/groups/apps/class_groupApplication.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/groups/apps/app_list.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/groups/apps/edit_entry.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/mimetypes/class_mimetypeManagement.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/mimetypes/main.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/mimetypes/class_mimetypeGeneric.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/mimetypes/generic.tpl
-# Config section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/desktop-management/class_desktopPluginConfig.inc
-# HTML section
-# Directories
-# Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/desktop-management/images/iconApplication.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/desktop-management/images/select_mimetype.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/desktop-management/images/mime_embedding.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/desktop-management/images/default_icon.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/desktop-management/images/iconMiniApplications.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/desktop-management/images/list_new_mime.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/desktop-management/images/select_application.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/desktop-management/images/list_mime.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/desktop-management/images/mime_leftclick.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/desktop-management/images/iconMiniMimetypes.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/desktop-management/images/iconMimetypes.png
-# Files
-# Locale section
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/desktop-management
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/desktop-management/locale/fa_IR/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/desktop-management/locale/id/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/desktop-management/locale/ca/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/desktop-management/locale/ru@petr1708/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/desktop-management/locale/zh/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/desktop-management/locale/nb/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/desktop-management/locale/vi_VN/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/desktop-management/locale/ug/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/desktop-management/locale/es/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/desktop-management/locale/cs_CZ/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/desktop-management/locale/fr/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/desktop-management/locale/pt_BR/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/desktop-management/locale/ru/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/desktop-management/locale/de/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/desktop-management/locale/it/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/desktop-management/locale/pl/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/desktop-management/locale/es_VE/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/desktop-management/locale/pt/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/desktop-management/locale/nl/fusiondirectory.po
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-desktop-management/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-desktop-management/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-desktop-management/COPYING
 
 
 %files developers
@@ -3605,17 +3519,6 @@ LDAP schema for FusionDirectory webservice plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-debconf-schema/COPYING
 
 
-%files desktop-management-schema
-%defattr(0644,root,root)
-# Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/desktop-fd-conf.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/application-fd.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/mime-fd.schema
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-desktop-management-schema/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-desktop-management-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-desktop-management-schema/COPYING
-
-
 %files dhcp-schema
 %defattr(0644,root,root)
 # Files
@@ -3917,3 +3820,4 @@ LDAP schema for FusionDirectory webservice plugin
 * Tue Jun 2 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
 - Remove class_phoneIAX.inc and class_asteriskAccount.inc from asterisk plugin
 - Dashboard is merged in core
+- Remove desktop-management plugin
