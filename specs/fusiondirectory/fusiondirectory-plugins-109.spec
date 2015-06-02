@@ -345,14 +345,6 @@ Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-mail
 %description cyrus
 Cyrus account management
 
-%package dashboard
-Group:		Applications/System
-Summary:	Allows administrators to have several useful information
-Requires:	fusiondirectory >= %{version}
-
-%description dashboard
-Allows administrators to have several useful information
-
 %package debconf
 Group:		Applications/System
 Summary:	Management of debconf profile
@@ -711,15 +703,6 @@ LDAP schema for FusionDirectory cyrus plugin
 
 
 
-%package dashboard-schema
-Group:		Applications/System
-Summary:	LDAP schema for FusionDirectory dashboard plugin
-
-%description dashboard-schema
-LDAP schema for FusionDirectory dashboard plugin
-
-
-
 %package debconf-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory debconf plugin
@@ -1038,10 +1021,6 @@ LDAP schema for FusionDirectory webservice plugin
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
-%post dashboard
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
 %post debconf
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
@@ -1222,10 +1201,6 @@ LDAP schema for FusionDirectory webservice plugin
 
 
 %postun cyrus
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
-%postun dashboard
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
@@ -1715,48 +1690,6 @@ LDAP schema for FusionDirectory webservice plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus/COPYING
-
-
-%files dashboard
-%defattr(0644,root,root)
-# Addons section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/users_accounts.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/class_dashBoardUsers.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/main.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/contents.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/systems_pcids.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/tabs_dashBoard.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/network_dhcp.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/class_dashBoardSystems.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/main_stats.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/class_dashBoard.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/users_stats.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/systems_stats.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/dashboard/class_dashBoardNetwork.inc
-# Config section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/dashboard/class_dashBoardConfig.inc
-# Locale section
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/fa_IR/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/zh/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/nb/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/ug/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/es/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/cs_CZ/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/fr/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/ru/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/de/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/it/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/pl/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/es_VE/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/pt/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dashboard/locale/nl/fusiondirectory.po
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dashboard/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dashboard/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dashboard/COPYING
 
 
 %files debconf
@@ -3662,15 +3595,6 @@ LDAP schema for FusionDirectory webservice plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus-schema/COPYING
 
 
-%files dashboard-schema
-%defattr(0644,root,root)
-# Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dashboard-fd-conf.schema
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dashboard-schema/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dashboard-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dashboard-schema/COPYING
-
-
 %files debconf-schema
 %defattr(0644,root,root)
 # Files
@@ -3992,4 +3916,4 @@ LDAP schema for FusionDirectory webservice plugin
 
 * Tue Jun 2 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
 - Remove class_phoneIAX.inc and class_asteriskAccount.inc from asterisk plugin
-
+- Dashboard is merged in core
