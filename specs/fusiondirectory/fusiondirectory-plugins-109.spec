@@ -1661,7 +1661,6 @@ LDAP schema for FusionDirectory webservice plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/mail-methods/class_mail-methods-cyrus.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/mail-methods/class_mail-methods-sendmail-cyrus.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/mail-methods/sieve_script.tpl
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus/COPYING
@@ -2408,9 +2407,6 @@ LDAP schema for FusionDirectory webservice plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/mail/images/sieve_add_new_top.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/mail/images/sieve_add_new_bottom.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/mail/images/sieve_add_test.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/mail
@@ -2437,63 +2433,6 @@ LDAP schema for FusionDirectory webservice plugin
 # Personal section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/main.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_sieveElement_Block_Start.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/object_test_container.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/element_reject.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/element_vacation.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/element_discard.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/element_require.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/element_header.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/add_element.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/block_indent_start.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/object_container.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/element_allof.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/element_elsif.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/element_comment.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/element_envelope.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/import_script.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/element_if.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/element_fileinto.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/remove_script.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/element_else.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/select_test_type.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/element_block_start.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/element_size.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/block_indent_stop.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/create_script.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/element_boolean.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/element_stop.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/management.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/element_block_end.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/element_address.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/element_anyof.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/element_redirect.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/element_exists.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/edit_frame_base.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/object_container_clear.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/templates/element_keep.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_sieve.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_sieveElement_Comment.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_My_Scanner.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_My_Tree.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_sieveElement_Stop.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_sieveElement_Else_Elsif.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_sieveElement_Discard.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_sieveElement_Redirect.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_sieveManagement.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_My_Parser.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_sieveElement_Keep.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_sieveElement_Vacation.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_sieveElement_If.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_tree.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_sieveElement_Reject.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_semantics.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/libsieve.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_parser.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_sieveElement_Block_End.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_scanner.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_sieveElement_Fileinto.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/sieve/class_sieveElement_Require.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/mailAddressSelect/class_mailAddressSelect.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/class_mail-methods.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/class_mailAccount.inc
@@ -3821,3 +3760,4 @@ LDAP schema for FusionDirectory webservice plugin
 - Remove class_phoneIAX.inc and class_asteriskAccount.inc from asterisk plugin
 - Dashboard is merged in core
 - Remove desktop-management plugin
+- Remove old patch of goticus
