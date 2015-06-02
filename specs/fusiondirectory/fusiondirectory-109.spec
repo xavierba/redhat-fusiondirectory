@@ -340,7 +340,6 @@ if [ $1 -eq 0 ] ; then
 %{_sysconfdir}/openldap/schema/%{name}/rfc2307bis.schema
 %{_sysconfdir}/openldap/schema/%{name}/ldapns.schema
 %{_sysconfdir}/openldap/schema/%{name}/samba.schema
-%{_sysconfdir}/openldap/schema/%{name}/recovery-fd.schema
 %{_sysconfdir}/openldap/schema/%{name}/core-fd-conf.schema
 %{_sysconfdir}/openldap/schema/%{name}/template-fd.schema
 %{_sbindir}/%{name}-insert-schema
@@ -352,3 +351,7 @@ if [ $1 -eq 0 ] ; then
 
 
 %{_datadir}/%{name}/include/class_databaseManagement.inc
+
+%changelog
+* Mon Jun 02 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
+- Recovery schema is merged in core
