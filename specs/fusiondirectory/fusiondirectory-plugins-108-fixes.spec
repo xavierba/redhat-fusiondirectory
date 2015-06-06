@@ -3749,6 +3749,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/ug/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/vi_VN/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/zh/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/el_GR/fusiondirectory.po
 # Include section
 %attr (-,root,root)     %{_datadir}/fusiondirectory/include/jsonrpcphp/jsonRPCServer.php
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/jsonrpc.php.doc
@@ -3790,6 +3791,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ejbca/locale/ug/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ejbca/locale/vi_VN/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ejbca/locale/zh/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ejbca/locale/el_GR/fusiondirectory.po
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ejbca/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ejbca/COPYING
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ejbca/Changelog
@@ -3826,6 +3828,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/applications/locale/ar/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/applications/locale/lv/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/applications/locale/sv/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/applications/locale/el_GR/fusiondirectory.po
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-applications/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-applications/COPYING
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-applications/Changelog
@@ -3859,6 +3862,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/personal/locale/vi_VN/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/personal/locale/zh/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/config/personal/class_personalConfig.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/personal/locale/el_GR/fusiondirectory.po
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-personal/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-personal/COPYING
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-personal/Changelog
@@ -3901,6 +3905,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/ug/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/vi_VN/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/zh/fusiondirectory.po
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/el_GR/fusiondirectory.po
 
 %files certificates
 %defattr(0644,root,root)
@@ -3932,6 +3937,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/certificates/locale/zh/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/certificates/class_userCertificates.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/certificates/main.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/certificates/locale/el_GR/fusiondirectory.po
+
 
 
 %files alias-schema
@@ -3942,7 +3949,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-alias-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-alias-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-alias-schema/COPYING
-
 
 %files apache2-schema
 %defattr(0644,root,root)
