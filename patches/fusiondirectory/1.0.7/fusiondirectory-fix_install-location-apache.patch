@@ -1,9 +1,0 @@
---- a/contrib/apache/fusiondirectory-apache.conf	2014-05-19 12:46:13.000000000 +0200
-+++ b/contrib/apache/fusiondirectory-apache.conf	2014-08-26 14:49:04.160000209 +0200
-@@ -1,5 +1,5 @@
- # Include FusionDirectory to your web service
--Alias /fusiondirectory /var/www/fusiondirectory/html
-+Alias /fusiondirectory /var/usr/share/fusiondirectory/html
- 
- <IfModule mod_php5.c>
- <Location /fusiondirectory>
