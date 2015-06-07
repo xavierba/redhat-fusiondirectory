@@ -1,9 +1,0 @@
-%files schema
-%defattr(-,root,root,-)
-%{_mandir}/man1/%{name}-insert-schema.1.gz
-
-%{_datadir}/doc/%{name}-schema/AUTHORS
-%{_datadir}/doc/%{name}-schema/COPYING
-%{_datadir}/doc/%{name}-schema/Changelog
-
-

@@ -1,7 +1,0 @@
-%files plugin-database-connector
-%defattr(-,root,root,-)
-%{_datadir}/doc/%{name}-plugin-database-connector/AUTHORS
-%{_datadir}/doc/%{name}-plugin-database-connector/COPYING
-%{_datadir}/doc/%{name}-plugin-database-connector/Changelog
-
-

@@ -1,2 +1,0 @@
-/var/cache/fusiondirectory(/.*)?	system_u:object_r:httpd_fdir_content_t:s0
-/var/spool/fusiondirectory(/.*)?	system_u:object_r:httpd_fdir_content_t:s0
