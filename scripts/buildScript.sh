@@ -29,11 +29,12 @@ DOWNLOAD_BY_SPEC='0'
 
 usage() {
   cat << EOF
-Usage: $0 -p package -c subversion -s SPECDIR [-v version] [-m MOCK_CONF] [-r RPMBUILD] [-b BUILDDIR] [-d]
+Usage: $0 -p package -c subversion -s SPECDIR [-R RHEL_VERSION] [-v version] [-m MOCK_CONF] [-r RPMBUILD] [-b BUILDDIR] [-d]
   Default values:
     MOCK_CONF='epel-6-i386'
     RPMBUILD='~/rpmbuild'
     BUILDDIR='~/build_result'
+    RHEL_VERSION='6'
     version='Version in specfile'
   You can use -d for download the source by spec.
 EOF
@@ -105,7 +106,7 @@ function build()
   VERSION="$(echo $(cat  $RPMBUILD/SPECS/$package.spec | grep 'Version:' | cut -d ':' -f2))"
 
   # Create SRPMS
-  rpmbuild -bs $RPMBUILD/SPECS/$package.spec || exit 2
+  rpmbuild -bs $RPMBUILD/SPECS/$package.spec --define "rhel $RHEL" || exit 2
 
   if [ "$package" = 'perl-POE-Component-Schedule' ] ; then
     sudo yum install perl-DateTime-Set $BUILDDIR/RPMS/perl-DateTime-TimeZone* -y
@@ -132,7 +133,7 @@ function build()
 
   else
     NAME="$(echo $(cat  $RPMBUILD/SPECS/$package.spec | grep 'Name:' | cut -d ':' -f2))"
-    /usr/bin/mock -r ${MOCK_CONF} $RPMBUILD/SRPMS/${NAME}-${VERSION}-${jenkinssubversion}.src.rpm || exit 2
+    /usr/bin/mock -r ${MOCK_CONF} $RPMBUILD/SRPMS/${NAME}-${VERSION}-${jenkinssubversion}.src.rpm --define "rhel $RHEL" || exit 2
 
     # Move the packages of mock
     mv /var/lib/mock/${MOCK_CONF}/root/builddir/build/SRPMS/* $BUILDDIR/SRPMS/
@@ -142,7 +143,7 @@ function build()
 
 ##############################
 
-while getopts "p:v:c:m:r:b:s:h -- d" opt; do
+while getopts "p:v:c:m:r:R:b:s:h -- d" opt; do
   case "$opt" in
     p)
       package=$OPTARG
@@ -158,6 +159,13 @@ while getopts "p:v:c:m:r:b:s:h -- d" opt; do
       ;;
     r)
       RPMBUILD=$OPTARG
+      ;;
+    R)
+      if [ -z $OPTARG ] ; then
+        RHEL='6'
+      else
+        RHEL=$OPTARG
+      fi
       ;;
     b)
       BUILDDIR=$OPTARG
