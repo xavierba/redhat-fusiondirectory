@@ -20,6 +20,7 @@ Patch3:     %{name}-fix_openldap-schema-location.patch
 Patch4:     %{name}-fix_pear-location.patch
 Patch5:     %{name}-fix_prototype-location.patch
 Patch6:     %{name}-fix_smarty3-location.patch
+Patch7:     %{name}-fix_install-location-apache-old-version.patch
 
 
 Requires:   php >= 5.3, php-ldap >= 5.3, php-imap >= 5.3, php-mbstring >= 5.3, php-pecl-imagick
@@ -96,7 +97,12 @@ SEPolicy needed for Fusiondirectory.
 %setup -T -D -b 0 
 
 # Apply all the patches
+%if %{?rhel} >= 7
 %patch0 -p1
+%else
+%patch7 -p1
+%endif
+
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
