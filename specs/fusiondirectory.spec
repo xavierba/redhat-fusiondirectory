@@ -22,7 +22,7 @@ Patch5:     %{name}-fix_prototype-location.patch
 Patch6:     %{name}-fix_smarty3-location.patch
 
 
-Requires:   php >= 5.3, php-ldap >= 5.3, php-imap >= 5.3, php-mbstring >= 5.3, php-pecl-imagick, php-fpdf
+Requires:   php >= 5.3, php-ldap >= 5.3, php-imap >= 5.3, php-mbstring >= 5.3, php-pecl-imagick
 
 Requires:   perl-Path-Class, perl-Crypt-PasswdMD5, perl-File-Copy-Recursive, perl-Archive-Extract, perl-XML-Twig
 Requires:   perl-Crypt-CBC, perl-LDAP, perl
