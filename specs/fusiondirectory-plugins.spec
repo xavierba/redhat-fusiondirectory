@@ -690,6 +690,7 @@ Management plugin for certificates
 %package alias-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory alias plugin
+Requires: fusiondirectory-plugin-mail-schema >= %{version}
 
 %description alias-schema
 LDAP schema for FusionDirectory alias plugin
@@ -699,6 +700,7 @@ LDAP schema for FusionDirectory alias plugin
 %package apache2-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory apache2 plugin
+Requires: fusiondirectory-plugin-systems-schema >= %{version}
 
 %description apache2-schema
 LDAP schema for FusionDirectory apache2 plugin
@@ -708,6 +710,7 @@ LDAP schema for FusionDirectory apache2 plugin
 %package argonaut-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory argonaut plugin
+Requires: fusiondirectory-plugin-systems-schema >= %{version}
 
 %description argonaut-schema
 LDAP schema for FusionDirectory argonaut plugin
@@ -717,6 +720,7 @@ LDAP schema for FusionDirectory argonaut plugin
 %package asterisk-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory asterisk plugin
+Requires: fusiondirectory-plugin-systems-schema >= %{version}
 
 %description asterisk-schema
 LDAP schema for FusionDirectory asterisk plugin
@@ -726,6 +730,7 @@ LDAP schema for FusionDirectory asterisk plugin
 %package autofs-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory autofs plugin
+Requires: fusiondirectory-plugin-systems-schema >= %{version}
 
 %description autofs-schema
 LDAP schema for FusionDirectory autofs plugin
@@ -735,6 +740,7 @@ LDAP schema for FusionDirectory autofs plugin
 %package cyrus-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory cyrus plugin
+Requires: fusiondirectory-plugin-mail-schema >= %{version}
 
 %description cyrus-schema
 LDAP schema for FusionDirectory cyrus plugin
@@ -744,6 +750,7 @@ LDAP schema for FusionDirectory cyrus plugin
 %package debconf-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory debconf plugin
+Requires: fusiondirectory-plugin-argonaut-schema >= %{version}
 
 %description debconf-schema
 LDAP schema for FusionDirectory debconf plugin
@@ -753,6 +760,7 @@ LDAP schema for FusionDirectory debconf plugin
 %package dhcp-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory dhcp plugin
+Requires: fusiondirectory-plugin-systems-schema >= %{version}
 
 %description dhcp-schema
 LDAP schema for FusionDirectory dhcp plugin
@@ -762,6 +770,7 @@ LDAP schema for FusionDirectory dhcp plugin
 %package dns-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory dns plugin
+Requires: fusiondirectory-plugin-systems-schema >= %{version}
 
 %description dns-schema
 LDAP schema for FusionDirectory dns plugin
@@ -771,6 +780,7 @@ LDAP schema for FusionDirectory dns plugin
 %package dovecot-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory dovecot plugin
+Requires: fusiondirectory-plugin-systems-schema >= %{version}
 
 %description dovecot-schema
 LDAP schema for FusionDirectory dovecot plugin
@@ -780,6 +790,7 @@ LDAP schema for FusionDirectory dovecot plugin
 %package dsa-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory dsa plugin
+Requires: fusiondirectory-schema >= %{version}
 
 %description dsa-schema
 LDAP schema for FusionDirectory dsa plugin
@@ -789,6 +800,7 @@ LDAP schema for FusionDirectory dsa plugin
 %package fai-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory fai plugin
+Requires: fusiondirectory-plugin-systems-schema >= %{version}, fusiondirectory-plugin-argonaut-schema >= %{version}
 
 %description fai-schema
 LDAP schema for FusionDirectory fai plugin
@@ -798,6 +810,7 @@ LDAP schema for FusionDirectory fai plugin
 %package fax-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory fax plugin
+Requires: fusiondirectory-plugin-systems-schema >= %{version}
 
 %description fax-schema
 LDAP schema for FusionDirectory fax plugin
@@ -807,6 +820,7 @@ LDAP schema for FusionDirectory fax plugin
 %package freeradius-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory freeradius plugin
+Requires: fusiondirectory-schema >= %{version}
 
 %description freeradius-schema
 LDAP schema for FusionDirectory freeradius plugin
@@ -816,6 +830,7 @@ LDAP schema for FusionDirectory freeradius plugin
 %package fusioninventory-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory fusioninventory plugin
+Requires: fusiondirectory-plugin-systems-schema >= %{version}
 
 %description fusioninventory-schema
 LDAP schema for FusionDirectory fusioninventory plugin
@@ -825,6 +840,7 @@ LDAP schema for FusionDirectory fusioninventory plugin
 %package gpg-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory gpg plugin
+Requires: fusiondirectory-plugin-systems-schema >= %{version}
 
 %description gpg-schema
 LDAP schema for FusionDirectory gpg plugin
@@ -834,6 +850,7 @@ LDAP schema for FusionDirectory gpg plugin
 %package ipmi-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory ipmi plugin
+Requires: fusiondirectory-plugin-systems-schema >= %{version}
 
 %description ipmi-schema
 LDAP schema for FusionDirectory ipmi plugin
@@ -843,6 +860,7 @@ LDAP schema for FusionDirectory ipmi plugin
 %package kolab-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory kolab plugin
+Requires: fusiondirectory-plugin-mail-schema >= %{version}, fusiondirectory-plugin-cyrus-schema >= %{version}
 
 %description kolab-schema
 LDAP schema for FusionDirectory kolab plugin
@@ -852,6 +870,7 @@ LDAP schema for FusionDirectory kolab plugin
 %package mail-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory mail plugin
+Requires: fusiondirectory-plugin-systems-schema >= %{version}
 
 %description mail-schema
 LDAP schema for FusionDirectory mail plugin
@@ -861,6 +880,7 @@ LDAP schema for FusionDirectory mail plugin
 %package nagios-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory nagios plugin
+Requires: fusiondirectory-schema >= %{version}
 
 %description nagios-schema
 LDAP schema for FusionDirectory nagios plugin
@@ -870,6 +890,7 @@ LDAP schema for FusionDirectory nagios plugin
 %package netgroups-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory netgroups plugin
+Requires: fusiondirectory-schema >= %{version}
 
 %description netgroups-schema
 LDAP schema for FusionDirectory netgroups plugin
@@ -879,6 +900,7 @@ LDAP schema for FusionDirectory netgroups plugin
 %package openstack-compute-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory openstack-compute plugin
+Requires: fusiondirectory-schema >= %{version}
 
 %description openstack-compute-schema
 LDAP schema for FusionDirectory openstack-compute plugin
@@ -888,6 +910,7 @@ LDAP schema for FusionDirectory openstack-compute plugin
 %package opsi-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory opsi plugin
+Requires: fusiondirectory-plugin-systems-schema >= %{version}, fusiondirectory-plugin-dns-schema >= %{version}, fusiondirectory-plugin-samba-schema >= %{version}
 
 %description opsi-schema
 LDAP schema for FusionDirectory opsi plugin
@@ -897,6 +920,7 @@ LDAP schema for FusionDirectory opsi plugin
 %package puppet-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory puppet plugin
+Requires: fusiondirectory-schema >= %{version}
 
 %description puppet-schema
 LDAP schema for FusionDirectory puppet plugin
@@ -906,6 +930,7 @@ LDAP schema for FusionDirectory puppet plugin
 %package pureftpd-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory pureftpd plugin
+Requires: fusiondirectory-schema >= %{version}
 
 %description pureftpd-schema
 LDAP schema for FusionDirectory pureftpd plugin
@@ -915,6 +940,7 @@ LDAP schema for FusionDirectory pureftpd plugin
 %package quota-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory quota plugin
+Requires: fusiondirectory-plugin-systems-schema >= %{version}
 
 %description quota-schema
 LDAP schema for FusionDirectory quota plugin
@@ -924,6 +950,7 @@ LDAP schema for FusionDirectory quota plugin
 %package repository-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory repository plugin
+Requires: fusiondirectory-plugin-systems-schema >= %{version}
 
 %description repository-schema
 LDAP schema for FusionDirectory repository plugin
@@ -933,6 +960,7 @@ LDAP schema for FusionDirectory repository plugin
 %package samba-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory samba plugin
+Requires: fusiondirectory-plugin-systems-schema >= %{version}
 
 %description samba-schema
 LDAP schema for FusionDirectory samba plugin
@@ -942,6 +970,7 @@ LDAP schema for FusionDirectory samba plugin
 %package sogo-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory sogo plugin
+Requires: fusiondirectory-plugin-systems-schema >= %{version}
 
 %description sogo-schema
 LDAP schema for FusionDirectory sogo plugin
@@ -951,6 +980,7 @@ LDAP schema for FusionDirectory sogo plugin
 %package squid-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory squid plugin
+Requires: fusiondirectory-schema >= %{version}
 
 %description squid-schema
 LDAP schema for FusionDirectory squid plugin
@@ -960,6 +990,7 @@ LDAP schema for FusionDirectory squid plugin
 %package ssh-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory ssh plugin
+Requires: fusiondirectory-schema >= %{version}
 
 %description ssh-schema
 LDAP schema for FusionDirectory ssh plugin
@@ -969,6 +1000,7 @@ LDAP schema for FusionDirectory ssh plugin
 %package sudo-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory sudo plugin
+Requires: fusiondirectory-schema >= %{version}
 
 %description sudo-schema
 LDAP schema for FusionDirectory sudo plugin
@@ -978,6 +1010,7 @@ LDAP schema for FusionDirectory sudo plugin
 %package supann-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory supann plugin
+Requires: fusiondirectory-schema >= %{version}
 
 %description supann-schema
 LDAP schema for FusionDirectory supann plugin
@@ -987,6 +1020,7 @@ LDAP schema for FusionDirectory supann plugin
 %package sympa-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory sympa plugin
+Requires: fusiondirectory-plugin-systems-schema >= %{version}, fusiondirectory-plugin-alias-schema >= %{version}
 
 %description sympa-schema
 LDAP schema for FusionDirectory sympa plugin
@@ -996,6 +1030,7 @@ LDAP schema for FusionDirectory sympa plugin
 %package systems-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory systems plugin
+Requires: fusiondirectory-schema >= %{version}
 
 %description systems-schema
 LDAP schema for FusionDirectory systems plugin
@@ -1005,6 +1040,7 @@ LDAP schema for FusionDirectory systems plugin
 %package weblink-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory weblink plugin
+Requires: fusiondirectory-plugin-systems-schema >= %{version}
 
 %description weblink-schema
 LDAP schema for FusionDirectory weblink plugin
@@ -1014,6 +1050,7 @@ LDAP schema for FusionDirectory weblink plugin
 %package webservice-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory webservice plugin
+Requires: fusiondirectory-schema >= %{version}
 
 %description webservice-schema
 LDAP schema for FusionDirectory webservice plugin
