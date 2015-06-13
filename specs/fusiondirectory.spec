@@ -20,9 +20,10 @@ Patch3:     %{name}-fix_openldap-schema-location.patch
 Patch4:     %{name}-fix_pear-location.patch
 Patch5:     %{name}-fix_prototype-location.patch
 Patch6:     %{name}-fix_smarty3-location.patch
+Patch7:     %{name}-fix_install-location-apache-old-version.patch
 
 
-Requires:   php >= 5.3, php-ldap >= 5.3, php-imap >= 5.3, php-mbstring >= 5.3, php-pecl-imagick, php-fpdf
+Requires:   php >= 5.3, php-ldap >= 5.3, php-imap >= 5.3, php-mbstring >= 5.3, php-pecl-imagick, php-gd
 
 Requires:   perl-Path-Class, perl-Crypt-PasswdMD5, perl-File-Copy-Recursive, perl-Archive-Extract, perl-XML-Twig
 Requires:   perl-Crypt-CBC, perl-LDAP, perl
@@ -96,7 +97,12 @@ SEPolicy needed for Fusiondirectory.
 %setup -T -D -b 0 
 
 # Apply all the patches
+%if %{?rhel} >= 7
 %patch0 -p1
+%else
+%patch7 -p1
+%endif
+
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
@@ -400,6 +406,9 @@ fi
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Mon Jun 30 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.8-1.el6
+- Add rhel if to build RHEL6 and RHEL7
+
 * Mon Jun 01 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.6-1.el6
 - Add again rfc2307bis schema
 
