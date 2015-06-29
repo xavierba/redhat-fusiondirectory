@@ -3260,8 +3260,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/ntp/class_serviceNTP.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/ldap/class_serviceLDAP.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/class_goService.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/cups/serviceCUPS.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/cups/class_serviceCUPS.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/server_import.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/serverService-filter.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/network.tpl
