@@ -359,6 +359,7 @@ fi
 %{_datadir}/%{name}/include/php_setup.inc
 %{_datadir}/%{name}/include/variables_common.inc
 %{_datadir}/%{name}/include/variables.inc
+%{_datadir}/%{name}/include/class_template.inc
 %{_datadir}/%{name}/locale
 %{_datadir}/%{name}/plugins
 %{_datadir}/%{name}/setup
@@ -382,6 +383,7 @@ fi
 %{_sysconfdir}/openldap/schema/%{name}/samba.schema
 %{_sysconfdir}/openldap/schema/%{name}/core-fd-conf.schema
 %{_sysconfdir}/openldap/schema/%{name}/rfc2307bis.schema
+%{_sysconfdir}/openldap/schema/fusiondirectory/template-fd.schema
 %{_sbindir}/%{name}-insert-schema
 
 %files plugin-database-connector
