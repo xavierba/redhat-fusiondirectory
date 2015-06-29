@@ -20,9 +20,10 @@ Patch3:     %{name}-fix_openldap-schema-location.patch
 Patch4:     %{name}-fix_pear-location.patch
 Patch5:     %{name}-fix_prototype-location.patch
 Patch6:     %{name}-fix_smarty3-location.patch
+Patch7:     %{name}-fix_install-location-apache-old-version.patch
 
 
-Requires:   php >= 5.3, php-ldap >= 5.3, php-imap >= 5.3, php-mbstring >= 5.3, php-pecl-imagick, php-fpdf
+Requires:   php >= 5.3, php-ldap >= 5.3, php-imap >= 5.3, php-mbstring >= 5.3, php-pecl-imagick, php-gd
 
 Requires:   perl-Path-Class, perl-Crypt-PasswdMD5, perl-File-Copy-Recursive, perl-Archive-Extract, perl-XML-Twig
 Requires:   perl-Crypt-CBC, perl-LDAP, perl
@@ -96,7 +97,12 @@ SEPolicy needed for Fusiondirectory.
 %setup -T -D -b 0 
 
 # Apply all the patches
+%if %{?rhel} >= 7
 %patch0 -p1
+%else
+%patch7 -p1
+%endif
+
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
@@ -150,7 +156,7 @@ install -d -m 0770 %{buildroot}/var/cache/%{name}/{tmp,fai}/
 # Create other directories
 mkdir -p %{buildroot}%{_datadir}/man/man1/
 mkdir -p %{buildroot}%{_datadir}/man/man5/
-mkdir -p %{buildroot}%{_sysconfdir}/httpd/conf.d/
+mkdir -p %{buildroot}%{_sysconfdir}/%{name}/
 mkdir -p %{buildroot}%{_sbindir}
 mkdir -p %{buildroot}%{_sysconfdir}/openldap/schema/%{name}/
 mkdir -p %{buildroot}%{_datadir}/php/Smarty3/plugins/
@@ -189,7 +195,7 @@ mv %{buildroot}%{_sysconfdir}/openldap/schema/%{name}/slapd.conf %{buildroot}%{_
 cp contrib/bin/* %{buildroot}%{_sbindir}
 
 # Move apache configuration
-cp contrib/apache/%{name}-apache.conf %{buildroot}%{_sysconfdir}/httpd/conf.d/
+cp contrib/apache/%{name}-apache.conf %{buildroot}%{_sysconfdir}/%{name}/
 
 ############################
 # SELINUX INSTALL
@@ -210,11 +216,6 @@ done
 rm -Rf %{buildroot}
 
 
-# This is the post_core.spec file
-%post
-%{_sbindir}/%{name}-setup --yes --check-directories --update-locales --update-cache
-ln -s /usr/share/doc/%{name}/%{name}.conf /var/cache/%{name}/template/%{name}.conf
-
 %post plugin-database-connector
 %{_sbindir}/%{name}-setup --yes --check-directories --update-locales --update-cache
 
@@ -230,20 +231,71 @@ do
     %{_datadir}/selinux/${selinuxvariant}/%{name}.pp &> /dev/null || :
 done
 
-  # Apply context for spool and cache directroy considering the %{name} policy
-  /sbin/restorecon -R /var/spool/%{name}
-  /sbin/restorecon -R /var/cache/%{name}
+# Apply context for spool and cache directroy considering the %{name} policy
+/sbin/restorecon -R /var/spool/%{name}
+/sbin/restorecon -R /var/cache/%{name}
 
 %postun selinux
-if [ $1 -eq 0 ] ; then
-  for selinuxvariant in %{selinux_variants}
-  do
-    /usr/sbin/semodule -s ${selinuxvariant} -r %{name} &> /dev/null || :
-  done
+for selinuxvariant in %{selinux_variants}
+do
+  /usr/sbin/semodule -s ${selinuxvariant} -r %{name} &> /dev/null || :
+done
 
-  # Apply context for spool and cache directroy without the %{name} policy
-  /sbin/restorecon -R /var/spool/%{name}
-  /sbin/restorecon -R /var/cache/%{name}
+# Apply context for spool and cache directroy without the %{name} policy
+/sbin/restorecon -R /var/spool/%{name}
+/sbin/restorecon -R /var/cache/%{name}
+
+%post
+# Remove cache and spool
+rm -Rf /var/cache/fusiondirectory/
+rm -Rf /var/spool/fusiondirectory/
+
+# Create all cache and directories we need after install
+%{_sbindir}/%{name}-setup -y --check-directories --update-cache --update-locales
+
+if [ -d /etc/httpd/conf.d ]; then
+
+  # Copy FusionDirectory configuration to conf.d directories
+  if [ ! -L /etc/httpd/conf.d/fusiondirectory.conf ]; then
+
+    # Remove old instances of this file
+    if [ -f /etc/httpd/conf.d/fusiondirectory.conf ]; then
+      echo "Found old fusiondirectory apache configuration in /etc/httpd/conf.d - moving it to fusiondirectory.conf.orig..."
+      echo "Please check for changes in /etc/fusiondirectory/fusiondirectory-apache.conf if you modified this file!"
+      mv /etc/httpd/conf.d/fusiondirectory.conf /etc/httpd/conf.d/fusiondirectory.conf.orig
+    fi
+
+    echo "Making /fusiondirectory available in /etc/httpd/conf.d"
+
+    # Add FusionDirectory include file
+    ln -s /etc/fusiondirectory/fusiondirectory-apache.conf /etc/httpd/conf.d/fusiondirectory.conf
+  fi
+
+  service httpd reload
+fi
+
+# Link fusiondirectory.conf to cache/template directory
+ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondirectory/template/fusiondirectory.conf
+
+
+%postun
+if [ -d /etc/httpd/conf.d ]; then
+  # Remove FusionDirectory include
+  [ -L /etc/httpd/conf.d/fusiondirectory.conf ] && rm -f /etc/httpd/conf.d/fusiondirectory.conf
+
+  # Restart servers
+  if [ -x /usr/sbin/httpd ]; then
+    service httpd restart
+  fi
+fi
+
+if [ -d /var/cache/fusiondirectory ]; then
+  # Remove cache directory
+  rm -Rf /var/cache/fusiondirectory
+  
+  # Remove spool directory
+  rm -Rf /var/spool/fusiondirectory
+fi
 
 %files
 %defattr(-,root,root,-)
@@ -253,16 +305,6 @@ if [ $1 -eq 0 ] ; then
 %{_datadir}/doc/%{name}/AUTHORS
 %{_datadir}/doc/%{name}/COPYING
 %{_datadir}/doc/%{name}/Changelog
-
-############################
-# FILES SELINUX
-############################
-
-%files selinux
-%defattr(-,root,root,0755)
-%doc SELinux/%{name}.te
-%doc SELinux/%{name}.fc
-%{_datadir}/selinux/*/%{name}.pp
 
 %{_sbindir}/%{name}-setup
 %{_datadir}/%{name}/html/images
@@ -284,6 +326,7 @@ if [ $1 -eq 0 ] ; then
 %{_datadir}/%{name}/include/accept-to-gettext.inc
 %{_datadir}/%{name}/include/class_acl.inc
 %{_datadir}/%{name}/include/class_baseSelector.inc
+%{_datadir}/%{name}/include/class_certificate.inc
 %{_datadir}/%{name}/include/class_config.inc
 %{_datadir}/%{name}/include/class_CopyPasteHandler.inc
 %{_datadir}/%{name}/include/class_departmentSortIterator.inc
@@ -307,6 +350,7 @@ if [ $1 -eq 0 ] ; then
 %{_datadir}/%{name}/include/class_session.inc
 %{_datadir}/%{name}/include/class_SnapShotDialog.inc
 %{_datadir}/%{name}/include/class_SnapshotHandler.inc
+%{_datadir}/%{name}/include/class_sortableListing.inc
 %{_datadir}/%{name}/include/class_tabs.inc
 %{_datadir}/%{name}/include/class_tests.inc
 %{_datadir}/%{name}/include/class_timezone.inc
@@ -317,16 +361,16 @@ if [ $1 -eq 0 ] ; then
 %{_datadir}/%{name}/include/php_setup.inc
 %{_datadir}/%{name}/include/variables_common.inc
 %{_datadir}/%{name}/include/variables.inc
-%{_datadir}/%{name}/include/class_template.inc
 %{_datadir}/%{name}/locale
 %{_datadir}/%{name}/plugins
 %{_datadir}/%{name}/setup
-%{_sysconfdir}/httpd/conf.d/%{name}-apache.conf
+%{_sysconfdir}/%{name}/%{name}-apache.conf
 %{_datadir}/doc/%{name}/slapd.conf-example
 %{_datadir}/doc/%{name}/%{name}.conf
 %{_datadir}/php/Smarty3/plugins/block.render.php
 %{_datadir}/php/Smarty3/plugins/function.msgPool.php
 %{_datadir}/php/Smarty3/plugins/function.filePath.php
+
 %files schema
 %defattr(-,root,root,-)
 %{_mandir}/man1/%{name}-insert-schema.1.gz
@@ -335,24 +379,133 @@ if [ $1 -eq 0 ] ; then
 %{_datadir}/doc/%{name}-schema/COPYING
 %{_datadir}/doc/%{name}-schema/Changelog
 
-
 %{_sysconfdir}/openldap/schema/%{name}/core-fd.schema
-%{_sysconfdir}/openldap/schema/%{name}/rfc2307bis.schema
 %{_sysconfdir}/openldap/schema/%{name}/ldapns.schema
 %{_sysconfdir}/openldap/schema/%{name}/samba.schema
+%{_sysconfdir}/openldap/schema/%{name}/recovery-fd.schema
 %{_sysconfdir}/openldap/schema/%{name}/core-fd-conf.schema
-%{_sysconfdir}/openldap/schema/%{name}/template-fd.schema
+%{_sysconfdir}/openldap/schema/%{name}/rfc2307bis.schema
 %{_sbindir}/%{name}-insert-schema
+
 %files plugin-database-connector
 %defattr(-,root,root,-)
 %{_datadir}/doc/%{name}-plugin-database-connector/AUTHORS
 %{_datadir}/doc/%{name}-plugin-database-connector/COPYING
 %{_datadir}/doc/%{name}-plugin-database-connector/Changelog
 
-
 %{_datadir}/%{name}/include/class_databaseManagement.inc
 
+############################
+# FILES SELINUX
+############################
+
+%files selinux
+%defattr(-,root,root,0755)
+%doc SELinux/%{name}.te
+%doc SELinux/%{name}.fc
+%{_datadir}/selinux/*/%{name}.pp
+
 %changelog
-* Tue Jun 02 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
-- Recovery schema is merged in core
-- Correct bad path for class_template.inc
+* Mon Jun 01 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.6-1.el6
+- Add again rfc2307bis schema
+
+* Wed May 06 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.5-2.el6
+- Remove schema rfc2307bis
+- Correct the post script
+- Correct postun scriptlet of fusiondirectory and fusiondirectory-selinux
+
+* Tue Dec 13 2014 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.3-1.el6
+- Correct the errors for the post scripts
+
+* Sun Jun 09 2013 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.6-2.el6
+- Reorganize include directory files declaration in order to avoid multiple
+  declaration in serveral RPMS (Closes #2504)
+- Move the config/systems directory from sympa plugin to systems plugin (Closes #2423)
+- Move the class_mailPluginConfig.inc file from core RPM to mail plugin (Closed #2485)
+- Backport bugfix #2424 : Try to use PHP hash function if mhash is not available.
+- Backport bugfix #2449 : Allow users with SAMBA attributes to be deleted properly.
+
+* Sat May 12 2013 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.6-1.el6
+- Upgrade to 1.0.6 Version
+- Schema are now only provided in .schema format
+- Plugins reorganisation and simplification
+- Gofax plugin new name : fax
+- Gofon plugin new name : asterisk
+- Obsolete plugins removed : netatalk, opengroupware,openxchange,pptp, phpschedule-it, webdav, connectivity, scalix
+- New plugins : alias, autofs, cyrus, debconf, DSA, freeradius, game, opsi, puppet
+
+* Fri Nov 23 2012 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.4-1
+- Upgrade to 1.0.4 Version
+- Remove Obsoletes directives
+- Remove devel package
+- Update default apache configuration. Memory size set to 128M.
+- Dependency list update
+- New package : database-management
+- Update scripts integration.
+
+* Sat Jul 14 2012 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.3-2
+- Move Lost Password Feature files from argonaut plugin to core RPM - Closes #1161
+
+* Sat Jun 23 2012 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.3-1.el6
+- Upgrade to 1.0.3 Version
+- New plugins : argonaut, openstack-compute, quota, supann
+- Merge goto plugin into system plugin
+- Remove obsolete plugins : php-gw
+- Remove obsolete patches
+- Add missing dependency on perl-ExtUtils-MakeMaker
+- SELinux policy update
+- Update memory_limite parameter in the Apache Configuration file
+- Remove the spool purge cleaning step in %%pre and %%postun steps
+- Add devel package
+
+* Sun Oct 23 2011 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.2-1
+- Upgrade to 1.0.2 Version
+- [rpm] SELinux policy update
+- [rpm] Mail Queue Plugin disabled
+- [rpm] Patch for get_i18n and get_classs method on fusiondirectory-setup
+- [rpm] Patch for removing debug messages
+- [feature] Remove online doc
+- [feature] Add netgroups plugin
+- [feature] Removed old GOsa-si code
+- [feature] Added jsonrpc client library
+- [feature] Added new daemon class with json rpc methods
+- [feature] All deployment are now done through the Argonaut json rpc server
+- [feature] New system to get the packages and debconf without a local mirror
+- [fix] Cvs import fixes to make it more flexible and usable
+- [fix] Corrected css for Firefox 5 and beyond
+- [feature] New setup command fusiondirectory-setup that help fixes common setup issues
+- [feature] Added tools to easily convert and upload schema in an ldap-tree
+- [feature] Completely test and rewrote the help to use php safe mode
+- [feature] Put all the application data into /var/cache/fusiondirectory
+- [fix] Fixed timezone issues
+- [fix] Corrected FSF address
+- [feature] Removed the opsi (pending rewrite)
+- [feature] Removed log plugin, everything is done with the rsyslog plugin
+
+* Sun Jul 03 2011 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.1-3
+- Compliancy to Fedora Policy (fc15)
+- Remove gosa-ldap Obsoletes block
+* Sat Jun 18 2011 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.1-2
+- Fixes #308: Remove the heimdal package
+- Fixes #309: Remove the goAgent.pl from plugin-squid package
+* Mon May 09 2011 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.1-1
+- Update to 1.0.1 version
+- Remov advanced options from setup
+- Correct online help
+- Correct wording on plugins
+- Remove the need for magic_quotes_gpc
+- Remove the fusiondirectory-desktop package
+- Remove program version checking from svn
+- Add the apache plugin
+- Put final logo
+- Full italian language
+- Creation of the fusiondirectory SELinux package
+- Fixes bugs #104 #118 #154 #163 #187 #188 #189 #191 #192 #193
+- Fixes bugs #194 #197 #198 #199 #207 #208 #210 #217 #224 #230
+- Fixes bugs #234 #251 #252
+* Sat Apr 17 2011 Olivier BONHOMME <obonhomme@nerim.net> - 1.0-1
+- First Plugin integration
+- Update packager identity
+* Fri Apr 15 2011 Benoit Mortier <benoit.mortier@opensides.be>
+- First build of FusionDirectory 1.0 as an RPM, should work on SuSE and RedHat
+
