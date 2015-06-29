@@ -326,7 +326,6 @@ fi
 %{_datadir}/%{name}/include/accept-to-gettext.inc
 %{_datadir}/%{name}/include/class_acl.inc
 %{_datadir}/%{name}/include/class_baseSelector.inc
-%{_datadir}/%{name}/include/class_certificate.inc
 %{_datadir}/%{name}/include/class_config.inc
 %{_datadir}/%{name}/include/class_CopyPasteHandler.inc
 %{_datadir}/%{name}/include/class_departmentSortIterator.inc
@@ -350,7 +349,6 @@ fi
 %{_datadir}/%{name}/include/class_session.inc
 %{_datadir}/%{name}/include/class_SnapShotDialog.inc
 %{_datadir}/%{name}/include/class_SnapshotHandler.inc
-%{_datadir}/%{name}/include/class_sortableListing.inc
 %{_datadir}/%{name}/include/class_tabs.inc
 %{_datadir}/%{name}/include/class_tests.inc
 %{_datadir}/%{name}/include/class_timezone.inc
