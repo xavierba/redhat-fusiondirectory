@@ -380,7 +380,6 @@ fi
 %{_sysconfdir}/openldap/schema/%{name}/core-fd.schema
 %{_sysconfdir}/openldap/schema/%{name}/ldapns.schema
 %{_sysconfdir}/openldap/schema/%{name}/samba.schema
-%{_sysconfdir}/openldap/schema/%{name}/recovery-fd.schema
 %{_sysconfdir}/openldap/schema/%{name}/core-fd-conf.schema
 %{_sysconfdir}/openldap/schema/%{name}/rfc2307bis.schema
 %{_sbindir}/%{name}-insert-schema
