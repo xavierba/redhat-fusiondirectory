@@ -669,7 +669,13 @@ Requires:       fusiondirectory >= %{version}
 %description certificates
 Management plugin for certificates
 
+%package mixedgroups
+Group:          Applications/System
+Summary:        Management plugin for mixedgroups
+Requires:       fusiondirectory >= %{version}
 
+%description mixedgroups
+Management plugin for mixedgroups
 
 
 %package alias-schema
@@ -1205,6 +1211,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 %post certificates
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
+%post mixedgroups
+%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
 
@@ -1392,6 +1400,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 %postun certificates
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
+%postun mixedgroups
+%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
 
@@ -3634,6 +3644,13 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/certificates/class_userCertificates.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/certificates/main.inc
 
+%files mixedgroups
+%defattr(0644,root,root)
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-mixedgroups/AUTHORS
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-mixedgroups/COPYING
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-mixedgroups/Changelog
+%attr (-,root,root)      %{_datadir}/fusiondirectory/locale/plugins/mixedgroups/locale/en/fusiondirectory.po
+%attr (-,root,root)      %{_datadir}/fusiondirectory/plugins/admin/ogroups/mixedgroups/class_mixedGroup.inc
 
 
 %files alias-schema
@@ -4038,3 +4055,5 @@ LDAP schema for FusionDirectory ppolicy plugin
 - Rewrite a part of asterisk plugin
 - Correction of sieve support in cyrus and mail plugin
 - Missed class_supann.inc
+- Remove class_tabs.inc
+- Add mixedgroups plugin
