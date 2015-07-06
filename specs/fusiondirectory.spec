@@ -349,7 +349,6 @@ fi
 %{_datadir}/%{name}/include/class_session.inc
 %{_datadir}/%{name}/include/class_SnapShotDialog.inc
 %{_datadir}/%{name}/include/class_SnapshotHandler.inc
-%{_datadir}/%{name}/include/class_tabs.inc
 %{_datadir}/%{name}/include/class_tests.inc
 %{_datadir}/%{name}/include/class_timezone.inc
 %{_datadir}/%{name}/include/class_userinfo.inc
