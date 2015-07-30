@@ -406,6 +406,10 @@ fi
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Thu Jul 30 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.9-1.el6
+- Add if to build RHEL version
+- php-gd as mandatory package
+
 * Mon Jun 01 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.6-1.el6
 - Add again rfc2307bis schema
 
