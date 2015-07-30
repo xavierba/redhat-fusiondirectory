@@ -406,6 +406,9 @@ fi
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Thu Jul 30 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.9-1.el6
+- php-gd as mandatory package
+
 * Mon Jun 30 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.8-1.el6
 - Add rhel if to build RHEL6 and RHEL7
 
