@@ -413,6 +413,9 @@ fi
 * Mon Jun 30 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.8-1.el6
 - Add rhel if to build RHEL6 and RHEL7
 
+* Fri Jun 05 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.7-1.el6
+- New upstream release
+
 * Mon Jun 01 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.6-1.el6
 - Add again rfc2307bis schema
 

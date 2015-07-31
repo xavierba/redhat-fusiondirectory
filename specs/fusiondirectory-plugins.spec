@@ -4372,11 +4372,14 @@ LDAP schema for FusionDirectory ppolicy plugin
 ########################
 
 %changelog
-* Mon Jun 30 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.8-1.el6
-- Add schema dependences
-
 * Thu Jul 30 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.9-1.el6
+- New upstream release
+
+* Mon Jun 30 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.8-1.el6
 - Add schemas dependences
+
+* Fri Jun 05 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.7-1.el6
+- New upstream release
 
 * Mon Jun 01 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.6-1.el6
 - Correct the place of EJBCA icon's
