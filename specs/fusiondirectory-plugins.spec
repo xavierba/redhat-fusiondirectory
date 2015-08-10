@@ -20,7 +20,7 @@ Requires:   php-Smarty3, php-Smarty3-i18n, schema2ldif
 %description 
 FusionDirectory is a combination of system-administrator and end-user web
 interface, designed to handle LDAP based setups.
-Provided is access to posix, shadow, samba, proxy, fax, and Kerberos
+Provided is access to posix, shadow, samba, proxy, and Kerberos
 accounts. It is able to manage the Postfix/Cyrus server combination
 and can write user adapted sieve scripts.
 
@@ -138,11 +138,6 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
       elif [ "${cur_plugin}" = "argonaut" ] ; then
         mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
         cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        
-      elif [ "${cur_plugin}" = "fax" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        cp -a ./html/getfax.php %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
         
       elif [ "${cur_plugin}" = "fusioninventory" ] ; then
         mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
@@ -404,14 +399,6 @@ Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems,fusiondir
 
 %description fai
 Linux system deployment management
-
-%package fax
-Group:		Applications/System
-Summary:	Fax management backend with report functionality
-Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems,fusiondirectory-plugin-database-connector
-
-%description fax
-Fax management backend with report functionality
 
 %package freeradius
 Group:		Applications/System
@@ -785,16 +772,6 @@ Summary:	LDAP schema for FusionDirectory fai plugin
 LDAP schema for FusionDirectory fai plugin
 
 
-
-%package fax-schema
-Group:		Applications/System
-Summary:	LDAP schema for FusionDirectory fax plugin
-
-%description fax-schema
-LDAP schema for FusionDirectory fax plugin
-
-
-
 %package freeradius-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory freeradius plugin
@@ -1088,10 +1065,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
-%post fax
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
 %post freeradius
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
@@ -1271,10 +1244,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %postun fai
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
-%postun fax
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
@@ -2109,67 +2078,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fai/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fai/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fai/COPYING
-
-
-%files fax
-%defattr(0644,root,root)
-# Addons section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/faxreports/main.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/faxreports/contents.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/faxreports/class_faxreport.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/faxreports/detail.tpl
-# Admin section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/fax/class_serviceFax.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/blocklists/main.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/blocklists/class_blocklistGeneric.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/blocklists/class_blocklistManagement.inc
-# Config section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/fax/class_faxConfig.inc
-# HTML section
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/fax
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/fax/images
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/fax/getfax.php
-# Locale section
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fax
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fax/locale/fa_IR/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fax/locale/id/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fax/locale/ca/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fax/locale/ru@petr1708/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fax/locale/zh/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fax/locale/nb/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fax/locale/vi_VN/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fax/locale/ug/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fax/locale/es/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fax/locale/cs_CZ/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fax/locale/fr/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fax/locale/pt_BR/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fax/locale/ru/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fax/locale/de/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fax/locale/it/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fax/locale/pl/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fax/locale/es_VE/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fax/locale/pt/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fax/locale/nl/fusiondirectory.po
-# Personal section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/faxaccount/class_gofaxAccount.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/faxaccount/main.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/faxaccount/locals.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/faxaccount/faxNumberSelect/faxNumberSelect-list.xml
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/faxaccount/faxNumberSelect/faxNumberSelect-filter.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/faxaccount/faxNumberSelect/faxNumberSelect-filter.xml
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/faxaccount/faxNumberSelect/faxNumberSelect-list.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/faxaccount/faxNumberSelect/class_faxNumberSelect.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/faxaccount/lists.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/faxaccount/paste_generic.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/faxaccount/generic.tpl
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fax/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fax/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fax/COPYING
 
 
 %files freeradius
@@ -3768,18 +3676,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fai-schema/COPYING
 
 
-%files fax-schema
-%defattr(0644,root,root)
-# Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/fax-fd.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/fax-fd-conf.schema
-# Files
-%attr (-,root,root)	%{_datadir}/doc/fusiondirectory-plugin-fax-schema/gofax.sql
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fax-schema/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fax-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fax-schema/COPYING
-
-
 %files freeradius-schema
 %defattr(0644,root,root)
 # Files
@@ -4057,3 +3953,4 @@ LDAP schema for FusionDirectory ppolicy plugin
 - Missed class_supann.inc
 - Remove class_tabs.inc
 - Add mixedgroups plugin
+- Remove the fax plugin
