@@ -320,14 +320,6 @@ Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems
 %description argonaut
 Communication layer between various software and the JSON-RPC Argonaut Server
 
-%package asterisk
-Group:		Applications/System
-Summary:	Phone backend management with report functionality
-Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems,fusiondirectory-plugin-database-connector
-
-%description asterisk
-Phone backend management with report functionality
-
 %package autofs
 Group:		Applications/System
 Summary:	Management of automount entries
@@ -692,15 +684,6 @@ LDAP schema for FusionDirectory argonaut plugin
 
 
 
-%package asterisk-schema
-Group:		Applications/System
-Summary:	LDAP schema for FusionDirectory asterisk plugin
-
-%description asterisk-schema
-LDAP schema for FusionDirectory asterisk plugin
-
-
-
 %package autofs-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory autofs plugin
@@ -1025,10 +1008,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
-%post asterisk
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
 %post autofs
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
@@ -1204,10 +1183,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %postun argonaut
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
-%postun asterisk
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
@@ -1569,92 +1544,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-argonaut/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-argonaut/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-argonaut/COPYING
-
-
-%files asterisk
-%defattr(0644,root,root)
-# Admin section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/asterisk/class_serviceAsterisk.inc
-# Config section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/asterisk/class_asteriskPluginConfig.inc
-# HTML section
-# Directories
-# Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/asterisk/images/options.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/asterisk/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/asterisk/images/iconMiniMacros.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/asterisk/images/iconMacros.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/asterisk/images/iconReport.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/asterisk/images/hardware.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/asterisk/images/iconConference.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/asterisk/images/icon.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/asterisk/images/iconMiniConference.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/asterisk/images/sound.png
-# Files
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/fonreports/class_fonreport.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/fonreports/contents.tpl
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/fonreports/main.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/conference/class_phoneConferenceGeneric.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/conference/class_phoneConferenceManagment.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/conference/conf-filter.tpl
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/conference/conf-filter.xml
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/conference/conf-list.xml
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/conference/generic.tpl
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/conference/main.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/conference/paste_generic.tpl
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/conference/remove.tpl
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/conference/tabs_conference.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/class_gofonMacro.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/class_gofonMacroManagement.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/class_gofonMacroParameters.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/generic.tpl
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/macro-filter.tpl
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/macro-filter.xml
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/macro-list.xml
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/main.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/parameter.tpl
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/paste_generic.tpl
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/remove.tpl
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/macro/tabs_macros.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/ogroups/asterisk/class_phonequeue.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/ogroups/asterisk/phonequeue.tpl
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/asterisk/class_phoneGeneric.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/asterisk/phone.tpl
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/asterisk/phonesettings.tpl
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/asterisk/tabs_phone.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/phoneaccount/class_phoneAccount.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/phoneaccount/generic.tpl
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/phoneaccount/main.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/phoneaccount/paste_generic.tpl
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/remove.tpl
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/system-filter.tpl
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/system-filter.xml
-# Locale section
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/fa_IR/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/id/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/ca/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/ru@petr1708/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/zh/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/nb/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/vi_VN/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/ug/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/es/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/cs_CZ/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/fr/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/pt_BR/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/ru/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/de/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/it/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/pl/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/es_VE/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/pt/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/asterisk/locale/nl/fusiondirectory.po
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-asterisk/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-asterisk/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-asterisk/COPYING
 
 
 %files autofs
@@ -3589,18 +3478,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-argonaut-schema/COPYING
 
 
-%files asterisk-schema
-%defattr(0644,root,root)
-# Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/asterisk-fd-conf.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/asterisk-fd.schema
-# Files
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-asterisk-schema/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-asterisk-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-asterisk-schema/COPYING
-%attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-asterisk-schema/asteriskcdrdb.sql
-
-
 %files autofs-schema
 %defattr(0644,root,root)
 # Files
@@ -3954,3 +3831,4 @@ LDAP schema for FusionDirectory ppolicy plugin
 - Remove class_tabs.inc
 - Add mixedgroups plugin
 - Remove the fax plugin
+- Remove the asterisk plugin
