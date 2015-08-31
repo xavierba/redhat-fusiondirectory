@@ -402,6 +402,9 @@ fi
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Mon Aug 31 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.0.9-1.el6
+- Remove password and associate patch
+
 * Mon Jun 01 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.6-1.el6
 - Add again rfc2307bis schema
 
