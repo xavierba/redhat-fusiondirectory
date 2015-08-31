@@ -153,6 +153,10 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
       elif [ "${cur_plugin}" = "fai" ] ; then
         mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
         cp -a ./html/themes %{buildroot}%{_datadir}/fusiondirectory/html/
+
+      elif [ "${cur_plugin}" = "dhcp" ] ; then
+        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
+        cp -a ./html/themes %{buildroot}%{_datadir}/fusiondirectory/html/
  
       else
         # Directories
@@ -1729,11 +1733,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/serviceDHCP.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_dhcpNetwork.inc
 # HTML section
-# Directories
-# Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/dhcp/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/dhcp/images/icon.png
-# Files
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/dhcp.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/dhcp.png
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dhcp
 # Files
