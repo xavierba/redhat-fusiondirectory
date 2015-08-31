@@ -3446,7 +3446,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-mixedgroups/AUTHORS
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-mixedgroups/COPYING
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-mixedgroups/Changelog
-%attr (-,root,root)      %{_datadir}/fusiondirectory/locale/plugins/mixedgroups/locale/en/fusiondirectory.po
+%attr (-,root,root)      %{_datadir}/fusiondirectory/locale/plugins/mixedgroups/locale/
 %attr (-,root,root)      %{_datadir}/fusiondirectory/plugins/admin/ogroups/mixedgroups/class_mixedGroup.inc
 
 
