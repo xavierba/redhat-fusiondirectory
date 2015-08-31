@@ -18,9 +18,8 @@ Patch1:     %{name}-fix_install-location.patch
 Patch2:     %{name}-fix_libs-location.patch
 Patch3:     %{name}-fix_openldap-schema-location.patch
 Patch4:     %{name}-fix_pear-location.patch
-Patch5:     %{name}-fix_prototype-location.patch
-Patch6:     %{name}-fix_smarty3-location.patch
-Patch7:     %{name}-fix_install-location-apache-old-version.patch
+Patch5:     %{name}-fix_smarty3-location.patch
+Patch6:     %{name}-fix_install-location-apache-old-version.patch
 
 
 Requires:   php >= 5.3, php-ldap >= 5.3, php-imap >= 5.3, php-mbstring >= 5.3, php-pecl-imagick, php-gd
@@ -100,7 +99,7 @@ SEPolicy needed for Fusiondirectory.
 %if %{?rhel} >= 7
 %patch0 -p1
 %else
-%patch7 -p1
+%patch6 -p1
 %endif
 
 %patch1 -p1
@@ -108,7 +107,6 @@ SEPolicy needed for Fusiondirectory.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
-%patch6 -p1
 
 ############################
 # SELINUX PREP
