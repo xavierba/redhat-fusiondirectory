@@ -3130,12 +3130,11 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_filterSYSTEMS.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/ogroups/goto/termgroup.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/ogroups/goto/class_termgroup.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/class_phoneGeneric.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/password.tpl
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/remove.tpl
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/services/monitor/class_argonautFAIMonitor.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/system-filter.tpl
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/system-filter.xml
+%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/class_phoneGeneric.inc
+%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/remove.tpl
+%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/services/monitor/class_argonautFAIMonitor.inc
+%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/system-filter.tpl
+%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/system-filter.xml
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/systems/class_systemsPluginConfig.inc
