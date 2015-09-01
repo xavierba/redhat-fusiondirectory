@@ -135,7 +135,7 @@ gzip ./%{name}-client/man/%{name}-client.1
 gzip ./%{name}-ldap2zone/man/%{name}-ldap2zone.1
 gzip ./%{name}-quota/man/%{name}-quota.1
 gzip ./%{name}-fuse/man/%{name}-fuse.1
-gzip ./%{name}-fai-server/man/%{name}-fai-monitor.1
+gzip ./%{name}-fai-monitor/man/%{name}-fai-monitor.1
 gzip ./%{name}-fai-server/man/yumgroup2yumi.1
 
 %build
