@@ -103,8 +103,8 @@ Requires:	%{name}-common
 Requires:	perl-DateTime, perl-LDAP, perl-Log-Handler, perl-POE-Component-Schedule
 Requires:	perl-POE-Component-Server-SimpleHTTP
 Requires:	perl-POE-Component-Pool-Thread, perl-POE-Component-Server-JSONRPC
-Requires:	perl-JSON-RPC, perl-File-Pid, perl-App-Daemon,  perl-JSON >= 2.07-1
-Requires:	perl-Config-IniFiles, perl-POE, redhat-lsb-core
+Requires:	perl-JSON-RPC, perl-File-Pid, perl-App-Daemon, perl-JSON >= 2.07-1
+Requires:	perl-Config-IniFiles, perl-POE, perl-POE-Component-SSLify, redhat-lsb-core
 %description server
 Argonaut server to manage deployment systems.
 
