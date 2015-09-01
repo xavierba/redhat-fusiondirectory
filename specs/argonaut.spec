@@ -35,7 +35,7 @@ Argonaut client to manage computers and services.
 %package common
 Summary:        Argonaut common functions and librairies
 Requires:	coreutils >= 6.10-1, openldap-clients
-Requires:	perl-IO-Socket-SSL, perl-Path-Class, perl-LDAP
+Requires:	perl-IO-Socket-SSL, perl-Path-Class, perl-LDAP, perl-Digest-SHA
 %description common
 Common perl libraries used by the Argonaut deployment system.
 
