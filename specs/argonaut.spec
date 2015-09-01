@@ -347,6 +347,9 @@ rm -rf %{buildroot}
 
 #date + "%a %b %d %Y"
 %changelog
+* Tue Sep 1 2015 SWAELENS Jonathan <jonathan@opensides.be> - 0.9.3-1
+- Add many requires for argonaut-server and argonaut-common
+
 * Fri Apr 26 2015 SWAELENS Jonathan <jonathan@opensides.be> - 0.9.2-1
 - Add argonaut-fai-monitor package
 - Add yumgroup2yumi package

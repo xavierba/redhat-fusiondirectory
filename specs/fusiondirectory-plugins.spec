@@ -3697,7 +3697,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 %changelog
 
-* Tue Jun 2 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
+* Tue Sep 1 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
+- Remove unused password.tpl
 - Update locales for applications, certificates, ejbca, personal, ppolicy and webservice
 - Set good path for dhcp icon
 - Remove class_phoneIAX.inc and class_asteriskAccount.inc from asterisk plugin
