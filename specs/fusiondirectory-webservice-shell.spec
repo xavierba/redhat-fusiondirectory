@@ -10,6 +10,8 @@ URL:        http://www.fusiondirectory.org
 Buildarch:  noarch
 Source0:    fusiondirectory-plugins-%{version}.tar.gz
 
+Requires:   perl-Term-ReadLine-Gnu
+
 %description 
 This is the conmand line shell for the FusionDirectory with a webservice
 FusionDirectory is a combination of system-administrator and end-user web
