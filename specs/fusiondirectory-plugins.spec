@@ -1389,7 +1389,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files addressbook
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Addons section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/addressbook/address_edit.tpl
@@ -1431,7 +1431,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files alias
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/alias/class_aliasManagement.inc
@@ -1478,7 +1478,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files apache2
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/apache2/class_serviceApacheVhostEdit.inc
@@ -1519,7 +1519,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files argonaut
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Addons section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/main.inc
@@ -1586,7 +1586,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files autofs
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/autofs/main.inc
@@ -1632,7 +1632,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files cyrus
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/cyrus/class_serviceCyrus.inc
@@ -1675,7 +1675,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files debconf
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/debconf/class_debconfStartup.inc
@@ -1718,7 +1718,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files developers
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 %attr (-,root,root)	%{_datadir}/doc/fusiondirectory-developers/
 %attr (-,root,root)	%{_datadir}/doc/fusiondirectory-developers/CODING
 %attr (-,root,root)	%{_datadir}/doc/fusiondirectory-developers/Doxyfile
@@ -1735,7 +1735,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files dhcp
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_dhcpPlugin.inc
@@ -1798,7 +1798,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files dns
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dns/serviceDNSeditZoneEntries.tpl
@@ -1845,7 +1845,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files dovecot
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dovecot/class_serviceDovecot.inc
@@ -1886,7 +1886,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files dsa
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dsa/main.inc
@@ -1929,7 +1929,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files fai
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/repository/fai_repository.tpl
@@ -2006,7 +2006,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files freeradius
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/freeradius/class_freeradiusGroup.inc
@@ -2048,7 +2048,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files fusioninventory
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/fusioninventory/class_fiInventory.inc
@@ -2093,7 +2093,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files game
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Addons section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/game/game.tpl
@@ -2136,7 +2136,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files gpg
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Addons section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/gpg/main.inc
@@ -2183,7 +2183,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files ipmi
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/ipmi/class_ipmiClient.inc
@@ -2215,7 +2215,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files kolab
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/kolab/class_serviceKolab.inc
@@ -2262,7 +2262,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files ldapdump
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Addons section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/ldapdump/class_ldapDump.inc
@@ -2295,7 +2295,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files ldapmanager
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Addons section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/ldapmanager/main.inc
@@ -2337,7 +2337,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files mail
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/imap/class_serviceIMAP.inc
@@ -2390,7 +2390,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files nagios
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/nagios/class_nagiosConfig.inc
@@ -2433,7 +2433,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files netgroups
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/netgroups/class_netgroupSystem.inc
@@ -2483,7 +2483,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files opsi
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Addons section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/opsi/main.inc
@@ -2540,7 +2540,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files puppet
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/puppet/class_servicePuppet.inc
@@ -2577,7 +2577,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files pureftpd
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # HTML section
 # Directories
 # Files in the directory
@@ -2616,7 +2616,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files quota
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/quota/service_quota_parameters.tpl
@@ -2660,7 +2660,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files repository
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/repository/main.inc
@@ -2707,7 +2707,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files rsyslog
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Addons section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/rsyslog/rSyslog.tpl
@@ -2754,7 +2754,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files samba
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/samba/class_winstationGeneric.inc
@@ -2801,7 +2801,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files sogo
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/sogo/main.inc
@@ -2844,7 +2844,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files squid
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # HTML section
 # Directories
 # Files in the directory
@@ -2884,7 +2884,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files ssh
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # HTML section
 # Directories
 # Files in the directory
@@ -2920,7 +2920,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files sudo
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/sudo/usedoptions_section.tpl
@@ -2970,7 +2970,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files supann
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/supannStructures/class_supannStructuresManagement.inc
@@ -3045,7 +3045,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files sympa
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/sympa/class_serviceSympa.inc
@@ -3084,7 +3084,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files systems
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/serverService-filter.xml
@@ -3211,7 +3211,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files weblink
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/weblink/class_webLink.inc
@@ -3243,7 +3243,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files webservice
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/class_webserviceConfig.inc
@@ -3258,7 +3258,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/COPYING
 
 %files ejbca
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ejbca/locale/en/fusiondirectory.po
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/ejbca/class_ejbcaCertificate.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/ejbca/class_ejbcaManagement.inc
@@ -3275,7 +3275,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ejbca/Changelog
 
 %files applications
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/applications/class_applicationGeneric.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/applications/class_applicationManagement.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/applications/class_webApplication.inc
@@ -3289,7 +3289,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-applications/Changelog
 
 %files personal
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/personal/class_personalInfo.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/personal/class_socialHandlers.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/personal/main.inc
@@ -3317,7 +3317,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/
 
 %files certificates
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-certificates/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-certificates/COPYING
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-certificates/Changelog
@@ -3326,7 +3326,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/certificates/main.inc
 
 %files mixedgroups
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-mixedgroups/AUTHORS
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-mixedgroups/COPYING
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-mixedgroups/Changelog
@@ -3335,7 +3335,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files alias-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/alias-fd-conf.schema
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/alias-fd.schema
@@ -3345,7 +3345,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files apache2-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/mod_vhost_ldap.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-apache2-schema/AUTHORS
@@ -3354,7 +3354,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files argonaut-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/argonaut-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-argonaut-schema/AUTHORS
@@ -3363,7 +3363,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files autofs-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/autofs-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-autofs-schema/AUTHORS
@@ -3372,7 +3372,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files cyrus-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/cyrus-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus-schema/AUTHORS
@@ -3381,7 +3381,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files debconf-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/debconf.schema
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/debconf-fd.schema
@@ -3391,7 +3391,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files dhcp-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dhcp-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp-schema/AUTHORS
@@ -3400,7 +3400,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files dns-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dns-fd-conf.schema
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dnszone.schema
@@ -3410,7 +3410,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files dovecot-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dovecot-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dovecot-schema/AUTHORS
@@ -3419,7 +3419,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files dsa-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dsa-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dsa-schema/AUTHORS
@@ -3428,7 +3428,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files fai-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/fai.schema
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/fai-fd-conf.schema
@@ -3438,7 +3438,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files freeradius-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/freeradius.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-freeradius-schema/AUTHORS
@@ -3447,7 +3447,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files fusioninventory-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/inventory-fd.schema
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/fusioninventory-fd.schema
@@ -3458,7 +3458,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files gpg-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/pgp-recon.schema
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/pgp-keyserver.schema
@@ -3470,7 +3470,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files ipmi-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/ipmi-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi-schema/AUTHORS
@@ -3479,7 +3479,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files kolab-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/rfc2739.schema
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/kolab2.schema
@@ -3489,7 +3489,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files mail-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/mail-fd-conf.schema
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/mail-fd.schema
@@ -3499,7 +3499,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files nagios-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/nagios-fd-conf.schema
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/netways.schema
@@ -3509,7 +3509,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files netgroups-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/netgroups-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-netgroups-schema/AUTHORS
@@ -3518,7 +3518,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files opsi-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/opsi-fd.schema
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/opsi-fd-conf.schema
@@ -3528,7 +3528,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files puppet-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/puppet.schema
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/puppet-fd.schema
@@ -3538,7 +3538,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files pureftpd-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/pureftpd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-pureftpd-schema/AUTHORS
@@ -3547,7 +3547,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files quota-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/quota.schema
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/quota-fd.schema
@@ -3557,7 +3557,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files repository-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/repository-fd.schema
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/repository-fd-conf.schema
@@ -3567,7 +3567,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files samba-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/samba-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-samba-schema/AUTHORS
@@ -3576,7 +3576,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files sogo-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/sogo-fd-conf.schema
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/calRessources.schema
@@ -3587,7 +3587,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files squid-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/proxy-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-squid-schema/AUTHORS
@@ -3596,7 +3596,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files ssh-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/openssh-lpk.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ssh-schema/AUTHORS
@@ -3605,7 +3605,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files sudo-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/sudo-fd-conf.schema
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/sudo.schema
@@ -3615,7 +3615,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files supann-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/internet2.schema
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/supann_2009.schema
@@ -3626,7 +3626,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files sympa-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/sympa-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sympa-schema/AUTHORS
@@ -3635,7 +3635,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files systems-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/systems-fd-conf.schema
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/systems-fd.schema
@@ -3646,7 +3646,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files weblink-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/weblink-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-weblink-schema/AUTHORS
@@ -3655,7 +3655,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %files webservice-schema
-%defattr(0644,root,root)
+%defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/webservice-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice-schema/AUTHORS
@@ -3697,7 +3697,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 %changelog
 
-* Tue Sep 1 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
+* Tue Sep 4 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
 - Remove unused password.tpl
 - Update locales for applications, certificates, ejbca, personal, ppolicy and webservice
 - Set good path for dhcp icon
@@ -3719,3 +3719,5 @@ LDAP schema for FusionDirectory ppolicy plugin
 - Add mixedgroups plugin
 - Remove the fax plugin
 - Remove the asterisk plugin
+- Fixes #4080 Add directory mode 755
+
