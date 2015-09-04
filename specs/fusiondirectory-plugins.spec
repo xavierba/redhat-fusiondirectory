@@ -2989,7 +2989,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/etuelementpedagogique_EXAMPLE
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/diplome_SISE
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/etablissement_SUPANN
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/role
+%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/role_SUPANN
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/etuetape_EXAMPLE
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/activite_CNU
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/fusiondirectory/diplome_EXAMPLE
@@ -3721,3 +3721,4 @@ LDAP schema for FusionDirectory ppolicy plugin
 - Remove the asterisk plugin
 - Fixes #4080 Add directory mode 755
 - Fixes #4077 Package FAI monitor service in plugin FAI
+- Rename role file in role_SUPANN (#4075)
