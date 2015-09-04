@@ -1960,7 +1960,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/packageSelect/class_packageSelect.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/packageSelect/selectPackage-filter.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/class_faiScript.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/fai/class_faiSimplePluginClass.inc
+%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/fai/class_faiSimplePluginClass.inc
+%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/services/monitor/class_argonautFAIMonitor.inc
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/fai/class_faiConfig.inc
@@ -3132,7 +3133,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/ogroups/goto/class_termgroup.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/class_phoneGeneric.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/remove.tpl
-%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/services/monitor/class_argonautFAIMonitor.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/system-filter.tpl
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/system-filter.xml
 # Config section
@@ -3720,4 +3720,4 @@ LDAP schema for FusionDirectory ppolicy plugin
 - Remove the fax plugin
 - Remove the asterisk plugin
 - Fixes #4080 Add directory mode 755
-
+- Fixes #4077 Package FAI monitor service in plugin FAI
