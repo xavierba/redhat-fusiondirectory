@@ -234,14 +234,16 @@ done
 /sbin/restorecon -R /var/cache/%{name}
 
 %postun selinux
-for selinuxvariant in %{selinux_variants}
-do
-  /usr/sbin/semodule -s ${selinuxvariant} -r %{name} &> /dev/null || :
-done
+if [ "$1" = "0" ] ; then
+  for selinuxvariant in %{selinux_variants}
+  do
+    /usr/sbin/semodule -s ${selinuxvariant} -r %{name} &> /dev/null || :
+  done
 
-# Apply context for spool and cache directroy without the %{name} policy
-/sbin/restorecon -R /var/spool/%{name}
-/sbin/restorecon -R /var/cache/%{name}
+  # Apply context for spool and cache directroy without the %{name} policy
+  /sbin/restorecon -R /var/spool/%{name}
+  /sbin/restorecon -R /var/cache/%{name}
+fi
 
 %postun
 if [ "$1" = "0" ] ; then
@@ -407,6 +409,7 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 * Sat Sep 05 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.0.9-1.el6
 - Remove password and associate patch
 - Fixes #4071 Fixes postun only when we uninstall a package
+- Fixes #4071 Fixes postun selinux only when we uninstall the package
 
 * Mon Jun 01 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.6-1.el6
 - Add again rfc2307bis schema
