@@ -243,6 +243,27 @@ done
 /sbin/restorecon -R /var/spool/%{name}
 /sbin/restorecon -R /var/cache/%{name}
 
+%postun
+if [ "$1" = "0" ] ; then
+  if [ -d /etc/httpd/conf.d ]; then
+    # Remove FusionDirectory include
+    [ -L /etc/httpd/conf.d/fusiondirectory.conf ] && rm -f /etc/httpd/conf.d/fusiondirectory.conf
+
+    # Restart servers
+    if [ -x /usr/sbin/httpd ]; then
+      service httpd restart
+    fi
+  fi
+
+  if [ -d /var/cache/fusiondirectory ]; then
+    # Remove cache directory
+    rm -Rf /var/cache/fusiondirectory
+    
+    # Remove spool directory
+    rm -Rf /var/spool/fusiondirectory
+  fi
+fi
+
 %post
 # Remove cache and spool
 rm -Rf /var/cache/fusiondirectory/
@@ -275,25 +296,6 @@ fi
 # Link fusiondirectory.conf to cache/template directory
 ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondirectory/template/fusiondirectory.conf
 
-
-%postun
-if [ -d /etc/httpd/conf.d ]; then
-  # Remove FusionDirectory include
-  [ -L /etc/httpd/conf.d/fusiondirectory.conf ] && rm -f /etc/httpd/conf.d/fusiondirectory.conf
-
-  # Restart servers
-  if [ -x /usr/sbin/httpd ]; then
-    service httpd restart
-  fi
-fi
-
-if [ -d /var/cache/fusiondirectory ]; then
-  # Remove cache directory
-  rm -Rf /var/cache/fusiondirectory
-  
-  # Remove spool directory
-  rm -Rf /var/spool/fusiondirectory
-fi
 
 %files
 %defattr(-,root,root,-)
@@ -402,8 +404,9 @@ fi
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
-* Mon Aug 31 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.0.9-1.el6
+* Sat Sep 05 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.0.9-1.el6
 - Remove password and associate patch
+- Fixes #4071 Fixes postun only when we uninstall a package
 
 * Mon Jun 01 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.6-1.el6
 - Add again rfc2307bis schema
