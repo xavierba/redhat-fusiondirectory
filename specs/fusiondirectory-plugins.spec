@@ -436,13 +436,13 @@ Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems
 %description ipmi
 Basic ipmi support
 
-%package kolab
+%package kolab2
 Group:		Applications/System
-Summary:	Kolab2 management
+Summary:	kolab2 management
 Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-mail,fusiondirectory-plugin-cyrus
 
-%description kolab
-Kolab2 management
+%description kolab2
+kolab2 management
 
 %package ldapdump
 Group:		Applications/System
@@ -811,13 +811,13 @@ LDAP schema for FusionDirectory ipmi plugin
 
 
 
-%package kolab-schema
+%package kolab2-schema
 Group:		Applications/System
-Summary:	LDAP schema for FusionDirectory kolab plugin
+Summary:	LDAP schema for FusionDirectory kolab2 plugin
 Requires: fusiondirectory-plugin-mail-schema >= %{version}, fusiondirectory-plugin-cyrus-schema >= %{version}
 
-%description kolab-schema
-LDAP schema for FusionDirectory kolab plugin
+%description kolab2-schema
+LDAP schema for FusionDirectory kolab2 plugin
 
 
 
@@ -1103,7 +1103,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
-%post kolab
+%post kolab2
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
@@ -1281,7 +1281,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
-%postun kolab
+%postun kolab2
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
@@ -2215,51 +2215,31 @@ LDAP schema for FusionDirectory ppolicy plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi/COPYING
 
 
-%files kolab
+%files kolab2
 %defattr(0644,root,root,755)
 # Admin section
 # Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/kolab/class_serviceKolab.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/ogroups/kolab/class_mailogroup.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/ogroups/kolab/mail.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/ogroups/kolab/paste_mail.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/kolab2/class_serviceKolab.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/ogroups/kolab2/class_mailogroup.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/ogroups/kolab2/mail.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/ogroups/kolab2/paste_mail.tpl
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/kolab/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/kolab/images/icon.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/kolab2/images/iconMini.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/kolab2/images/icon.png
 # Files
 # Locale section
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab/locale/fa_IR/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab/locale/id/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab/locale/ca/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab/locale/ru@petr1708/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab/locale/zh/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab/locale/nb/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab/locale/vi_VN/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab/locale/ug/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab/locale/es/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab/locale/cs_CZ/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab/locale/fr/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab/locale/pt_BR/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab/locale/ru/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab/locale/de/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab/locale/it/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab/locale/pl/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab/locale/es_VE/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab/locale/pt/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab/locale/nl/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab2/locale/
 # Personal section
 # Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/kolab/class_mail-methods-kolab22.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/kolab/class_mail-methods-kolab.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/kolab/class_kolabAccount.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/kolab/main.inc
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab/COPYING
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/kolab2/class_mail-methods-kolab22.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/kolab2/class_mail-methods-kolab.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/kolab2/class_kolabAccount.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/kolab2/main.inc
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab2/AUTHORS
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab2/Changelog
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab2/COPYING
 
 
 %files ldapdump
@@ -3478,14 +3458,14 @@ LDAP schema for FusionDirectory ppolicy plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi-schema/COPYING
 
 
-%files kolab-schema
+%files kolab2-schema
 %defattr(0644,root,root,755)
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/rfc2739.schema
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/kolab2.schema
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab-schema/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab2-schema/AUTHORS
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab2-schema/Changelog
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab2-schema/COPYING
 
 
 %files mail-schema
@@ -3697,7 +3677,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 %changelog
 
-* Tue Sep 4 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
+* Tue Sep 15 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
 - Remove unused password.tpl
 - Update locales for applications, certificates, ejbca, personal, ppolicy and webservice
 - Set good path for dhcp icon
@@ -3722,3 +3702,4 @@ LDAP schema for FusionDirectory ppolicy plugin
 - Fixes #4080 Add directory mode 755
 - Fixes #4077 Package FAI monitor service in plugin FAI
 - Rename role file in role_SUPANN (#4075)
+- Rename kolab to kolab2
