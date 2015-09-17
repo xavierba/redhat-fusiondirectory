@@ -187,7 +187,6 @@ cp contrib/smarty/plugins/block.render.php %{buildroot}%{_datadir}/php/Smarty3/p
 # Move the schemas
 cp -a contrib/openldap/* %{buildroot}%{_sysconfdir}/openldap/schema/%{name}/
 mkdir -p %{buildroot}%{_datadir}/doc/%{name}/
-mv %{buildroot}%{_sysconfdir}/openldap/schema/%{name}/slapd.conf %{buildroot}%{_datadir}/doc/%{name}/slapd.conf-example
 
 # Move executables
 cp contrib/bin/* %{buildroot}%{_sbindir}
@@ -365,7 +364,6 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 %{_datadir}/%{name}/plugins
 %{_datadir}/%{name}/setup
 %{_sysconfdir}/%{name}/%{name}-apache.conf
-%{_datadir}/doc/%{name}/slapd.conf-example
 %{_datadir}/doc/%{name}/%{name}.conf
 %{_datadir}/php/Smarty3/plugins/block.render.php
 %{_datadir}/php/Smarty3/plugins/function.msgPool.php
@@ -406,10 +404,11 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
-* Sat Sep 05 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.0.9-1.el6
+* Thu Sep 17 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
 - Remove password and associate patch
 - Fixes #4071 Fixes postun only when we uninstall a package
 - Fixes #4071 Fixes postun selinux only when we uninstall the package
+- Fixes #4116 Remove slapd.conf example
 
 * Mon Jun 01 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.6-1.el6
 - Add again rfc2307bis schema
