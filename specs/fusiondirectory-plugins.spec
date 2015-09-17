@@ -591,7 +591,7 @@ Management of alias list of sympa
 %package systems
 Group:		Applications/System
 Summary:	System management base plugin
-Requires:	fusiondirectory >= %{version}
+Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-argonaut
 
 %description systems
 System management base plugin
@@ -974,7 +974,7 @@ LDAP schema for FusionDirectory sympa plugin
 %package systems-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory systems plugin
-Requires: fusiondirectory-schema >= %{version}
+Requires: fusiondirectory-schema >= %{version},fusiondirectory-plugin-argonaut-schema
 
 %description systems-schema
 LDAP schema for FusionDirectory systems plugin
@@ -3677,7 +3677,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 %changelog
 
-* Tue Sep 15 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
+* Thu Sep 17 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
 - Remove unused password.tpl
 - Update locales for applications, certificates, ejbca, personal, ppolicy and webservice
 - Set good path for dhcp icon
@@ -3703,3 +3703,4 @@ LDAP schema for FusionDirectory ppolicy plugin
 - Fixes #4077 Package FAI monitor service in plugin FAI
 - Rename role file in role_SUPANN (#4075)
 - Rename kolab to kolab2
+- Fixes #4133 Add argonaut plugin dependence for system plugin
