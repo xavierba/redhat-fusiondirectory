@@ -18,9 +18,8 @@ Patch1:     %{name}-fix_install-location.patch
 Patch2:     %{name}-fix_libs-location.patch
 Patch3:     %{name}-fix_openldap-schema-location.patch
 Patch4:     %{name}-fix_pear-location.patch
-Patch5:     %{name}-fix_prototype-location.patch
-Patch6:     %{name}-fix_smarty3-location.patch
-Patch7:     %{name}-fix_install-location-apache-old-version.patch
+Patch5:     %{name}-fix_smarty3-location.patch
+Patch6:     %{name}-fix_install-location-apache-old-version.patch
 
 
 Requires:   php >= 5.3, php-ldap >= 5.3, php-imap >= 5.3, php-mbstring >= 5.3, php-pecl-imagick, php-gd
@@ -100,7 +99,7 @@ SEPolicy needed for Fusiondirectory.
 %if %{?rhel} >= 7
 %patch0 -p1
 %else
-%patch7 -p1
+%patch6 -p1
 %endif
 
 %patch1 -p1
@@ -108,7 +107,6 @@ SEPolicy needed for Fusiondirectory.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
-%patch6 -p1
 
 ############################
 # SELINUX PREP
@@ -189,7 +187,6 @@ cp contrib/smarty/plugins/block.render.php %{buildroot}%{_datadir}/php/Smarty3/p
 # Move the schemas
 cp -a contrib/openldap/* %{buildroot}%{_sysconfdir}/openldap/schema/%{name}/
 mkdir -p %{buildroot}%{_datadir}/doc/%{name}/
-mv %{buildroot}%{_sysconfdir}/openldap/schema/%{name}/slapd.conf %{buildroot}%{_datadir}/doc/%{name}/slapd.conf-example
 
 # Move executables
 cp contrib/bin/* %{buildroot}%{_sbindir}
@@ -236,14 +233,37 @@ done
 /sbin/restorecon -R /var/cache/%{name}
 
 %postun selinux
-for selinuxvariant in %{selinux_variants}
-do
-  /usr/sbin/semodule -s ${selinuxvariant} -r %{name} &> /dev/null || :
-done
+if [ "$1" = "0" ] ; then
+  for selinuxvariant in %{selinux_variants}
+  do
+    /usr/sbin/semodule -s ${selinuxvariant} -r %{name} &> /dev/null || :
+  done
 
-# Apply context for spool and cache directroy without the %{name} policy
-/sbin/restorecon -R /var/spool/%{name}
-/sbin/restorecon -R /var/cache/%{name}
+  # Apply context for spool and cache directroy without the %{name} policy
+  /sbin/restorecon -R /var/spool/%{name}
+  /sbin/restorecon -R /var/cache/%{name}
+fi
+
+%postun
+if [ "$1" = "0" ] ; then
+  if [ -d /etc/httpd/conf.d ]; then
+    # Remove FusionDirectory include
+    [ -L /etc/httpd/conf.d/fusiondirectory.conf ] && rm -f /etc/httpd/conf.d/fusiondirectory.conf
+
+    # Restart servers
+    if [ -x /usr/sbin/httpd ]; then
+      service httpd restart
+    fi
+  fi
+
+  if [ -d /var/cache/fusiondirectory ]; then
+    # Remove cache directory
+    rm -Rf /var/cache/fusiondirectory
+    
+    # Remove spool directory
+    rm -Rf /var/spool/fusiondirectory
+  fi
+fi
 
 %post
 # Remove cache and spool
@@ -278,25 +298,6 @@ fi
 ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondirectory/template/fusiondirectory.conf
 
 
-%postun
-if [ -d /etc/httpd/conf.d ]; then
-  # Remove FusionDirectory include
-  [ -L /etc/httpd/conf.d/fusiondirectory.conf ] && rm -f /etc/httpd/conf.d/fusiondirectory.conf
-
-  # Restart servers
-  if [ -x /usr/sbin/httpd ]; then
-    service httpd restart
-  fi
-fi
-
-if [ -d /var/cache/fusiondirectory ]; then
-  # Remove cache directory
-  rm -Rf /var/cache/fusiondirectory
-  
-  # Remove spool directory
-  rm -Rf /var/spool/fusiondirectory
-fi
-
 %files
 %defattr(-,root,root,-)
 %{_mandir}/man1/%{name}-setup.1.gz
@@ -326,7 +327,6 @@ fi
 %{_datadir}/%{name}/include/accept-to-gettext.inc
 %{_datadir}/%{name}/include/class_acl.inc
 %{_datadir}/%{name}/include/class_baseSelector.inc
-%{_datadir}/%{name}/include/class_certificate.inc
 %{_datadir}/%{name}/include/class_config.inc
 %{_datadir}/%{name}/include/class_CopyPasteHandler.inc
 %{_datadir}/%{name}/include/class_departmentSortIterator.inc
@@ -350,8 +350,6 @@ fi
 %{_datadir}/%{name}/include/class_session.inc
 %{_datadir}/%{name}/include/class_SnapShotDialog.inc
 %{_datadir}/%{name}/include/class_SnapshotHandler.inc
-%{_datadir}/%{name}/include/class_sortableListing.inc
-%{_datadir}/%{name}/include/class_tabs.inc
 %{_datadir}/%{name}/include/class_tests.inc
 %{_datadir}/%{name}/include/class_timezone.inc
 %{_datadir}/%{name}/include/class_userinfo.inc
@@ -361,11 +359,11 @@ fi
 %{_datadir}/%{name}/include/php_setup.inc
 %{_datadir}/%{name}/include/variables_common.inc
 %{_datadir}/%{name}/include/variables.inc
+%{_datadir}/%{name}/include/class_template.inc
 %{_datadir}/%{name}/locale
 %{_datadir}/%{name}/plugins
 %{_datadir}/%{name}/setup
 %{_sysconfdir}/%{name}/%{name}-apache.conf
-%{_datadir}/doc/%{name}/slapd.conf-example
 %{_datadir}/doc/%{name}/%{name}.conf
 %{_datadir}/php/Smarty3/plugins/block.render.php
 %{_datadir}/php/Smarty3/plugins/function.msgPool.php
@@ -382,9 +380,9 @@ fi
 %{_sysconfdir}/openldap/schema/%{name}/core-fd.schema
 %{_sysconfdir}/openldap/schema/%{name}/ldapns.schema
 %{_sysconfdir}/openldap/schema/%{name}/samba.schema
-%{_sysconfdir}/openldap/schema/%{name}/recovery-fd.schema
 %{_sysconfdir}/openldap/schema/%{name}/core-fd-conf.schema
 %{_sysconfdir}/openldap/schema/%{name}/rfc2307bis.schema
+%{_sysconfdir}/openldap/schema/fusiondirectory/template-fd.schema
 %{_sbindir}/%{name}-insert-schema
 
 %files plugin-database-connector
@@ -406,6 +404,12 @@ fi
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Thu Sep 24 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
+- Remove password and associate patch
+- Fixes #4071 Fixes postun only when we uninstall a package
+- Fixes #4071 Fixes postun selinux only when we uninstall the package
+- Fixes #4116 Remove slapd.conf example
+
 * Thu Jul 30 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.9-1.el6
 - php-gd as mandatory package
 - replace perl-Crypt-PasswdMD5 by perl-Digest-SHA
