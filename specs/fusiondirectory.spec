@@ -233,7 +233,7 @@ done
 /sbin/restorecon -R /var/cache/%{name}
 
 %postun selinux
-if [ "$1" = "0" ] ; then
+if [ $1 = 0 ] ; then
   for selinuxvariant in %{selinux_variants}
   do
     /usr/sbin/semodule -s ${selinuxvariant} -r %{name} &> /dev/null || :
@@ -244,8 +244,8 @@ if [ "$1" = "0" ] ; then
   /sbin/restorecon -R /var/cache/%{name}
 fi
 
-%preun
-if [ "$1" = "0" ] ; then
+%postun
+if [ $1 = 0 ] ; then
   if [ -d /etc/httpd/conf.d ]; then
     # Remove FusionDirectory include
     [ -L /etc/httpd/conf.d/fusiondirectory.conf ] && rm -f /etc/httpd/conf.d/fusiondirectory.conf
@@ -404,6 +404,9 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Sun Sep 27 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
+- Fixes #4159 Modify syntax for postun
+
 * Thu Sep 24 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
 - Remove password and associate patch
 - Fixes #4071 Fixes postun only when we uninstall a package
