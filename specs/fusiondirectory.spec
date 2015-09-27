@@ -244,7 +244,7 @@ if [ "$1" = "0" ] ; then
   /sbin/restorecon -R /var/cache/%{name}
 fi
 
-%postun
+%preun
 if [ "$1" = "0" ] ; then
   if [ -d /etc/httpd/conf.d ]; then
     # Remove FusionDirectory include
