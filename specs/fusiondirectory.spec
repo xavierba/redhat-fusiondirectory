@@ -236,14 +236,37 @@ done
 /sbin/restorecon -R /var/cache/%{name}
 
 %postun selinux
-for selinuxvariant in %{selinux_variants}
-do
-  /usr/sbin/semodule -s ${selinuxvariant} -r %{name} &> /dev/null || :
-done
+if [ $1 = 0 ] ; then
+  for selinuxvariant in %{selinux_variants}
+  do
+    /usr/sbin/semodule -s ${selinuxvariant} -r %{name} &> /dev/null || :
+  done
 
-# Apply context for spool and cache directroy without the %{name} policy
-/sbin/restorecon -R /var/spool/%{name}
-/sbin/restorecon -R /var/cache/%{name}
+  # Apply context for spool and cache directroy without the %{name} policy
+  /sbin/restorecon -R /var/spool/%{name}
+  /sbin/restorecon -R /var/cache/%{name}
+fi
+
+%postun
+if [ $1 = 0 ] ; then
+  if [ -d /etc/httpd/conf.d ]; then
+    # Remove FusionDirectory include
+    [ -L /etc/httpd/conf.d/fusiondirectory.conf ] && rm -f /etc/httpd/conf.d/fusiondirectory.conf
+
+    # Restart servers
+    if [ -x /usr/sbin/httpd ]; then
+      service httpd restart
+    fi
+  fi
+
+  if [ -d /var/cache/fusiondirectory ]; then
+    # Remove cache directory
+    rm -Rf /var/cache/fusiondirectory
+    
+    # Remove spool directory
+    rm -Rf /var/spool/fusiondirectory
+  fi
+fi
 
 %post
 # Remove cache and spool
@@ -277,25 +300,6 @@ fi
 # Link fusiondirectory.conf to cache/template directory
 ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondirectory/template/fusiondirectory.conf
 
-
-%postun
-if [ -d /etc/httpd/conf.d ]; then
-  # Remove FusionDirectory include
-  [ -L /etc/httpd/conf.d/fusiondirectory.conf ] && rm -f /etc/httpd/conf.d/fusiondirectory.conf
-
-  # Restart servers
-  if [ -x /usr/sbin/httpd ]; then
-    service httpd restart
-  fi
-fi
-
-if [ -d /var/cache/fusiondirectory ]; then
-  # Remove cache directory
-  rm -Rf /var/cache/fusiondirectory
-  
-  # Remove spool directory
-  rm -Rf /var/spool/fusiondirectory
-fi
 
 %files
 %defattr(-,root,root,-)
@@ -406,6 +410,9 @@ fi
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Sun Sep 27 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.9-2.el6
+- Fixes #4159 Use $1 in scriptlet
+
 * Thu Jul 30 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.9-1.el6
 - php-gd as mandatory package
 - replace perl-Crypt-PasswdMD5 by perl-Digest-SHA
