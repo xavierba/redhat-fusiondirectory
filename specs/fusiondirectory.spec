@@ -378,7 +378,6 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 
 %{_sysconfdir}/openldap/schema/%{name}/core-fd.schema
 %{_sysconfdir}/openldap/schema/%{name}/ldapns.schema
-%{_sysconfdir}/openldap/schema/%{name}/samba.schema
 %{_sysconfdir}/openldap/schema/%{name}/core-fd-conf.schema
 %{_sysconfdir}/openldap/schema/%{name}/rfc2307bis.schema
 %{_sysconfdir}/openldap/schema/fusiondirectory/template-fd.schema
@@ -406,6 +405,7 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 * Thu Oct 08 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
 - Fixes #4159 Modify syntax for postun
 - Fixes #4136 Remove class_smbHash.inc
+- Fixes #4136 Remove samba.schema from fusiondirectory-schema
 
 * Thu Sep 24 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
 - Remove password and associate patch

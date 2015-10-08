@@ -3530,7 +3530,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 %files samba-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/samba-fd-conf.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/samba-fd-conf.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/samba.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-samba-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-samba-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-samba-schema/COPYING
@@ -3659,6 +3660,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %changelog
 * Thu Oct 8 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
 - Fixes #4136 Add class_smbHash in fusiondirectory-plugin-samba
+- Fixes #4136 Add samba.schema in fusiondirectory-plugin-samba-schema
 
 * Thu Sep 24 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
 - Remove unused password.tpl
