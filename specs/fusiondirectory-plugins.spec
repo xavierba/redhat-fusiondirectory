@@ -3654,7 +3654,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ppolicy-schema/COPYING
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ppolicy-schema/Changelog
 
-- 
+
 ########################
 
 %changelog
