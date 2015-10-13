@@ -233,7 +233,7 @@ done
 /sbin/restorecon -R /var/cache/%{name}
 
 %postun selinux
-if [ "$1" = "0" ] ; then
+if [ $1 = 0 ] ; then
   for selinuxvariant in %{selinux_variants}
   do
     /usr/sbin/semodule -s ${selinuxvariant} -r %{name} &> /dev/null || :
@@ -245,7 +245,7 @@ if [ "$1" = "0" ] ; then
 fi
 
 %postun
-if [ "$1" = "0" ] ; then
+if [ $1 = 0 ] ; then
   if [ -d /etc/httpd/conf.d ]; then
     # Remove FusionDirectory include
     [ -L /etc/httpd/conf.d/fusiondirectory.conf ] && rm -f /etc/httpd/conf.d/fusiondirectory.conf
@@ -346,7 +346,6 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 %{_datadir}/%{name}/include/class_objects.inc
 %{_datadir}/%{name}/include/class_plugin.inc
 %{_datadir}/%{name}/include/class_pluglist.inc
-%{_datadir}/%{name}/include/class_smbHash.inc
 %{_datadir}/%{name}/include/class_session.inc
 %{_datadir}/%{name}/include/class_SnapShotDialog.inc
 %{_datadir}/%{name}/include/class_SnapshotHandler.inc
@@ -379,7 +378,6 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 
 %{_sysconfdir}/openldap/schema/%{name}/core-fd.schema
 %{_sysconfdir}/openldap/schema/%{name}/ldapns.schema
-%{_sysconfdir}/openldap/schema/%{name}/samba.schema
 %{_sysconfdir}/openldap/schema/%{name}/core-fd-conf.schema
 %{_sysconfdir}/openldap/schema/%{name}/rfc2307bis.schema
 %{_sysconfdir}/openldap/schema/fusiondirectory/template-fd.schema
@@ -404,6 +402,11 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Thu Oct 08 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
+- Fixes #4159 Modify syntax for postun
+- Fixes #4136 Remove class_smbHash.inc
+- Fixes #4136 Remove samba.schema from fusiondirectory-schema
+
 * Thu Sep 24 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
 - Remove password and associate patch
 - Fixes #4071 Fixes postun only when we uninstall a package

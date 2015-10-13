@@ -2748,27 +2748,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/samba/class_sambaPluginConfig.inc
 %attr (-,root,root)	%{_datadir}/doc/fusiondirectory-plugin-samba/fix_munged
 # Locale section
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba/locale/fa_IR/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba/locale/id/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba/locale/ca/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba/locale/ru@petr1708/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba/locale/zh/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba/locale/nb/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba/locale/vi_VN/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba/locale/ug/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba/locale/es/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba/locale/cs_CZ/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba/locale/fr/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba/locale/pt_BR/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba/locale/ru/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba/locale/de/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba/locale/it/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba/locale/pl/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba/locale/es_VE/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba/locale/pt/fusiondirectory.po
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba/locale/nl/fusiondirectory.po
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba/locale/
 # Personal section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/samba/main.inc
@@ -2776,6 +2756,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/samba/sambaLogonHours.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/samba/class_sambaAccount.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/samba/class_sambaLogonHours.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/include/class_smbHash.inc
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-samba/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-samba/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-samba/COPYING
@@ -3549,7 +3530,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 %files samba-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/samba-fd-conf.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/samba-fd-conf.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/samba.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-samba-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-samba-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-samba-schema/COPYING
@@ -3676,6 +3658,10 @@ LDAP schema for FusionDirectory ppolicy plugin
 ########################
 
 %changelog
+* Thu Oct 8 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
+- Fixes #4136 Add class_smbHash in fusiondirectory-plugin-samba
+- Fixes #4136 Add samba.schema in fusiondirectory-plugin-samba-schema
+
 * Thu Sep 24 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
 - Remove unused password.tpl
 - Update locales for applications, certificates, ejbca, personal, ppolicy and webservice
