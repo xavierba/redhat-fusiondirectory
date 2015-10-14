@@ -29,7 +29,7 @@ Requires:   perl-Crypt-CBC, perl-LDAP, perl
 
 Requires:   httpd, gettext, perl-ExtUtils-MakeMaker, prototype, prototype-httpd, scriptaculous, scriptaculous-httpd
 
-Requires:   php-Smarty3, php-Smarty3-i18n, schema2ldif
+Requires:   php-Smarty3, php-Smarty3-i18n
 
 %description 
 FusionDirectory is a combination of system-administrator and end-user web
@@ -43,7 +43,7 @@ and can write user adapted sieve scripts.
 %package schema
 Group:			Applications/System
 Summary:		Schema Definitions for the %{name} package
-Requires:		openldap-clients
+Requires:		openldap-clients, schema2ldif
 
 %description schema
 Contains the Schema definition files for the %{name} admin package.
