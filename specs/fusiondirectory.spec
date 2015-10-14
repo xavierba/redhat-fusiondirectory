@@ -402,6 +402,9 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Wed Oct 14 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-2.el6
+- Fixes #4210 Add dependance at fusiondirectory-schema to schema2ldif
+
 * Thu Oct 08 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
 - Fixes #4159 Modify syntax for postun
 - Fixes #4136 Remove class_smbHash.inc
