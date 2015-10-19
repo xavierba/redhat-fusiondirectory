@@ -2945,23 +2945,23 @@ LDAP schema for FusionDirectory ppolicy plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/supann/class_supannConfig.inc
 # Files contrib supann
-%doc %attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/corps
-%doc %attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/eturegimeinscription_SISE
+%attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/corps
+%attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/eturegimeinscription_SISE
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/discipline_EXAMPLE
-%doc %attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/entite
+%attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/entite
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/etuelementpedagogique_EXAMPLE
-%doc %attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/diplome_SISE
+%attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/diplome_SISE
 %doc %attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/etablissement_SUPANN
-%doc %attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/role
+%attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/role_SUPANN
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/etuetape_EXAMPLE
-%doc %attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/activite_CNU
+%attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/activite_CNU
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/diplome_EXAMPLE
-%doc %attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/activite_REFERENS
-%doc %attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/affiliation
+%attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/activite_REFERENS
+%attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/affiliation
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/typediplome_EXAMPLE
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/eturegimeinscription_EXAMPLE
-%doc %attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/typediplome_SISE
-%doc %attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/discipline_SISE
+%attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/typediplome_SISE
+%attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/discipline_SISE
 # HTML section
 # Directories
 # Files in the directory
