@@ -362,7 +362,7 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 %{_datadir}/%{name}/locale
 %{_datadir}/%{name}/plugins
 %{_datadir}/%{name}/setup
-%{_sysconfdir}/%{name}/%{name}-apache.conf
+%config %{_sysconfdir}/%{name}/%{name}-apache.conf
 %{_datadir}/doc/%{name}/%{name}.conf
 %{_datadir}/php/Smarty3/plugins/block.render.php
 %{_datadir}/php/Smarty3/plugins/function.msgPool.php
@@ -402,8 +402,9 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
-* Wed Oct 14 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-2.el6
+* Tue Oct 14 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-2.el6
 - Fixes #4210 Add dependance at fusiondirectory-schema to schema2ldif
+- Fixes #4232 Set fusiondirectory-apache as config file
 
 * Thu Oct 08 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
 - Fixes #4159 Modify syntax for postun
