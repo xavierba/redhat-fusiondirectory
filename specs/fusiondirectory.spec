@@ -358,6 +358,7 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 %{_datadir}/%{name}/include/variables_common.inc
 %{_datadir}/%{name}/include/variables.inc
 %{_datadir}/%{name}/include/class_template.inc
+%{_datadir}/%{name}/include/class_SnapshotDialogs.inc
 %{_datadir}/%{name}/locale
 %{_datadir}/%{name}/plugins
 %{_datadir}/%{name}/setup
@@ -405,6 +406,7 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 - Fixes #4210 Add dependance at fusiondirectory-schema to schema2ldif
 - Fixes #4232 Set fusiondirectory-apache as config file
 - Fixes #4248 Remove class_SnapShotDialog.inc
+- Fixes #4248 Include class_SnapshotDialogs.inc in specfile
 
 * Thu Oct 08 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
 - Fixes #4159 Modify syntax for postun
