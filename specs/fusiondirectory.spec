@@ -25,7 +25,7 @@ Patch6:     %{name}-fix_install-location-apache-old-version.patch
 Requires:   php >= 5.3, php-ldap >= 5.3, php-imap >= 5.3, php-mbstring >= 5.3, php-pecl-imagick, php-gd, php-mcrypt
 
 Requires:   perl-Path-Class, perl-Digest-SHA, perl-File-Copy-Recursive, perl-Archive-Extract, perl-XML-Twig
-Requires:   perl-Crypt-CBC, perl-LDAP, perl
+Requires:   perl-Crypt-CBC, perl-LDAP, perl, perl-Crypt-Rijndael
 
 Requires:   httpd, gettext, perl-ExtUtils-MakeMaker, prototype, prototype-httpd, scriptaculous, scriptaculous-httpd
 
@@ -407,7 +407,8 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 - Fixes #4232 Set fusiondirectory-apache as config file
 - Fixes #4248 Remove class_SnapShotDialog.inc
 - Fixes #4248 Include class_SnapshotDialogs.inc in specfile
-- Fixes #4257 Add php-mcrypt in the dependance
+- Fixes #4257 Add php-mcrypt in the dependence
+- Fixes #4256 Add perl-Crypt-Rijndael in the dependence
 
 * Thu Oct 08 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
 - Fixes #4159 Modify syntax for postun
