@@ -44,7 +44,7 @@ rm -Rf %{buildroot}
 %attr(-,root,root) %{_datadir}/man/man1/fusiondirectory-shell.1.gz
 
 %changelog
-* Mon Ocy 26 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
+* Mon Oct 26 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
 - Fixes #4262 Add perl-LWP-Protocol-https dependance
 
 * Sat Sep 07 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1
