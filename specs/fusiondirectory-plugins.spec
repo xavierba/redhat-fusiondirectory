@@ -157,6 +157,10 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
       elif [ "${cur_plugin}" = "dhcp" ] ; then
         mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
         cp -a ./html/themes %{buildroot}%{_datadir}/fusiondirectory/html/
+
+      elif [ "${cur_plugin}" = "ppolicy" ] ; then
+        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
+        cp -a ./html/themes %{buildroot}%{_datadir}/fusiondirectory/html/
  
       else
         # Directories
@@ -2585,8 +2589,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/ppolicy/main.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/dashboard/class_dashBoardPPolicy.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/dashboard/ppolicy_locked_accounts.tpl
-%attr (-,root,root)     %{_datadir}/fusiondirectory/html/plugins/ppolicy/themes/default/icons/16/apps/ppolicy.png
-%attr (-,root,root)     %{_datadir}/fusiondirectory/html/plugins/ppolicy/themes/default/icons/48/apps/ppolicy.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/ppolicy.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/ppolicy.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/
 
 %files certificates
@@ -2970,9 +2974,10 @@ LDAP schema for FusionDirectory ppolicy plugin
 ########################
 
 %changelog
-* Thu Oct 22 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1.el6
+* Wed Nov 25 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1.el6
 - Fixes #4228 Move the supann example in an example directory
 - Fixes #4243 Add update cache and update locales for applications
+- Fixes #4333 Move the icons of ppolicy plugin
 
 * Thu Oct 8 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
 - Fixes #4136 Add class_smbHash in fusiondirectory-plugin-samba
