@@ -250,6 +250,7 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
       if [ "${cur_plugin}" = "ppolicy" ] ; then
         mkdir -p %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
         mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
+        mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
         cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
 
         cp -a ./contrib/openldap/*.ldif %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
