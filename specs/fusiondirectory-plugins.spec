@@ -247,23 +247,31 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
     
     # Openldap section
     if [ -d ./contrib/openldap ] ; then
-      mkdir -p %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
-      mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
-      cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/   
+      if [ "${cur_plugin}" = "ppolicy" ] ; then
+        mkdir -p %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
+        mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
+        cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
+
+        cp -a ./contrib/openldap/*.ldif %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
+        cp -a ./contrib/openldap/*.schema %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
+      else
+        mkdir -p %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
+        mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
+        cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/   
  
-      # Directories
-      for cur_openldap in $(find ./contrib/openldap -mindepth 1 -maxdepth 1 -type d) ; do
-        openldap_line="$(echo ${cur_openldap} | sed "s#./contrib/openldap/##")" 
-        cp -a ./contrib/openldap/${openldap_line} %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
-      done
+        # Directories
+        for cur_openldap in $(find ./contrib/openldap -mindepth 1 -maxdepth 1 -type d) ; do
+          openldap_line="$(echo ${cur_openldap} | sed "s#./contrib/openldap/##")" 
+          cp -a ./contrib/openldap/${openldap_line} %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
+        done
     
-      # Files
-      for cur_openldap in $(find ./contrib/openldap -mindepth 1 -maxdepth 1 -type f ! -name 'example.ldif' ) ; do
-        openldap_line="$(echo ${cur_openldap} | sed "s#./contrib/openldap/##")" 
-        cp -a ./contrib/openldap/${openldap_line} %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
-      done
-    fi
-    
+        # Files
+        for cur_openldap in $(find ./contrib/openldap -mindepth 1 -maxdepth 1 -type f ! -name 'example.ldif' ) ; do
+          openldap_line="$(echo ${cur_openldap} | sed "s#./contrib/openldap/##")" 
+          cp -a ./contrib/openldap/${openldap_line} %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
+        done
+      fi
+    fi  
     
     # SQL section
     if [ -d ./contrib/sql ] ; then
@@ -2592,6 +2600,9 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/ppolicy.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/ppolicy.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/
+%attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-ppolicy/ppolicyconfig.ldif
+%attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-ppolicy/ppolicydefault.ldif
+%attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-ppolicy/ppolicymodule.ldif
 
 %files certificates
 %defattr(0644,root,root,755)
@@ -2963,9 +2974,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 %files ppolicy-schema
 %attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/ppolicy-fd-conf.schema
-%attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/ppolicyconfig.ldif
-%attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/ppolicydefault.ldif
-%attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/ppolicymodule.ldif
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ppolicy-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ppolicy-schema/COPYING
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ppolicy-schema/Changelog
@@ -2978,6 +2986,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 - Fixes #4228 Move the supann example in an example directory
 - Fixes #4243 Add update cache and update locales for applications
 - Fixes #4333 Move the icons of ppolicy plugin
+- Fixes #4338 Move exemple ldif of ppolicy in /usr/share/doc/fusiondirectory-plugin-ppolicy/
 
 * Thu Oct 8 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
 - Fixes #4136 Add class_smbHash in fusiondirectory-plugin-samba
