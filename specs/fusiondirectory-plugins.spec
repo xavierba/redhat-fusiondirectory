@@ -539,14 +539,6 @@ Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems
 %description repository
 Plugin to manage repository for build systems
 
-%package rsyslog
-Group:		Applications/System
-Summary:	Rsyslog logging plugin
-Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems,fusiondirectory-plugin-database-connector
-
-%description rsyslog
-Rsyslog logging plugin
-
 %package samba
 Group:		Applications/System
 Summary:	Samba 3 integration
@@ -1162,10 +1154,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
-%post rsyslog
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
 %post samba
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
@@ -1340,10 +1328,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 
 %postun repository
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
-%postun rsyslog
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
@@ -2170,33 +2154,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-repository/COPYING
 
 
-%files rsyslog
-%defattr(0644,root,root,755)
-# Addons section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/rsyslog/rSyslog.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/rsyslog/main.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/rsyslog/rsyslogTabs.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/rsyslog/class_rsyslog.inc
-# Admin section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/rsyslog/class_serviceSyslog.inc
-# HTML section
-# Directories
-# Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/rsyslog/images/server.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/rsyslog/images/clock.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/rsyslog/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/rsyslog/images/workstation.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/rsyslog/images/icon.png
-# Files
-# Locale section
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/rsyslog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-rsyslog/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-rsyslog/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-rsyslog/COPYING
-
-
 %files samba
 %defattr(0644,root,root,755)
 # Admin section
@@ -2983,11 +2940,12 @@ LDAP schema for FusionDirectory ppolicy plugin
 ########################
 
 %changelog
-* Wed Nov 25 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1.el6
+* Wed Nov 25 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
 - Fixes #4228 Move the supann example in an example directory
 - Fixes #4243 Add update cache and update locales for applications
 - Fixes #4333 Move the icons of ppolicy plugin
 - Fixes #4338 Move exemple ldif of ppolicy in /usr/share/doc/fusiondirectory-plugin-ppolicy/
+- Fixes #4369 Remove rsyslog plugin
 
 * Thu Oct 8 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
 - Fixes #4136 Add class_smbHash in fusiondirectory-plugin-samba
