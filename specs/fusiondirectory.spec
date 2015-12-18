@@ -158,6 +158,7 @@ mkdir -p %{buildroot}%{_sysconfdir}/%{name}/
 mkdir -p %{buildroot}%{_sbindir}
 mkdir -p %{buildroot}%{_sysconfdir}/openldap/schema/%{name}/
 mkdir -p %{buildroot}%{_datadir}/php/Smarty3/plugins/
+mkdir -p %{buildroot}%{_datadir}%{name}/html/javascript/
 
 # Set the rights
 chmod 750 contrib/bin/*
@@ -326,6 +327,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/%{name}/html/include/%{name}.js
 %{_datadir}/%{name}/html/include/pulldown.js
 %{_datadir}/%{name}/html/include/pwdStrength.js
+%{_datadir}/%{name}/html/javascript/
 %{_datadir}/%{name}/ihtml
 %{_datadir}/%{name}/include/exporter
 %{_datadir}/%{name}/include/password-methods
