@@ -263,6 +263,10 @@ if [ $1 = 0 ] ; then
     # Remove spool directory
     rm -Rf /var/spool/fusiondirectory
   fi
+
+  # Delete javascript libraries symlinks
+  [ -L /usr/share/fusiondirectory/javascript/prototype ] && rm -f /usr/share/fusiondirectory/javascript/prototype
+  [ -L /usr/share/fusiondirectory/javascript/scriptaculous ] && rm -f /usr/share/fusiondirectory/javascript/scriptaculous
 fi
 
 %post
@@ -297,6 +301,9 @@ fi
 # Link fusiondirectory.conf to cache/template directory
 ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondirectory/template/fusiondirectory.conf
 
+# Link javascript libraries
+ln -s /usr/share/prototype /usr/share/fusiondirectory/html/javascript/prototype
+ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/scriptaculous
 
 %files
 %defattr(-,root,root,-)
@@ -410,6 +417,7 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 - Fixes #4257 Add php-mcrypt in the dependence
 - Fixes #4256 Add perl-Crypt-Rijndael in the dependence
 - Fixes #4326 Add php cas library
+- Fixes #4269 Make symlink for javascript libraries
 
 * Thu Oct 08 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
 - Fixes #4159 Modify syntax for postun
