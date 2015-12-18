@@ -981,7 +981,7 @@ LDAP schema for FusionDirectory sympa plugin
 %package systems-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory systems plugin
-Requires: fusiondirectory-schema >= %{version},fusiondirectory-plugin-argonaut-schema
+Requires: fusiondirectory-schema >= %{version}, fusiondirectory-plugin-argonaut-schema >= %{version}
 
 %description systems-schema
 LDAP schema for FusionDirectory systems plugin
@@ -2940,12 +2940,13 @@ LDAP schema for FusionDirectory ppolicy plugin
 ########################
 
 %changelog
-* Wed Nov 25 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
+* Fri Dec 18 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
 - Fixes #4228 Move the supann example in an example directory
 - Fixes #4243 Add update cache and update locales for applications
 - Fixes #4333 Move the icons of ppolicy plugin
 - Fixes #4338 Move exemple ldif of ppolicy in /usr/share/doc/fusiondirectory-plugin-ppolicy/
 - Fixes #4369 Remove rsyslog plugin
+- Fixes #4330 Add version for fusiondirectory-plugin-systems-schema dependance
 
 * Thu Oct 8 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
 - Fixes #4136 Add class_smbHash in fusiondirectory-plugin-samba
