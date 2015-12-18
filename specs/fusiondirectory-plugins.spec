@@ -574,7 +574,7 @@ SSH key plugin
 %package sudo
 Group:		Applications/System
 Summary:	Sudo manager
-Requires:	fusiondirectory >= %{version}
+Requires:	fusiondirectory >= %{version}, fusiondirectory-plugin-systems >= %{version}
 
 %description sudo
 Sudo manager
@@ -951,7 +951,7 @@ LDAP schema for FusionDirectory ssh plugin
 %package sudo-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory sudo plugin
-Requires: fusiondirectory-schema >= %{version}
+Requires: 	fusiondirectory-schema >= %{version}, fusiondirectory-plugin-systems-schema >= %{version}
 
 %description sudo-schema
 LDAP schema for FusionDirectory sudo plugin
@@ -2948,6 +2948,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 - Fixes #4369 Remove rsyslog plugin
 - Fixes #4330 Add version for fusiondirectory-plugin-systems-schema dependance
 - Fixes #4283 Add version for fusiondirectory-plugin-systems dependance
+- Fixes #4276 Add dependance between sudo and systems
 
 * Thu Oct 8 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
 - Fixes #4136 Add class_smbHash in fusiondirectory-plugin-samba
