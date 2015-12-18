@@ -158,7 +158,7 @@ mkdir -p %{buildroot}%{_sysconfdir}/%{name}/
 mkdir -p %{buildroot}%{_sbindir}
 mkdir -p %{buildroot}%{_sysconfdir}/openldap/schema/%{name}/
 mkdir -p %{buildroot}%{_datadir}/php/Smarty3/plugins/
-mkdir -p %{buildroot}%{_datadir}%{name}/html/javascript/
+mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/javascript/
 
 # Set the rights
 chmod 750 contrib/bin/*
