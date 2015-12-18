@@ -598,7 +598,7 @@ Management of alias list of sympa
 %package systems
 Group:		Applications/System
 Summary:	System management base plugin
-Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-argonaut
+Requires:	fusiondirectory >= %{version}, fusiondirectory-plugin-argonaut >= %{version}
 
 %description systems
 System management base plugin
@@ -606,7 +606,7 @@ System management base plugin
 %package weblink
 Group:		Applications/System
 Summary:	Plugin to access remote management of systems
-Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems
+Requires:	fusiondirectory >= %{version}, fusiondirectory-plugin-systems >= %{version}
 
 %description weblink
 Plugin to access remote management of systems
@@ -2947,6 +2947,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 - Fixes #4338 Move exemple ldif of ppolicy in /usr/share/doc/fusiondirectory-plugin-ppolicy/
 - Fixes #4369 Remove rsyslog plugin
 - Fixes #4330 Add version for fusiondirectory-plugin-systems-schema dependance
+- Fixes #4283 Add version for fusiondirectory-plugin-systems dependance
 
 * Thu Oct 8 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
 - Fixes #4136 Add class_smbHash in fusiondirectory-plugin-samba
