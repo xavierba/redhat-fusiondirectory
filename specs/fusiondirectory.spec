@@ -266,8 +266,8 @@ if [ $1 = 0 ] ; then
   fi
 
   # Delete javascript libraries symlinks
-  [ -L /usr/share/fusiondirectory/javascript/prototype ] && rm -f /usr/share/fusiondirectory/javascript/prototype
-  [ -L /usr/share/fusiondirectory/javascript/scriptaculous ] && rm -f /usr/share/fusiondirectory/javascript/scriptaculous
+  [ -L /usr/share/fusiondirectory/javascript/prototype ] && rm -f /usr/share/fusiondirectory/html/javascript/prototype
+  [ -L /usr/share/fusiondirectory/javascript/scriptaculous ] && rm -f /usr/share/fusiondirectory/html/javascript/scriptaculous
 fi
 
 %post
