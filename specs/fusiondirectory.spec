@@ -22,14 +22,14 @@ Patch5:     %{name}-fix_smarty3-location.patch
 Patch6:     %{name}-fix_install-location-apache-old-version.patch
 
 
-Requires:   php >= 5.3, php-ldap >= 5.3, php-imap >= 5.3, php-mbstring >= 5.3, php-pecl-imagick, php-gd
+Requires:   php >= 5.3, php-ldap >= 5.3, php-imap >= 5.3, php-mbstring >= 5.3, php-pecl-imagick, php-gd, php-mcrypt
 
 Requires:   perl-Path-Class, perl-Digest-SHA, perl-File-Copy-Recursive, perl-Archive-Extract, perl-XML-Twig
-Requires:   perl-Crypt-CBC, perl-LDAP, perl
+Requires:   perl-Crypt-CBC, perl-LDAP, perl, perl-Crypt-Rijndael
 
 Requires:   httpd, gettext, perl-ExtUtils-MakeMaker, prototype, prototype-httpd, scriptaculous, scriptaculous-httpd
 
-Requires:   php-Smarty3, php-Smarty3-i18n, schema2ldif
+Requires:   php-Smarty3, php-Smarty3-i18n, php-pear-CAS
 
 %description 
 FusionDirectory is a combination of system-administrator and end-user web
@@ -43,7 +43,7 @@ and can write user adapted sieve scripts.
 %package schema
 Group:			Applications/System
 Summary:		Schema Definitions for the %{name} package
-Requires:		openldap-clients
+Requires:		openldap-clients, schema2ldif
 
 %description schema
 Contains the Schema definition files for the %{name} admin package.
@@ -158,6 +158,7 @@ mkdir -p %{buildroot}%{_sysconfdir}/%{name}/
 mkdir -p %{buildroot}%{_sbindir}
 mkdir -p %{buildroot}%{_sysconfdir}/openldap/schema/%{name}/
 mkdir -p %{buildroot}%{_datadir}/php/Smarty3/plugins/
+mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/javascript/
 
 # Set the rights
 chmod 750 contrib/bin/*
@@ -263,6 +264,10 @@ if [ $1 = 0 ] ; then
     # Remove spool directory
     rm -Rf /var/spool/fusiondirectory
   fi
+
+  # Delete javascript libraries symlinks
+  [ -L /usr/share/fusiondirectory/javascript/prototype ] && rm -f /usr/share/fusiondirectory/html/javascript/prototype
+  [ -L /usr/share/fusiondirectory/javascript/scriptaculous ] && rm -f /usr/share/fusiondirectory/html/javascript/scriptaculous
 fi
 
 %post
@@ -297,6 +302,9 @@ fi
 # Link fusiondirectory.conf to cache/template directory
 ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondirectory/template/fusiondirectory.conf
 
+# Link javascript libraries
+ln -s /usr/share/prototype /usr/share/fusiondirectory/html/javascript/prototype
+ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/scriptaculous
 
 %files
 %defattr(-,root,root,-)
@@ -319,6 +327,7 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 %{_datadir}/%{name}/html/include/%{name}.js
 %{_datadir}/%{name}/html/include/pulldown.js
 %{_datadir}/%{name}/html/include/pwdStrength.js
+%{_datadir}/%{name}/html/javascript/
 %{_datadir}/%{name}/ihtml
 %{_datadir}/%{name}/include/exporter
 %{_datadir}/%{name}/include/password-methods
@@ -347,7 +356,6 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 %{_datadir}/%{name}/include/class_plugin.inc
 %{_datadir}/%{name}/include/class_pluglist.inc
 %{_datadir}/%{name}/include/class_session.inc
-%{_datadir}/%{name}/include/class_SnapShotDialog.inc
 %{_datadir}/%{name}/include/class_SnapshotHandler.inc
 %{_datadir}/%{name}/include/class_tests.inc
 %{_datadir}/%{name}/include/class_timezone.inc
@@ -359,10 +367,11 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 %{_datadir}/%{name}/include/variables_common.inc
 %{_datadir}/%{name}/include/variables.inc
 %{_datadir}/%{name}/include/class_template.inc
+%{_datadir}/%{name}/include/class_SnapshotDialogs.inc
 %{_datadir}/%{name}/locale
 %{_datadir}/%{name}/plugins
 %{_datadir}/%{name}/setup
-%{_sysconfdir}/%{name}/%{name}-apache.conf
+%config %{_sysconfdir}/%{name}/%{name}-apache.conf
 %{_datadir}/doc/%{name}/%{name}.conf
 %{_datadir}/php/Smarty3/plugins/block.render.php
 %{_datadir}/php/Smarty3/plugins/function.msgPool.php
@@ -402,6 +411,16 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Fri Dec 18 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
+- Fixes #4210 Add dependance at fusiondirectory-schema to schema2ldif
+- Fixes #4232 Set fusiondirectory-apache as config file
+- Fixes #4248 Remove class_SnapShotDialog.inc
+- Fixes #4248 Include class_SnapshotDialogs.inc in specfile
+- Fixes #4257 Add php-mcrypt in the dependence
+- Fixes #4256 Add perl-Crypt-Rijndael in the dependence
+- Fixes #4326 Add php cas library
+- Fixes #4269 Make symlink for javascript libraries
+
 * Thu Oct 08 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
 - Fixes #4159 Modify syntax for postun
 - Fixes #4136 Remove class_smbHash.inc

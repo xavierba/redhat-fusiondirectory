@@ -10,7 +10,7 @@ URL:        http://www.fusiondirectory.org
 Buildarch:  noarch
 Source0:    fusiondirectory-plugins-%{version}.tar.gz
 
-Requires:   perl-Term-ReadLine-Gnu
+Requires:   perl-Term-ReadLine-Gnu, perl-LWP-Protocol-https
 
 %description 
 This is the conmand line shell for the FusionDirectory with a webservice
@@ -44,5 +44,8 @@ rm -Rf %{buildroot}
 %attr(-,root,root) %{_datadir}/man/man1/fusiondirectory-shell.1.gz
 
 %changelog
+* Mon Oct 26 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
+- Fixes #4262 Add perl-LWP-Protocol-https dependance
+
 * Sat Sep 07 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1
 - Fixes #4089 Add fusiondirectory-shell in rpm
