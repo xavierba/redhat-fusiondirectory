@@ -164,6 +164,7 @@ cp contrib/man/%{name}-insert-schema.1.gz %{buildroot}%{_datadir}/man/man1
 cp contrib/man/%{name}.conf.5.gz %{buildroot}%{_datadir}/man/man5
 
 # Copy docs
+mkdir -p %{buildroot}%{_datadir}/doc/{%{name},%{name}-schema}
 cp ./AUTHORS ./Changelog ./COPYING %{buildroot}%{_datadir}/doc/%{name}/
 cp ./AUTHORS ./Changelog ./COPYING %{buildroot}%{_datadir}/doc/%{name}-schema/
 cp contrib/%{name}.conf %{buildroot}%{_datadir}/doc/%{name}/
@@ -399,6 +400,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 - Fixes #4326 Add php cas library
 - Fixes #4269 Make symlink for javascript libraries
 - Fixes #4400 Delete databaseManagement class
+- Fixes #4400 Must only not create the connector docs directory
 
 * Thu Oct 08 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
 - Fixes #4159 Modify syntax for postun
