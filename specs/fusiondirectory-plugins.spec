@@ -1722,6 +1722,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/class_faiPackage.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/class_faiHook.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/class_faiVariable.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/fai/class_faiDiskEntry.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/packageSelect/selectPackage-list.xml
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/packageSelect/class_filterFAIPackages.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/packageSelect/selectPackage-filter.xml
@@ -2939,6 +2940,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 - Fixes #4416 Migrate last FAI classes to simplePlugin
 - Fixes #4416 Forgot to remove faiDiskEntry.tpl
 - Fixes #4405 Add class_argonautAction.inc and import_events.tpl
+- Fixes #4416 Add class_faiDiskEntry.inc in specfile
 
 * Thu Oct 8 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
 - Fixes #4136 Add class_smbHash in fusiondirectory-plugin-samba
