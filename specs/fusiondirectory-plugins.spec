@@ -1542,7 +1542,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 # Personal section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/mail-methods/class_mail-methods-cyrus.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/mail-methods/class_mail-methods-sendmail-cyrus.inc
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus/COPYING
@@ -2939,6 +2938,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 - Fixes #4283 Add version for fusiondirectory-plugin-systems dependance
 - Fixes #4276 Add dependance between sudo and systems
 - Fixes #4405 Clean up the DaemonEvent mess
+- Fixes #4397 Remove the mail method Cyrus Sendmail
 
 * Thu Oct 8 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
 - Fixes #4136 Add class_smbHash in fusiondirectory-plugin-samba
