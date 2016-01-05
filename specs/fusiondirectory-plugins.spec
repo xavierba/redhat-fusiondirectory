@@ -1467,20 +1467,9 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/main.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/deploy-list.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/class_argonautQueue.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/argonaut_import_file.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/class_filterArgonautEvents.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/events/timestamp_select.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/events/class_EventAddSystemDialog.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/events/eventTargetSystems-filter.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/events/eventTargetSystems-filter.xml
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/events/class_filterSystemByIp.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/events/DaemonEvent.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/events/target_list.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/events/class_DaemonEvent.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/events/eventTargetSystems-list.xml
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/class_argonautImportFile.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/deploy-list.xml
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/remove.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/deploy-filter.xml
 # Admin section
 # Files
@@ -2940,7 +2929,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 ########################
 
 %changelog
-* Fri Dec 18 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
+* Tue Jan 05 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
 - Fixes #4228 Move the supann example in an example directory
 - Fixes #4243 Add update cache and update locales for applications
 - Fixes #4333 Move the icons of ppolicy plugin
@@ -2949,6 +2938,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 - Fixes #4330 Add version for fusiondirectory-plugin-systems-schema dependance
 - Fixes #4283 Add version for fusiondirectory-plugin-systems dependance
 - Fixes #4276 Add dependance between sudo and systems
+- Fixes #4405 Clean up the DaemonEvent mess
 
 * Thu Oct 8 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
 - Fixes #4136 Add class_smbHash in fusiondirectory-plugin-samba
