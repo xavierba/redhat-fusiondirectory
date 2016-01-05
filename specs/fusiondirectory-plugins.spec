@@ -1713,7 +1713,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/class_faiTemplateEntry.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/main.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/class_faiPartitionTable.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/faiDiskEntry.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/class_faiManagement.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/class_faiPackageConfiguration.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/class_faiTemplate.inc
@@ -2936,6 +2935,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 - Fixes #4405 Clean up the DaemonEvent mess
 - Fixes #4397 Remove the mail method Cyrus Sendmail
 - Fixes #4416 Migrate last FAI classes to simplePlugin
+- Fixes #4416 Forgot to remove faiDiskEntry.tpl
 
 * Thu Oct 8 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
 - Fixes #4136 Add class_smbHash in fusiondirectory-plugin-samba
