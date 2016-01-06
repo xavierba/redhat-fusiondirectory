@@ -233,11 +233,7 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
     fi
     
     # Contrib section for samba and supann
-    if [ "${cur_plugin}" = "samba" ] ; then
-      mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-samba/
-      cp -a ./contrib/fix_munged %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-samba/
-      
-    elif [ "${cur_plugin}" = "supann" ] ; then
+    if [ "${cur_plugin}" = "supann" ] ; then
       mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/examples/
       mkdir -p %{buildroot}%{_sysconfdir}/fusiondirectory/supann/
       cp -a ./contrib/supann/* %{buildroot}%{_sysconfdir}/fusiondirectory/supann/
@@ -2152,7 +2148,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/samba/class_sambaPluginConfig.inc
-%attr (-,root,root)	%{_datadir}/doc/fusiondirectory-plugin-samba/fix_munged
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba/locale/
 # Personal section
@@ -2926,7 +2921,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 ########################
 
 %changelog
-* Tue Jan 05 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
+* Tue Jan 06 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
 - Fixes #4228 Move the supann example in an example directory
 - Fixes #4243 Add update cache and update locales for applications
 - Fixes #4333 Move the icons of ppolicy plugin
@@ -2941,6 +2936,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 - Fixes #4416 Forgot to remove faiDiskEntry.tpl
 - Fixes #4405 Add class_argonautAction.inc and import_events.tpl
 - Fixes #4416 Add class_faiDiskEntry.inc in specfile
+- Fixes #4427 Remove fix_munged from the samba plugin
 
 * Thu Oct 8 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
 - Fixes #4136 Add class_smbHash in fusiondirectory-plugin-samba
