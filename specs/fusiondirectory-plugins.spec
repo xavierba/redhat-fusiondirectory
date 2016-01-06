@@ -1486,7 +1486,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/include/jsonRPCClient.php
 %attr (-,root,root)	%{_datadir}/fusiondirectory/include/class_supportDaemon.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/include/simpleplugin/class_BootKernelAttribute.inc
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/argonaut
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-argonaut/AUTHORS
@@ -2937,6 +2936,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 - Fixes #4405 Add class_argonautAction.inc and import_events.tpl
 - Fixes #4416 Add class_faiDiskEntry.inc in specfile
 - Fixes #4427 Remove fix_munged from the samba plugin
+- Fixes #4421 Remove the class_BootKernelAttribute.inc
 
 * Thu Oct 8 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
 - Fixes #4136 Add class_smbHash in fusiondirectory-plugin-samba
