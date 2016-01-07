@@ -49,16 +49,6 @@ Requires:		openldap-clients, schema2ldif
 Contains the Schema definition files for the %{name} admin package.
 
 
-%package plugin-database-connector
-Group:			Applications/System
-Summary:		Database management framework for %{name}
-Requires:		%{name} >= %{version}, php-pear-MDB2
-
-%description plugin-database-connector
-This package contains a database framework which allows connecting
-%{name} to a database for storing specific datas. (Used only by specific
-plugins)
-
 ############################
 # SELINUX PACKAGE
 ############################
@@ -174,9 +164,8 @@ cp contrib/man/%{name}-insert-schema.1.gz %{buildroot}%{_datadir}/man/man1
 cp contrib/man/%{name}.conf.5.gz %{buildroot}%{_datadir}/man/man5
 
 # Copy docs
-mkdir -p %{buildroot}%{_datadir}/doc/{%{name},%{name}-plugin-database-connector,%{name}-schema}
+mkdir -p %{buildroot}%{_datadir}/doc/{%{name},%{name}-schema}
 cp ./AUTHORS ./Changelog ./COPYING %{buildroot}%{_datadir}/doc/%{name}/
-cp ./AUTHORS ./Changelog ./COPYING %{buildroot}%{_datadir}/doc/%{name}-plugin-database-connector/
 cp ./AUTHORS ./Changelog ./COPYING %{buildroot}%{_datadir}/doc/%{name}-schema/
 cp contrib/%{name}.conf %{buildroot}%{_datadir}/doc/%{name}/
 
@@ -213,9 +202,6 @@ done
 %clean
 rm -Rf %{buildroot}
 
-
-%post plugin-database-connector
-%{_sbindir}/%{name}-setup --yes --check-directories --update-locales --update-cache
 
 ############################
 # POST / POSTUN SELINUX
@@ -392,13 +378,6 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_sysconfdir}/openldap/schema/fusiondirectory/template-fd.schema
 %{_sbindir}/%{name}-insert-schema
 
-%files plugin-database-connector
-%defattr(-,root,root,-)
-%{_datadir}/doc/%{name}-plugin-database-connector/AUTHORS
-%{_datadir}/doc/%{name}-plugin-database-connector/COPYING
-%{_datadir}/doc/%{name}-plugin-database-connector/Changelog
-
-%{_datadir}/%{name}/include/class_databaseManagement.inc
 
 ############################
 # FILES SELINUX
@@ -411,7 +390,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
-* Fri Dec 18 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
+* Tue Jan 05 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
 - Fixes #4210 Add dependance at fusiondirectory-schema to schema2ldif
 - Fixes #4232 Set fusiondirectory-apache as config file
 - Fixes #4248 Remove class_SnapShotDialog.inc
@@ -420,6 +399,8 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 - Fixes #4256 Add perl-Crypt-Rijndael in the dependence
 - Fixes #4326 Add php cas library
 - Fixes #4269 Make symlink for javascript libraries
+- Fixes #4400 Delete databaseManagement class
+- Fixes #4400 Must only not create the connector docs directory
 
 * Thu Oct 08 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
 - Fixes #4159 Modify syntax for postun

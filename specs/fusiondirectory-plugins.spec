@@ -233,11 +233,7 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
     fi
     
     # Contrib section for samba and supann
-    if [ "${cur_plugin}" = "samba" ] ; then
-      mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-samba/
-      cp -a ./contrib/fix_munged %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-samba/
-      
-    elif [ "${cur_plugin}" = "supann" ] ; then
+    if [ "${cur_plugin}" = "supann" ] ; then
       mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/examples/
       mkdir -p %{buildroot}%{_sysconfdir}/fusiondirectory/supann/
       cp -a ./contrib/supann/* %{buildroot}%{_sysconfdir}/fusiondirectory/supann/
@@ -1467,20 +1463,11 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/main.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/deploy-list.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/class_argonautQueue.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/argonaut_import_file.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/class_filterArgonautEvents.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/events/timestamp_select.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/events/class_EventAddSystemDialog.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/events/eventTargetSystems-filter.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/events/eventTargetSystems-filter.xml
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/events/class_filterSystemByIp.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/events/DaemonEvent.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/events/target_list.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/events/class_DaemonEvent.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/events/eventTargetSystems-list.xml
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/class_argonautImportFile.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/argonaut/class_argonautAction.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/argonaut/import_events.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/deploy-list.xml
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/remove.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/deploy-filter.xml
 # Admin section
 # Files
@@ -1499,7 +1486,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/include/jsonRPCClient.php
 %attr (-,root,root)	%{_datadir}/fusiondirectory/include/class_supportDaemon.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/include/simpleplugin/class_BootKernelAttribute.inc
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/argonaut
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-argonaut/AUTHORS
@@ -1553,7 +1539,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 # Personal section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/mail-methods/class_mail-methods-cyrus.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/mail-methods/class_mail-methods-sendmail-cyrus.inc
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus/COPYING
@@ -1724,19 +1709,15 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/class_faiProfile.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/class_faiTemplateEntry.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/main.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/faiPackageConfiguration.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/class_faiPartitionTable.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/faiDiskEntry.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/class_faiManagement.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/class_faiPackageConfiguration.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/class_debconfTemplate.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/class_faiTemplate.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/faiPartition.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/class_faiPartition.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/class_faiPackage.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/class_faiHook.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/class_faiDiskEntry.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/class_faiVariable.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/fai/class_faiDiskEntry.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/packageSelect/selectPackage-list.xml
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/packageSelect/class_filterFAIPackages.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/packageSelect/selectPackage-filter.xml
@@ -2166,7 +2147,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/samba/class_sambaPluginConfig.inc
-%attr (-,root,root)	%{_datadir}/doc/fusiondirectory-plugin-samba/fix_munged
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba/locale/
 # Personal section
@@ -2940,7 +2920,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 ########################
 
 %changelog
-* Fri Dec 18 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
+* Tue Jan 06 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
 - Fixes #4228 Move the supann example in an example directory
 - Fixes #4243 Add update cache and update locales for applications
 - Fixes #4333 Move the icons of ppolicy plugin
@@ -2949,6 +2929,14 @@ LDAP schema for FusionDirectory ppolicy plugin
 - Fixes #4330 Add version for fusiondirectory-plugin-systems-schema dependance
 - Fixes #4283 Add version for fusiondirectory-plugin-systems dependance
 - Fixes #4276 Add dependance between sudo and systems
+- Fixes #4405 Clean up the DaemonEvent mess
+- Fixes #4397 Remove the mail method Cyrus Sendmail
+- Fixes #4416 Migrate last FAI classes to simplePlugin
+- Fixes #4416 Forgot to remove faiDiskEntry.tpl
+- Fixes #4405 Add class_argonautAction.inc and import_events.tpl
+- Fixes #4416 Add class_faiDiskEntry.inc in specfile
+- Fixes #4427 Remove fix_munged from the samba plugin
+- Fixes #4421 Remove the class_BootKernelAttribute.inc
 
 * Thu Oct 8 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
 - Fixes #4136 Add class_smbHash in fusiondirectory-plugin-samba
