@@ -252,8 +252,8 @@ if [ $1 = 0 ] ; then
   fi
 
   # Delete javascript libraries symlinks
-  [ -L /usr/share/fusiondirectory/javascript/prototype ] && rm -f /usr/share/fusiondirectory/html/javascript/prototype
-  [ -L /usr/share/fusiondirectory/javascript/scriptaculous ] && rm -f /usr/share/fusiondirectory/html/javascript/scriptaculous
+  [ -L /usr/share/fusiondirectory/html/javascript/prototype ] && rm -f /usr/share/fusiondirectory/html/javascript/prototype
+  [ -L /usr/share/fusiondirectory/html/javascript/scriptaculous ] && rm -f /usr/share/fusiondirectory/html/javascript/scriptaculous
 fi
 
 %post
@@ -390,6 +390,9 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Tue Jan 28 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
+- Fixes #4384 Add the missing html directory to remove javascript links
+
 * Tue Jan 05 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
 - Fixes #4210 Add dependance at fusiondirectory-schema to schema2ldif
 - Fixes #4232 Set fusiondirectory-apache as config file
