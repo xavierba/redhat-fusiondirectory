@@ -2920,6 +2920,9 @@ LDAP schema for FusionDirectory ppolicy plugin
 ########################
 
 %changelog
+* Tue Jan 28 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
+- New upstream release
+
 * Tue Jan 06 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
 - Fixes #4228 Move the supann example in an example directory
 - Fixes #4243 Add update cache and update locales for applications
