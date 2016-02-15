@@ -1973,7 +1973,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/nagios/main.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/nagios/class_nagiosAccount.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/nagios/nagios.tpl
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-nagios/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-nagios/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-nagios/COPYING
@@ -2920,6 +2919,9 @@ LDAP schema for FusionDirectory ppolicy plugin
 ########################
 
 %changelog
+* Mon Feb 15 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.10-1
+- Fixes #4500 Remove unused nagios.tpl file
+
 * Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - New upstream release
 
