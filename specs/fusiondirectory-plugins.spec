@@ -378,7 +378,7 @@ DHCP service management
 %package dns
 Group:		Applications/System
 Summary:	DNS service management
-Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems
+Requires:	fusiondirectory >= %{version}
 
 %description dns
 DNS service management
@@ -737,7 +737,6 @@ LDAP schema for FusionDirectory dhcp plugin
 %package dns-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory dns plugin
-Requires: fusiondirectory-plugin-systems-schema >= %{version}
 
 %description dns-schema
 LDAP schema for FusionDirectory dns plugin
@@ -2921,6 +2920,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 %changelog
 * Mon Feb 15 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.10-1
 - Fixes #4500 Remove unused nagios.tpl file
+- Fixes #4471 Remove the dependence between systems and dns
 
 * Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - New upstream release
