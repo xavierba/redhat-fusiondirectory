@@ -1659,8 +1659,8 @@ LDAP schema for FusionDirectory subcontracting plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/dns/class_dnsConfig.inc
 # HTML section
 # Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/dns/themes/default/icons/16/apps/dns.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/dns/themes/default/icons/48/apps/dns.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/dns.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/dns.png
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dns
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dns/AUTHORS
@@ -2959,6 +2959,7 @@ LDAP schema for FusionDirectory subcontracting plugin
 - Fixes #4547 Forgot 2 files got the new DNS plugin
 - Fixes #4536 Package subcontracting plugin
 - Fixes #4536 Syntax error in the spec file
+- Fixes #4547 Move the icons in the right folder for the plugin DNS
 
 * Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - New upstream release
