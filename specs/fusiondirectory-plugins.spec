@@ -1634,6 +1634,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dns/class_dnsView.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dns/class_dnsZone.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dns/main.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_dnsHost.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/dnsrecords.tpl
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/dns/class_dnsConfig.inc
@@ -2920,6 +2922,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 - Fixes #4552 Remove NTP service
 - Fixes #4361 Add dns-fd.schema
 - Fixes #4547 Add new files for the new DNS plugin
+- Fixes #4547 Forgot 2 files got the new DNS plugin
 
 * Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - New upstream release
