@@ -161,6 +161,10 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
       elif [ "${cur_plugin}" = "ppolicy" ] ; then
         mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
         cp -a ./html/themes %{buildroot}%{_datadir}/fusiondirectory/html/
+
+      elif [ "${cur_plugin}" = "dns" ] ; then
+        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
+        cp -a ./html/themes %{buildroot}%{_datadir}/fusiondirectory/html/
  
       else
         # Directories
@@ -2960,6 +2964,7 @@ LDAP schema for FusionDirectory subcontracting plugin
 - Fixes #4536 Package subcontracting plugin
 - Fixes #4536 Syntax error in the spec file
 - Fixes #4547 Move the icons in the right folder for the plugin DNS
+- Fixes #4547 Add an elif for DNS plugin
 
 * Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - New upstream release
