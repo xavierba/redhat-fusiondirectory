@@ -1628,11 +1628,19 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 %files dns
 %defattr(0644,root,root,755)
+# Admin section
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dns/class_DnsRecordAttribute.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dns/class_dnsManagement.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dns/class_dnsView.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dns/class_dnsZone.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dns/main.inc
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/dns/class_dnsConfig.inc
 # HTML section
 # Files
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/dns/themes/default/icons/16/apps/dns.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/dns/themes/default/icons/48/apps/dns.png
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dns
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dns/AUTHORS
@@ -2911,6 +2919,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 - Fixes #4547 Remove old files for DNS plugin
 - Fixes #4552 Remove NTP service
 - Fixes #4361 Add dns-fd.schema
+- Fixes #4547 Add new files for the new DNS plugin
 
 * Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - New upstream release
