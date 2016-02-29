@@ -1628,23 +1628,10 @@ LDAP schema for FusionDirectory ppolicy plugin
 
 %files dns
 %defattr(0644,root,root,755)
-# Admin section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dns/serviceDNSeditZoneEntries.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dns/serviceDNS.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dns/serviceDNSeditZone.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dns/class_DNS.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dns/class_serviceDNSeditZone.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dns/class_serviceDNSeditZoneEntries.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dns/class_serviceDNS.inc
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/dns/class_dnsConfig.inc
 # HTML section
-# Directories
-# Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/dns/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/dns/images/icon.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dns
@@ -2918,9 +2905,10 @@ LDAP schema for FusionDirectory ppolicy plugin
 ########################
 
 %changelog
-* Mon Feb 15 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.10-1
+* Mon Feb 29 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.10-1
 - Fixes #4500 Remove unused nagios.tpl file
 - Fixes #4471 Remove the dependence between systems and dns
+- Fixes #4547 Remove old files for DNS plugin
 
 * Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - New upstream release
