@@ -2614,6 +2614,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dns-fd-conf.schema
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dnszone.schema
+%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dns-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dns-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dns-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dns-schema/COPYING
@@ -2909,6 +2910,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 - Fixes #4471 Remove the dependence between systems and dns
 - Fixes #4547 Remove old files for DNS plugin
 - Fixes #4552 Remove NTP service
+- Fixes #4361 Add dns-fd.schema
 
 * Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - New upstream release
