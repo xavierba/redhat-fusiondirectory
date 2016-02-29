@@ -2584,8 +2584,8 @@ LDAP schema for FusionDirectory subcontracting plugin
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-subcontracting/AUTHORS
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-subcontracting/COPYING
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-subcontracting/Changelog
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/types/subcontracting.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/types/subcontracting.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/subcontracting.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/subcontracting.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/subcontracting/locale/
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/subcontracting/class_subContracting.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/subcontracting/main.inc
@@ -2971,6 +2971,7 @@ LDAP schema for FusionDirectory subcontracting plugin
 - Fixes #4547 Add an elif for DNS plugin
 - Fixes #4536 Move the icons for subcontracting plugin
 - Fixes #4536 Modify path for subcontracting icons
+- Fixes #4536 Correct errors in the path for subcontracting icons
 
 * Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - New upstream release
