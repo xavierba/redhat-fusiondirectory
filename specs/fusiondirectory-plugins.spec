@@ -2330,7 +2330,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/terminal/class_serviceTerminal.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/shares/service_share.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/shares/class_serviceShare.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/ntp/class_serviceNTP.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/ldap/class_serviceLDAP.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/class_goService.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/server_import.tpl
@@ -2909,6 +2908,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 - Fixes #4500 Remove unused nagios.tpl file
 - Fixes #4471 Remove the dependence between systems and dns
 - Fixes #4547 Remove old files for DNS plugin
+- Fixes #4552 Remove NTP service
 
 * Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - New upstream release
