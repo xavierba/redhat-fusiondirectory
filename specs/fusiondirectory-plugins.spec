@@ -134,56 +134,20 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
         mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
         cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
         cp -a ./html/getvcard.php %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        
-      elif [ "${cur_plugin}" = "argonaut" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        
+
       elif [ "${cur_plugin}" = "fusioninventory" ] ; then
         mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
         mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
         cp -a ./html/collect.php %{buildroot}%{_datadir}/fusiondirectory/html/
         cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
         cp -a ./html/plugins/inventory.css %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-       
-      elif [ "${cur_plugin}" = "ejbca" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
-        cp -a ./html/themes/ %{buildroot}%{_datadir}/fusiondirectory/html/
-
-      elif [ "${cur_plugin}" = "fai" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
-        cp -a ./html/themes %{buildroot}%{_datadir}/fusiondirectory/html/
-
-      elif [ "${cur_plugin}" = "dhcp" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
-        cp -a ./html/themes %{buildroot}%{_datadir}/fusiondirectory/html/
-
-      elif [ "${cur_plugin}" = "ppolicy" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
-        cp -a ./html/themes %{buildroot}%{_datadir}/fusiondirectory/html/
-
-      elif [ "${cur_plugin}" = "dns" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
-        cp -a ./html/themes %{buildroot}%{_datadir}/fusiondirectory/html/
-
-      elif [ "${cur_plugin}" = "subcontracting" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
-        cp -a ./html/themes %{buildroot}%{_datadir}/fusiondirectory/html/
-        
-      elif [ "${cur_plugin}" = "newsletter" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
-        cp -a ./html/themes %{buildroot}%{_datadir}/fusiondirectory/html/
-        
-      elif [ "${cur_plugin}" = "community" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
-        cp -a ./html/themes %{buildroot}%{_datadir}/fusiondirectory/html/
 
       else
         # Directories
         for cur_html in $(find ./html -mindepth 1 -maxdepth 1 -type d) ; do
           mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
           html_line="$(echo ${cur_html} | sed "s#./html/##")" 
-          cp -a ./html/${html_line} %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
+          cp -a ./html/${html_line} %{buildroot}%{_datadir}/fusiondirectory/html/
         done
 
         # Files
@@ -3063,6 +3027,7 @@ LDAP schema for FusionDirectory community plugin
 - Fixes #4536 Correct errors in the path for subcontracting icons
 - Fixes #4587 Add newsletter plugin
 - Fixes #4582 Add community plugin
+- Fixes #4596 Modify spec file to copy html images in the good path
 
 * Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - New upstream release
