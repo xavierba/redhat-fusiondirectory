@@ -137,6 +137,7 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
 
       elif [ "${cur_plugin}" = "fusioninventory" ] ; then
         mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
+        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
         cp -a ./html/collect.php %{buildroot}%{_datadir}/fusiondirectory/html/
         cp -a ./html/themes/ %{buildroot}%{_datadir}/fusiondirectory/html/
         cp -a ./html/plugins/inventory.css %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
@@ -3028,6 +3029,7 @@ LDAP schema for FusionDirectory community plugin
 - Fixes #4582 Add community plugin
 - Fixes #4596 Modify spec file to copy html images in the good path
 - Fixes #4596 Modification for fusioninventory plugin in the spec file
+- Fixes #4596 Recreate a directory for fusioninventory plugin that I had remove by error
 
 * Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - New upstream release
