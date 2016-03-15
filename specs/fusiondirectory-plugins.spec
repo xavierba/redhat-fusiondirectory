@@ -1530,6 +1530,7 @@ LDAP schema for FusionDirectory community plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/argonaut-mirror.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/argonaut.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/argonaut.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/argonaut/getFAIstatus.php
 # Include section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/include/jsonRPCClient.php
@@ -3032,6 +3033,7 @@ LDAP schema for FusionDirectory community plugin
 - Fixes #4596 Correct paths of many plugins in the spec file
 - Fixes #4596 Add a section to copy the images of fusiondirectory-plugin-game
 - Fixes #4617 Package getFAIstatus.php
+- Fixes #4617 Forgot to add the file in the %files section
 
 * Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - New upstream release
