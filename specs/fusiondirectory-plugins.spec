@@ -2074,7 +2074,7 @@ LDAP schema for FusionDirectory community plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/opsi-on-demand.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/opsi-software-list.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/opsi.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/opsi-on-demand.png.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/opsi-on-demand.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/opsi-software-list.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/opsi.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/opsi/images/iconSoftwareList.png
