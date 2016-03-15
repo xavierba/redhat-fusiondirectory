@@ -2161,10 +2161,11 @@ LDAP schema for FusionDirectory community plugin
 # HTML section
 # Directories
 # Files in the directory
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/repository-distribution.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/repository-section.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/repository.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/repository.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/repository.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/repository/images/iconSection.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/repository/images/iconDistribution.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/repository
@@ -3034,6 +3035,7 @@ LDAP schema for FusionDirectory community plugin
 - Fixes #4596 Add a section to copy the images of fusiondirectory-plugin-game
 - Fixes #4617 Package getFAIstatus.php
 - Fixes #4617 Forgot to add the file in the %files section
+- Fixes #4596 Forgot some icons for repository plugin
 
 * Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - New upstream release
