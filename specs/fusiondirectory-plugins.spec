@@ -2073,6 +2073,8 @@ LDAP schema for FusionDirectory community plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/opsi-on-demand.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/opsi-software-list.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/opsi.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/opsi-on-demand.png.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/opsi-software-list.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/opsi.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/opsi/images/iconSoftwareList.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/opsi/images/iconSoftwareOnDemand.png
@@ -2991,6 +2993,7 @@ LDAP schema for FusionDirectory community plugin
 - Fixes #4617 Forgot to add the file in the %files section
 - Fixes #4596 Forgot some icons for repository plugin
 - Fixes #4596 Remove unused images for systems plugin
+- Fixes #4596 Add some opsi icons
 
 * Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - New upstream release
