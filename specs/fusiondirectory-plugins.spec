@@ -142,39 +142,22 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
         cp -a ./html/themes/ %{buildroot}%{_datadir}/fusiondirectory/html/
         cp -a ./html/plugins/inventory.css %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
 
-      elif [ "${cur_plugin}" = "opsi" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        cp -a ./html/themes/ %{buildroot}%{_datadir}/fusiondirectory/html/
-
-      elif [ "${cur_plugin}" = "autofs" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        cp -a ./html/themes/ %{buildroot}%{_datadir}/fusiondirectory/html/
-
-      elif [ "${cur_plugin}" = "supann" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        cp -a ./html/themes/ %{buildroot}%{_datadir}/fusiondirectory/html/
-
-      elif [ "${cur_plugin}" = "game" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
+      elif [ "${cur_plugin}" = "webservice" ] ; then
+        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
+        cp -a ./html/jsonrpc.php %{buildroot}%{_datadir}/fusiondirectory/html/
 
       else
-        # Directories
-        for cur_html in $(find ./html -mindepth 1 -maxdepth 1 -type d) ; do
+        # Images directory
+        if [[ -d ./html/images ]] ; then
           mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-          html_line="$(echo ${cur_html} | sed "s#./html/##")" 
-          cp -a ./html/${html_line} %{buildroot}%{_datadir}/fusiondirectory/html/
-        done
+          cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
+        fi
 
-        # Files
-        for cur_html in $(find ./html -mindepth 1 -maxdepth 1 -type f) ; do
+        # Themes directory
+        if [[ -d ./html/themes ]] ; then
           mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
-          html_line="$(echo ${cur_html} | sed "s#./html/##")" 
-          cp -a ./html/${html_line} %{buildroot}%{_datadir}/fusiondirectory/html/
-        done
+          cp -a ./html/themes/ %{buildroot}%{_datadir}/fusiondirectory/html/
+        fi
       fi
     fi
     
