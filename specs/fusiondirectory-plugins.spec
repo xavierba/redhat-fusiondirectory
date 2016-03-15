@@ -135,6 +135,11 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
         cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
         cp -a ./html/getvcard.php %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
 
+      elif [ "${cur_plugin}" = "argonaut" ] ; then
+        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
+        cp -a ./html/themes/ %{buildroot}%{_datadir}/fusiondirectory/html/
+        cp -a ./html/getFAIstatus.php %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
+
       elif [ "${cur_plugin}" = "fusioninventory" ] ; then
         mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
         mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
@@ -3026,6 +3031,7 @@ LDAP schema for FusionDirectory community plugin
 - Fixes #4596 Recreate a directory for fusioninventory plugin that I had remove by error
 - Fixes #4596 Correct paths of many plugins in the spec file
 - Fixes #4596 Add a section to copy the images of fusiondirectory-plugin-game
+- Fixes #4617 Package getFAIstatus.php
 
 * Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - New upstream release
