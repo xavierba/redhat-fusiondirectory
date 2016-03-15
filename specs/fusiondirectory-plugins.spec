@@ -1686,6 +1686,7 @@ LDAP schema for FusionDirectory community plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dns/main.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_dnsHost.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/dnsrecords.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dns/class_dnsAcl.inc
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/dns/class_dnsConfig.inc
@@ -2994,6 +2995,7 @@ LDAP schema for FusionDirectory community plugin
 - Fixes #4596 Forgot some icons for repository plugin
 - Fixes #4596 Remove unused images for systems plugin
 - Fixes #4596 Add some opsi icons
+- Fixes #4547 Add class_dnsAcl.inc
 
 * Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - New upstream release
