@@ -2564,8 +2564,8 @@ LDAP schema for FusionDirectory community plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/newsletter/class_newsletterConfig.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/newsletter/class_newsletterSubscriptions.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/newsletter/main.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/newsletter/themes/default/icons/16/apps/newsletter.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/newsletter/themes/default/icons/48/apps/newsletter.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/newsletter.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/newsletter.png
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-newsletter/AUTHORS
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-newsletter/COPYING
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-newsletter/Changelog
@@ -2577,8 +2577,8 @@ LDAP schema for FusionDirectory community plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/community/class_communityConfig.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/community/class_communityAccount.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/community/main.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/community/themes/default/icons/16/apps/community.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/community/themes/default/icons/48/apps/community.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/community.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/community.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/community/locale/
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-community/AUTHORS
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-community/COPYING
