@@ -137,7 +137,7 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
 
       elif [ "${cur_plugin}" = "argonaut" ] ; then
         mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
-        cp -a ./html/themes/ %{buildroot}%{_datadir}/fusiondirectory/html/
+        cp -a ./html/themes/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
         cp -a ./html/getFAIstatus.php %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
 
       elif [ "${cur_plugin}" = "fusioninventory" ] ; then
