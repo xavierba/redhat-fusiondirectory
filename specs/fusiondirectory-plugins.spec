@@ -2420,61 +2420,15 @@ LDAP schema for FusionDirectory community plugin
 # Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/clock.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/server_error.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_default.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_imap.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/branch.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_newsystem.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/server_busy.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/prio_decrease.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/drives.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/prio_increase.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/freeze.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/terminal_locked.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/localboot.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/iconMiniHotPlugDevices.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/status_restarting.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_new_terminal.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/reinstall.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/scanner.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_apache.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/edit_share.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/sysinfo.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/status_start_all.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/keyboard.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/workstation_locked.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/rescan.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_ldap.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/workstation_error.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/status_stop.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/list_reset_password.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/terminal_error.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/status_start.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/list_new_app.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/server_locked.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/display.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/logon_script.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/hotplug.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/status_stop_all.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/hardware.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/view_logs.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/iconHotplugDevices.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/mouse.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_new_server.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/kiosk.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/workstation_busy.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_print.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/fai_settings.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/status_pause.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/notify.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/memcheck.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_new_workstation.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_apache.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_file.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/status_restart_all.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_terminal.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_device.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/list_new_device.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_ntp.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_ldap.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/status_start.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/status_stop.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/terminal_locked.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/view_logs.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/workstation_locked.png
 # Files
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/dashboard/class_dashBoardNetwork.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/dashboard/class_dashBoardSystems.inc
@@ -3036,6 +2990,7 @@ LDAP schema for FusionDirectory community plugin
 - Fixes #4617 Package getFAIstatus.php
 - Fixes #4617 Forgot to add the file in the %files section
 - Fixes #4596 Forgot some icons for repository plugin
+- Fixes #4596 Remove unused images for systems plugin
 
 * Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - New upstream release
