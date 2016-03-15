@@ -157,6 +157,10 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
         cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
         cp -a ./html/themes/ %{buildroot}%{_datadir}/fusiondirectory/html/
 
+      elif [ "${cur_plugin}" = "game" ] ; then
+        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
+        cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
+
       else
         # Directories
         for cur_html in $(find ./html -mindepth 1 -maxdepth 1 -type d) ; do
@@ -3017,7 +3021,7 @@ LDAP schema for FusionDirectory community plugin
 ########################
 
 %changelog
-* Mon Feb 29 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.10-1
+* Tue Mar 15 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.10-1
 - Fixes #4500 Remove unused nagios.tpl file
 - Fixes #4471 Remove the dependence between systems and dns
 - Fixes #4547 Remove old files for DNS plugin
@@ -3038,6 +3042,7 @@ LDAP schema for FusionDirectory community plugin
 - Fixes #4596 Modification for fusioninventory plugin in the spec file
 - Fixes #4596 Recreate a directory for fusioninventory plugin that I had remove by error
 - Fixes #4596 Correct paths of many plugins in the spec file
+- Fixes #4596 Add a section to copy the images of fusiondirectory-plugin-game
 
 * Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - New upstream release
