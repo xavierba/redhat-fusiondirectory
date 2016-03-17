@@ -1,6 +1,6 @@
---- a/contrib/bin/fusiondirectory-setup	2015-06-13 04:50:38.792465300 +0200
-+++ b/contrib/bin/fusiondirectory-setup	2015-06-13 04:53:51.449429700 +0200
-@@ -59,12 +59,12 @@
+--- a/contrib/bin/fusiondirectory-setup	2016-03-09 10:54:55.943908240 +0100
++++ b/contrib/bin/fusiondirectory-setup	2016-03-09 11:05:38.955896725 +0100
+@@ -61,12 +61,12 @@
  
  # fd's directory and class.cache file's path declaration
  my %vars = (

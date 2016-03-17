@@ -390,6 +390,9 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Thu Mar 17 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.10-1
+- New upstream release
+
 * Tue Jan 28 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - Fixes #4384 Add the missing html directory to remove javascript links
 

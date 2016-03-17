@@ -134,48 +134,35 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
         mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
         cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
         cp -a ./html/getvcard.php %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        
+
       elif [ "${cur_plugin}" = "argonaut" ] ; then
         mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        
+        cp -a ./html/themes/ %{buildroot}%{_datadir}/fusiondirectory/html/
+        cp -a ./html/getFAIstatus.php %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
+
       elif [ "${cur_plugin}" = "fusioninventory" ] ; then
         mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
         mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
         cp -a ./html/collect.php %{buildroot}%{_datadir}/fusiondirectory/html/
-        cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        cp -a ./html/plugins/inventory.css %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-       
-      elif [ "${cur_plugin}" = "ejbca" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
         cp -a ./html/themes/ %{buildroot}%{_datadir}/fusiondirectory/html/
+        cp -a ./html/plugins/inventory.css %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
 
-      elif [ "${cur_plugin}" = "fai" ] ; then
+      elif [ "${cur_plugin}" = "webservice" ] ; then
         mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
-        cp -a ./html/themes %{buildroot}%{_datadir}/fusiondirectory/html/
+        cp -a ./html/jsonrpc.php %{buildroot}%{_datadir}/fusiondirectory/html/
 
-      elif [ "${cur_plugin}" = "dhcp" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
-        cp -a ./html/themes %{buildroot}%{_datadir}/fusiondirectory/html/
-
-      elif [ "${cur_plugin}" = "ppolicy" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
-        cp -a ./html/themes %{buildroot}%{_datadir}/fusiondirectory/html/
- 
       else
-        # Directories
-        for cur_html in $(find ./html -mindepth 1 -maxdepth 1 -type d) ; do
+        # Images directory
+        if [[ -d ./html/images ]] ; then
           mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-          html_line="$(echo ${cur_html} | sed "s#./html/##")" 
-          cp -a ./html/${html_line} %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        done
+          cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
+        fi
 
-        # Files
-        for cur_html in $(find ./html -mindepth 1 -maxdepth 1 -type f) ; do
+        # Themes directory
+        if [[ -d ./html/themes ]] ; then
           mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
-          html_line="$(echo ${cur_html} | sed "s#./html/##")" 
-          cp -a ./html/${html_line} %{buildroot}%{_datadir}/fusiondirectory/html/
-        done
+          cp -a ./html/themes/ %{buildroot}%{_datadir}/fusiondirectory/html/
+        fi
       fi
     fi
     
@@ -378,7 +365,7 @@ DHCP service management
 %package dns
 Group:		Applications/System
 Summary:	DNS service management
-Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems
+Requires:	fusiondirectory >= %{version}
 
 %description dns
 DNS service management
@@ -663,6 +650,30 @@ Requires:       fusiondirectory >= %{version}
 %description mixedgroups
 Management plugin for mixedgroups
 
+%package subcontracting
+Group:          Applications/System
+Summary:        Management plugin for subcontracting
+Requires:       fusiondirectory >= %{version}
+
+%description subcontracting
+Management plugin for subcontracting
+
+%package newsletter
+Group:          Applications/System
+Summary:        Management plugin for newsletter
+Requires:       fusiondirectory >= %{version}
+
+%description newsletter
+Management plugin for newsletter
+
+%package community
+Group:          Applications/System
+Summary:        Management plugin for community
+Requires:       fusiondirectory >= %{version}
+
+%description community
+Management plugin for community
+
 
 %package alias-schema
 Group:		Applications/System
@@ -737,7 +748,6 @@ LDAP schema for FusionDirectory dhcp plugin
 %package dns-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory dns plugin
-Requires: fusiondirectory-plugin-systems-schema >= %{version}
 
 %description dns-schema
 LDAP schema for FusionDirectory dns plugin
@@ -1025,12 +1035,31 @@ LDAP schema for FusionDirectory personal plugin
 
 %package ppolicy-schema
 Group:          Applications/System
-Summary:        LDAP schema for FusionDirectory personal plugin
+Summary:        LDAP schema for FusionDirectory ppolicy plugin
 
 %description ppolicy-schema
 LDAP schema for FusionDirectory ppolicy plugin
 
+%package subcontracting-schema
+Group:          Applications/System
+Summary:        LDAP schema for FusionDirectory subcontracting plugin
 
+%description subcontracting-schema
+LDAP schema for FusionDirectory subcontracting plugin
+
+%package newsletter-schema
+Group:          Applications/System
+Summary:        LDAP schema for FusionDirectory newsletter plugin
+
+%description newsletter-schema
+LDAP schema for FusionDirectory newsletter plugin
+
+%package community-schema
+Group:          Applications/System
+Summary:        LDAP schema for FusionDirectory community plugin
+
+%description community-schema
+LDAP schema for FusionDirectory community plugin
 
 # Generated by script generate_post_plugins.sh
 # This is the post_plugins.spec file
@@ -1207,6 +1236,14 @@ LDAP schema for FusionDirectory ppolicy plugin
 %post applications
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
+%post subcontracting
+%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
+
+%post newsletter
+%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
+
+%post community
+%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
 # Generated by script generate_postun_plugins.sh
@@ -1384,6 +1421,14 @@ LDAP schema for FusionDirectory ppolicy plugin
 %postun mixedgroups
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
+%postun subcontracting
+%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
+
+%postun newsletter
+%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
+
+%postun community
+%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
 %files addressbook
@@ -1422,11 +1467,11 @@ LDAP schema for FusionDirectory ppolicy plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/alias/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/alias/images/iconMiniMailDistribution.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/alias/images/iconMiniSympa.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/alias/images/icon.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/alias/images/iconMiniMailredirection.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/alias-distribution.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/alias-redirection.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/alias-sympa.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/alias.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/alias.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/alias
@@ -1480,8 +1525,12 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/argonaut/class_argonautFuseFAIConfig.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/argonaut/class_argonautClient.inc
 # HTML section
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/argonaut
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/argonaut/images
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/argonaut-dns.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/argonaut-fuse.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/argonaut-mirror.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/argonaut.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/argonaut.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/argonaut/getFAIstatus.php
 # Include section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/include/jsonRPCClient.php
@@ -1507,10 +1556,10 @@ LDAP schema for FusionDirectory ppolicy plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/autofs/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/autofs/images/iconMiniNisMap.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/autofs/images/iconMiniNisObject.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/autofs/images/icon.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/autofs-nis-map.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/autofs-nis-object.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/autofs.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/autofs.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/autofs/images/folder-remote.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/autofs/images/folder.png
 # Files
@@ -1529,8 +1578,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/cyrus/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/cyrus/images/icon.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/cyrus.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/cyrus.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/cyrus
@@ -1557,8 +1606,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/debconf/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/debconf/images/icon.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/debconf.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/debconf.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/debconf
@@ -1630,23 +1679,21 @@ LDAP schema for FusionDirectory ppolicy plugin
 %files dns
 %defattr(0644,root,root,755)
 # Admin section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dns/serviceDNSeditZoneEntries.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dns/serviceDNS.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dns/serviceDNSeditZone.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dns/class_DNS.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dns/class_serviceDNSeditZone.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dns/class_serviceDNSeditZoneEntries.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dns/class_serviceDNS.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dns/class_DnsRecordAttribute.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dns/class_dnsManagement.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dns/class_dnsView.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dns/class_dnsZone.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dns/main.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_dnsHost.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/dnsrecords.tpl
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dns/class_dnsAcl.inc
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/dns/class_dnsConfig.inc
 # HTML section
-# Directories
-# Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/dns/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/dns/images/icon.png
 # Files
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/dns.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/dns.png
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dns
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dns/AUTHORS
@@ -1662,8 +1709,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/dovecot/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/dovecot/images/icon.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/dovecot.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/dovecot.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dovecot
@@ -1688,8 +1735,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/dsa/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/dsa/images/icon.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/dsa.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/dsa.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dsa
@@ -1760,8 +1807,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/freeradius/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/freeradius/images/icon.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/freeradius.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/freeradius.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/freeradius
@@ -1789,9 +1836,9 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/fusioninventory/class_fiConfig.inc
 # HTML section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/collect.php
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/fusioninventory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/fusioninventory/images
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/fusioninventory/inventory.css
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/fusioninventory.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/fusioninventory.png
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fusioninventory
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fusioninventory/AUTHORS
@@ -1831,8 +1878,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/gpg/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/gpg/images/icon.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/gpg.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/gpg.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/gpg
@@ -1872,8 +1919,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/kolab2/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/kolab2/images/icon.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/kolab2.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/kolab2.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab2/locale/
@@ -1913,8 +1960,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/ldapmanager/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/ldapmanager/images/icon.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/ldapmanager.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/ldapmanager.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/ldapmanager
@@ -1935,13 +1982,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/mail/class_mailPluginConfig.inc
-# HTML section
-# Directories
-# Files in the directory
-# Files
-%attr (-,root,root)     %{_datadir}/fusiondirectory/html/plugins/mail/images/sieve_add_new_bottom.png
-%attr (-,root,root)     %{_datadir}/fusiondirectory/html/plugins/mail/images/sieve_add_new_top.png
-%attr (-,root,root)     %{_datadir}/fusiondirectory/html/plugins/mail/images/sieve_add_test.png
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/mail
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/mail/class_sieve.inc
@@ -1964,8 +2004,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/nagios/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/nagios/images/icon.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/nagios.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/nagios.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/nagios
@@ -1973,7 +2013,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/nagios/main.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/nagios/class_nagiosAccount.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/nagios/nagios.tpl
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-nagios/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-nagios/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-nagios/COPYING
@@ -1995,8 +2034,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/netgroups/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/netgroups/images/icon.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/netgroups.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/netgroups.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/netgroups
@@ -2032,11 +2071,13 @@ LDAP schema for FusionDirectory ppolicy plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/opsi/images/iconMini.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/opsi-on-demand.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/opsi-software-list.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/opsi.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/opsi-on-demand.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/opsi-software-list.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/opsi.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/opsi/images/iconSoftwareList.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/opsi/images/iconMiniSoftwareOnDemand.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/opsi/images/iconMiniSoftwareList.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/opsi/images/icon.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/opsi/images/iconSoftwareOnDemand.png
 # Files
 # Locale section
@@ -2055,8 +2096,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/puppet/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/puppet/images/icon.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/puppet.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/puppet.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/puppet
@@ -2070,8 +2111,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/pureftpd/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/pureftpd/images/icon.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/pureftpd.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/pureftpd.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/pureftpd
@@ -2093,8 +2134,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/quota/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/quota/images/icon.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/quota.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/quota.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/quota
@@ -2123,10 +2164,11 @@ LDAP schema for FusionDirectory ppolicy plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/repository/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/repository/images/icon.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/repository/images/iconSection.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/repository/images/iconDistribution.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/repository-distribution.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/repository-section.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/repository.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/repository.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/repository.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/repository
@@ -2175,8 +2217,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/sogo/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/sogo/images/icon.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/sogo.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/sogo.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/sogo
@@ -2190,8 +2232,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/squid/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/squid/images/icon.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/squid.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/squid.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/squid
@@ -2210,8 +2252,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/ssh/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/ssh/images/icon.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/ssh.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/ssh.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/ssh
@@ -2240,12 +2282,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/sudo/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/sudo/images/negate.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/sudo/images/select_workstation.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/sudo/images/iconMiniDefault.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/sudo/images/icon.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/sudo/images/iconMiniRole.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/sudo.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/sudo.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/sudo
@@ -2286,15 +2324,15 @@ LDAP schema for FusionDirectory ppolicy plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/supann/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/supann/images/iconMiniEntite.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/supann-entite.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/supann-etablissement.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/supann.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/supann.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/supann/images/profil.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/supann/images/user-student.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/supann/images/affiliation.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/supann/images/user-employee.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/supann/images/icon.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/supann/images/user-enrolee.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/supann/images/iconMiniEtablissement.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/supann
@@ -2318,8 +2356,8 @@ LDAP schema for FusionDirectory ppolicy plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/sympa/images/iconMini.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/sympa/images/icon.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/sympa.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/sympa.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/sympa
@@ -2345,7 +2383,6 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/terminal/class_serviceTerminal.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/shares/service_share.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/shares/class_serviceShare.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/ntp/class_serviceNTP.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/ldap/class_serviceLDAP.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/class_goService.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/server_import.tpl
@@ -2386,61 +2423,15 @@ LDAP schema for FusionDirectory ppolicy plugin
 # Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/clock.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/server_error.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_default.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_imap.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/branch.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_newsystem.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/server_busy.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/prio_decrease.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/drives.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/prio_increase.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/freeze.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/terminal_locked.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/localboot.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/iconMiniHotPlugDevices.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/status_restarting.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_new_terminal.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/reinstall.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/scanner.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_apache.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/edit_share.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/sysinfo.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/status_start_all.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/keyboard.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/workstation_locked.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/rescan.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_ldap.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/workstation_error.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/status_stop.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/list_reset_password.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/terminal_error.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/status_start.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/list_new_app.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/server_locked.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/display.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/logon_script.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/hotplug.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/status_stop_all.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/hardware.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/view_logs.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/iconHotplugDevices.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/mouse.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_new_server.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/kiosk.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/workstation_busy.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_print.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/fai_settings.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/status_pause.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/notify.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/memcheck.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_new_workstation.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_apache.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_file.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/status_restart_all.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_terminal.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/select_device.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/list_new_device.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_ntp.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_ldap.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/status_start.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/status_stop.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/terminal_locked.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/view_logs.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/workstation_locked.png
 # Files
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/dashboard/class_dashBoardNetwork.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/dashboard/class_dashBoardSystems.inc
@@ -2559,6 +2550,42 @@ LDAP schema for FusionDirectory ppolicy plugin
 %attr (-,root,root)      %{_datadir}/fusiondirectory/locale/plugins/mixedgroups/locale/
 %attr (-,root,root)      %{_datadir}/fusiondirectory/plugins/admin/ogroups/mixedgroups/class_mixedGroup.inc
 
+%files subcontracting
+%defattr(0644,root,root,755)
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-subcontracting/AUTHORS
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-subcontracting/COPYING
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-subcontracting/Changelog
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/subcontracting.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/subcontracting.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/subcontracting/locale/
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/subcontracting/class_subContracting.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/subcontracting/main.inc
+
+%files newsletter
+%defattr(0644,root,root,755)
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/newsletter/locale/
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/newsletter/class_newsletterConfig.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/newsletter/class_newsletterSubscriptions.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/newsletter/main.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/newsletter.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/newsletter.png
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-newsletter/AUTHORS
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-newsletter/COPYING
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-newsletter/Changelog
+
+%files community
+%defattr(0644,root,root,755)
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/departments/community/class_communityOrganization.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/departments/community/class_communityProject.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/community/class_communityConfig.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/community/class_communityAccount.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/community/main.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/community.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/community.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/community/locale/
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-community/AUTHORS
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-community/COPYING
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-community/Changelog
 
 %files alias-schema
 %defattr(0644,root,root,755)
@@ -2630,6 +2657,7 @@ LDAP schema for FusionDirectory ppolicy plugin
 # Files
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dns-fd-conf.schema
 %config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dnszone.schema
+%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dns-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dns-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dns-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dns-schema/COPYING
@@ -2916,10 +2944,59 @@ LDAP schema for FusionDirectory ppolicy plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ppolicy-schema/COPYING
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ppolicy-schema/Changelog
 
+%files subcontracting-schema
+%attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/subcontracting-fd.schema
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-subcontracting-schema/AUTHORS
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-subcontracting-schema/COPYING
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-subcontracting-schema/Changelog
+
+%files newsletter-schema
+%attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/newsletter-fd-conf.schema
+%attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/newsletter-fd.schema
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-newsletter-schema/AUTHORS
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-newsletter-schema/COPYING
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-newsletter-schema/Changelog
+
+%files community-schema
+%attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/community-fd-conf.schema
+%attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/community-fd.schema
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-community-schema/AUTHORS
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-community-schema/COPYING
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-community-schema/Changelog
+
 
 ########################
 
 %changelog
+* Tue Mar 15 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.10-1
+- Fixes #4500 Remove unused nagios.tpl file
+- Fixes #4471 Remove the dependence between systems and dns
+- Fixes #4547 Remove old files for DNS plugin
+- Fixes #4552 Remove NTP service
+- Fixes #4361 Add dns-fd.schema
+- Fixes #4547 Add new files for the new DNS plugin
+- Fixes #4547 Forgot 2 files got the new DNS plugin
+- Fixes #4536 Package subcontracting plugin
+- Fixes #4536 Syntax error in the spec file
+- Fixes #4547 Move the icons in the right folder for the plugin DNS
+- Fixes #4547 Add an elif for DNS plugin
+- Fixes #4536 Move the icons for subcontracting plugin
+- Fixes #4536 Modify path for subcontracting icons
+- Fixes #4536 Correct errors in the path for subcontracting icons
+- Fixes #4587 Add newsletter plugin
+- Fixes #4582 Add community plugin
+- Fixes #4596 Modify spec file to copy html images in the good path
+- Fixes #4596 Modification for fusioninventory plugin in the spec file
+- Fixes #4596 Recreate a directory for fusioninventory plugin that I had remove by error
+- Fixes #4596 Correct paths of many plugins in the spec file
+- Fixes #4596 Add a section to copy the images of fusiondirectory-plugin-game
+- Fixes #4617 Package getFAIstatus.php
+- Fixes #4617 Forgot to add the file in the %files section
+- Fixes #4596 Forgot some icons for repository plugin
+- Fixes #4596 Remove unused images for systems plugin
+- Fixes #4596 Add some opsi icons
+- Fixes #4547 Add class_dnsAcl.inc
+
 * Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - New upstream release
 
