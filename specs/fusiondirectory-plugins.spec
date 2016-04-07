@@ -2578,8 +2578,6 @@ LDAP schema for FusionDirectory community plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/departments/community/class_communityOrganization.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/departments/community/class_communityProject.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/community/class_communityConfig.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/community/class_communityAccount.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/community/main.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/community.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/community.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/community/locale/
@@ -2968,6 +2966,9 @@ LDAP schema for FusionDirectory community plugin
 ########################
 
 %changelog
+* Thu Apr 07 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.11-1
+- Fixes #4670 Some files have been removed related to community plugin
+
 * Tue Mar 15 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.10-1
 - Fixes #4500 Remove unused nagios.tpl file
 - Fixes #4471 Remove the dependence between systems and dns
