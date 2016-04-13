@@ -1975,7 +1975,6 @@ LDAP schema for FusionDirectory community plugin
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/imap/class_serviceIMAP.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/virus/class_serviceAntiVirus.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/spam/class_serviceSpamAssassin.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/postfix/class_servicePostfix.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/groups/mail/class_groupMail.inc
@@ -2966,6 +2965,9 @@ LDAP schema for FusionDirectory community plugin
 ########################
 
 %changelog
+* Wed Apr 13 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-1
+- Fixes #4696 Remove antivirus service from mail plugin
+
 * Thu Apr 07 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.11-1
 - Fixes #4670 Some files have been removed related to community plugin
 

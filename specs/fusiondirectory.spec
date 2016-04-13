@@ -390,6 +390,9 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Wed Apr 13 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-1
+* Fixes #4683 Modify the path for scriptaculous and prototype loading
+
 * Thu Apr 07 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.11-1
 - Fixes #4649 Replace php-mcrypt with php-openssl
 - Fixes #4642 Update requirement for php to 5.4
