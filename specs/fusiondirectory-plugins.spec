@@ -2017,7 +2017,6 @@ LDAP schema for FusionDirectory spamassassin plugin
 %defattr(0644,root,root,755)
 # Admin section
 # Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/imap/class_serviceIMAP.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/groups/mail/class_groupMail.inc
 # Config section
 # Files
@@ -3033,7 +3032,8 @@ LDAP schema for FusionDirectory spamassassin plugin
 ########################
 
 %changelog
-* Thu Apr 14 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-1
+* Tue Apr 26 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-1
+- Fixes #4732 Remove class_serviceIMAP.inc
 - Fixes #4710 Removing of another 's'
 - Fixes #4710 We missed some "s" sometimes
 - Fixes #4710 Replace spamassasin with spamassassin
