@@ -333,7 +333,7 @@ Management of automount entries
 %package cyrus
 Group:		Applications/System
 Summary:	Cyrus account management
-Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-mail
+Requires:	fusiondirectory >= %{version}, fusiondirectory-plugin-systems >= %{version}
 
 %description cyrus
 Cyrus account management
@@ -373,7 +373,7 @@ DNS service management
 %package dovecot
 Group:		Applications/System
 Summary:	Dovecot account management
-Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems
+Requires:	fusiondirectory >= %{version}, fusiondirectory-plugin-systems >= %{version}
 
 %description dovecot
 Dovecot account management
@@ -461,7 +461,7 @@ Simple LDAP backup and insertion tasks
 %package mail
 Group:		Applications/System
 Summary:	Mail management base
-Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems
+Requires:	fusiondirectory >= %{version}
 
 %description mail
 Mail management base
@@ -677,7 +677,7 @@ Management plugin for community
 %package postfix
 Group:          Applications/System
 Summary:        Management plugin for postfix
-Requires:       fusiondirectory >= %{version}
+Requires:       fusiondirectory >= %{version}, fusiondirectory-plugin-systems >= %{version}
 
 %description postfix
 Management plugin for postfix
@@ -685,7 +685,7 @@ Management plugin for postfix
 %package spamassassin
 Group:          Applications/System
 Summary:        Management plugin for spamassassin
-Requires:       fusiondirectory >= %{version}
+Requires:       fusiondirectory >= %{version}, fusiondirectory-plugin-systems >= %{version}
 
 %description spamassassin
 Management plugin for spamassassin
@@ -734,7 +734,7 @@ LDAP schema for FusionDirectory autofs plugin
 %package cyrus-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory cyrus plugin
-Requires: fusiondirectory-plugin-mail-schema >= %{version}
+Requires: fusiondirectory-schema >= %{version}, fusiondirectory-plugin-systems-schema >= %{version}
 
 %description cyrus-schema
 LDAP schema for FusionDirectory cyrus plugin
@@ -773,7 +773,7 @@ LDAP schema for FusionDirectory dns plugin
 %package dovecot-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory dovecot plugin
-Requires: fusiondirectory-plugin-systems-schema >= %{version}
+Requires: fusiondirectory-schema >= %{version}, fusiondirectory-plugin-systems-schema >= %{version}
 
 %description dovecot-schema
 LDAP schema for FusionDirectory dovecot plugin
@@ -853,7 +853,7 @@ LDAP schema for FusionDirectory kolab2 plugin
 %package mail-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory mail plugin
-Requires: fusiondirectory-plugin-systems-schema >= %{version}
+Requires: fusiondirectory-schema >= %{version}
 
 %description mail-schema
 LDAP schema for FusionDirectory mail plugin
@@ -1080,6 +1080,7 @@ LDAP schema for FusionDirectory community plugin
 %package postfix-schema
 Group:          Applications/System
 Summary:        LDAP schema for FusionDirectory postfix plugin
+Requires:       fusiondirectory-schema >= %{version}, fusiondirectory-plugin-systems-schema >= %{version}
 
 %description postfix-schema
 LDAP schema for FusionDirectory postfix plugin
@@ -1087,6 +1088,7 @@ LDAP schema for FusionDirectory postfix plugin
 %package spamassassin-schema
 Group:          Applications/System
 Summary:        LDAP schema for FusionDirectory spamassassin plugin
+Requires:       fusiondirectory-schema >= %{version}, fusiondirectory-plugin-systems-schema >= %{version}
 
 %description spamassassin-schema
 LDAP schema for FusionDirectory spamassassin plugin
@@ -3033,6 +3035,7 @@ LDAP schema for FusionDirectory spamassassin plugin
 
 %changelog
 * Tue Apr 26 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-1
+- Fixes #4718 Adapt the dependences due the splitting of the mail plugin
 - Fixes #4732 Remove class_serviceIMAP.inc
 - Fixes #4710 Removing of another 's'
 - Fixes #4710 We missed some "s" sometimes
