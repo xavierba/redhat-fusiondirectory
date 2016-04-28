@@ -2636,6 +2636,8 @@ LDAP schema for FusionDirectory spamassassin plugin
 %files spamassassin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/services/spam/class_serviceSpamAssassin.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/spamassassin/locale/
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/spamassassin/class_spamAssassinAccount.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/spamassassin/main.inc
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-spamassassin/AUTHORS
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-spamassassin/COPYING
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-spamassassin/Changelog
@@ -3034,7 +3036,8 @@ LDAP schema for FusionDirectory spamassassin plugin
 ########################
 
 %changelog
-* Tue Apr 26 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-1
+* Thu Apr 28 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-1
+- Fixes #4750 Add files for plugin spamassassin
 - Fixes #4718 Adapt the dependences due the splitting of the mail plugin
 - Fixes #4732 Remove class_serviceIMAP.inc
 - Fixes #4710 Removing of another 's'
