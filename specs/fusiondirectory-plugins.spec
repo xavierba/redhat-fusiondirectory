@@ -3036,6 +3036,9 @@ LDAP schema for FusionDirectory spamassassin plugin
 ########################
 
 %changelog
+* Mon May 10 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-2
+- New upstream release
+
 * Mon May 03 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-1
 - Fixes #4750 Add files for plugin spamassassin
 - Fixes #4718 Adapt the dependences due the splitting of the mail plugin

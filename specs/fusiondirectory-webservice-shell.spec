@@ -44,6 +44,9 @@ rm -Rf %{buildroot}
 %attr(-,root,root) %{_datadir}/man/man1/fusiondirectory-shell.1.gz
 
 %changelog
+* Mon May 10 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-2
+- New upstream release
+
 * Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - New upstream release
 

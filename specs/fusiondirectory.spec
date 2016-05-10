@@ -390,6 +390,9 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Mon May 10 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-2
+- Fixes #4770 Fix prototype path in headers.tpl
+
 * Mon May 03 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-1
 * Fixes #4683 Modify the path for scriptaculous and prototype loading
 
