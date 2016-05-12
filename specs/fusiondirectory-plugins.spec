@@ -1915,9 +1915,6 @@ LDAP schema for FusionDirectory spamassassin plugin
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/kolab2/class_serviceKolab.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/ogroups/kolab2/class_mailogroup.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/ogroups/kolab2/mail.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/ogroups/kolab2/paste_mail.tpl
 # HTML section
 # Directories
 # Files in the directory
@@ -2382,7 +2379,6 @@ LDAP schema for FusionDirectory spamassassin plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/shares/service_share.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/shares/class_serviceShare.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/ldap/class_serviceLDAP.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/class_goService.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/server_import.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/serverService-filter.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/network.tpl
@@ -2994,6 +2990,7 @@ LDAP schema for FusionDirectory spamassassin plugin
 
 %changelog
 * Thu May 12 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
+- Fixes #4780 Remove Replace kolab ogroup tab and remove unused goService class
 - Fixes #4780 Remove addressbook plugin
 
 * Mon May 10 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-2
