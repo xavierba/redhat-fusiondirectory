@@ -2989,7 +2989,8 @@ LDAP schema for FusionDirectory spamassassin plugin
 ########################
 
 %changelog
-* Thu May 12 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
+* Fri May 13 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
+- Fixes #4786 Split specfile rhel6 and rhel7 to modify the php dependence of rhel6
 - Fixes #4780 Remove Replace kolab ogroup tab and remove unused goService class
 - Fixes #4780 Remove addressbook plugin
 
