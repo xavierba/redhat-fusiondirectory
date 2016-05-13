@@ -22,14 +22,14 @@ Patch5:     %{name}-fix_smarty3-location.patch
 Patch6:     %{name}-fix_install-location-apache-old-version.patch
 
 
-Requires:   php >= 5.4, php54-ldap >= 5.3, php54-imap >= 5.3, php54-mbstring >= 5.3, php54-pecl-imagick, php54-gd, php54-openssl
+Requires:   php54, php54-php-ldap, php54-php-imap, php54-php-mbstring, php-pecl-imagick, php54-php-gd, php-openssl
 
 Requires:   perl-Path-Class, perl-Digest-SHA, perl-File-Copy-Recursive, perl-Archive-Extract, perl-XML-Twig
 Requires:   perl-Crypt-CBC, perl-LDAP, perl, perl-Crypt-Rijndael
 
 Requires:   httpd, gettext, perl-ExtUtils-MakeMaker, prototype, prototype-httpd, scriptaculous, scriptaculous-httpd
 
-Requires:   php54-Smarty3, php54-Smarty3-i18n, php54-pear-CAS
+Requires:   php-Smarty3, php-Smarty3-i18n, php-pear-CAS
 
 %description 
 FusionDirectory is a combination of system-administrator and end-user web
