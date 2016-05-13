@@ -10,7 +10,7 @@ URL:        http://www.fusiondirectory.org
 Buildarch:  noarch
 Source0:    fusiondirectory-plugins-%{version}.tar.gz
 
-Requires:   perl-Term-ReadLine-Gnu, perl-Crypt-SSLeay
+Requires:   perl-Term-ReadLine-Gnu, perl-JSON, perl-Crypt-SSLeay
 
 %description 
 This is the conmand line shell for the FusionDirectory with a webservice
