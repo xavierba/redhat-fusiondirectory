@@ -2619,8 +2619,8 @@ LDAP schema for FusionDirectory user-reminder plugin
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-user-reminder/AUTHORS
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-user-reminder/COPYING
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-user-reminder/Changelog
-%attr (-,root,root)     %{_datadir}fusiondirectory/locale/plugins/user-reminder/locale/
-%attr (-,root,root)     %{_datadir}fusiondirectory/plugins/config/user-reminder/class_userReminderConfig.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/user-reminder/locale/
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/config/user-reminder/class_userReminderConfig.inc
 
 
 %files alias-schema
