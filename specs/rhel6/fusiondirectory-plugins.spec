@@ -2618,9 +2618,9 @@ LDAP schema for FusionDirectory user-reminder plugin
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-spamassassin/Changelog
 
 %files user-reminder
-%doc %attr (-,root,root)     %{_datadir}doc/fusiondirectory-plugin-user-reminder/AUTHORS
-%doc %attr (-,root,root)     %{_datadir}doc/fusiondirectory-plugin-user-reminder/COPYING
-%doc %attr (-,root,root)     %{_datadir}doc/fusiondirectory-plugin-user-reminder/Changelog
+%doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-user-reminder/AUTHORS
+%doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-user-reminder/COPYING
+%doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-user-reminder/Changelog
 %attr (-,root,root)     %{_datadir}fusiondirectory/locale/plugins/user-reminder/locale/
 %attr (-,root,root)     %{_datadir}fusiondirectory/plugins/config/user-reminder/class_userReminderConfig.inc
 
@@ -3016,9 +3016,9 @@ LDAP schema for FusionDirectory user-reminder plugin
 
 %files user-reminder-schema
 %attr (-,root,root)       %{_sysconfdir}/openldap/schema/fusiondirectory/user-reminder-fd-conf.schema
-%doc %attr (-,root,root)  %{_datadir}doc/fusiondirectory-plugin-user-reminder-schema/AUTHORS
-%doc %attr (-,root,root)  %{_datadir}doc/fusiondirectory-plugin-user-reminder-schema/COPYING
-%doc %attr (-,root,root)  %{_datadir}doc/fusiondirectory-plugin-user-reminder-schema/Changelog
+%doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-user-reminder-schema/AUTHORS
+%doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-user-reminder-schema/COPYING
+%doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-user-reminder-schema/Changelog
 
 ########################
 
