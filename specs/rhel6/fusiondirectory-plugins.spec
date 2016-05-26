@@ -2628,8 +2628,8 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files alias-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/alias-fd-conf.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/alias-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/alias-fd-conf.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/alias-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-alias-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-alias-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-alias-schema/COPYING
@@ -2638,7 +2638,7 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files apache2-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/mod_vhost_ldap.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/mod_vhost_ldap.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-apache2-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-apache2-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-apache2-schema/COPYING
@@ -2647,7 +2647,7 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files argonaut-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/argonaut-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/argonaut-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-argonaut-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-argonaut-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-argonaut-schema/COPYING
@@ -2656,7 +2656,7 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files autofs-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/autofs-fd-conf.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/autofs-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-autofs-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-autofs-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-autofs-schema/COPYING
@@ -2665,7 +2665,7 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files cyrus-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/cyrus-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/cyrus-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus-schema/COPYING
@@ -2674,8 +2674,8 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files debconf-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/debconf.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/debconf-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/debconf.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/debconf-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-debconf-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-debconf-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-debconf-schema/COPYING
@@ -2684,7 +2684,7 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files dhcp-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dhcp-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dhcp-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp-schema/COPYING
@@ -2693,9 +2693,9 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files dns-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dns-fd-conf.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dnszone.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dns-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dns-fd-conf.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dnszone.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dns-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dns-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dns-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dns-schema/COPYING
@@ -2704,7 +2704,7 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files dovecot-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dovecot-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dovecot-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dovecot-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dovecot-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dovecot-schema/COPYING
@@ -2713,7 +2713,7 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files dsa-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dsa-fd-conf.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dsa-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dsa-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dsa-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dsa-schema/COPYING
@@ -2722,8 +2722,8 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files fai-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/fai.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/fai-fd-conf.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/fai.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/fai-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fai-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fai-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fai-schema/COPYING
@@ -2732,7 +2732,7 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files freeradius-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/freeradius.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/freeradius.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-freeradius-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-freeradius-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-freeradius-schema/COPYING
@@ -2741,9 +2741,9 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files fusioninventory-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/inventory-fd.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/fusioninventory-fd.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/fusioninventory-fd-conf.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/inventory-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/fusioninventory-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/fusioninventory-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fusioninventory-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fusioninventory-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fusioninventory-schema/COPYING
@@ -2752,10 +2752,10 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files gpg-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/pgp-recon.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/pgp-keyserver.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/pgp-remte-prefs.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/gpg-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/pgp-recon.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/pgp-keyserver.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/pgp-remte-prefs.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/gpg-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-gpg-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-gpg-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-gpg-schema/COPYING
@@ -2764,7 +2764,7 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files ipmi-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/ipmi-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/ipmi-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi-schema/COPYING
@@ -2773,8 +2773,8 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files kolab2-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/rfc2739.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/kolab2.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/rfc2739.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/kolab2.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab2-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab2-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab2-schema/COPYING
@@ -2783,8 +2783,8 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files mail-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/mail-fd-conf.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/mail-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/mail-fd-conf.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/mail-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-mail-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-mail-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-mail-schema/COPYING
@@ -2793,8 +2793,8 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files nagios-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/nagios-fd-conf.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/netways.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/nagios-fd-conf.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/netways.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-nagios-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-nagios-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-nagios-schema/COPYING
@@ -2803,7 +2803,7 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files netgroups-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/netgroups-fd-conf.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/netgroups-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-netgroups-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-netgroups-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-netgroups-schema/COPYING
@@ -2812,8 +2812,8 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files opsi-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/opsi-fd.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/opsi-fd-conf.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/opsi-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/opsi-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-opsi-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-opsi-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-opsi-schema/COPYING
@@ -2822,8 +2822,8 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files puppet-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/puppet.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/puppet-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/puppet.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/puppet-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-puppet-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-puppet-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-puppet-schema/COPYING
@@ -2832,7 +2832,7 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files pureftpd-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/pureftpd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/pureftpd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-pureftpd-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-pureftpd-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-pureftpd-schema/COPYING
@@ -2841,8 +2841,8 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files quota-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/quota.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/quota-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/quota.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/quota-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-quota-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-quota-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-quota-schema/COPYING
@@ -2851,8 +2851,8 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files repository-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/repository-fd.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/repository-fd-conf.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/repository-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/repository-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-repository-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-repository-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-repository-schema/COPYING
@@ -2871,9 +2871,9 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files sogo-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/sogo-fd-conf.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/calRessources.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/calEntry.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/sogo-fd-conf.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/calRessources.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/calEntry.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sogo-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sogo-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sogo-schema/COPYING
@@ -2882,7 +2882,7 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files squid-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/proxy-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/proxy-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-squid-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-squid-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-squid-schema/COPYING
@@ -2891,7 +2891,7 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files ssh-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/openssh-lpk.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/openssh-lpk.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ssh-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ssh-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ssh-schema/COPYING
@@ -2900,8 +2900,8 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files sudo-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/sudo-fd-conf.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/sudo.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/sudo-fd-conf.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/sudo.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sudo-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sudo-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sudo-schema/COPYING
@@ -2910,9 +2910,9 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files supann-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/internet2.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/supann_2009.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/supann-fd-conf.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/internet2.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/supann_2009.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/supann-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann-schema/COPYING
@@ -2921,7 +2921,7 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files sympa-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/sympa-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/sympa-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sympa-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sympa-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sympa-schema/COPYING
@@ -2930,9 +2930,9 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files systems-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/systems-fd-conf.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/systems-fd.schema
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/service-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/systems-fd-conf.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/systems-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/service-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-systems-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-systems-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-systems-schema/COPYING
@@ -2941,7 +2941,7 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files weblink-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/weblink-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/weblink-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-weblink-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-weblink-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-weblink-schema/COPYING
@@ -2950,7 +2950,7 @@ LDAP schema for FusionDirectory user-reminder plugin
 %files webservice-schema
 %defattr(0644,root,root,755)
 # Files
-%config(noreplace) %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/webservice-fd-conf.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/webservice-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice-schema/COPYING
@@ -3024,6 +3024,7 @@ LDAP schema for FusionDirectory user-reminder plugin
 
 %changelog
 * Fri May 26 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
+- Fixes #4815 Remove config(noreplace) for schema packages
 - Fixes #4812 Package user-reminder plugin
 - Fixes #4786 Split specfile rhel6 and rhel7 to modify the php dependence of rhel6
 - Fixes #4780 Remove Replace kolab ogroup tab and remove unused goService class
