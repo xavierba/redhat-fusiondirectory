@@ -2652,6 +2652,9 @@ LDAP schema for FusionDirectory audit plugin
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-audit/Changelog
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/audit/class_auditEvent.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/config/audit/class_auditConfig.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/audit/locale/
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/audit.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/audit.png
 
 
 %files alias-schema
