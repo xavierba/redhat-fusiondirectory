@@ -22,7 +22,7 @@ This is the script to manage the user reminder fonctionality.
 
 %install
 mkdir -p %{buildroot}/usr/sbin/
-cp ./user-reminder/contrib/bin/* %{buildroot}/usr/bin/
+cp ./user-reminder/contrib/bin/* %{buildroot}/usr/sbin/
 chmod +x %{buildroot}/usr/sbin/*
 
 mkdir -p %{buildroot}/usr/share/doc/fusiondirectory-user-reminder/
@@ -37,4 +37,4 @@ rm -Rf %{buildroot}
 
 %changelog
 * Wed Jun 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
-- Package fusiondirectory-user-reminder script
+- Fixes #4812 Package fusiondirectory-user-reminder script
