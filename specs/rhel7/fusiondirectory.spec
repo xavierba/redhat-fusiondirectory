@@ -334,7 +334,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/%{name}/include/class_ldapMultiplexer.inc
 %{_datadir}/%{name}/include/class_listing.inc
 %{_datadir}/%{name}/include/class_listingSortIterator.inc
-%{_datadir}/%{name}/include/class_log.inc
+%{_datadir}/%{name}/include/class_logging.inc
 %{_datadir}/%{name}/include/class_management.inc
 %{_datadir}/%{name}/include/class_msg_dialog.inc
 %{_datadir}/%{name}/include/class_msgPool.inc
@@ -390,6 +390,9 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Thu Jun 02 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
+- Fixes #4837 Add class_logging.inc
+
 * Mon May 10 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-2
 - Fixes #4770 Fix prototype path in headers.tpl
 
