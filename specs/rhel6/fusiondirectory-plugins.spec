@@ -3055,9 +3055,9 @@ LDAP schema for FusionDirectory audit plugin
 %files audit-schema
 %attr (-,root,root)       %{_sysconfdir}/openldap/schema/fusiondirectory/audit-fd-conf.schema
 %attr (-,root,root)       %{_sysconfdir}/openldap/schema/fusiondirectory/audit-fd.schema
-%doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-user-reminder-schema/AUTHORS
-%doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-user-reminder-schema/COPYING
-%doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-user-reminder-schema/Changelog
+%doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-audit-schema/AUTHORS
+%doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-audit-schema/COPYING
+%doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-audit-schema/Changelog
 
 
 ########################
