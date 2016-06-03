@@ -2655,6 +2655,8 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/audit/locale/
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/audit.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/audit.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/audit/class_auditManagement.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/audit/main.inc
 
 
 %files alias-schema
