@@ -25,9 +25,6 @@ mkdir -p %{buildroot}/usr/sbin/
 cp ./user-reminder/contrib/bin/* %{buildroot}/usr/sbin/
 chmod +x %{buildroot}/usr/sbin/*
 
-mkdir -p %{buildroot}/usr/share/doc/fusiondirectory-user-reminder/
-cp ./webservice/contrib/docs/* %{buildroot}/usr/share/doc/fusiondirectory-user-reminder/
-
 %clean
 rm -Rf %{buildroot}
 
@@ -36,5 +33,6 @@ rm -Rf %{buildroot}
 %attr(0755,root,root) /usr/sbin/fusiondirectory-user-reminder
 
 %changelog
-* Wed Jun 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
+* Fri Jun 03 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
+- Fixes #4812 Correct specfile that take a part of webservice plugin
 - Fixes #4812 Package fusiondirectory-user-reminder script
