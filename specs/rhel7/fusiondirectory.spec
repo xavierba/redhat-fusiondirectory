@@ -347,6 +347,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/%{name}/include/class_timezone.inc
 %{_datadir}/%{name}/include/class_userinfo.inc
 %{_datadir}/%{name}/include/class_xml.inc
+%{_datadir}/%{name}/include/class_ldapGeneralizedTime.inc
 %{_datadir}/%{name}/include/functions_debug.inc
 %{_datadir}/%{name}/include/functions.inc
 %{_datadir}/%{name}/include/php_setup.inc
@@ -390,7 +391,8 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
-* Thu Jun 02 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
+* Fri Jun 03 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
+- Fixes add class_ldapGeneralizedTime.inc
 - Fixes #4837 Add class_logging.inc
 
 * Mon May 10 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-2
