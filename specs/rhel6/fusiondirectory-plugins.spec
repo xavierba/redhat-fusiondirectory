@@ -2399,10 +2399,6 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/supann-etablissement.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/supann.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/supann.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/supann-entite.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/supann-etablissement.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/supann.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/supann.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/supann/images/profil.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/supann/images/user-student.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/supann/images/affiliation.png
