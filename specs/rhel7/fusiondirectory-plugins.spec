@@ -1516,6 +1516,11 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/alias-sympa.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/alias.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/alias.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/alias-distribution.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/alias-redirection.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/alias-sympa.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/alias.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/alias.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/alias
@@ -1574,6 +1579,11 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/argonaut-mirror.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/argonaut.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/argonaut.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/argonaut-dns.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/argonaut-fuse.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/argonaut-mirror.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/argonaut.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/argonaut.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/argonaut/getFAIstatus.php
 # Include section
 # Files
@@ -1604,6 +1614,10 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/autofs-nis-object.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/autofs.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/autofs.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/autofs-nis-map.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/autofs-nis-object.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/autofs.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/autofs.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/autofs/images/folder-remote.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/autofs/images/folder.png
 # Files
@@ -1624,6 +1638,8 @@ LDAP schema for FusionDirectory audit plugin
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/cyrus.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/cyrus.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/cyrus.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/cyrus.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/cyrus
@@ -1652,6 +1668,8 @@ LDAP schema for FusionDirectory audit plugin
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/debconf.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/debconf.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/debconf.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/debconf.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/debconf
@@ -1713,7 +1731,8 @@ LDAP schema for FusionDirectory audit plugin
 # HTML section
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/dhcp.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/dhcp.png
-# Locale section
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/dhcp.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/dhcp.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dhcp
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/Changelog
@@ -1738,6 +1757,8 @@ LDAP schema for FusionDirectory audit plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/dns.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/dns.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/dns.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/dns.png
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dns
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dns/AUTHORS
@@ -1755,6 +1776,8 @@ LDAP schema for FusionDirectory audit plugin
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/dovecot.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/dovecot.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/dovecot.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/dovecot.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dovecot
@@ -1781,6 +1804,8 @@ LDAP schema for FusionDirectory audit plugin
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/dsa.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/dsa.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/dsa.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/dsa.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dsa
@@ -1835,6 +1860,16 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/fai-variable.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/fai.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/fai.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/actions/package-configure.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/fai-hook.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/fai-packages.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/fai-partitiontable.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/fai-profile.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/fai-script.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/fai-template.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/fai-variable.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/fai.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/fai.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fai
@@ -1853,6 +1888,8 @@ LDAP schema for FusionDirectory audit plugin
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/freeradius.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/freeradius.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/freeradius.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/freeradius.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/freeradius
@@ -1883,6 +1920,8 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/fusioninventory/inventory.css
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/fusioninventory.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/fusioninventory.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/fusioninventory.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/fusioninventory.png
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fusioninventory
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fusioninventory/AUTHORS
@@ -1924,6 +1963,8 @@ LDAP schema for FusionDirectory audit plugin
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/gpg.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/gpg.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/gpg.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/gpg.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/gpg
@@ -1962,6 +2003,8 @@ LDAP schema for FusionDirectory audit plugin
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/kolab2.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/kolab2.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/kolab2.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/kolab2.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab2/locale/
@@ -2003,6 +2046,8 @@ LDAP schema for FusionDirectory audit plugin
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/ldapmanager.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/ldapmanager.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/ldapmanager.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/ldapmanager.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/ldapmanager
@@ -2043,6 +2088,8 @@ LDAP schema for FusionDirectory audit plugin
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/nagios.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/nagios.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/nagios.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/nagios.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/nagios
@@ -2073,6 +2120,8 @@ LDAP schema for FusionDirectory audit plugin
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/netgroups.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/netgroups.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/netgroups.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/netgroups.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/netgroups
@@ -2114,6 +2163,12 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/opsi-on-demand.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/opsi-software-list.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/opsi.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/opsi-on-demand.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/opsi-software-list.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/opsi.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/opsi-on-demand.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/opsi-software-list.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/opsi.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/opsi/images/iconSoftwareList.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/opsi/images/iconSoftwareOnDemand.png
 # Files
@@ -2135,6 +2190,8 @@ LDAP schema for FusionDirectory audit plugin
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/puppet.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/puppet.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/puppet.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/puppet.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/puppet
@@ -2150,6 +2207,8 @@ LDAP schema for FusionDirectory audit plugin
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/pureftpd.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/pureftpd.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/pureftpd.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/pureftpd.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/pureftpd
@@ -2173,6 +2232,8 @@ LDAP schema for FusionDirectory audit plugin
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/quota.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/quota.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/quota.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/quota.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/quota
@@ -2206,6 +2267,11 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/repository.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/repository.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/repository.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/repository-distribution.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/repository-section.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/repository.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/repository.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/repository.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/repository
@@ -2256,6 +2322,8 @@ LDAP schema for FusionDirectory audit plugin
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/sogo.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/sogo.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/sogo.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/sogo.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/sogo
@@ -2271,6 +2339,8 @@ LDAP schema for FusionDirectory audit plugin
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/squid.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/squid.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/squid.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/squid.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/squid
@@ -2291,6 +2361,8 @@ LDAP schema for FusionDirectory audit plugin
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/ssh.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/ssh.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/ssh.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/ssh.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/ssh
@@ -2321,6 +2393,8 @@ LDAP schema for FusionDirectory audit plugin
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/sudo.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/sudo.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/sudo.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/sudo.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/sudo
@@ -2365,6 +2439,10 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/supann-etablissement.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/supann.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/supann.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/supann-entite.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/supann-etablissement.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/supann.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/supann.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/supann/images/profil.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/supann/images/user-student.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/supann/images/affiliation.png
@@ -2395,6 +2473,8 @@ LDAP schema for FusionDirectory audit plugin
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/sympa.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/sympa.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/sympa.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/sympa.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/sympa
@@ -2519,6 +2599,8 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/config/ejbca/class_ejbcaConfig.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/ejbca.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/ejbca.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/ejbca.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/ejbca.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ejbca/locale/
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ejbca/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ejbca/COPYING
@@ -2564,6 +2646,8 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/dashboard/ppolicy_locked_accounts.tpl
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/ppolicy.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/ppolicy.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/ppolicy.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/ppolicy.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/
 %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-ppolicy/ppolicyconfig.ldif
 %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-ppolicy/ppolicydefault.ldif
@@ -2593,6 +2677,8 @@ LDAP schema for FusionDirectory audit plugin
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-subcontracting/Changelog
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/subcontracting.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/subcontracting.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/subcontracting.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/subcontracting.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/subcontracting/locale/
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/subcontracting/class_subContracting.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/subcontracting/main.inc
@@ -2605,6 +2691,8 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/newsletter/main.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/newsletter.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/newsletter.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/newsletter.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/newsletter.png
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-newsletter/AUTHORS
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-newsletter/COPYING
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-newsletter/Changelog
@@ -2616,6 +2704,8 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/community/class_communityConfig.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/community.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/community.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/community.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/community.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/community/locale/
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-community/AUTHORS
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-community/COPYING
@@ -2651,8 +2741,10 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/audit/class_auditEvent.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/config/audit/class_auditConfig.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/audit/locale/
-%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/audit.png
-%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/audit.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/audit.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/audit.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/audit.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/audit.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/audit/class_auditManagement.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/audit/main.inc
 
@@ -3062,7 +3154,8 @@ LDAP schema for FusionDirectory audit plugin
 ########################
 
 %changelog
-* Thu Jun 02 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
+* Thu Jun 08 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
+- Fixes #4860 Package Breezy's icons
 - Fixes #4837 Package audit plugin
 - Fixes #4815 Remove config(noreplace) for schema packages
 - Fixes #4812 Package user-reminder plugin
