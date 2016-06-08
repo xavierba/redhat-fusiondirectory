@@ -2677,6 +2677,8 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/community.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/community.svg
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/community.svg
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/community.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/community.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/community/locale/
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-community/AUTHORS
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-community/COPYING
