@@ -1880,6 +1880,16 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/fai-variable.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/fai.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/fai.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/actions/package-configure.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/fai-hook.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/fai-packages.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/fai-partitiontable.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/fai-profile.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/fai-script.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/fai-template.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/fai-variable.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/fai.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/fai.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fai
