@@ -1904,7 +1904,6 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/fai-template.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/fai-variable.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/fai.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/fai.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/fai
