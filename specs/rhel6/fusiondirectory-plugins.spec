@@ -2090,8 +2090,8 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/ldapmanager.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/ldapmanager.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/ldapmanager.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/lpapmanager.svg
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/lpapmanager.svg
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/ldapmanager.svg
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/ldapmanager.svg
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/ldapmanager
