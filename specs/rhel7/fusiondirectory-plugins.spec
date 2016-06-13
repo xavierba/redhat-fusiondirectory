@@ -1620,11 +1620,11 @@ LDAP schema for FusionDirectory audit plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/autofs-nis-map.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/autofs-nis-netmap.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/autofs-nis-object.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/autofs.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/autofs.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/autofs-nis-map.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/autofs-nis-netmap.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/autofs-nis-object.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/autofs.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/autofs.png
@@ -3175,7 +3175,8 @@ LDAP schema for FusionDirectory audit plugin
 ########################
 
 %changelog
-* Thu Jun 08 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
+* Mon Jun 13 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
+- Corrected icon to be autofs-nis-netmap in place of autofs-nis-map
 - Fixes #4860 Package Breezy's icons
 - Fixes #4837 Package audit plugin
 - Fixes #4815 Remove config(noreplace) for schema packages
