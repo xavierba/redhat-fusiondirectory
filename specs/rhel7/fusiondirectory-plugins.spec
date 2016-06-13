@@ -2181,8 +2181,6 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/opsi/main.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/opsi/class_opsiProfile.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/opsi/class_opsiProductProperties.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/opsi/class_opsiSoftwareList.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/opsi/class_opsiOnDemandList.inc
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/opsi/class_opsiConfig.inc
@@ -3176,6 +3174,7 @@ LDAP schema for FusionDirectory audit plugin
 
 %changelog
 * Mon Jun 13 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
+- Removing no longer used images
 - Adding theme for game plugin
 - Corrected icon to be autofs-nis-netmap in place of autofs-nis-map
 - Fixes #4860 Package Breezy's icons

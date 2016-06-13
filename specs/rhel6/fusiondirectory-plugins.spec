@@ -1,4 +1,4 @@
-# This is the header.spec file
+c# This is the header.spec file
 Name:       fusiondirectory-plugin
 Version:    _VERSION_
 Release:    _RELEASE_
@@ -2209,8 +2209,6 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/opsi-on-demand.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/opsi-software-list.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/opsi.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/opsi/images/iconSoftwareList.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/opsi/images/iconSoftwareOnDemand.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/opsi
@@ -3191,6 +3189,7 @@ LDAP schema for FusionDirectory audit plugin
 
 %changelog
 * Mon Jun 13 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
+- Removing no longer used images
 - Adding theme for game plugin
 - Corrected icon to be autofs-nis-netmap in place of autofs-nis-map
 - Fixes #4860 Package Breezy's icons
