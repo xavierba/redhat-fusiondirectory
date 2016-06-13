@@ -1983,10 +1983,10 @@ LDAP schema for FusionDirectory audit plugin
 # HTML section
 # Directories
 # Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/game/images/iconMini.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/game.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/game/images/win.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/game/images/game_logo.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/game/images/icon.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/game.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/game/images/mission_complete.png
 # Files
 # Locale section
@@ -3191,6 +3191,7 @@ LDAP schema for FusionDirectory audit plugin
 
 %changelog
 * Mon Jun 13 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
+- Adding theme for game plugin
 - Corrected icon to be autofs-nis-netmap in place of autofs-nis-map
 - Fixes #4860 Package Breezy's icons
 - Fixes #4837 Package audit plugin
