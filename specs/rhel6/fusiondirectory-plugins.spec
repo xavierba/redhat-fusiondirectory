@@ -1,4 +1,4 @@
-c# This is the header.spec file
+# This is the header.spec file
 Name:       fusiondirectory-plugin
 Version:    _VERSION_
 Release:    _RELEASE_
