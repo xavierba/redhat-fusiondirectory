@@ -1528,6 +1528,11 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/alias-sympa.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/alias.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/alias.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/alias-distribution.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/alias-redirection.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/alias-sympa.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/alias.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/alias.png
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/alias
@@ -3261,7 +3266,7 @@ LDAP schema for FusionDirectory audit plugin
 
 %changelog
 * Fri Jun 17 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.14-1
-- New upstream release
+- Fixes #4860 Package more Breezy's icons
 
 * Mon Jun 13 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
 - Removing no longer used images
