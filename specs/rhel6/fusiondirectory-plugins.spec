@@ -3260,6 +3260,9 @@ LDAP schema for FusionDirectory audit plugin
 ########################
 
 %changelog
+* Fri Jun 17 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.14-1
+- New upstream release
+
 * Mon Jun 13 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
 - Removing no longer used images
 - Adding theme for game plugin

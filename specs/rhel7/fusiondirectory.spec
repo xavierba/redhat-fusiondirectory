@@ -391,6 +391,9 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Fri Jun 17 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.14-1
+- New upstream release
+
 * Fri Jun 03 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
 - Fixes add class_ldapGeneralizedTime.inc
 - Fixes #4837 Add class_logging.inc

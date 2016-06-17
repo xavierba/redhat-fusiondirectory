@@ -44,6 +44,9 @@ rm -Rf %{buildroot}
 %attr(-,root,root) %{_datadir}/man/man1/fusiondirectory-shell.1.gz
 
 %changelog
+* Fri Jun 17 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.14-1
+- New upstream release
+
 * Fri May 13 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
 - Fixes #4786 Split specfile rhel6 and rhel7 to modify the php dependence of rhel6
 
