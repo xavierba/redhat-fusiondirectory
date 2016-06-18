@@ -12,10 +12,10 @@ Buildarch:  noarch
 Source0:    fusiondirectory-%{version}.tar.gz
 Source1:    fusiondirectory-plugins-%{version}.tar.gz
 
-Requires:   php >= 5.2, php54-ldap >= 5.2, php54-imap >= 5.2, php54-mbstring >= 5.2, php54-pecl-imagick, php54-fpdf
+Requires:   php54-php-common, php54-ldap, php54-imap, php54-mbstring, php54-pecl-imagick, php54-fpdf
 Requires:   httpd, gettext, openldap-servers, openldap-clients, perl-ExtUtils-MakeMaker
 Requires:   prototype, prototype-httpd, scriptaculous, scriptaculous-httpd
-Requires:   php54-Smarty3, php54-Smarty3-i18n, schema2ldif
+Requires:   php-Smarty3, php-Smarty3-i18n, schema2ldif
 
 %description 
 FusionDirectory is a combination of system-administrator and end-user web

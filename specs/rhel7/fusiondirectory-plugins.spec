@@ -12,7 +12,7 @@ Buildarch:  noarch
 Source0:    fusiondirectory-%{version}.tar.gz
 Source1:    fusiondirectory-plugins-%{version}.tar.gz
 
-Requires:   php >= 5.2, php-ldap >= 5.2, php-imap >= 5.2, php-mbstring >= 5.2, php-pecl-imagick, php-fpdf
+Requires:   php >= 5.4, php-ldap >= 5.4, php-imap >= 5.4, php-mbstring >= 5.4, php-pecl-imagick >= 5.4, php-fpdf >= 5.4
 Requires:   httpd, gettext, openldap-servers, openldap-clients, perl-ExtUtils-MakeMaker
 Requires:   prototype, prototype-httpd, scriptaculous, scriptaculous-httpd
 Requires:   php-Smarty3, php-Smarty3-i18n, schema2ldif
