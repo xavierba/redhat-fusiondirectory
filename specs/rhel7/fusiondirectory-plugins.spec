@@ -2620,12 +2620,6 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/phoneSelect/phoneSelect-filter.xml
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/phoneSelect/phoneSelect-list.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/phoneSelect/phoneSelect-list.xml
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/ppd/remove_ppd.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/ppd/class_printerPPDSelectionDialog.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/ppd/printerPPDDialog.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/ppd/class_printerPPDDialog.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/ppd/class_ppdManager.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/ppd/printerPPDSelectionDialog.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/tabs_server.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_networkSettings.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/network_section.tpl
@@ -3291,6 +3285,7 @@ LDAP schema for FusionDirectory audit plugin
 
 %changelog
 * Fri Jun 17 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.14-1
+- Fixes #4895 Remove printGeneric.tpl and ppd folder
 - Fixes #4860 Package more Breezy's icons
 
 * Mon Jun 13 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
