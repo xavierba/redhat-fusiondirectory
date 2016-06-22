@@ -2592,7 +2592,6 @@ LDAP schema for FusionDirectory audit plugin
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/serverService-filter.xml
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/printer.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_componentGeneric.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/main.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_systemManagement.inc
