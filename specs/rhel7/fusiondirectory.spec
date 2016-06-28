@@ -15,11 +15,12 @@ Source2:    %{name}.fc
 
 Patch0:     %{name}-fix_install-location-apache.patch
 Patch1:     %{name}-fix_install-location.patch
-Patch2:     %{name}-fix_libs-location.patch
-Patch3:     %{name}-fix_openldap-schema-location.patch
-Patch4:     %{name}-fix_pear-location.patch
-Patch5:     %{name}-fix_smarty3-location.patch
-Patch6:     %{name}-fix_install-location-apache-old-version.patch
+Patch2:     %{name}-legacy-headers.patch
+Patch3:     %{name}-breezy-headers.patch
+Patch4:     %{name}-fix_openldap-schema-location.patch
+Patch5:     %{name}-fix_pear-location.patch
+Patch6:     %{name}-fix_smarty3-location.patch
+Patch7:     %{name}-fix_install-location-apache-old-version.patch
 
 
 Requires:   php >= 5.4, php-ldap >= 5.4, php-imap >= 5.4, php-mbstring >= 5.4, php-pecl-imagick, php-gd >= 5.4, php-openssl >= 5.4
@@ -97,6 +98,8 @@ SEPolicy needed for Fusiondirectory.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p1
+%patch7 -p1
 
 ############################
 # SELINUX PREP
@@ -391,8 +394,8 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
-* Fri Jun 17 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.14-1
-- New upstream release
+* Tue Jun 28 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.14-1
+- Fixes #4940 Rename and add patches 
 
 * Fri Jun 03 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
 - Fixes add class_ldapGeneralizedTime.inc
