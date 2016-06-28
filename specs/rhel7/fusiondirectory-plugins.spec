@@ -397,14 +397,6 @@ Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems
 %description fusioninventory
 Fusioninventory inventory Management
 
-%package game
-Group:		Applications/System
-Summary:	A tutorial plugin to discover FusionDirectory
-Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems,fusiondirectory-plugin-mail
-
-%description game
-A tutorial plugin to discover FusionDirectory
-
 %package gpg
 Group:		Applications/System
 Summary:	Management plugin for gpg
@@ -1169,10 +1161,6 @@ LDAP schema for FusionDirectory audit plugin
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
-%post game
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
 %post gpg
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
@@ -1359,10 +1347,6 @@ LDAP schema for FusionDirectory audit plugin
 
 
 %postun fusioninventory
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
-%postun game
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
@@ -1970,36 +1954,6 @@ LDAP schema for FusionDirectory audit plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fusioninventory/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fusioninventory/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fusioninventory/COPYING
-
-
-%files game
-%defattr(0644,root,root,755)
-# Addons section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/game/game.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/game/class_Game.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/game/class_Mission.inc
-# HTML section
-# Directories
-# Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/16/apps/game.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/game/images/win.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/game/images/game_logo.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/default/icons/48/apps/game.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/game/images/mission_complete.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/game/images/svg/game_logo.svg
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/game/images/svg/mission_complete.svg
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/game/images/svg/win.svg
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/game.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/game.svg
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/game.svg
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/game.png
-# Files
-# Locale section
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/game
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-game/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-game/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-game/COPYING
 
 
 %files gpg
@@ -3283,7 +3237,8 @@ LDAP schema for FusionDirectory audit plugin
 ########################
 
 %changelog
-* Fri Jun 17 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.14-1
+* Tue Jun 28 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.14-1
+- Fixes #4950 Remove game plugin
 - Fixes #4895 Remove printGeneric.tpl and ppd folder
 - Fixes #4860 Package more Breezy's icons
 
