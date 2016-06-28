@@ -1,5 +1,5 @@
---- a/ihtml/themes/default/headers.tpl	2014-04-24 17:13:29.000000000 +0200
-+++ b/ihtml/themes/default/headers.tpl	2014-04-25 12:08:30.812002659 +0200
+--- a/ihtml/themes/breezy/headers.tpl	2014-04-24 17:13:29.000000000 +0200
++++ b/ihtml/themes/breezy/headers.tpl	2014-04-25 12:08:30.812002659 +0200
 @@ -15,14 +15,14 @@
  
    <link rel="shortcut icon" href="favicon.ico"/>
