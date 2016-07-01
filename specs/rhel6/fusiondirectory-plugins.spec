@@ -2581,30 +2581,6 @@ LDAP schema for FusionDirectory audit plugin
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/systems/class_systemsPluginConfig.inc
-# HTML section
-# Directories
-# Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/clock.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/server_locked.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_apache.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_file.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/service_ldap.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/status_start.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/status_stop.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/terminal_locked.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/view_logs.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/workstation_locked.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/svg/clock.svg
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/svg/server_locked.svg
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/svg/service_apache.svg
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/svg/service_file.svg
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/svg/service_ldap.svg
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/svg/status_start.svg
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/svg/status_stop.svg
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/svg/terminal_locked.svg
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/svg/view_logs.svg
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/systems/images/svg/workstation_locked.svg
-# Files
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/dashboard/class_dashBoardNetwork.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/dashboard/class_dashBoardSystems.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/dashboard/network_dhcp.tpl
