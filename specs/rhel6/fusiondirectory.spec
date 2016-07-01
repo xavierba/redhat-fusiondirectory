@@ -15,12 +15,11 @@ Source2:    %{name}.fc
 
 Patch0:     %{name}-fix_install-location-apache.patch
 Patch1:     %{name}-fix_install-location.patch
-Patch2:     %{name}-legacy-headers.patch
-Patch3:     %{name}-breezy-headers.patch
-Patch4:     %{name}-fix_openldap-schema-location.patch
-Patch5:     %{name}-fix_pear-location.patch
-Patch6:     %{name}-fix_smarty3-location.patch
-Patch7:     %{name}-fix_install-location-apache-old-version.patch
+Patch2:     %{name}-breezy-headers.patch
+Patch3:     %{name}-fix_openldap-schema-location.patch
+Patch4:     %{name}-fix_pear-location.patch
+Patch5:     %{name}-fix_smarty3-location.patch
+Patch6:     %{name}-fix_install-location-apache-old-version.patch
 
 
 Requires:   php54-php, php54-php-ldap, php54-php-imap, php54-php-mbstring, php54-php-imagick, php54-php-gd
@@ -94,12 +93,10 @@ SEPolicy needed for Fusiondirectory.
 %endif
 
 %patch1 -p1
-# %patch2 -p1
+%patch2 -p1
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
-%patch6 -p1
-%patch7 -p1
 
 ############################
 # SELINUX PREP
