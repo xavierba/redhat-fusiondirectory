@@ -1624,7 +1624,6 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/autofs-nis-object.svg
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/autofs.svg
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/autofs.svg
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/plugins/autofs/images
 # Files
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/autofs
@@ -3250,6 +3249,7 @@ LDAP schema for FusionDirectory audit plugin
 
 %changelog
 * Tue Jun 28 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.14-1
+- Fixes #4930 Plugins use some image that are not in theme
 - Fixes #4940 Rename default theme as legacy
 - Fixes #4950 Remove game plugin
 - Fixes #4895 Remove printGeneric.tpl and ppd folder
