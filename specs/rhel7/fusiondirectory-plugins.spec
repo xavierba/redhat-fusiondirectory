@@ -2070,6 +2070,7 @@ LDAP schema for FusionDirectory audit plugin
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/groups/mail/class_groupMail.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/services/imap/class_serviceIMAP.inc
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/mail/class_mailPluginConfig.inc
@@ -3204,7 +3205,8 @@ LDAP schema for FusionDirectory audit plugin
 ########################
 
 %changelog
-* Tue Jun 28 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.14-1
+* Mon Jul 04 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.14-1
+- Fixes #4977 Add service generic IMAP server
 - Fixes #4930 Plugins use some image that are not in theme
 - Fixes #4940 Rename default theme as legacy
 - Fixes #4950 Remove game plugin
