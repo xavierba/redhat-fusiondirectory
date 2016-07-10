@@ -165,9 +165,14 @@ cp contrib/man/%{name}.conf.5.gz %{buildroot}%{_datadir}/man/man5
 
 # Copy docs
 mkdir -p %{buildroot}%{_datadir}/doc/{%{name},%{name}-schema}
+mkdir -p %{buildroot}%{_datadir}/doc/%{name}/examples/
 cp ./AUTHORS ./Changelog ./COPYING %{buildroot}%{_datadir}/doc/%{name}/
 cp ./AUTHORS ./Changelog ./COPYING %{buildroot}%{_datadir}/doc/%{name}-schema/
 cp contrib/%{name}.conf %{buildroot}%{_datadir}/doc/%{name}/
+cp -a contrib/docs/ %{buildroot}%{_datadir}/doc/%{name}/
+cp -a contrib/images/ %{buildroot}%{_datadir}/doc/%{name}/
+cp -a contrib/apache/* %{buildroot}%{_datadir}/doc/%{name}/examples/
+cp -a contrib/lighttpd/* %{buildroot}%{_datadir}/doc/%{name}/examples/
 
 # Move smarty functions and create php lib directory if it exist
 cp contrib/smarty/plugins/function.msgPool.php %{buildroot}%{_datadir}/php/Smarty3/plugins/function.msgPool.php
@@ -359,7 +364,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/%{name}/plugins
 %{_datadir}/%{name}/setup
 %config %{_sysconfdir}/%{name}/%{name}-apache.conf
-%{_datadir}/doc/%{name}/%{name}.conf
+%{_datadir}/doc/%{name}/
 %{_datadir}/php/Smarty3/plugins/block.render.php
 %{_datadir}/php/Smarty3/plugins/function.msgPool.php
 %{_datadir}/php/Smarty3/plugins/function.filePath.php
@@ -391,7 +396,8 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
-* Tue Jun 28 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.14-1
+* Sun Jul 10 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.14-1
+- Fixes #4986 Add the contrib files
 - Fixes #4940 Rename and add patches 
 
 * Fri Jun 03 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
