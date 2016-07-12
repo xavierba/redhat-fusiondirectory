@@ -2824,8 +2824,6 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/audit.svg
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/audit.png
 
->>>>>>> 1.0.13-fixes
-
 %files alias-schema
 %defattr(0644,root,root,755)
 # Files
