@@ -15,14 +15,14 @@ Source2:    %{name}.fc
 
 Patch0:     %{name}-fix_install-location-apache.patch
 Patch1:     %{name}-fix_install-location.patch
-Patch2:     %{name}-fix_libs-location.patch
+Patch2:     %{name}-breezy-headers.patch
 Patch3:     %{name}-fix_openldap-schema-location.patch
 Patch4:     %{name}-fix_pear-location.patch
 Patch5:     %{name}-fix_smarty3-location.patch
 Patch6:     %{name}-fix_install-location-apache-old-version.patch
 
 
-Requires:   php >= 5.4, php-ldap >= 5.3, php-imap >= 5.3, php-mbstring >= 5.3, php-pecl-imagick, php-gd, php-openssl
+Requires:   php >= 5.4, php-ldap >= 5.4, php-imap >= 5.4, php-mbstring >= 5.4, php-pecl-imagick, php-gd >= 5.4, php-openssl >= 5.4
 
 Requires:   perl-Path-Class, perl-Digest-SHA, perl-File-Copy-Recursive, perl-Archive-Extract, perl-XML-Twig
 Requires:   perl-Crypt-CBC, perl-LDAP, perl, perl-Crypt-Rijndael
@@ -165,9 +165,14 @@ cp contrib/man/%{name}.conf.5.gz %{buildroot}%{_datadir}/man/man5
 
 # Copy docs
 mkdir -p %{buildroot}%{_datadir}/doc/{%{name},%{name}-schema}
+mkdir -p %{buildroot}%{_datadir}/doc/%{name}/examples/
 cp ./AUTHORS ./Changelog ./COPYING %{buildroot}%{_datadir}/doc/%{name}/
 cp ./AUTHORS ./Changelog ./COPYING %{buildroot}%{_datadir}/doc/%{name}-schema/
 cp contrib/%{name}.conf %{buildroot}%{_datadir}/doc/%{name}/
+cp -a contrib/docs/ %{buildroot}%{_datadir}/doc/%{name}/
+cp -a contrib/images/ %{buildroot}%{_datadir}/doc/%{name}/
+cp -a contrib/apache/* %{buildroot}%{_datadir}/doc/%{name}/examples/
+cp -a contrib/lighttpd/* %{buildroot}%{_datadir}/doc/%{name}/examples/
 
 # Move smarty functions and create php lib directory if it exist
 cp contrib/smarty/plugins/function.msgPool.php %{buildroot}%{_datadir}/php/Smarty3/plugins/function.msgPool.php
@@ -334,7 +339,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/%{name}/include/class_ldapMultiplexer.inc
 %{_datadir}/%{name}/include/class_listing.inc
 %{_datadir}/%{name}/include/class_listingSortIterator.inc
-%{_datadir}/%{name}/include/class_log.inc
+%{_datadir}/%{name}/include/class_logging.inc
 %{_datadir}/%{name}/include/class_management.inc
 %{_datadir}/%{name}/include/class_msg_dialog.inc
 %{_datadir}/%{name}/include/class_msgPool.inc
@@ -347,6 +352,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/%{name}/include/class_timezone.inc
 %{_datadir}/%{name}/include/class_userinfo.inc
 %{_datadir}/%{name}/include/class_xml.inc
+%{_datadir}/%{name}/include/class_ldapGeneralizedTime.inc
 %{_datadir}/%{name}/include/functions_debug.inc
 %{_datadir}/%{name}/include/functions.inc
 %{_datadir}/%{name}/include/php_setup.inc
@@ -358,7 +364,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/%{name}/plugins
 %{_datadir}/%{name}/setup
 %config %{_sysconfdir}/%{name}/%{name}-apache.conf
-%{_datadir}/doc/%{name}/%{name}.conf
+%{_datadir}/doc/%{name}/
 %{_datadir}/php/Smarty3/plugins/block.render.php
 %{_datadir}/php/Smarty3/plugins/function.msgPool.php
 %{_datadir}/php/Smarty3/plugins/function.filePath.php
@@ -390,6 +396,14 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Sun Jul 10 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.14-1
+- Fixes #4986 Add the contrib files
+- Fixes #4940 Rename and add patches 
+
+* Fri Jun 03 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
+- Fixes add class_ldapGeneralizedTime.inc
+- Fixes #4837 Add class_logging.inc
+
 * Mon May 10 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-2
 - Fixes #4770 Fix prototype path in headers.tpl
 
