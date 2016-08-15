@@ -2589,7 +2589,6 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/actions/task-start.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/actions/task-stop.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/actions/view-logs.png
-%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/ldap.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/places/folder-network.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/svg/clock.svg
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/svg/server_locked.svg
@@ -2605,7 +2604,6 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/legacy/icons/16/actions/task-start.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/legacy/icons/16/actions/task-stop.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/legacy/icons/16/actions/view-logs.png
-%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/legacy/icons/16/apps/ldap.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/legacy/icons/16/places/folder-network.png
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-systems/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-systems/Changelog
