@@ -1977,9 +1977,7 @@ LDAP schema for FusionDirectory audit plugin
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/gpg/main.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/gpg/class_gpgAccount.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/gpg/pgpKeySelect/pgpKeySelect-list.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/gpg/pgpKeySelect/class_pgpKeySelect.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/gpg/pgpKeySelect/pgpKeySelect-filter.xml
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/gpg/pgpKeySelect/pgpKeySelect-list.xml
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-gpg/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-gpg/Changelog
@@ -3227,6 +3225,9 @@ LDAP schema for FusionDirectory audit plugin
 ########################
 
 %changelog
+* Mon Aug 15 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.15-1
+- Fixes #5061 Use simple plugin for GPG
+
 * Mon Jul 04 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.14-1
 - Fixes #4977 Add service generic IMAP server
 - Fixes #4930 Plugins use some image that are not in theme
