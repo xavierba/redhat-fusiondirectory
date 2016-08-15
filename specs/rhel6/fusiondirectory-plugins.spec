@@ -1555,6 +1555,7 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/class_argonautQueue.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/class_filterArgonautEvents.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/class_argonautImportFile.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/class_argonautEventTypes.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/argonaut/class_argonautAction.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/addons/argonaut/import_events.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/addons/argonaut/deploy-list.xml
@@ -3226,6 +3227,7 @@ LDAP schema for FusionDirectory audit plugin
 
 %changelog
 * Mon Aug 15 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.15-1
+- Fixes #5065 Add class_argonautEventTypes.inc file
 - Fixes #5061 Use simple plugin for GPG
 
 * Mon Jul 04 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.14-1
