@@ -2557,11 +2557,6 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_filterServerService.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/serverService-list.xml
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_workstationGeneric.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/phoneSelect/class_phoneSelect.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/phoneSelect/phoneSelect-filter.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/phoneSelect/phoneSelect-filter.xml
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/phoneSelect/phoneSelect-list.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/phoneSelect/phoneSelect-list.xml
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/tabs_server.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_networkSettings.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/network_section.tpl
@@ -3224,7 +3219,8 @@ LDAP schema for FusionDirectory audit plugin
 ########################
 
 %changelog
-* Mon Aug 15 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.15-1
+* Wed Aug 17 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.15-1
+- Fixes #5083 Remove phoneSelect directory
 - Fixes #5065 Add class_argonautEventTypes.inc file
 - Fixes #5061 Use simple plugin for GPG
 
