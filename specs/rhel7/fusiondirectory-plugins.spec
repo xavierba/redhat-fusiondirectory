@@ -2267,6 +2267,7 @@ LDAP schema for FusionDirectory audit plugin
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/samba/class_winstationGeneric.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/samba/class_argonautEventSambaShares.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/samba/main.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/samba/class_sambaDomainManagement.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/samba/class_sambaDomain.inc
@@ -3157,7 +3158,8 @@ LDAP schema for FusionDirectory audit plugin
 ########################
 
 %changelog
-* Wed Aug 17 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.15-1
+* Fri Aug 19 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.15-1
+- Fixes #5065 Add update samba share action in samba plugin
 - Fixes #5078 Remove apache2 plugin
 - Fixes #5083 Remove phoneSelect directory
 - Fixes #5065 Add class_argonautEventTypes.inc file
