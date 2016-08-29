@@ -1651,37 +1651,6 @@ LDAP schema for FusionDirectory audit plugin
 
 %files dhcp
 %defattr(0644,root,root,755)
-# Admin section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_dhcpPlugin.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_dhcpOption.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/dhcpNewSection.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/dhcp_network.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/dhcp_dnszone.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/dhcp_tsigkey.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_dhcpGroup.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_dhcpSubnet.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_dhcpNewSectionDialog.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_dhcpSharedNetwork.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_dhcpSubClass.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_dhcpService.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/dhcp_sharedNetwork.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/dhcp_host.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/dhcp_pool.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_dhcpHost.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/dhcp_advanced.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/dhcp_group.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_dhcpPool.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_dhcpTSigKey.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_dhcpClass.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_dhcpAdvanced.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/dhcp_subnet.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_serviceDHCP.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_dhcpDnsZone.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/dhcp_service.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/remove_dhcp.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/serviceDHCP.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_dhcpNetwork.inc
 # HTML section
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/legacy/icons/16/apps/dhcp.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/legacy/icons/48/apps/dhcp.png
@@ -3160,6 +3129,9 @@ LDAP schema for FusionDirectory audit plugin
 ########################
 
 %changelog
+* Mon Aug 29 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-1
+- Fixes #5111 Remove few files not used for DHCP plugin
+
 * Fri Aug 19 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.15-1
 - Fixes #5065 Add update samba share action in samba plugin
 - Fixes #5078 Remove apache2 plugin
