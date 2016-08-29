@@ -1749,6 +1749,7 @@ LDAP schema for FusionDirectory audit plugin
 %defattr(0644,root,root,755)
 # Admin section
 # Files
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/packageSelect/selectPackage-list.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/repository/fai_repository.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/repository/class_serviceRepository.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_faiLogView.inc
@@ -3131,6 +3132,7 @@ LDAP schema for FusionDirectory audit plugin
 %changelog
 * Mon Aug 29 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-1
 - Fixes #5111 Remove few files not used for DHCP plugin
+- Fixes #5116 Package packageSelect class for FAI
 
 * Fri Aug 19 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.15-1
 - Fixes #5065 Add update samba share action in samba plugin
