@@ -2465,7 +2465,6 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/ldap/class_serviceLDAP.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/server_import.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/serverService-filter.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/network.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_mobilePhoneGeneric.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_terminalGeneric.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/system-list.xml
@@ -2474,15 +2473,7 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/serverService-list.xml
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_workstationGeneric.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/tabs_server.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_networkSettings.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/network_section.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_filterSYSTEMS.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/ogroups/goto/termgroup.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/ogroups/goto/class_termgroup.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/class_phoneGeneric.inc
-%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/remove.tpl
-%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/system-filter.tpl
-%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/system-filter.xml
 # Config section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/systems/class_systemsPluginConfig.inc
@@ -3126,9 +3117,10 @@ LDAP schema for FusionDirectory audit plugin
 ########################
 
 %changelog
-* Mon Aug 29 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-1
+* Tue Aug 30 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-1
 - Fixes #5111 Remove few files not used for DHCP plugin
 - Fixes #5116 Package packageSelect class for FAI
+- Fixes #5120 Redone systemManagement with simpleManagement
 
 * Fri Aug 19 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.15-1
 - Fixes #5065 Add update samba share action in samba plugin
