@@ -1748,7 +1748,6 @@ LDAP schema for FusionDirectory audit plugin
 %defattr(0644,root,root,755)
 # Admin section
 # Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/packageSelect/selectPackage-list.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/repository/fai_repository.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/repository/class_serviceRepository.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_faiLogView.inc
@@ -1769,7 +1768,6 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/packageSelect/class_filterFAIPackages.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/packageSelect/selectPackage-filter.xml
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/packageSelect/class_filterFAIcustoms.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/packageSelect/selectPackage-list.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/packageSelect/class_packageSelect.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/packageSelect/selectPackage-filter.tpl
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/fai/class_faiScript.inc
