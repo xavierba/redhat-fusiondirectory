@@ -1657,6 +1657,24 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/dhcp.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/dhcp.svg
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/dhcp.svg
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/class_dhcpConfiguration.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/class_dhcpManagement.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/class_dhcpPlugin.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/class_dhcpSectionCreationDialog.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/main.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpClass.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpDnsZone.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpGroup.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpHost.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpPool.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpService.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpSharedNetwork.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpSubClass.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpSubnet.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpTSigKey.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_serviceDHCP.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/dhcp/class_dhcpConfig.inc
+
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dhcp
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/Changelog
@@ -2771,6 +2789,8 @@ LDAP schema for FusionDirectory audit plugin
 %defattr(0644,root,root,755)
 # Files
 %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dhcp-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dhcp-fd-conf.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dhcp.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp-schema/COPYING
