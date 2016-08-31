@@ -1676,6 +1676,7 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_serviceDHCP.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/dhcp/class_dhcpConfig.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dhcp
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_dhcpHost.inc
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/COPYING
@@ -3139,10 +3140,11 @@ LDAP schema for FusionDirectory audit plugin
 ########################
 
 %changelog
-* Tue Aug 30 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-1
+* Wed Aug 31 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-1
 - Fixes #5111 Remove few files not used for DHCP plugin
 - Fixes #5116 Package packageSelect class for FAI
 - Fixes #5120 Redone systemManagement with simpleManagement
+- Fixes #5126 dhcp/config/dhcp/class_dhcpConfig.inc is missing from the package
 
 * Fri Aug 19 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.15-1
 - Fixes #5065 Add update samba share action in samba plugin
