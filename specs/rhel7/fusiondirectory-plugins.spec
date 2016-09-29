@@ -1987,6 +1987,10 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/internet-mail.svg
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/internet-mail.svg
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/internet-mail.png
+# HTML section
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/legacy/icons/16/apps/internet-mail.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/legacy/icons/48/apps/internet-mail.png
+%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/legacy/svg/internet-mail.svg
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-mail/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-mail/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-mail/COPYING
@@ -2348,7 +2352,6 @@ LDAP schema for FusionDirectory audit plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/eturegimeinscription_EXAMPLE
 %attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/typediplome_SISE
 %attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/discipline_SISE
-# HTML section
 # Directories
 # Files in the directory
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/supann-entite.png
@@ -2457,6 +2460,12 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/svg/terminal_locked.svg
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/svg/view_logs.svg
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/svg/workstation_locked.svg
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/legacy/icons/16/actions/media-playback-start.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/legacy/icons/16/actions/media-playback-stop.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/legacy/icons/16/places/folder-remote.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/legacy/svg/folder-remote.svg
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/legacy/svg/media-playback-start.svg
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/legacy/svg/media-playback-stop.svg
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-systems/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-systems/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-systems/COPYING
