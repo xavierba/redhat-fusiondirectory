@@ -396,6 +396,9 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Tue Oct 04 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.16-1
+- New upstream release
+
 * Tue Aug 23 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.15-1
 - New upstream release
 

@@ -3063,8 +3063,10 @@ LDAP schema for FusionDirectory audit plugin
 ########################
 
 %changelog
-* Thu Sep 29 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.15-1
+* Thu Sep 29 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.16-1
 - Fixes #5167 Remove old legacy icons and replace it with tango icon
+
+* Tue Aug 23 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.15-1
 - Fixes #5065 Add update samba share action in samba plugin
 - Fixes #5078 Remove apache2 plugin
 - Fixes #5083 Remove phoneSelect directory
