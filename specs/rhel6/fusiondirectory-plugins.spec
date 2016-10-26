@@ -336,7 +336,7 @@ Management plugin for developers
 %package dhcp
 Group:		Applications/System
 Summary:	DHCP service management
-Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems
+Requires:	fusiondirectory >= %{version}
 
 %description dhcp
 DHCP service management
@@ -3065,6 +3065,7 @@ LDAP schema for FusionDirectory audit plugin
 
 %changelog
 * Wed Oct 26 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.17-1
+- Fixes #5202 Remove dependance between systems and dhcp
 - Fixes #5222 Remove ppolicydefault.ldif from ppolicy packages
 
 * Thu Sep 29 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.16-1
