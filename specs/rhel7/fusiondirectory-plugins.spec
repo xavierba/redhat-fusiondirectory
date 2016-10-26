@@ -2716,6 +2716,7 @@ LDAP schema for FusionDirectory audit plugin
 %defattr(0644,root,root,755)
 # Files
 %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dhcp-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dhcp-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp-schema/COPYING
@@ -3063,6 +3064,7 @@ LDAP schema for FusionDirectory audit plugin
 
 %changelog
 * Wed Oct 26 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.17-1
+- Fixes #5209 adding dhcp-fd-conf.schema
 - Fixes #5202 Remove dependance between systems and dhcp
 - Fixes #5222 Remove ppolicydefault.ldif from ppolicy packages
 
