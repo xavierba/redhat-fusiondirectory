@@ -1634,6 +1634,24 @@ LDAP schema for FusionDirectory audit plugin
 %defattr(0644,root,root,755)
 # Admin section
 # Files
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/class_dhcpConfiguration.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/class_dhcpManagement.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/class_dhcpPlugin.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/class_dhcpSectionCreationDialog.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/main.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpClass.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpDnsZone.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpGroup.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpHost.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpPool.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpService.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpSharedNetwork.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpSubClass.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpSubnet.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpTSigKey.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_dhcpSystem.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_serviceDHCP.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/dhcp/class_dhcpConfig.inc
 # HTML section
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/dhcp.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/dhcp.png
@@ -3034,7 +3052,8 @@ LDAP schema for FusionDirectory audit plugin
 ########################
 
 %changelog
-* Wed Oct 26 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.17-1
+* Thu Oct 27 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.17-1
+- Fixes #5215 adding files for dhcp packages
 - Fixes #5209 adding dhcp-fd-conf.schema
 - Fixes #5202 Remove dependance between systems and dhcp
 - Fixes #5222 Remove ppolicydefault.ldif from ppolicy packages
