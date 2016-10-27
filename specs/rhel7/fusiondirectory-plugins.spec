@@ -1652,6 +1652,7 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_dhcpSystem.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_serviceDHCP.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/dhcp/class_dhcpConfig.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpFailOverPeer.inc
 # HTML section
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/dhcp.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/dhcp.png
