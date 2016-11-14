@@ -336,7 +336,7 @@ Management plugin for developers
 %package dhcp
 Group:		Applications/System
 Summary:	DHCP service management
-Requires:	fusiondirectory >= %{version}
+Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems
 
 %description dhcp
 DHCP service management
@@ -3055,7 +3055,8 @@ LDAP schema for FusionDirectory audit plugin
 ########################
 
 %changelog
-* Thu Oct 27 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.17-1
+* Mon Nov 14 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.17-1
+- Fixes #5202 Revert remove dependance between systems and dhcp
 - Fixes #5215 adding files for dhcp packages
 - Fixes #5209 adding dhcp-fd-conf.schema
 - Fixes #5202 Remove dependance between systems and dhcp
