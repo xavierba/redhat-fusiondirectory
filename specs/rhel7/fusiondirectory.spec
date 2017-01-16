@@ -360,6 +360,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/%{name}/include/variables.inc
 %{_datadir}/%{name}/include/class_template.inc
 %{_datadir}/%{name}/include/class_SnapshotDialogs.inc
+%{_datadir}/%{name}/include/class_exceptions.inc
 %{_datadir}/%{name}/locale
 %{_datadir}/%{name}/plugins
 %{_datadir}/%{name}/setup
@@ -396,6 +397,12 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Mon Jan 16 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.18-1
+- Fixes #5108 Add class_exceptions in packaging
+
+* Mon Nov 14 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.17-1
+- New upstream release
+
 * Tue Oct 04 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.16-1
 - New upstream release
 
