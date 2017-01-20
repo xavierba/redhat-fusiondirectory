@@ -3053,6 +3053,9 @@ LDAP schema for FusionDirectory audit plugin
 ########################
 
 %changelog
+* Fri Jan 20 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.19-1
+- New upstream release 
+
 * Mon Jan 16 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.18-1
 - Fixes #5304 Remove unused files for netgroups
 - Fixes #5116 FAI packageSelect use simpleSelectManagement
