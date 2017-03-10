@@ -361,6 +361,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/%{name}/include/class_template.inc
 %{_datadir}/%{name}/include/class_SnapshotDialogs.inc
 %{_datadir}/%{name}/include/class_exceptions.inc
+%{_datadir}/%{name}/include/class_templateHandling.inc
 %{_datadir}/%{name}/locale
 %{_datadir}/%{name}/plugins
 %{_datadir}/%{name}/setup
@@ -401,6 +402,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 - Fixes #5108 Package class_exceptions.inc
 - Fixes #5319 Remove class_plugin.inc
 - Fixes #5325 Remove class_management.inc
+- Fixes #5142 Add class_templateHandling.inc
 
 * Fri Jan 20 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.19-1
 - New upstream release
