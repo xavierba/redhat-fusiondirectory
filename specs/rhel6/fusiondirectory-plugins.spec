@@ -544,7 +544,7 @@ Management of alias list of sympa
 %package systems
 Group:		Applications/System
 Summary:	System management base plugin
-Requires:	fusiondirectory >= %{version}, fusiondirectory-plugin-argonaut >= %{version}
+Requires:	fusiondirectory >= %{version}
 
 %description systems
 System management base plugin
@@ -961,7 +961,7 @@ LDAP schema for FusionDirectory sympa plugin
 %package systems-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory systems plugin
-Requires: fusiondirectory-schema >= %{version}, fusiondirectory-plugin-argonaut-schema >= %{version}
+Requires: fusiondirectory-schema >= %{version}
 
 %description systems-schema
 LDAP schema for FusionDirectory systems plugin
@@ -3082,6 +3082,7 @@ LDAP schema for FusionDirectory audit plugin
 - Fixes #5120 Redone systemManagement with simpleManagement
 - Fixes #5126 dhcp/config/dhcp/class_dhcpConfig.inc is missing from the package
 - Fixes #5338 Remove kolab2 plugin
+- Fixes #5390 Remove argonaut dependence for systems plugin
 
 * Fri Jan 20 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.19-1
 - New upstream release 
