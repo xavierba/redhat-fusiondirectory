@@ -3137,11 +3137,29 @@ LDAP schema for FusionDirectory audit plugin
 ########################
 
 %changelog
-* Wed Aug 31 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-1
+* Fri Mar 10 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-1
 - Fixes #5111 Remove few files not used for DHCP plugin
 - Fixes #5116 Package packageSelect class for FAI
 - Fixes #5120 Redone systemManagement with simpleManagement
 - Fixes #5126 dhcp/config/dhcp/class_dhcpConfig.inc is missing from the package
+- Fixes #5338 Remove kolab2 plugin
+
+* Fri Jan 20 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.19-1
+- New upstream release
+
+* Mon Jan 16 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.18-1
+- Fixes #5304 Remove unused files for netgroups
+- Fixes #5116 FAI packageSelect use simpleSelectManagement
+
+* Mon Nov 14 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.17-1
+- Fixes #5202 Revert remove dependance between systems and dhcp
+- Fixes #5215 adding files for dhcp packages
+- Fixes #5209 adding dhcp-fd-conf.schema
+- Fixes #5202 Remove dependance between systems and dhcp
+- Fixes #5222 Remove ppolicydefault.ldif from ppolicy packages
+
+* Thu Sep 29 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.16-1
+- Fixes #5167 Remove old legacy icons and replace it with tango icon
 
 * Fri Aug 19 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.15-1
 - Fixes #5065 Add update samba share action in samba plugin

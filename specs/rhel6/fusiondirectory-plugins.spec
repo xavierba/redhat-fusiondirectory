@@ -405,14 +405,6 @@ Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems
 %description ipmi
 Basic ipmi support
 
-%package kolab2
-Group:		Applications/System
-Summary:	kolab2 management
-Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-mail,fusiondirectory-plugin-cyrus
-
-%description kolab2
-kolab2 management
-
 %package ldapdump
 Group:		Applications/System
 Summary:	Ldap raw visualisation
@@ -816,16 +808,6 @@ LDAP schema for FusionDirectory ipmi plugin
 
 
 
-%package kolab2-schema
-Group:		Applications/System
-Summary:	LDAP schema for FusionDirectory kolab2 plugin
-Requires: fusiondirectory-plugin-mail-schema >= %{version}, fusiondirectory-plugin-cyrus-schema >= %{version}
-
-%description kolab2-schema
-LDAP schema for FusionDirectory kolab2 plugin
-
-
-
 %package mail-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory mail plugin
@@ -1148,10 +1130,6 @@ LDAP schema for FusionDirectory audit plugin
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
-%post kolab2
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
 %post ldapdump
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
@@ -1330,10 +1308,6 @@ LDAP schema for FusionDirectory audit plugin
 
 
 %postun ipmi
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
-%postun kolab2
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
@@ -1932,34 +1906,6 @@ LDAP schema for FusionDirectory audit plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi/COPYING
-
-
-%files kolab2
-%defattr(0644,root,root,755)
-# Admin section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/kolab2/class_serviceKolab.inc
-# HTML section
-# Directories
-# Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/legacy/icons/16/apps/kolab2.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/legacy/icons/48/apps/kolab2.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/kolab2.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/kolab2.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/kolab2.svg
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/kolab2.svg
-# Files
-# Locale section
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab2/locale/
-# Personal section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/kolab2/class_mail-methods-kolab22.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/kolab2/class_mail-methods-kolab.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/kolab2/class_kolabAccount.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/kolab2/main.inc
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab2/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab2/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab2/COPYING
 
 
 %files ldapdump
@@ -2880,16 +2826,6 @@ LDAP schema for FusionDirectory audit plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi-schema/COPYING
 
 
-%files kolab2-schema
-%defattr(0644,root,root,755)
-# Files
-%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/rfc2739.schema
-%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/kolab2.schema
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab2-schema/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab2-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab2-schema/COPYING
-
-
 %files mail-schema
 %defattr(0644,root,root,755)
 # Files
@@ -3140,11 +3076,29 @@ LDAP schema for FusionDirectory audit plugin
 ########################
 
 %changelog
-* Wed Aug 31 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-1
+* Fri Mar 10 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-1
 - Fixes #5111 Remove few files not used for DHCP plugin
 - Fixes #5116 Package packageSelect class for FAI
 - Fixes #5120 Redone systemManagement with simpleManagement
 - Fixes #5126 dhcp/config/dhcp/class_dhcpConfig.inc is missing from the package
+- Fixes #5338 Remove kolab2 plugin
+
+* Fri Jan 20 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.19-1
+- New upstream release 
+
+* Mon Jan 16 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.18-1
+- Fixes #5304 Remove unused files for netgroups
+- Fixes #5116 FAI packageSelect use simpleSelectManagement
+
+* Mon Nov 14 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.17-1
+- Fixes #5202 Revert remove dependance between systems and dhcp
+- Fixes #5215 adding files for dhcp packages
+- Fixes #5209 adding dhcp-fd-conf.schema
+- Fixes #5202 Remove dependance between systems and dhcp
+- Fixes #5222 Remove ppolicydefault.ldif from ppolicy packages
+
+* Thu Sep 29 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.16-1
+- Fixes #5167 Remove old legacy icons and replace it with tango icon
 
 * Fri Aug 19 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.15-1
 - Fixes #5065 Add update samba share action in samba plugin
