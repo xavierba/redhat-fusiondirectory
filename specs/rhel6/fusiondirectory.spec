@@ -344,7 +344,6 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/%{name}/include/class_msg_dialog.inc
 %{_datadir}/%{name}/include/class_msgPool.inc
 %{_datadir}/%{name}/include/class_objects.inc
-%{_datadir}/%{name}/include/class_plugin.inc
 %{_datadir}/%{name}/include/class_pluglist.inc
 %{_datadir}/%{name}/include/class_session.inc
 %{_datadir}/%{name}/include/class_SnapshotHandler.inc
@@ -397,8 +396,21 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
-* Tue Aug 29 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-1
+* Fri Mar 10 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-1
 - Fixes #5108 Package class_exceptions.inc
+- Fixes #5319 Remove class_plugin.inc
+
+* Fri Jan 20 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.19-1
+- New upstream release
+
+* Mon Jan 16 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.18-1
+- Fixes #5108 Add class_exceptions in packaging
+
+* Mon Nov 14 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.17-1
+- New upstream release
+
+* Tue Oct 04 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.16-1
+- New upstream release
 
 * Tue Aug 23 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.15-1
 - New upstream release
