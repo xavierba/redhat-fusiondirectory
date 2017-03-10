@@ -2488,7 +2488,6 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/ppolicy.svg
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ppolicy/locale/
 %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-ppolicy/ppolicyconfig.ldif
-%attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-ppolicy/ppolicydefault.ldif
 %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-ppolicy/ppolicymodule.ldif
 
 %files certificates
@@ -2991,3 +2990,4 @@ LDAP schema for FusionDirectory audit plugin
 - Fixes #5416 Remove old legacy icons and replace it with tango icon
 - Fixes #5417 Remove class_dhpcHost in systems
 - Fixes #5418 Remove unused files for netgroups
+- Fixes #5419 Remove ppolicydefault.ldif
