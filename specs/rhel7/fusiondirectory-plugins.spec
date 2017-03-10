@@ -2686,7 +2686,6 @@ LDAP schema for FusionDirectory audit plugin
 # Files
 %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dhcp-fd.schema
 %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dhcp-fd-conf.schema
-%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/dhcp.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp-schema/COPYING
@@ -3044,3 +3043,4 @@ LDAP schema for FusionDirectory audit plugin
 - Fixes #5417 Remove class_dhpcHost in systems
 - Fixes #5418 Remove unused files for netgroups
 - Fixes #5419 Remove ppolicydefault.ldif
+- Fixes #5420 Remove dhcpd.schema
