@@ -1654,7 +1654,6 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpTSigKey.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_serviceDHCP.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/dhcp/class_dhcpConfig.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/class_dhcpHost.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dhcp
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/Changelog
@@ -3044,3 +3043,4 @@ LDAP schema for FusionDirectory audit plugin
 - Fixes #5338 Remove kolab2 plugin
 - Fixes #5390 Remove argonaut dependence for systems plugin
 - Fixes #5416 Remove old legacy icons and replace it with tango icon
+- Fixes #5417 Remove class_dhpcHost in systems
