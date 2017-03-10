@@ -2663,7 +2663,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-renater-partage/Changelog
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/renater-partage/systems/services/renater-partage/
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/renater-partage/locale/
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/renater-partage/mail/mail-methods/class_mail-methods-renater-partage.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/mail/mail-methods/class_mail-methods-renater-partage.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/renater-partage.png
 
 %files alias-schema
