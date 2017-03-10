@@ -2012,7 +2012,6 @@ LDAP schema for FusionDirectory audit plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/netgroups/class_netgroupSystem.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/netgroups/main.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/netgroups/class_netgroupManagement.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/netgroups/class_filterNetGroupLDAP.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/netgroups/memberNisnetgroupSelect/class_memberNisnetgroupSelect.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/netgroups/class_netgroup.inc
 # Config section
@@ -3044,3 +3043,4 @@ LDAP schema for FusionDirectory audit plugin
 - Fixes #5390 Remove argonaut dependence for systems plugin
 - Fixes #5416 Remove old legacy icons and replace it with tango icon
 - Fixes #5417 Remove class_dhpcHost in systems
+- Fixes #5418 Remove unused files for netgroups
