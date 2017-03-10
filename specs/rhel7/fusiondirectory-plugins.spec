@@ -2661,9 +2661,9 @@ LDAP schema for FusionDirectory renater-partage plugin
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-renater-partage/AUTHORS
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-renater-partage/COPYING
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-renater-partage/Changelog
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/renater-partage
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/renater-partage/
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/renater-partage/locale/
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/renater-partage
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/renater-partage/
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/renater-partage.png
 
 
