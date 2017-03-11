@@ -340,11 +340,9 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/%{name}/include/class_listing.inc
 %{_datadir}/%{name}/include/class_listingSortIterator.inc
 %{_datadir}/%{name}/include/class_logging.inc
-%{_datadir}/%{name}/include/class_management.inc
 %{_datadir}/%{name}/include/class_msg_dialog.inc
 %{_datadir}/%{name}/include/class_msgPool.inc
 %{_datadir}/%{name}/include/class_objects.inc
-%{_datadir}/%{name}/include/class_plugin.inc
 %{_datadir}/%{name}/include/class_pluglist.inc
 %{_datadir}/%{name}/include/class_session.inc
 %{_datadir}/%{name}/include/class_SnapshotHandler.inc
