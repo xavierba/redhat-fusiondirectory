@@ -1677,6 +1677,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dhcp
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/class_dhcpSystem.inc
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/COPYING
@@ -3093,4 +3094,3 @@ LDAP schema for FusionDirectory renater-partage plugin
 - Fixes #5353 Package renater-partage plugin
 - Fixes #5407 Package posix plugin
 - Fixes #5376 Add dependence between SSH plugin and Posix plugin
-- Fixes #5126 Use directory adding in spec in place of files
