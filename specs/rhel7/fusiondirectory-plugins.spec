@@ -405,14 +405,6 @@ Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems
 %description ipmi
 Basic ipmi support
 
-%package kolab2
-Group:		Applications/System
-Summary:	kolab2 management
-Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-mail,fusiondirectory-plugin-cyrus
-
-%description kolab2
-kolab2 management
-
 %package ldapdump
 Group:		Applications/System
 Summary:	Ldap raw visualisation
@@ -832,16 +824,6 @@ LDAP schema for FusionDirectory ipmi plugin
 
 
 
-%package kolab2-schema
-Group:		Applications/System
-Summary:	LDAP schema for FusionDirectory kolab2 plugin
-Requires: fusiondirectory-plugin-mail-schema >= %{version}, fusiondirectory-plugin-cyrus-schema >= %{version}
-
-%description kolab2-schema
-LDAP schema for FusionDirectory kolab2 plugin
-
-
-
 %package mail-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory mail plugin
@@ -1172,10 +1154,6 @@ LDAP schema for FusionDirectory renater-partage plugin
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
-%post kolab2
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
 %post ldapdump
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
@@ -1360,10 +1338,6 @@ LDAP schema for FusionDirectory renater-partage plugin
 
 
 %postun ipmi
-%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
-
-
-%postun kolab2
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
@@ -1908,32 +1882,6 @@ LDAP schema for FusionDirectory renater-partage plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi/COPYING
-
-
-%files kolab2
-%defattr(0644,root,root,755)
-# Admin section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/kolab2/class_serviceKolab.inc
-# HTML section
-# Directories
-# Files in the directory
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/kolab2.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/kolab2.png
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/kolab2.svg
-%attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/kolab2.svg
-# Files
-# Locale section
-%attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/kolab2/locale/
-# Personal section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/kolab2/class_mail-methods-kolab22.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/mail/kolab2/class_mail-methods-kolab.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/kolab2/class_kolabAccount.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/kolab2/main.inc
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab2/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab2/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab2/COPYING
 
 
 %files ldapdump
@@ -2810,16 +2758,6 @@ LDAP schema for FusionDirectory renater-partage plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi-schema/COPYING
-
-
-%files kolab2-schema
-%defattr(0644,root,root,755)
-# Files
-%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/rfc2739.schema
-%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/kolab2.schema
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab2-schema/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab2-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-kolab2-schema/COPYING
 
 
 %files mail-schema
