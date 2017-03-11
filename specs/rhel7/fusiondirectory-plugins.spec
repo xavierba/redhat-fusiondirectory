@@ -520,7 +520,7 @@ Squid connectivity plugin
 %package ssh
 Group:		Applications/System
 Summary:	SSH key plugin
-Requires:	fusiondirectory >= %{version}
+Requires:	fusiondirectory >= %{version}, fusiondirectory-plugin-posix >= %{version}
 
 %description ssh
 SSH key plugin
@@ -3107,3 +3107,4 @@ LDAP schema for FusionDirectory renater-partage plugin
 - Fixes #5420 Remove dhcpd.schema
 - Fixes #5353 Package renater-partage plugin
 - Fixes #5407 Package posix plugin
+- Fixes #5376 Add dependence between SSH plugin and Posix plugin
