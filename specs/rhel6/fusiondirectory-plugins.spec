@@ -1647,23 +1647,9 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/dhcp.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/dhcp.svg
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/dhcp.svg
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/class_dhcpConfiguration.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/class_dhcpManagement.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/class_dhcpPlugin.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/class_dhcpSectionCreationDialog.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/main.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpClass.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpDnsZone.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpGroup.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpHost.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpPool.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpService.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpSharedNetwork.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpSubClass.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpSubnet.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/sections/class_dhcpTSigKey.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/class_serviceDHCP.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/dhcp/class_dhcpConfig.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/dhcp/
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/dhcp/
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dhcp
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/Changelog
@@ -3054,3 +3040,4 @@ LDAP schema for FusionDirectory renater-partage plugin
 - Fixes #5353 Package renater-partage plugin
 - Fixes #5407 Package posix plugin
 - Fixes #5376 Add dependence between SSH plugin and Posix plugin
+- Fixes #5126 Use directory adding in spec in place of files
