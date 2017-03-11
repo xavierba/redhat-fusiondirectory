@@ -3009,14 +3009,14 @@ LDAP schema for FusionDirectory renater-partage plugin
 
 %files renater-partage-schema
 %attr (-,root,root)       %{_sysconfdir}/openldap/schema/fusiondirectory/renater-partage-fd.schema
-%doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-audit-schema/AUTHORS
-%doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-audit-schema/COPYING
-%doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-audit-schema/Changelog
+%doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-renater-partage-schema/AUTHORS
+%doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-renater-partage-schema/COPYING
+%doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-renater-partage-schema/Changelog
 
 ########################
 
 %changelog
-* Fri Mar 10 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-1
+* Sat Mar 11 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-1
 - Fixes #5111 Remove few files not used for DHCP plugin
 - Fixes #5116 Package packageSelect class for FAI
 - Fixes #5120 Redone systemManagement with simpleManagement
