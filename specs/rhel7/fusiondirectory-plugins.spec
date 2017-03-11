@@ -1652,6 +1652,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/dhcp
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/class_dhcpSystem.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/config/dhcp/
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/COPYING
@@ -2406,6 +2407,12 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/svg/terminal_locked.svg
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/svg/view_logs.svg
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/svg/workstation_locked.svg
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/legacy/icons/16/actions/media-playback-start.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/legacy/icons/16/actions/media-playback-stop.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/legacy/icons/16/places/folder-remote.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/legacy/svg/folder-remote.svg
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/legacy/svg/media-playback-start.svg
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/legacy/svg/media-playback-stop.svg
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-systems/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-systems/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-systems/COPYING
