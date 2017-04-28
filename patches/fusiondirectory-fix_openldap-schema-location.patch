@@ -1,5 +1,5 @@
---- a/contrib/bin/fusiondirectory-insert-schema	2015-06-13 04:50:38.790965100 +0200
-+++ b/contrib/bin/fusiondirectory-insert-schema	2015-06-13 04:54:05.994776700 +0200
+--- a/contrib/bin/fusiondirectory-insert-schema	2017-03-17 23:40:35.635429674 +0100
++++ b/contrib/bin/fusiondirectory-insert-schema	2017-04-28 14:32:26.254354062 +0200
 @@ -31,7 +31,7 @@
  use 5.008;
  
