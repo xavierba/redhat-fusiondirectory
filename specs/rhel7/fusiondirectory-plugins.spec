@@ -2156,25 +2156,15 @@ LDAP schema for FusionDirectory renater-partage plugin
 %files samba
 %defattr(0644,root,root,755)
 # Admin section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/samba/class_winstationGeneric.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/samba/class_argonautEventSambaShares.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/samba/main.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/samba/class_sambaDomainManagement.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/samba/class_sambaDomain.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/groups/samba/class_sambaGroup.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/samba/
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/samba/
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/groups/samba/
 # Config section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/samba/class_sambaPluginConfig.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/samba/
 # Locale section
 %attr (-,root,root)	%{_datadir}/fusiondirectory/locale/plugins/samba/locale/
 # Personal section
-# Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/samba/main.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/samba/class_sambaMungedDial.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/samba/sambaLogonHours.tpl
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/samba/class_sambaAccount.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/samba/class_sambaLogonHours.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/personal/samba/
 %attr (-,root,root)	%{_datadir}/fusiondirectory/include/class_smbHash.inc
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/samba.png
 %attr (-,root,root)	%{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/samba.svg
@@ -3040,3 +3030,5 @@ LDAP schema for FusionDirectory renater-partage plugin
 - Fixes #5407 Package posix plugin
 - Fixes #5376 Add dependence between SSH plugin and Posix plugin
 - Fixes #5496 Add dependance between samba plugin and posix plugin
+- Fixes #5501 Update specfile to make samba plugin more dependant of directories in place of files
+
