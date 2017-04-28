@@ -488,7 +488,7 @@ Plugin to manage repository for build systems
 %package samba
 Group:		Applications/System
 Summary:	Samba 3 integration
-Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems
+Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems,fusiondirectory-plugin-posix >= %{version}
 
 %description samba
 Samba 3 integration
@@ -3026,7 +3026,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 ########################
 
 %changelog
-* Sat Mar 11 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-1
+* Fri Apr 28 2017 Jonathan SWAELENS <jonathan@opnesides.be> - 1.1-1
 - Fixes #5111 Remove few files not used for DHCP plugin
 - Fixes #5116 Package packageSelect class for FAI
 - Fixes #5120 Redone systemManagement with simpleManagement
@@ -3041,3 +3041,4 @@ LDAP schema for FusionDirectory renater-partage plugin
 - Fixes #5353 Package renater-partage plugin
 - Fixes #5407 Package posix plugin
 - Fixes #5376 Add dependence between SSH plugin and Posix plugin
+- Fixes #5496 Add dependance between samba plugin and posix plugin
