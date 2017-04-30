@@ -340,11 +340,9 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/%{name}/include/class_listing.inc
 %{_datadir}/%{name}/include/class_listingSortIterator.inc
 %{_datadir}/%{name}/include/class_logging.inc
-%{_datadir}/%{name}/include/class_management.inc
 %{_datadir}/%{name}/include/class_msg_dialog.inc
 %{_datadir}/%{name}/include/class_msgPool.inc
 %{_datadir}/%{name}/include/class_objects.inc
-%{_datadir}/%{name}/include/class_plugin.inc
 %{_datadir}/%{name}/include/class_pluglist.inc
 %{_datadir}/%{name}/include/class_session.inc
 %{_datadir}/%{name}/include/class_SnapshotHandler.inc
@@ -361,6 +359,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/%{name}/include/class_template.inc
 %{_datadir}/%{name}/include/class_SnapshotDialogs.inc
 %{_datadir}/%{name}/include/class_exceptions.inc
+%{_datadir}/%{name}/include/class_templateHandling.inc
 %{_datadir}/%{name}/locale
 %{_datadir}/%{name}/plugins
 %{_datadir}/%{name}/setup
@@ -397,184 +396,8 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
-* Mon Apr 03 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.20-1
-- New upstream release
-
-* Fri Jan 20 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.19-1
-- New upstream release
-
-* Mon Jan 16 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.18-1
-- Fixes #5108 Add class_exceptions in packaging
-
-* Mon Nov 14 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.17-1
-- New upstream release
-
-* Tue Oct 04 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.16-1
-- New upstream release
-
-* Tue Aug 23 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.15-1
-- New upstream release
-
-* Sun Jul 10 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.14-1
-- Fixes #4986 Add the contrib files
-- Fixes #4940 Rename and add patches
-
-* Fri Jun 03 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
-- Fixes add class_ldapGeneralizedTime.inc
-- Fixes #4837 Add class_logging.inc
-
-* Fri May 13 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-3
-- Fixes #4786 Split specfile rhel6 and rhel7 to modify the php dependence of rhel6
-
-* Mon May 10 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-2
-- Fixes #4770 Fix prototype path in headers.tpl
-
-* Mon May 03 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-1
-* Fixes #4683 Modify the path for scriptaculous and prototype loading
-
-* Thu Apr 07 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.11-1
-- Fixes #4649 Replace php54-mcrypt with php54-openssl
-- Fixes #4642 Update requirement for php to 5.4
-
-* Thu Mar 17 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.10-1
-- New upstream release
-
-* Tue Jan 28 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
-- Fixes #4384 Add the missing html directory to remove javascript links
-
-* Tue Jan 05 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
-- Fixes #4210 Add dependance at fusiondirectory-schema to schema2ldif
-- Fixes #4232 Set fusiondirectory-apache as config file
-- Fixes #4248 Remove class_SnapShotDialog.inc
-- Fixes #4248 Include class_SnapshotDialogs.inc in specfile
-- Fixes #4257 Add php54-mcrypt in the dependence
-- Fixes #4256 Add perl-Crypt-Rijndael in the dependence
-- Fixes #4326 Add php cas library
-- Fixes #4269 Make symlink for javascript libraries
-- Fixes #4400 Delete databaseManagement class
-- Fixes #4400 Must only not create the connector docs directory
-
-* Thu Oct 08 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
-- Fixes #4159 Modify syntax for postun
-- Fixes #4136 Remove class_smbHash.inc
-- Fixes #4136 Remove samba.schema from fusiondirectory-schema
-
-* Thu Sep 24 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
-- Remove password and associate patch
-- Fixes #4071 Fixes postun only when we uninstall a package
-- Fixes #4071 Fixes postun selinux only when we uninstall the package
-- Fixes #4116 Remove slapd.conf example
-
-* Thu Jul 30 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.9-1.el6
-- php54-gd as mandatory package
-- replace perl-Crypt-PasswdMD5 by perl-Digest-SHA
-
-* Mon Jun 30 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.8-1.el6
-- Add rhel if to build RHEL6 and RHEL7
-
-* Fri Jun 05 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.7-1.el6
-- New upstream release
-
-* Mon Jun 01 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.6-1.el6
-- Add again rfc2307bis schema
-
-* Wed May 06 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.5-2.el6
-- Remove schema rfc2307bis
-- Correct the post script
-- Correct postun scriptlet of fusiondirectory and fusiondirectory-selinux
-
-* Tue Dec 13 2014 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.3-1.el6
-- Correct the errors for the post scripts
-
-* Sun Jun 09 2013 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.6-2.el6
-- Reorganize include directory files declaration in order to avoid multiple
-  declaration in serveral RPMS (Closes #2504)
-- Move the config/systems directory from sympa plugin to systems plugin (Closes #2423)
-- Move the class_mailPluginConfig.inc file from core RPM to mail plugin (Closed #2485)
-- Backport bugfix #2424 : Try to use PHP hash function if mhash is not available.
-- Backport bugfix #2449 : Allow users with SAMBA attributes to be deleted properly.
-
-* Sat May 12 2013 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.6-1.el6
-- Upgrade to 1.0.6 Version
-- Schema are now only provided in .schema format
-- Plugins reorganisation and simplification
-- Gofax plugin new name : fax
-- Gofon plugin new name : asterisk
-- Obsolete plugins removed : netatalk, opengroupware,openxchange,pptp, phpschedule-it, webdav, connectivity, scalix
-- New plugins : alias, autofs, cyrus, debconf, DSA, freeradius, game, opsi, puppet
-
-* Fri Nov 23 2012 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.4-1
-- Upgrade to 1.0.4 Version
-- Remove Obsoletes directives
-- Remove devel package
-- Update default apache configuration. Memory size set to 128M.
-- Dependency list update
-- New package : database-management
-- Update scripts integration.
-
-* Sat Jul 14 2012 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.3-2
-- Move Lost Password Feature files from argonaut plugin to core RPM - Closes #1161
-
-* Sat Jun 23 2012 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.3-1.el6
-- Upgrade to 1.0.3 Version
-- New plugins : argonaut, openstack-compute, quota, supann
-- Merge goto plugin into system plugin
-- Remove obsolete plugins : php54-gw
-- Remove obsolete patches
-- Add missing dependency on perl-ExtUtils-MakeMaker
-- SELinux policy update
-- Update memory_limite parameter in the Apache Configuration file
-- Remove the spool purge cleaning step in %%pre and %%postun steps
-- Add devel package
-
-* Sun Oct 23 2011 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.2-1
-- Upgrade to 1.0.2 Version
-- [rpm] SELinux policy update
-- [rpm] Mail Queue Plugin disabled
-- [rpm] Patch for get_i18n and get_classs method on fusiondirectory-setup
-- [rpm] Patch for removing debug messages
-- [feature] Remove online doc
-- [feature] Add netgroups plugin
-- [feature] Removed old GOsa-si code
-- [feature] Added jsonrpc client library
-- [feature] Added new daemon class with json rpc methods
-- [feature] All deployment are now done through the Argonaut json rpc server
-- [feature] New system to get the packages and debconf without a local mirror
-- [fix] Cvs import fixes to make it more flexible and usable
-- [fix] Corrected css for Firefox 5 and beyond
-- [feature] New setup command fusiondirectory-setup that help fixes common setup issues
-- [feature] Added tools to easily convert and upload schema in an ldap-tree
-- [feature] Completely test and rewrote the help to use php safe mode
-- [feature] Put all the application data into /var/cache/fusiondirectory
-- [fix] Fixed timezone issues
-- [fix] Corrected FSF address
-- [feature] Removed the opsi (pending rewrite)
-- [feature] Removed log plugin, everything is done with the rsyslog plugin
-
-* Sun Jul 03 2011 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.1-3
-- Compliancy to Fedora Policy (fc15)
-- Remove gosa-ldap Obsoletes block
-* Sat Jun 18 2011 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.1-2
-- Fixes #308: Remove the heimdal package
-- Fixes #309: Remove the goAgent.pl from plugin-squid package
-* Mon May 09 2011 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.1-1
-- Update to 1.0.1 version
-- Remov advanced options from setup
-- Correct online help
-- Correct wording on plugins
-- Remove the need for magic_quotes_gpc
-- Remove the fusiondirectory-desktop package
-- Remove program version checking from svn
-- Add the apache plugin
-- Put final logo
-- Full italian language
-- Creation of the fusiondirectory SELinux package
-- Fixes bugs #104 #118 #154 #163 #187 #188 #189 #191 #192 #193
-- Fixes bugs #194 #197 #198 #199 #207 #208 #210 #217 #224 #230
-- Fixes bugs #234 #251 #252
-* Sat Apr 17 2011 Olivier BONHOMME <obonhomme@nerim.net> - 1.0-1
-- First Plugin integration
-- Update packager identity
-* Fri Apr 15 2011 Benoit Mortier <benoit.mortier@opensides.be>
-- First build of FusionDirectory 1.0 as an RPM, should work on SuSE and RedHat
-
+* Fri Mar 10 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-1
+- Fixes #5108 Package class_exceptions.inc
+- Fixes #5319 Remove class_plugin.inc
+- Fixes #5325 Remove class_management.inc
+- Fixes #5142 Add class_templateHandling.inc

@@ -44,38 +44,5 @@ rm -Rf %{buildroot}
 %attr(-,root,root) %{_datadir}/man/man1/fusiondirectory-shell.1.gz
 
 %changelog
-* Mon Apr 03 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.20-1
+* Fri Apr 28 2017 Jonathan SWAELENS <jonathan@opnesides.be> - 1.1-1
 - New upstream release
-
-* Fri Jan 20 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.19-1
-- New upstream release
-
-* Mon Jan 16 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.18-1
-- New upstream release
-
-* Mon Nov 14 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.17-1
-- New upstream release
-
-* Thu Sep 29 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.16-1
-- New upstream release
-
-* Tue Aug 23 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.15-1
-- New upstream release
-
-* Fri Jun 17 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.14-1
-- New upstream release
-
-* Fri May 13 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
-- Fixes #4786 Split specfile rhel6 and rhel7 to modify the php dependence of rhel6
-
-* Mon May 10 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-2
-- New upstream release
-
-* Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
-- New upstream release
-
-* Mon Oct 26 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
-- Fixes #4262 Add perl-LWP-Protocol-https dependance
-
-* Sat Sep 07 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1
-- Fixes #4089 Add fusiondirectory-shell in rpm
