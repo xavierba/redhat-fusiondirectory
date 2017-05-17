@@ -29,7 +29,7 @@ Requires:   perl-Crypt-CBC, perl-LDAP, perl, perl-Crypt-Rijndael
 
 Requires:   httpd, gettext, perl-ExtUtils-MakeMaker, prototype, prototype-httpd, scriptaculous, scriptaculous-httpd
 
-Requires:   php-Smarty3, php-Smarty3-i18n, php-pear-CAS
+Requires:   php-Smarty3, php-Smarty3-gettext, php-pear-CAS
 
 %description 
 FusionDirectory is a combination of system-administrator and end-user web
@@ -396,6 +396,9 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Wed May 17 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-2
+- Add php-Smarty3-gettext as dependance 
+
 * Fri Mar 10 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-1
 - Fixes #5108 Package class_exceptions.inc
 - Fixes #5319 Remove class_plugin.inc
