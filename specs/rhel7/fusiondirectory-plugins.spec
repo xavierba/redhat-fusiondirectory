@@ -3014,6 +3014,9 @@ LDAP schema for FusionDirectory renater-partage plugin
 ########################
 
 %changelog
+* Wed May 17 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-2
+- Add php54-php-Smarty3-gettext as dependance
+
 * Fri Apr 28 2017 Jonathan SWAELENS <jonathan@opnesides.be> - 1.1-1
 - Fixes #5111 Remove few files not used for DHCP plugin
 - Fixes #5116 Package packageSelect class for FAI
