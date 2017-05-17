@@ -44,5 +44,8 @@ rm -Rf %{buildroot}
 %attr(-,root,root) %{_datadir}/man/man1/fusiondirectory-shell.1.gz
 
 %changelog
+* Wed May 17 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-2
+- Add php54-php-Smarty3-gettext as dependance
+
 * Fri Apr 28 2017 Jonathan SWAELENS <jonathan@opnesides.be> - 1.1-1
 - New upstream release
