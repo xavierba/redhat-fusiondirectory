@@ -399,7 +399,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 * Wed May 17 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-2
 - Add php-Smarty3-gettext as dependance 
 
-* Fri Mar 10 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-1
+* Fri Apr 28 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-1
 - Fixes #5108 Package class_exceptions.inc
 - Fixes #5319 Remove class_plugin.inc
 - Fixes #5325 Remove class_management.inc
