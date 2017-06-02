@@ -3041,90 +3041,180 @@ LDAP schema for FusionDirectory renater-partage plugin
 - New upstream release
 
 * Fri Jan 20 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.19-1
-- New upstream release
+- New upstream release 
 
 * Mon Jan 16 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.18-1
-- Fixes #5108 Add class_exceptions in packaging
+- Fixes #5304 Remove unused files for netgroups
+- Fixes #5116 FAI packageSelect use simpleSelectManagement
 
 * Mon Nov 14 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.17-1
-- New upstream release
+- Fixes #5202 Revert remove dependance between systems and dhcp
+- Fixes #5215 adding files for dhcp packages
+- Fixes #5209 adding dhcp-fd-conf.schema
+- Fixes #5202 Remove dependance between systems and dhcp
+- Fixes #5222 Remove ppolicydefault.ldif from ppolicy packages
 
-* Tue Oct 04 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.16-1
-- New upstream release
+* Thu Sep 29 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.16-1
+- Fixes #5167 Remove old legacy icons and replace it with tango icon
 
 * Tue Aug 23 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.15-1
-- New upstream release
+- Fixes #5065 Add update samba share action in samba plugin
+- Fixes #5078 Remove apache2 plugin
+- Fixes #5083 Remove phoneSelect directory
+- Fixes #5065 Add class_argonautEventTypes.inc file
+- Fixes #5061 Use simple plugin for GPG
 
-* Sun Jul 10 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.14-1
-- Fixes #4986 Add the contrib files
-- Fixes #4940 Rename and add patches
+* Mon Jul 04 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.14-1
+- Fixes #4977 Add service generic IMAP server
+- Fixes #4930 Plugins use some image that are not in theme
+- Fixes #4940 Rename default theme as legacy
+- Fixes #4950 Remove game plugin
+- Fixes #4895 Remove printGeneric.tpl and ppd folder
+- Fixes #4860 Package more Breezy's icons
 
-* Fri Jun 03 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
-- Fixes add class_ldapGeneralizedTime.inc
-- Fixes #4837 Add class_logging.inc
+* Mon Jun 13 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.13-1
+- Removing no longer used images
+- Adding theme for game plugin
+- Corrected icon to be autofs-nis-netmap in place of autofs-nis-map
+- Fixes #4860 Package Breezy's icons
+- Fixes #4837 Package audit plugin
+- Fixes #4815 Remove config(noreplace) for schema packages
+- Fixes #4812 Package user-reminder plugin
+- Fixes #4786 Split specfile rhel6 and rhel7 to modify the php dependence of rhel6
+- Fixes #4780 Remove Replace kolab ogroup tab and remove unused goService class
+- Fixes #4780 Remove addressbook plugin
 
 * Fri May 13 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-3
 - Fixes #4786 Split specfile rhel6 and rhel7 to modify the php dependence of rhel6
 
 * Mon May 10 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-2
-- Fixes #4770 Fix prototype path in headers.tpl
-
-* Mon May 03 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-1
-- Fixes #4683 Modify the path for scriptaculous and prototype loading
-
-* Thu Apr 07 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.11-1
-- Fixes #4649 Replace php54-mcrypt with php54-openssl
-- Fixes #4642 Update requirement for php to 5.4
-
-* Thu Mar 17 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.10-1
 - New upstream release
 
-* Tue Jan 28 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
-- Fixes #4384 Add the missing html directory to remove javascript links
+* Mon May 03 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-1
+- Fixes #4750 Add files for plugin spamassassin
+- Fixes #4718 Adapt the dependences due the splitting of the mail plugin
+- Fixes #4732 Remove class_serviceIMAP.inc
+- Fixes #4710 Removing of another 's'
+- Fixes #4710 We missed some "s" sometimes
+- Fixes #4710 Replace spamassasin with spamassassin
+- Fixes #4710 Move spamassasin service in his own plugin
+- Fixes #4703 Move postfix service in his own plugin
+- Fixes #4696 Remove antivirus service from mail plugin
 
-* Tue Jan 05 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
-- Fixes #4210 Add dependance at fusiondirectory-schema to schema2ldif
-- Fixes #4232 Set fusiondirectory-apache as config file
-- Fixes #4248 Remove class_SnapShotDialog.inc
-- Fixes #4248 Include class_SnapshotDialogs.inc in specfile
-- Fixes #4257 Add php54-mcrypt in the dependence
-- Fixes #4256 Add perl-Crypt-Rijndael in the dependence
-- Fixes #4326 Add php cas library
-- Fixes #4269 Make symlink for javascript libraries
-- Fixes #4400 Delete databaseManagement class
-- Fixes #4400 Must only not create the connector docs directory
+* Thu Apr 07 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.11-1
+- Fixes #4670 Some files have been removed related to community plugin
 
-* Thu Oct 08 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
-- Fixes #4159 Modify syntax for postun
-- Fixes #4136 Remove class_smbHash.inc
-- Fixes #4136 Remove samba.schema from fusiondirectory-schema
+* Tue Mar 15 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.10-1
+- Fixes #4500 Remove unused nagios.tpl file
+- Fixes #4471 Remove the dependence between systems and dns
+- Fixes #4547 Remove old files for DNS plugin
+- Fixes #4552 Remove NTP service
+- Fixes #4361 Add dns-fd.schema
+- Fixes #4547 Add new files for the new DNS plugin
+- Fixes #4547 Forgot 2 files got the new DNS plugin
+- Fixes #4536 Package subcontracting plugin
+- Fixes #4536 Syntax error in the spec file
+- Fixes #4547 Move the icons in the right folder for the plugin DNS
+- Fixes #4547 Add an elif for DNS plugin
+- Fixes #4536 Move the icons for subcontracting plugin
+- Fixes #4536 Modify path for subcontracting icons
+- Fixes #4536 Correct errors in the path for subcontracting icons
+- Fixes #4587 Add newsletter plugin
+- Fixes #4582 Add community plugin
+- Fixes #4596 Modify spec file to copy html images in the good path
+- Fixes #4596 Modification for fusioninventory plugin in the spec file
+- Fixes #4596 Recreate a directory for fusioninventory plugin that I had remove by error
+- Fixes #4596 Correct paths of many plugins in the spec file
+- Fixes #4596 Add a section to copy the images of fusiondirectory-plugin-game
+- Fixes #4617 Package getFAIstatus.php
+- Fixes #4617 Forgot to add the file in the %files section
+- Fixes #4596 Forgot some icons for repository plugin
+- Fixes #4596 Remove unused images for systems plugin
+- Fixes #4596 Add some opsi icons
+- Fixes #4547 Add class_dnsAcl.inc
+
+* Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
+- New upstream release
+
+* Tue Jan 06 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
+- Fixes #4228 Move the supann example in an example directory
+- Fixes #4243 Add update cache and update locales for applications
+- Fixes #4333 Move the icons of ppolicy plugin
+- Fixes #4338 Move exemple ldif of ppolicy in /usr/share/doc/fusiondirectory-plugin-ppolicy/
+- Fixes #4369 Remove rsyslog plugin
+- Fixes #4330 Add version for fusiondirectory-plugin-systems-schema dependance
+- Fixes #4283 Add version for fusiondirectory-plugin-systems dependance
+- Fixes #4276 Add dependance between sudo and systems
+- Fixes #4405 Clean up the DaemonEvent mess
+- Fixes #4397 Remove the mail method Cyrus Sendmail
+- Fixes #4416 Migrate last FAI classes to simplePlugin
+- Fixes #4416 Forgot to remove faiDiskEntry.tpl
+- Fixes #4405 Add class_argonautAction.inc and import_events.tpl
+- Fixes #4416 Add class_faiDiskEntry.inc in specfile
+- Fixes #4427 Remove fix_munged from the samba plugin
+- Fixes #4421 Remove the class_BootKernelAttribute.inc
+
+* Thu Oct 8 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.1-1.el6
+- Fixes #4136 Add class_smbHash in fusiondirectory-plugin-samba
+- Fixes #4136 Add samba.schema in fusiondirectory-plugin-samba-schema
 
 * Thu Sep 24 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9-1.el6
-- Remove password and associate patch
-- Fixes #4071 Fixes postun only when we uninstall a package
-- Fixes #4071 Fixes postun selinux only when we uninstall the package
-- Fixes #4116 Remove slapd.conf example
+- Remove unused password.tpl
+- Update locales for applications, certificates, ejbca, personal, ppolicy and webservice
+- Set good path for dhcp icon
+- Remove class_phoneIAX.inc and class_asteriskAccount.inc from asterisk plugin
+- Dashboard is merged in core
+- Remove desktop-management plugin
+- Remove old patch of goticus
+- Remove openstack plugin
+- Remove uw-imap plugin
+- Add applications, ejbca, personal and ppolicy plugin
+- Add asteriskcdrdb.sql
+- Add sieve_add png in mail plugin
+- Add locales for applications, certificates, ejbca, personal, ppolicy and webservice
+- Add dashboard part in systems
+- Rewrite a part of asterisk plugin
+- Correction of sieve support in cyrus and mail plugin
+- Missed class_supann.inc
+- Remove class_tabs.inc
+- Add mixedgroups plugin
+- Remove the fax plugin
+- Remove the asterisk plugin
+- Fixes #4080 Add directory mode 755
+- Fixes #4077 Package FAI monitor service in plugin FAI
+- Rename role file in role_SUPANN (#4075)
+- Rename kolab to kolab2
+- Fixes #4133 Add argonaut plugin dependence for system plugin
 
 * Thu Jul 30 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.9-1.el6
-- php54-gd as mandatory package
-- replace perl-Crypt-PasswdMD5 by perl-Digest-SHA
+- New upstream release
 
 * Mon Jun 30 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.8-1.el6
-- Add rhel if to build RHEL6 and RHEL7
+- Add schemas dependences
 
 * Fri Jun 05 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.7-1.el6
 - New upstream release
 
 * Mon Jun 01 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.6-1.el6
-- Add again rfc2307bis schema
+- Correct the place of EJBCA icon's
+- Add plugin certificates
 
-* Wed May 06 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.5-2.el6
-- Remove schema rfc2307bis
-- Correct the post script
-- Correct postun scriptlet of fusiondirectory and fusiondirectory-selinux
+* Thu Apr 02 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.5-1.el6
+- Move dashbord in core
+- Add locales for ppolicy plugin
+- Add ppolicy plugin
+- Add some files for personal plugin
 
-* Tue Dec 13 2014 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.3-1.el6
-- Correct the errors for the post scripts
+* Tue Dec 13 2014 Jonathan SWAELENS <FD.K1412@openaliasbox.org> - 1.0.8.3-1.el6
+- Add personal plugin
+- Move the examples from supann plugin
+
+* Tue Apr 1 2014 Jonathan SWAELENS <FD.K1412@openaliasbox.org> - 1.0.7.3-2.el6
+- Add scriptaculous and prototype in the requires
+- Add the patches for headers.tpl and password.tpl
+
+* Mon Mar 31 2014 Jonathan SWAELENS <FD.K1412@openaliasbox.org> - 1.0.7.3-2.el6
+- Adapt the scripts and patchs for the version 1.0.7.3
 
 * Sun Jun 09 2013 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.6-2.el6
 - Reorganize include directory files declaration in order to avoid multiple
@@ -3159,7 +3249,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 - Upgrade to 1.0.3 Version
 - New plugins : argonaut, openstack-compute, quota, supann
 - Merge goto plugin into system plugin
-- Remove obsolete plugins : php54-gw
+- Remove obsolete plugins : php54-gw 
 - Remove obsolete patches
 - Add missing dependency on perl-ExtUtils-MakeMaker
 - SELinux policy update
@@ -3219,6 +3309,5 @@ LDAP schema for FusionDirectory renater-partage plugin
 - First Plugin integration
 - Update packager identity
 
-* Fri Apr 15 2011 Benoit Mortier <benoit.mortier@opensides.be>
+* Fri Apr 15 2011 Benoit Mortier <benoit.mortier@opensides.be> 
 - First build of FusionDirectory 1.0 as an RPM, should work on SuSE and RedHat
-
