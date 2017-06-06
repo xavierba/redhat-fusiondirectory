@@ -396,6 +396,9 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+% Tue Jun 06 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1.1-1 
+- New upstream release
+
 * Wed May 17 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-2
 - Add php-Smarty3-gettext as dependance 
 
