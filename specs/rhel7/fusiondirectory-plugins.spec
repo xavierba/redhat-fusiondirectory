@@ -1926,7 +1926,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %defattr(0644,root,root,755)
 # Admin section
 # Files
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/groups/mail/class_groupMail.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/groups/mail/class_mailGroup.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/services/imap/class_serviceIMAP.inc
 # Config section
 # Files
@@ -3014,6 +3014,9 @@ LDAP schema for FusionDirectory renater-partage plugin
 ########################
 
 %changelog
+* Wed Jun 14 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2-1
+- Fixes #5613 Rename class_groupMail.inc in class_mailGroup.inc
+
 * Tue Jun 06 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1.1-1 
 - New upstream release
 
