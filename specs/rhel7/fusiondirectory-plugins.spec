@@ -536,7 +536,7 @@ This Plugin aims to provide a full LDAP interface to SUPANN schema
 %package sympa
 Group:		Applications/System
 Summary:	Management of alias list of sympa
-Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems,fusiondirectory-plugin-alias
+Requires:	fusiondirectory >= %{version},fusiondirectory-plugin-systems
 
 %description sympa
 Management of alias list of sympa
@@ -967,7 +967,7 @@ LDAP schema for FusionDirectory supann plugin
 %package sympa-schema
 Group:		Applications/System
 Summary:	LDAP schema for FusionDirectory sympa plugin
-Requires: fusiondirectory-plugin-systems-schema >= %{version}, fusiondirectory-plugin-alias-schema >= %{version}
+Requires: fusiondirectory-plugin-systems-schema >= %{version}
 
 %description sympa-schema
 LDAP schema for FusionDirectory sympa plugin
@@ -3016,6 +3016,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %changelog
 * Wed Jun 14 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2-1
 - Fixes #5613 Rename class_groupMail.inc in class_mailGroup.inc
+- Fixes #5605 Remove alias plugin from sympa dependance
 
 * Tue Jun 06 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1.1-1 
 - New upstream release
