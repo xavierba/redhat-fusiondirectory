@@ -2616,6 +2616,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-renater-partage/COPYING
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-renater-partage/Changelog
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/services/renater-partage/
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/groups/renater-partage/
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/renater-partage/locale/
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/mail/mail-methods/class_mail-methods-renater-partage.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/renater-partage.png
@@ -3017,6 +3018,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 * Wed Jun 14 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2-1
 - Fixes #5613 Rename class_groupMail.inc in class_mailGroup.inc
 - Fixes #5605 Remove alias plugin from sympa dependance
+- Fixes #5609 Add class_partageGroup.inc
 
 * Tue Jun 06 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1.1-1 
 - New upstream release
