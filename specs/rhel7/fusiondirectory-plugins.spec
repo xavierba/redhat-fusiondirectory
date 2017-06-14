@@ -2327,7 +2327,9 @@ LDAP schema for FusionDirectory renater-partage plugin
 # Admin section
 # Files
 %attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/systems/services/sympa/class_serviceSympa.inc
-%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/sympa/class_sympaAlias.inc
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/admin/sympa/
+# Config directory
+%attr (-,root,root)	%{_datadir}/fusiondirectory/plugins/config/sympa/
 # HTML section
 # Directories
 # Files in the directory
@@ -2900,6 +2902,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %defattr(0644,root,root,755)
 # Files
 %attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/sympa-fd.schema
+%attr (-,root,root)	%{_sysconfdir}/openldap/schema/fusiondirectory/sympa-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sympa-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sympa-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sympa-schema/COPYING
@@ -3017,7 +3020,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %changelog
 * Wed Jun 14 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2-1
 - Fixes #5613 Rename class_groupMail.inc in class_mailGroup.inc
-- Fixes #5605 Remove alias plugin from sympa dependance
+- Fixes #5605 Remove alias plugin from sympa dependance and add some files
 - Fixes #5609 Add class_partageGroup.inc
 
 * Tue Jun 06 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1.1-1 
