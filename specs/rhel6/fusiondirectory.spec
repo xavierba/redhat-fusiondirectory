@@ -453,7 +453,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 * Thu Mar 17 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.10-1
 - New upstream release
 
-* Tue Jan 28 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
+* Thu Jan 28 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - Fixes #4384 Add the missing html directory to remove javascript links
 
 * Tue Jan 05 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
