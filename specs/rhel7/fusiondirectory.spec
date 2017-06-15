@@ -396,6 +396,9 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Thu Jun 15 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2-1
+- Fixes #5618 Correct the date error in changelog
+
 * Tue Jun 06 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1.1-1 
 - New upstream release
 
@@ -437,10 +440,10 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 * Fri May 13 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-3
 - Fixes #4786 Split specfile rhel6 and rhel7 to modify the php dependence of rhel6
 
-* Mon May 10 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-2
+* Tue May 10 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-2
 - Fixes #4770 Fix prototype path in headers.tpl
 
-* Mon May 03 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-1
+* Tue May 03 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-1
 - Fixes #4683 Modify the path for scriptaculous and prototype loading
 
 * Thu Apr 07 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.11-1
@@ -480,7 +483,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 - php54-gd as mandatory package
 - replace perl-Crypt-PasswdMD5 by perl-Digest-SHA
 
-* Mon Jun 30 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.8-1.el6
+* Tue Jun 30 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.8-1.el6
 - Add rhel if to build RHEL6 and RHEL7
 
 * Fri Jun 05 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.7-1.el6
@@ -494,7 +497,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 - Correct the post script
 - Correct postun scriptlet of fusiondirectory and fusiondirectory-selinux
 
-* Tue Dec 13 2014 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.3-1.el6
+* Sat Dec 13 2014 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.3-1.el6
 - Correct the errors for the post scripts
 
 * Sun Jun 09 2013 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.6-2.el6
@@ -505,7 +508,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 - Backport bugfix #2424 : Try to use PHP hash function if mhash is not available.
 - Backport bugfix #2449 : Allow users with SAMBA attributes to be deleted properly.
 
-* Sat May 12 2013 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.6-1.el6
+* Sun May 12 2013 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.6-1.el6
 - Upgrade to 1.0.6 Version
 - Schema are now only provided in .schema format
 - Plugins reorganisation and simplification
@@ -586,7 +589,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 - Fixes bugs #194 #197 #198 #199 #207 #208 #210 #217 #224 #230
 - Fixes bugs #234 #251 #252
 
-* Sat Apr 17 2011 Olivier BONHOMME <obonhomme@nerim.net> - 1.0-1
+* Sun Apr 17 2011 Olivier BONHOMME <obonhomme@nerim.net> - 1.0-1
 - First Plugin integration
 - Update packager identity
 

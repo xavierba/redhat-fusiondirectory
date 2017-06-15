@@ -3018,10 +3018,11 @@ LDAP schema for FusionDirectory renater-partage plugin
 ########################
 
 %changelog
-* Wed Jun 14 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2-1
+* Thu Jun 15 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2-1
 - Fixes #5613 Rename class_groupMail.inc in class_mailGroup.inc
 - Fixes #5605 Remove alias plugin from sympa dependance and add some files
 - Fixes #5609 Add class_partageGroup.inc
+- Fixes #5618 Correct the date error in changelog
 
 * Tue Jun 06 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1.1-1 
 - New upstream release
@@ -3097,10 +3098,10 @@ LDAP schema for FusionDirectory renater-partage plugin
 * Fri May 13 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-3
 - Fixes #4786 Split specfile rhel6 and rhel7 to modify the php dependence of rhel6
 
-* Mon May 10 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-2
+* Tue May 10 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-2
 - New upstream release
 
-* Mon May 03 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-1
+* Tue May 03 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-1
 - Fixes #4750 Add files for plugin spamassassin
 - Fixes #4718 Adapt the dependences due the splitting of the mail plugin
 - Fixes #4732 Remove class_serviceIMAP.inc
@@ -3146,7 +3147,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 * Mon Feb 01 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - New upstream release
 
-* Tue Jan 06 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
+* Wed Jan 06 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
 - Fixes #4228 Move the supann example in an example directory
 - Fixes #4243 Add update cache and update locales for applications
 - Fixes #4333 Move the icons of ppolicy plugin
@@ -3199,7 +3200,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 * Thu Jul 30 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.9-1.el6
 - New upstream release
 
-* Mon Jun 30 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.8-1.el6
+* Tue Jun 30 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.8-1.el6
 - Add schemas dependences
 
 * Fri Jun 05 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.7-1.el6
@@ -3215,7 +3216,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 - Add ppolicy plugin
 - Add some files for personal plugin
 
-* Tue Dec 13 2014 Jonathan SWAELENS <FD.K1412@openaliasbox.org> - 1.0.8.3-1.el6
+* Sat Dec 13 2014 Jonathan SWAELENS <FD.K1412@openaliasbox.org> - 1.0.8.3-1.el6
 - Add personal plugin
 - Move the examples from supann plugin
 
@@ -3234,7 +3235,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 - Backport bugfix #2424 : Try to use PHP hash function if mhash is not available.
 - Backport bugfix #2449 : Allow users with SAMBA attributes to be deleted properly.
 
-* Sat May 12 2013 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.6-1.el6
+* Sun May 12 2013 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.6-1.el6
 - Upgrade to 1.0.6 Version
 - Schema are now only provided in .schema format
 - Plugins reorganisation and simplification
@@ -3315,7 +3316,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 - Fixes bugs #194 #197 #198 #199 #207 #208 #210 #217 #224 #230
 - Fixes bugs #234 #251 #252
 
-* Sat Apr 17 2011 Olivier BONHOMME <obonhomme@nerim.net> - 1.0-1
+* Sun Apr 17 2011 Olivier BONHOMME <obonhomme@nerim.net> - 1.0-1
 - First Plugin integration
 - Update packager identity
 
