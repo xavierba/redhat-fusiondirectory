@@ -295,9 +295,15 @@ fi
 # Link fusiondirectory.conf to cache/template directory
 ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondirectory/template/fusiondirectory.conf
 
-# Link javascript libraries
-ln -s /usr/share/prototype /usr/share/fusiondirectory/html/javascript/prototype
-ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/scriptaculous
+# Link javascript profotype if not exist
+if ! [[ -d /usr/share/fusiondirectory/html/javascript/prototype ]] ; then
+  ln -s /usr/share/prototype /usr/share/fusiondirectory/html/javascript/prototype
+fi
+
+# Link javascript scriptaculous if not exist
+if ! [[ -d /usr/share/fusiondirectory/html/javascript/prototype ]] ; then
+  ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/scriptaculous
+fi
 
 %files
 %defattr(-,root,root,-)
@@ -401,6 +407,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 * Fri Jun 16 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2-1
 - Fixes #5618 Correct the date error in changelog
 - Fixes #5621 Correct specfile with rpmlint help
+- Fixes #5435 Set an if condition for linking javascript libs
 
 * Tue Jun 06 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1.1-1
 - New upstream release
