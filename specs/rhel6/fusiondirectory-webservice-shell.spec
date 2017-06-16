@@ -23,6 +23,8 @@ interface, designed to handle LDAP based setups.
 %setup -T -D -b 0 -n fusiondirectory-plugins-%{version}
 
 %install
+rm -Rf %{buildroot}
+
 mkdir -p %{buildroot}/usr/bin/
 cp ./webservice/contrib/bin/* %{buildroot}/usr/bin/
 chmod +x %{buildroot}/usr/bin/*
@@ -44,6 +46,9 @@ rm -Rf %{buildroot}
 %attr(-,root,root) %{_datadir}/man/man1/fusiondirectory-shell.1.gz
 
 %changelog
+* Fri Jun 16 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2-1
+- Fixes #5621 Correct specfile with rpmlint help
+
 * Tue Jun 06 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1.1-1 
 - New upstream release
 

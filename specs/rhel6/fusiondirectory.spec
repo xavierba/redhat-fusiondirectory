@@ -41,9 +41,9 @@ and can write user adapted sieve scripts.
 
 # This is the package.spec file
 %package schema
-Group:			Applications/System
-Summary:		Schema Definitions for the %{name} package
-Requires:		openldap-clients, schema2ldif
+Group:                  Applications/System
+Summary:                Schema Definitions for the %{name} package
+Requires:               openldap-clients, schema2ldif
 
 %description schema
 Contains the Schema definition files for the %{name} admin package.
@@ -54,11 +54,11 @@ Contains the Schema definition files for the %{name} admin package.
 ############################
 
 %package selinux
-Group:			Applications/System
-Summary:		SELinux policy for Fusiondirectory
-Requires:		selinux-policy >= %{selinux_policyver}
-Requires:		%{name} = %{version}-%{release}
-BuildRequires:		checkpolicy, selinux-policy-devel, /usr/share/selinux/devel/policyhelp
+Group:                  Applications/System
+Summary:                SELinux policy for Fusiondirectory
+Requires:               selinux-policy >= %{selinux_policyver}
+Requires:               %{name} = %{version}-%{release}
+BuildRequires:          checkpolicy, selinux-policy-devel, /usr/share/selinux/devel/policyhelp
 
 %description selinux
 This package contains the binary modules and sources files of the
@@ -106,7 +106,7 @@ SEPolicy needed for Fusiondirectory.
 mkdir SELinux
 cp -p %{SOURCE1} %{SOURCE2} SELinux
 
-# Change version of %{name}.te
+# Change version of fusiondirectory.te
 sed -i 's/_SELINUX-VERSION_/%{version}/g' SELinux/%{name}.te
 
 ############################
@@ -128,8 +128,10 @@ cd -
 
 # This is the install.spec file
 %install
+rm -Rf %{buildroot}
+
 # Installation of FD-core
-# Create %{buildroot}%{_datadir}/%{name}/
+# Create /usr/share/fusiondirectory/
 mkdir -p %{buildroot}%{_datadir}/%{name}
 
 DIRS="ihtml plugins html include locale setup"
@@ -220,7 +222,7 @@ do
     %{_datadir}/selinux/${selinuxvariant}/%{name}.pp &> /dev/null || :
 done
 
-# Apply context for spool and cache directroy considering the %{name} policy
+# Apply context for spool and cache directroy considering the fusiondirectory policy
 /sbin/restorecon -R /var/spool/%{name}
 /sbin/restorecon -R /var/cache/%{name}
 
@@ -231,7 +233,7 @@ if [ $1 = 0 ] ; then
     /usr/sbin/semodule -s ${selinuxvariant} -r %{name} &> /dev/null || :
   done
 
-  # Apply context for spool and cache directroy without the %{name} policy
+  # Apply context for spool and cache directroy without the fusiondirectory policy
   /sbin/restorecon -R /var/spool/%{name}
   /sbin/restorecon -R /var/cache/%{name}
 fi
@@ -396,8 +398,9 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
-* Thu Jun 15 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2-1
+* Fri Jun 16 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2-1
 - Fixes #5618 Correct the date error in changelog
+- Fixes #5621 Correct specfile with rpmlint help
 
 * Tue Jun 06 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1.1-1
 - New upstream release
