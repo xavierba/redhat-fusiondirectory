@@ -1907,7 +1907,6 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/addons/ldapmanager/main.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/addons/ldapmanager/class_csvimport.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/addons/ldapmanager/tabs_ldif.inc
-%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/addons/ldapmanager/contentcsv.tpl
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/addons/ldapmanager/class_ldapmanager.inc
 # HTML section
 # Directories
@@ -3039,12 +3038,13 @@ LDAP schema for FusionDirectory renater-partage plugin
 ########################
 
 %changelog
-* Fri Jun 16 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2-1
+* Tue Jun 27 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2-1
 - Fixes #5613 Rename class_groupMail.inc in class_mailGroup.inc
 - Fixes #5605 Remove alias plugin from sympa dependance and add some files
 - Fixes #5609 Add class_partageGroup.inc
 - Fixes #5618 Correct the date error in changelog
 - Fixes #5621 Correct specfile with rpmlint help
+- Fixes #5643 Remove contentcsv.tpl
 
 * Tue Jun 06 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1.1-1 
 - New upstream release
