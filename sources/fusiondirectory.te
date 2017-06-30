@@ -35,6 +35,7 @@ allow restorecon_t httpd_fdir_content_t:file relabel_file_perms;;
 # Privileges for setfiles process
 allow setfiles_t httpd_fdir_content_t:dir { list_dir_perms relabel_dir_perms };
 allow setfiles_t httpd_fdir_content_t:file { read_file_perms relabel_file_perms };
+allow setfiles_t httpd_fdir_content_t:lnk_file relabelto;
 
 # Privileges for audit process and SELinux log analysis
 allow setroubleshootd_t httpd_fdir_content_t:dir { read getattr search };

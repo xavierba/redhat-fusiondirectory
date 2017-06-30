@@ -41,9 +41,9 @@ and can write user adapted sieve scripts.
 
 # This is the package.spec file
 %package schema
-Group:			Applications/System
-Summary:		Schema Definitions for the %{name} package
-Requires:		openldap-clients, schema2ldif
+Group:                  Applications/System
+Summary:                Schema Definitions for the %{name} package
+Requires:               openldap-clients, schema2ldif
 
 %description schema
 Contains the Schema definition files for the %{name} admin package.
@@ -54,11 +54,11 @@ Contains the Schema definition files for the %{name} admin package.
 ############################
 
 %package selinux
-Group:			Applications/System
-Summary:		SELinux policy for Fusiondirectory
-Requires:		selinux-policy >= %{selinux_policyver}
-Requires:		%{name} = %{version}-%{release}
-BuildRequires:		checkpolicy, selinux-policy-devel, /usr/share/selinux/devel/policyhelp
+Group:                  Applications/System
+Summary:                SELinux policy for Fusiondirectory
+Requires:               selinux-policy >= %{selinux_policyver}
+Requires:               %{name} = %{version}-%{release}
+BuildRequires:          checkpolicy, selinux-policy-devel, /usr/share/selinux/devel/policyhelp
 
 %description selinux
 This package contains the binary modules and sources files of the
@@ -106,7 +106,7 @@ SEPolicy needed for Fusiondirectory.
 mkdir SELinux
 cp -p %{SOURCE1} %{SOURCE2} SELinux
 
-# Change version of %{name}.te
+# Change version of fusiondirectory.te
 sed -i 's/_SELINUX-VERSION_/%{version}/g' SELinux/%{name}.te
 
 ############################
@@ -128,8 +128,10 @@ cd -
 
 # This is the install.spec file
 %install
+rm -Rf %{buildroot}
+
 # Installation of FD-core
-# Create %{buildroot}%{_datadir}/%{name}/
+# Create /usr/share/fusiondirectory/
 mkdir -p %{buildroot}%{_datadir}/%{name}
 
 DIRS="ihtml plugins html include locale setup"
@@ -220,7 +222,7 @@ do
     %{_datadir}/selinux/${selinuxvariant}/%{name}.pp &> /dev/null || :
 done
 
-# Apply context for spool and cache directroy considering the %{name} policy
+# Apply context for spool and cache directroy considering the fusiondirectory policy
 /sbin/restorecon -R /var/spool/%{name}
 /sbin/restorecon -R /var/cache/%{name}
 
@@ -231,7 +233,7 @@ if [ $1 = 0 ] ; then
     /usr/sbin/semodule -s ${selinuxvariant} -r %{name} &> /dev/null || :
   done
 
-  # Apply context for spool and cache directroy without the %{name} policy
+  # Apply context for spool and cache directroy without the fusiondirectory policy
   /sbin/restorecon -R /var/spool/%{name}
   /sbin/restorecon -R /var/cache/%{name}
 fi
@@ -293,9 +295,15 @@ fi
 # Link fusiondirectory.conf to cache/template directory
 ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondirectory/template/fusiondirectory.conf
 
-# Link javascript libraries
-ln -s /usr/share/prototype /usr/share/fusiondirectory/html/javascript/prototype
-ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/scriptaculous
+# Link javascript profotype if not exist
+if ! [[ -d /usr/share/fusiondirectory/html/javascript/prototype ]] ; then
+  ln -s /usr/share/prototype /usr/share/fusiondirectory/html/javascript/prototype
+fi
+
+# Link javascript scriptaculous if not exist
+if ! [[ -d /usr/share/fusiondirectory/html/javascript/prototype ]] ; then
+  ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/scriptaculous
+fi
 
 %files
 %defattr(-,root,root,-)
@@ -396,6 +404,11 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Fri Jun 16 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2-1
+- Fixes #5618 Correct the date error in changelog
+- Fixes #5621 Correct specfile with rpmlint help
+- Fixes #5435 Set an if condition for linking javascript libs
+
 * Tue Jun 06 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1.1-1
 - New upstream release
 
@@ -437,10 +450,10 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 * Fri May 13 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-3
 - Fixes #4786 Split specfile rhel6 and rhel7 to modify the php dependence of rhel6
 
-* Mon May 10 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-2
+* Tue May 10 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-2
 - Fixes #4770 Fix prototype path in headers.tpl
 
-* Mon May 03 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-1
+* Tue May 03 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.12-1
 - Fixes #4683 Modify the path for scriptaculous and prototype loading
 
 * Thu Apr 07 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.11-1
@@ -450,7 +463,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 * Thu Mar 17 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.10-1
 - New upstream release
 
-* Tue Jan 28 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
+* Thu Jan 28 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.3-1
 - Fixes #4384 Add the missing html directory to remove javascript links
 
 * Tue Jan 05 2016 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.9.2-1
@@ -480,7 +493,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 - php54-gd as mandatory package
 - replace perl-Crypt-PasswdMD5 by perl-Digest-SHA
 
-* Mon Jun 30 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.8-1.el6
+* Tue Jun 30 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.8-1.el6
 - Add rhel if to build RHEL6 and RHEL7
 
 * Fri Jun 05 2015 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.7-1.el6
@@ -494,7 +507,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 - Correct the post script
 - Correct postun scriptlet of fusiondirectory and fusiondirectory-selinux
 
-* Tue Dec 13 2014 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.3-1.el6
+* Sat Dec 13 2014 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.8.3-1.el6
 - Correct the errors for the post scripts
 
 * Sun Jun 09 2013 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.6-2.el6
@@ -505,7 +518,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 - Backport bugfix #2424 : Try to use PHP hash function if mhash is not available.
 - Backport bugfix #2449 : Allow users with SAMBA attributes to be deleted properly.
 
-* Sat May 12 2013 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.6-1.el6
+* Sun May 12 2013 Olivier BONHOMME <obonhomme@nerim.net> - 1.0.6-1.el6
 - Upgrade to 1.0.6 Version
 - Schema are now only provided in .schema format
 - Plugins reorganisation and simplification
@@ -586,7 +599,7 @@ ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/script
 - Fixes bugs #194 #197 #198 #199 #207 #208 #210 #217 #224 #230
 - Fixes bugs #234 #251 #252
 
-* Sat Apr 17 2011 Olivier BONHOMME <obonhomme@nerim.net> - 1.0-1
+* Sun Apr 17 2011 Olivier BONHOMME <obonhomme@nerim.net> - 1.0-1
 - First Plugin integration
 - Update packager identity
 
