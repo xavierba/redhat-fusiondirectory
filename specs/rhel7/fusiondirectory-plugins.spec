@@ -64,7 +64,7 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
   # Plugin developers
   if [ "${cur_plugin}" = "developers" ] ; then
     mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
-    mkdir -p %{buildroot}%{_datadir}/fusiondirectory/plugins/
+    mkdir -p %{buildroot}%{_datadir}/fusiondirectory/plugins/addons
     mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/debug-help
     cp -a ./CODING %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
     cp -a ./Doxyfile %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
@@ -72,8 +72,7 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
     cp -a ./filter.xsd  %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
     cp -a ./list.xsd %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
     cp -a ./simple-plugin %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
-    cp -a ./debug-help %{buildroot}%{_datadir}/fusiondirectory/plugins/
-    cp -a ./debug-help/html/images %{buildroot}%{_datadir}/fusiondirectory/html/plugins/debug-help
+    cp -a ./debug-help/addons/. %{buildroot}%{_datadir}/fusiondirectory/plugins/addons
 
   else
 
