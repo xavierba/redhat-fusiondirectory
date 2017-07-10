@@ -1,7 +1,7 @@
 # This is the header.spec file
 Name:       fusiondirectory
 Version:    _VERSION_
-Release:    _RELEASE_ 
+Release:    _RELEASE_
 Summary:    Web Based LDAP Administration Program
 
 Group:      Applications/System
@@ -31,7 +31,7 @@ Requires:   httpd, gettext, perl-ExtUtils-MakeMaker, prototype, prototype-httpd,
 
 Requires:   php-Smarty3, php-Smarty3-gettext, php-pear-CAS
 
-%description 
+%description
 FusionDirectory is a combination of system-administrator and end-user web
 interface, designed to handle LDAP based setups.
 Provided is access to posix, shadow, samba, proxy, fax, and Kerberos
@@ -83,7 +83,7 @@ SEPolicy needed for Fusiondirectory.
 
 # Source FD-core
 # Extract Source
-%setup -T -D -b 0 
+%setup -T -D -b 0
 
 # Apply all the patches
 %if %{?rhel} >= 7
@@ -139,7 +139,7 @@ for i in $DIRS ; do
   cp -ua $i %{buildroot}%{_datadir}/%{name}
 done
 
-# Create spool and cache directories 
+# Create spool and cache directories
 install -d -m 0770 %{buildroot}/var/spool/%{name}/
 install -d -m 0770 %{buildroot}/var/cache/%{name}/{tmp,fai}/
 
@@ -253,7 +253,7 @@ if [ $1 = 0 ] ; then
   if [ -d /var/cache/fusiondirectory ]; then
     # Remove cache directory
     rm -Rf /var/cache/fusiondirectory
-    
+
     # Remove spool directory
     rm -Rf /var/spool/fusiondirectory
   fi
@@ -309,10 +309,6 @@ fi
 %defattr(-,root,root,-)
 %{_mandir}/man1/%{name}-setup.1.gz
 %{_mandir}/man5/%{name}.conf.5.gz
-
-%{_datadir}/doc/%{name}/AUTHORS
-%{_datadir}/doc/%{name}/COPYING
-%{_datadir}/doc/%{name}/Changelog
 
 %{_sbindir}/%{name}-setup
 %{_datadir}/%{name}/html/images
@@ -409,11 +405,11 @@ fi
 - Fixes #5621 Correct specfile with rpmlint help
 - Fixes #5435 Set an if condition for linking javascript libs
 
-* Tue Jun 06 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1.1-1 
+* Tue Jun 06 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1.1-1
 - New upstream release
 
 * Wed May 17 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-2
-- Add php-Smarty3-gettext as dependance 
+- Add php-Smarty3-gettext as dependance
 
 * Fri Apr 28 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-1
 - Fixes #5108 Package class_exceptions.inc
