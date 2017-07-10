@@ -12,12 +12,12 @@ Buildarch:  noarch
 Source0:    fusiondirectory-%{version}.tar.gz
 Source1:    fusiondirectory-plugins-%{version}.tar.gz
 
-Requires:   php >= 5.4, php-ldap >= 5.4, php-imap >= 5.4, php-mbstring >= 5.4, php-pecl-imagick >= 5.4, php-fpdf >= 5.4
+Requires:   php54-common, php54-ldap, php54-imap, php54-mbstring, php54-pecl-imagick, php54-fpdf
 Requires:   httpd, gettext, openldap-servers, openldap-clients, perl-ExtUtils-MakeMaker
 Requires:   prototype, prototype-httpd, scriptaculous, scriptaculous-httpd
-Requires:   php-Smarty3, php-Smarty3-i18n, schema2ldif
+Requires:   php54-php-Smarty3, php54-php-Smarty3-i18n, schema2ldif
 
-%description 
+%description
 FusionDirectory is a combination of system-administrator and end-user web
 interface, designed to handle LDAP based setups.
 Provided is access to posix, shadow, samba, proxy, and Kerberos
@@ -74,210 +74,89 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
     cp -a ./simple-plugin %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
     cp -a ./debug-help %{buildroot}%{_datadir}/fusiondirectory/plugins/
     cp -a ./debug-help/html/images %{buildroot}%{_datadir}/fusiondirectory/html/plugins/debug-help
-    
+
   else
+
+    # First folders going to %{buildroot}%{_datadir}/fusiondirectory/plugins/
+
     # Addons section
     if [ -d ./addons ] ; then
       mkdir -p %{buildroot}%{_datadir}/fusiondirectory/plugins/addons/
-      
-      # Directories
-      for cur_addons in $(find ./addons -mindepth 1 -maxdepth 1 -type d) ; do
-        addons_line="$(echo ${cur_addons} | sed "s#./addons/##")" 
-        cp -a ./addons/${addons_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/addons/
-      done
-    
-      # Files
-      for cur_addons in $(find ./addons -mindepth 1 -maxdepth 1 -type f) ; do
-        addons_line="$(echo ${cur_addons} | sed "s#./addons/##")" 
-        cp -a ./addons/${addons_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/addons/
-      done
+      cp -a ./addons/. %{buildroot}%{_datadir}/fusiondirectory/plugins/addons/
     fi
-    
-    
+
     # Admin section
     if [ -d ./admin ] ; then
       mkdir -p %{buildroot}%{_datadir}/fusiondirectory/plugins/admin/
-    
-      # Directories
-      for cur_admin in $(find ./admin -mindepth 1 -maxdepth 1 -type d) ; do
-        admin_line="$(echo ${cur_admin} | sed "s#./admin/##")" 
-        cp -a ./admin/${admin_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/admin/
-      done
-    
-      # Files
-      for cur_admin in $(find ./admin -mindepth 1 -maxdepth 1 -type f) ; do
-        admin_line="$(echo ${cur_admin} | sed "s#./admin/##")" 
-        cp -a ./admin/${admin_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/admin/${admin_line}
-      done
+      cp -a ./admin/. %{buildroot}%{_datadir}/fusiondirectory/plugins/admin/
     fi
-    
-    
+
     # Config section
     if [ -d ./config ] ; then
       mkdir -p %{buildroot}%{_datadir}/fusiondirectory/plugins/config/
-    
-      # Directories
-      for cur_config in $(find ./config -mindepth 1 -maxdepth 1 -type d) ; do
-        config_line="$(echo ${cur_config} | sed "s#./config/##")" 
-        cp -a ./config/${config_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/config/
-      done
-
-      # Files
-      for cur_config in $(find ./config -mindepth 1 -maxdepth 1 -type f) ; do
-        config_line="$(echo ${cur_config} | sed "s#./config/##")" 
-        cp -a ./config/${config_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/config/
-      done
-    fi
-    
-    
-    # HTML section
-    if [ -d ./html ] ; then
-      if [ "${cur_plugin}" = "argonaut" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        cp -a ./html/themes/ %{buildroot}%{_datadir}/fusiondirectory/html/
-        cp -a ./html/getFAIstatus.php %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-
-      elif [ "${cur_plugin}" = "fusioninventory" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        cp -a ./html/collect.php %{buildroot}%{_datadir}/fusiondirectory/html/
-        cp -a ./html/themes/ %{buildroot}%{_datadir}/fusiondirectory/html/
-        cp -a ./html/plugins/inventory.css %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-
-      elif [ "${cur_plugin}" = "webservice" ] ; then
-        mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
-        cp -a ./html/jsonrpc.php %{buildroot}%{_datadir}/fusiondirectory/html/
-
-      else
-        # Images directory
-        if [[ -d ./html/images ]] ; then
-          mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-          cp -a ./html/images/ %{buildroot}%{_datadir}/fusiondirectory/html/plugins/${cur_plugin}/
-        fi
-
-        # Themes directory
-        if [[ -d ./html/themes ]] ; then
-          mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
-          cp -a ./html/themes/ %{buildroot}%{_datadir}/fusiondirectory/html/
-        fi
-      fi
-    fi
-    
-    
-    # Include section
-    if [ -d ./include ] ; then
-      mkdir -p %{buildroot}%{_datadir}/fusiondirectory/include/    
-      # Directories
-      for cur_include in $(find ./include -mindepth 1 -maxdepth 1 -type d) ; do
-        include_line="$(echo ${cur_include} | sed "s#./include/##")" 
-        cp -a ./include/${include_line}/ %{buildroot}%{_datadir}/fusiondirectory/include/
-      done
-      
-      # Files
-      for cur_include in $(find ./include -mindepth 1 -maxdepth 1 -type f) ; do
-        include_line="$(echo ${cur_include} | sed "s#./include/##")" 
-        cp -a ./include/${include_line} %{buildroot}%{_datadir}/fusiondirectory/include/
-      done
-    fi
-    
-    
-    # Locale section
-    if [ -d ./locale ] ; then
-      mkdir -p %{buildroot}%{_datadir}/fusiondirectory/locale/plugins/${cur_plugin}/locale/
-      
-      # Directories
-      for cur_locale in $(find ./locale -mindepth 1 -maxdepth 1 -type d) ; do
-        locale_line="$(echo ${cur_locale} | sed "s#./locale/##")" 
-        cp -a ./locale/${locale_line} %{buildroot}%{_datadir}/fusiondirectory/locale/plugins/${cur_plugin}/locale/
-      done
-      
-      # Files
-      for cur_locale in $(find ./locale -mindepth 1 -maxdepth 1 -type f) ; do
-        locale_line="$(echo ${cur_locale} | sed "s#./locale/##")" 
-        cp -a ./locale/${locale_line} %{buildroot}%{_datadir}/fusiondirectory/locale/plugins/${cur_plugin}/locale/
-      done
+      cp -a ./config/. %{buildroot}%{_datadir}/fusiondirectory/plugins/config/
     fi
 
-    
     # Personal section
     if [ -d ./personal ] ; then
       mkdir -p %{buildroot}%{_datadir}/fusiondirectory/plugins/personal/
-    
-      # Directories
-      for cur_personal in $(find ./personal -mindepth 1 -maxdepth 1 -type d) ; do
-        personal_line="$(echo ${cur_personal} | sed "s#./personal/##")" 
-        cp -a ./personal/${personal_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/personal/
-      done
-    
-      # Files
-      for cur_personal in $(find ./personal -mindepth 1 -maxdepth 1 -type f) ; do
-        personal_line="$(echo ${cur_personal} | sed "s#./personal/##")" 
-        cp -a ./personal/${personal_line} %{buildroot}%{_datadir}/fusiondirectory/plugins/personal/
-      done
+      cp -a ./personal/. %{buildroot}%{_datadir}/fusiondirectory/plugins/personal/
     fi
-    
-    # Contrib section for samba and supann
-    if [ "${cur_plugin}" = "supann" ] ; then
-      mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/examples/
-      mkdir -p %{buildroot}%{_sysconfdir}/fusiondirectory/supann/
-      cp -a ./contrib/supann/* %{buildroot}%{_sysconfdir}/fusiondirectory/supann/
-      mv %{buildroot}%{_sysconfdir}/fusiondirectory/supann/*_EXAMPLE %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/examples/
-    fi 
-    
-    
+
+    # Then folders going to %{buildroot}%{_datadir}/fusiondirectory/
+
+    # HTML section
+    if [ -d ./html ] ; then
+      mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/
+      cp -a ./html/. %{buildroot}%{_datadir}/fusiondirectory/html/
+    fi
+
+    # IHTML section
+    if [ -d ./ihtml ] ; then
+      mkdir -p %{buildroot}%{_datadir}/fusiondirectory/ihtml/
+      cp -a ./ihtml/. %{buildroot}%{_datadir}/fusiondirectory/ihtml/
+    fi
+
+    # Include section
+    if [ -d ./include ] ; then
+      mkdir -p %{buildroot}%{_datadir}/fusiondirectory/include/
+      cp -a ./include/. %{buildroot}%{_datadir}/fusiondirectory/include/
+    fi
+
+    # Locale section
+    if [ -d ./locale ] ; then
+      mkdir -p %{buildroot}%{_datadir}/fusiondirectory/locale/plugins/${cur_plugin}/locale/
+      cp -a ./locale/. %{buildroot}%{_datadir}/fusiondirectory/locale/plugins/${cur_plugin}/locale/
+    fi
+
+    # Contrib sections
+
     # Openldap section
     if [ -d ./contrib/openldap ] ; then
-      if [ "${cur_plugin}" = "ppolicy" ] ; then
-        mkdir -p %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
-        mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
-        mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
-        cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
+      mkdir -p %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
+      cp -a ./contrib/openldap/. %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
 
-        cp -a ./contrib/openldap/*.ldif %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
-        cp -a ./contrib/openldap/*.schema %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
-      else
-        mkdir -p %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
-        mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
-        cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/   
- 
-        # Directories
-        for cur_openldap in $(find ./contrib/openldap -mindepth 1 -maxdepth 1 -type d) ; do
-          openldap_line="$(echo ${cur_openldap} | sed "s#./contrib/openldap/##")" 
-          cp -a ./contrib/openldap/${openldap_line} %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
-        done
-    
-        # Files
-        for cur_openldap in $(find ./contrib/openldap -mindepth 1 -maxdepth 1 -type f ! -name 'example.ldif' ) ; do
-          openldap_line="$(echo ${cur_openldap} | sed "s#./contrib/openldap/##")" 
-          cp -a ./contrib/openldap/${openldap_line} %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
-        done
-      fi
-    fi  
-    
-    # SQL section
-    if [ -d ./contrib/sql ] ; then
       mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
-      cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/   
- 
-      # Directories
-      for cur_sql in $(find ./contrib/sql -mindepth 1 -maxdepth 1 -type d) ; do
-        sql_line="$(echo ${cur_sql} | sed "s#./contrib/sql/##")" 
-        cp -a ./contrib/sql/${sql_line} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
-      done
-    
-      # Files
-      for cur_sql in $(find ./contrib/sql -mindepth 1 -maxdepth 1 -type f ! -name 'example.ldif' ) ; do
-        sql_line="$(echo ${cur_sql} | sed "s#./contrib/sql/##")" 
-        cp -a ./contrib/sql/${sql_line} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
-      done   
+      cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
+    fi
+
+    # Docs section
+    if [ -d ./contrib/doc ] ; then
+      mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
+      cp -a ./contrib/doc/. %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
+    fi
+
+    # Etc section
+    if [ -d ./contrib/etc ] ; then
+      mkdir -p %{buildroot}%{_sysconfdir}/fusiondirectory/${cur_plugin}/
+      cp -a ./contrib/etc/. %{buildroot}%{_sysconfdir}/fusiondirectory/supann/
     fi
   fi
-  
 
   # Docs
   mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
-  cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/ 
- 
+  cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
+
   # Exiting plugin directory
   cd ..
 done
@@ -288,25 +167,25 @@ rm -Rf %{buildroot}
 
 
 %package alias
-Group:    Applications/System
-Summary:  Manage fonctional aliases
-Requires: fusiondirectory >= %{version},fusiondirectory-plugin-mail
+Group:          Applications/System
+Summary:        Manage fonctional aliases
+Requires:       fusiondirectory >= %{version},fusiondirectory-plugin-mail
 
 %description alias
 Manage fonctional aliases
 
 %package argonaut
-Group:    Applications/System
-Summary:  Communication layer between various software and the JSON-RPC Argonaut Server
-Requires: fusiondirectory >= %{version},fusiondirectory-plugin-systems
+Group:          Applications/System
+Summary:        Communication layer between various software and the JSON-RPC Argonaut Server
+Requires:       fusiondirectory >= %{version},fusiondirectory-plugin-systems
 
 %description argonaut
 Communication layer between various software and the JSON-RPC Argonaut Server
 
 %package autofs
-Group:    Applications/System
-Summary:  Management of automount entries
-Requires: fusiondirectory >= %{version},fusiondirectory-plugin-systems
+Group:          Applications/System
+Summary:        Management of automount entries
+Requires:       fusiondirectory >= %{version},fusiondirectory-plugin-systems
 
 %description autofs
 Management of automount entries
@@ -490,7 +369,7 @@ Plugin to manage repository for build systems
 %package samba
 Group:    Applications/System
 Summary:  Samba 3 integration
-Requires: fusiondirectory >= %{version},fusiondirectory-plugin-systems, fusiondirectory-plugin-posix >= %{version}
+Requires: fusiondirectory >= %{version},fusiondirectory-plugin-systems,fusiondirectory-plugin-posix >= %{version}
 
 %description samba
 Samba 3 integration
@@ -670,7 +549,6 @@ Requires:       fusiondirectory >= %{version}
 
 %description audit
 Management plugin for audit
-
 
 %package renater-partage
 Group:          Applications/System
@@ -1632,7 +1510,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/doc/fusiondirectory-developers/CODING
 %attr (-,root,root) %{_datadir}/doc/fusiondirectory-developers/Doxyfile
 %attr (-,root,root) %{_datadir}/doc/fusiondirectory-developers/FDStandard
-%attr (-,root,root) %{_datadir}/doc/fusiondirectory-developers/filter.xsd 
+%attr (-,root,root) %{_datadir}/doc/fusiondirectory-developers/filter.xsd
 %attr (-,root,root) %{_datadir}/doc/fusiondirectory-developers/list.xsd
 %attr (-,root,root) %{_datadir}/doc/fusiondirectory-developers/simple-plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/debug-help
@@ -1652,9 +1530,9 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/dhcp.svg
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/dhcp/
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/services/dhcp/
+%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/config/dhcp/
 %attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/dhcp
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/class_dhcpSystem.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/config/dhcp/
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/COPYING
@@ -1754,7 +1632,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/fai/class_faiPackage.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/fai/class_faiHook.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/fai/class_faiVariable.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/fai/class_faiDiskEntry.inc
+%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/fai/class_faiDiskEntry.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/fai/packageSelect/selectPackage-list.xml
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/fai/packageSelect/class_filterFAIPackages.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/fai/packageSelect/selectPackage-filter.xml
@@ -1789,6 +1667,9 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/fai-template.svg
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/fai-variable.svg
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/fai.svg
+# Files
+# Locale section
+%attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/fai
 # Files
 # Locale section
 %attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/fai
@@ -2594,16 +2475,6 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/user-reminder/locale/
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/config/user-reminder/class_userReminderConfig.inc
 
-%files posix
-%defattr(0644,root,root,755)
-%doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-posix/AUTHORS
-%doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-posix/COPYING
-%doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-posix/Changelog
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/posix/locale/
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/groups/posix/
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/config/posix/
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/posix/
-
 
 %files audit
 %defattr(0644,root,root,755)
@@ -2630,6 +2501,17 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/renater-partage/locale/
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/mail/mail-methods/class_mail-methods-renater-partage.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/renater-partage.png
+
+%files posix
+%defattr(0644,root,root,755)
+%doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-posix/AUTHORS
+%doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-posix/COPYING
+%doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-posix/Changelog
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/posix/locale/
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/groups/posix/
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/config/posix/
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/posix/
+
 
 %files alias-schema
 %defattr(0644,root,root,755)
@@ -3027,7 +2909,6 @@ LDAP schema for FusionDirectory renater-partage plugin
 %doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-audit-schema/COPYING
 %doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-audit-schema/Changelog
 
-
 %files renater-partage-schema
 %defattr(0644,root,root,755)
 %attr (-,root,root)       %{_sysconfdir}/openldap/schema/fusiondirectory/renater-partage-fd.schema
@@ -3046,7 +2927,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 - Fixes #5621 Correct specfile with rpmlint help
 - Fixes #5643 Remove contentcsv.tpl
 
-* Tue Jun 06 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1.1-1 
+* Tue Jun 06 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1.1-1
 - New upstream release
 
 * Wed May 17 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-2
@@ -3074,7 +2955,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 - New upstream release
 
 * Fri Jan 20 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.19-1
-- New upstream release 
+- New upstream release
 
 * Mon Jan 16 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.0.18-1
 - Fixes #5304 Remove unused files for netgroups
@@ -3282,7 +3163,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 - Upgrade to 1.0.3 Version
 - New plugins : argonaut, openstack-compute, quota, supann
 - Merge goto plugin into system plugin
-- Remove obsolete plugins : php54-gw 
+- Remove obsolete plugins : php54-gw
 - Remove obsolete patches
 - Add missing dependency on perl-ExtUtils-MakeMaker
 - SELinux policy update
@@ -3342,5 +3223,5 @@ LDAP schema for FusionDirectory renater-partage plugin
 - First Plugin integration
 - Update packager identity
 
-* Fri Apr 15 2011 Benoit Mortier <benoit.mortier@opensides.be> 
+* Fri Apr 15 2011 Benoit Mortier <benoit.mortier@opensides.be>
 - First build of FusionDirectory 1.0 as an RPM, should work on SuSE and RedHat
