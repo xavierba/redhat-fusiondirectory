@@ -71,7 +71,7 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
     cp -a ./filter.xsd  %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
     cp -a ./list.xsd %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
     cp -a ./simple-plugin %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
-    cp -a ./debug-help/addons/. %{buildroot}%{_datadir}/fusiondirectory/plugins/addons
+    cp -a ./debug-help/addons/. %{buildroot}%{_datadir}/fusiondirectory/plugins/addons/
 
   else
 
@@ -1511,7 +1511,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/doc/fusiondirectory-developers/filter.xsd
 %attr (-,root,root) %{_datadir}/doc/fusiondirectory-developers/list.xsd
 %attr (-,root,root) %{_datadir}/doc/fusiondirectory-developers/simple-plugin
-%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/debug-help
+%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/addons/debug-help
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-developers/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-developers/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-developers/COPYING
