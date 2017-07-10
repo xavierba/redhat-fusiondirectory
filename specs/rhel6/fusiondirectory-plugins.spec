@@ -2469,6 +2469,9 @@ LDAP schema for FusionDirectory renater-partage plugin
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-user-reminder/Changelog
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/user-reminder/locale/
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/config/user-reminder/class_userReminderConfig.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/class_expiredUserPostpone.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/expired_postpone.php
+%attr (-,root,root)     %{_datadir}/fusiondirectory/ihtml/themes/breezy/user-reminder.tpl
 
 
 %files audit
