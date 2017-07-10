@@ -1412,7 +1412,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/argonaut-mirror.svg
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/argonaut.svg
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/argonaut.svg
-%attr (-,root,root) %{_datadir}/fusiondirectory/html/plugins/argonaut/getFAIstatus.php
+%attr (-,root,root) %{_datadir}/fusiondirectory/html/getFAIstatus.php
 # Include section
 # Files
 %attr (-,root,root) %{_datadir}/fusiondirectory/include/jsonRPCClient.php
