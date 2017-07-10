@@ -1505,12 +1505,6 @@ LDAP schema for FusionDirectory renater-partage plugin
 %files developers
 %defattr(0644,root,root,755)
 %attr (-,root,root) %{_datadir}/doc/fusiondirectory-developers/
-%attr (-,root,root) %{_datadir}/doc/fusiondirectory-developers/CODING
-%attr (-,root,root) %{_datadir}/doc/fusiondirectory-developers/Doxyfile
-%attr (-,root,root) %{_datadir}/doc/fusiondirectory-developers/FDStandard
-%attr (-,root,root) %{_datadir}/doc/fusiondirectory-developers/filter.xsd
-%attr (-,root,root) %{_datadir}/doc/fusiondirectory-developers/list.xsd
-%attr (-,root,root) %{_datadir}/doc/fusiondirectory-developers/simple-plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/addons/debug-help
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-developers/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-developers/Changelog
@@ -1663,12 +1657,9 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/fai-template.svg
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/fai-variable.svg
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/fai.svg
-# Files
 # Locale section
 %attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/fai
-# Files
-# Locale section
-%attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/fai
+# Documentation
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fai/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fai/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fai/COPYING
@@ -2016,7 +2007,6 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/repository-distribution.png
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/repository-section.png
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/repository.png
-%attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/repository.png
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/repository.png
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/puppet.svg
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/repository-distribution.svg
@@ -2309,7 +2299,6 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/webservice/locale/
 # Files
 %{_datadir}/fusiondirectory/include/jsonrpcphp/jsonRPCServer.php
-%{_datadir}/fusiondirectory/locale/plugins/webservice/locale/en/fusiondirectory.po
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/jsonrpc.php
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/Changelog
