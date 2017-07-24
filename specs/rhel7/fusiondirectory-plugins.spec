@@ -2906,6 +2906,9 @@ LDAP schema for FusionDirectory renater-partage plugin
 ########################
 
 %changelog
+* Mon Jul 24 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.3-1
+- Fixes #5658 Fixed spec file for new plugins folders organization
+
 * Tue Jun 27 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2-1
 - Fixes #5613 Rename class_groupMail.inc in class_mailGroup.inc
 - Fixes #5605 Remove alias plugin from sympa dependance and add some files
