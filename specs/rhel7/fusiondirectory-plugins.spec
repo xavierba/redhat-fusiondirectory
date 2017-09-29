@@ -135,7 +135,7 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
       cp -a ./contrib/openldap/. %{buildroot}%{_sysconfdir}/openldap/schema/fusiondirectory/
 
       mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
-      cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
+      cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,LICENSE} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
     fi
 
     # Docs section
@@ -153,7 +153,7 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
 
   # Docs
   mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
-  cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,COPYING} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
+  cp ../../fusiondirectory-%{version}/{AUTHORS,Changelog,LICENSE} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
 
   # Exiting plugin directory
   cd ..
@@ -1373,7 +1373,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/alias
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-alias/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-alias/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-alias/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-alias/LICENSE
 
 
 %files argonaut
@@ -1420,7 +1420,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/argonaut
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-argonaut/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-argonaut/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-argonaut/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-argonaut/LICENSE
 
 
 %files autofs
@@ -1450,7 +1450,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/autofs
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-autofs/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-autofs/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-autofs/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-autofs/LICENSE
 
 
 %files cyrus
@@ -1474,7 +1474,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/personal/mail/mail-methods/class_mail-methods-cyrus.inc
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus/LICENSE
 
 
 %files debconf
@@ -1499,7 +1499,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/debconf
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-debconf/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-debconf/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-debconf/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-debconf/LICENSE
 
 
 %files developers
@@ -1508,7 +1508,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/addons/debug-help
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-developers/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-developers/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-developers/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-developers/LICENSE
 
 
 %files dhcp
@@ -1525,7 +1525,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/class_dhcpSystem.inc
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp/LICENSE
 
 
 %files dns
@@ -1552,7 +1552,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/dns
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dns/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dns/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dns/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dns/LICENSE
 
 
 %files dovecot
@@ -1575,7 +1575,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/personal/mail/mail-methods/class_mail-methods-dovecot.inc
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dovecot/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dovecot/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dovecot/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dovecot/LICENSE
 
 
 %files dsa
@@ -1600,7 +1600,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/dsa
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dsa/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dsa/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dsa/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dsa/LICENSE
 
 
 %files fai
@@ -1662,7 +1662,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 # Documentation
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fai/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fai/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fai/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fai/LICENSE
 
 
 %files freeradius
@@ -1686,7 +1686,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/freeradius.png
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-freeradius/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-freeradius/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-freeradius/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-freeradius/LICENSE
 
 
 %files fusioninventory
@@ -1713,7 +1713,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/fusioninventory
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fusioninventory/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fusioninventory/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fusioninventory/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fusioninventory/LICENSE
 
 
 %files gpg
@@ -1740,7 +1740,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/personal/gpg/pgpKeySelect/pgpKeySelect-list.xml
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-gpg/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-gpg/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-gpg/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-gpg/LICENSE
 
 
 %files ipmi
@@ -1752,7 +1752,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/ipmi
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi/LICENSE
 
 
 %files ldapdump
@@ -1765,7 +1765,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/ldapdump
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ldapdump/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ldapdump/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ldapdump/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ldapdump/LICENSE
 
 
 %files ldapmanager
@@ -1788,7 +1788,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/ldapmanager
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ldapmanager/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ldapmanager/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ldapmanager/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ldapmanager/LICENSE
 
 
 %files mail
@@ -1819,7 +1819,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/legacy/svg/internet-mail.svg
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-mail/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-mail/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-mail/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-mail/LICENSE
 
 
 %files nagios
@@ -1843,7 +1843,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/personal/nagios/class_nagiosAccount.inc
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-nagios/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-nagios/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-nagios/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-nagios/LICENSE
 
 
 %files netgroups
@@ -1874,7 +1874,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/personal/netgroups/class_netgroupMembership.inc
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-netgroups/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-netgroups/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-netgroups/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-netgroups/LICENSE
 
 
 %files opsi
@@ -1917,7 +1917,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/opsi
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-opsi/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-opsi/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-opsi/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-opsi/LICENSE
 
 
 %files puppet
@@ -1938,7 +1938,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/puppet
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-puppet/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-puppet/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-puppet/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-puppet/LICENSE
 
 
 %files pureftpd
@@ -1959,7 +1959,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/personal/pureftpd/class_pureftpdAccount.inc
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-pureftpd/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-pureftpd/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-pureftpd/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-pureftpd/LICENSE
 
 
 %files quota
@@ -1986,7 +1986,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/personal/quota/class_quotaAccount.inc
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-quota/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-quota/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-quota/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-quota/LICENSE
 
 
 %files repository
@@ -2018,7 +2018,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/repository
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-repository/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-repository/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-repository/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-repository/LICENSE
 
 
 %files samba
@@ -2038,7 +2038,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/samba.svg
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-samba/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-samba/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-samba/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-samba/LICENSE
 
 
 %files sogo
@@ -2063,7 +2063,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/sogo
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sogo/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sogo/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sogo/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sogo/LICENSE
 
 
 %files squid
@@ -2085,7 +2085,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/personal/squid/class_proxyAccount.inc
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-squid/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-squid/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-squid/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-squid/LICENSE
 
 
 %files ssh
@@ -2106,7 +2106,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/personal/ssh/class_sshAccount.inc
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ssh/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ssh/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ssh/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ssh/LICENSE
 
 
 %files sudo
@@ -2134,7 +2134,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/sudo
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sudo/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sudo/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sudo/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sudo/LICENSE
 
 
 %files supann
@@ -2187,7 +2187,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/supannStructures/class_supann.inc
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/LICENSE
 
 
 %files sympa
@@ -2210,7 +2210,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/sympa
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sympa/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sympa/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sympa/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sympa/LICENSE
 
 
 %files systems
@@ -2275,7 +2275,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/legacy/svg/media-playback-stop.svg
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-systems/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-systems/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-systems/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-systems/LICENSE
 
 
 %files weblink
@@ -2287,7 +2287,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/weblink
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-weblink/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-weblink/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-weblink/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-weblink/LICENSE
 
 
 %files webservice
@@ -2302,7 +2302,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/jsonrpc.php
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/LICENSE
 
 %files ejbca
 %defattr(0644,root,root,755)
@@ -2319,7 +2319,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/ejbca.svg
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/ejbca/locale/
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ejbca/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ejbca/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ejbca/LICENSE
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ejbca/Changelog
 
 %files applications
@@ -2333,7 +2333,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/plugins/applications/images/default_icon.png
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/applications/locale/
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-applications/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-applications/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-applications/LICENSE
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-applications/Changelog
 
 %files personal
@@ -2344,14 +2344,14 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/personal/locale/
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/config/personal/class_personalConfig.inc
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-personal/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-personal/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-personal/LICENSE
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-personal/Changelog
 
 
 %files ppolicy
 %defattr(0644,root,root,755)
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ppolicy/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ppolicy/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ppolicy/LICENSE
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ppolicy/Changelog
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/ppolicy/class_ppolicy.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/ppolicy/class_ppolicyManagement.inc
@@ -2372,7 +2372,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %files certificates
 %defattr(0644,root,root,755)
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-certificates/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-certificates/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-certificates/LICENSE
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-certificates/Changelog
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/certificates/locale/
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/certificates/class_userCertificates.inc
@@ -2381,7 +2381,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %files mixedgroups
 %defattr(0644,root,root,755)
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-mixedgroups/AUTHORS
-%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-mixedgroups/COPYING
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-mixedgroups/LICENSE
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-mixedgroups/Changelog
 %attr (-,root,root)      %{_datadir}/fusiondirectory/locale/plugins/mixedgroups/locale/
 %attr (-,root,root)      %{_datadir}/fusiondirectory/plugins/admin/ogroups/mixedgroups/class_mixedGroup.inc
@@ -2389,7 +2389,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %files subcontracting
 %defattr(0644,root,root,755)
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-subcontracting/AUTHORS
-%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-subcontracting/COPYING
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-subcontracting/LICENSE
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-subcontracting/Changelog
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/subcontracting.png
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/subcontracting.png
@@ -2410,7 +2410,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/newsletter.svg
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/newsletter.png
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-newsletter/AUTHORS
-%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-newsletter/COPYING
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-newsletter/LICENSE
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-newsletter/Changelog
 
 %files community
@@ -2424,7 +2424,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/icons/48/apps/community.png
 %attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/community/locale/
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-community/AUTHORS
-%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-community/COPYING
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-community/LICENSE
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-community/Changelog
 
 %files postfix
@@ -2434,7 +2434,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/smtp.png
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/svg/16/smtp.svg
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-postfix/AUTHORS
-%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-postfix/COPYING
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-postfix/LICENSE
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-postfix/Changelog
 
 %files spamassassin
@@ -2448,13 +2448,13 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/spamassassin.svg
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/spamassassin.svg
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-spamassassin/AUTHORS
-%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-spamassassin/COPYING
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-spamassassin/LICENSE
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-spamassassin/Changelog
 
 %files user-reminder
 %defattr(0644,root,root,755)
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-user-reminder/AUTHORS
-%doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-user-reminder/COPYING
+%doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-user-reminder/LICENSE
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-user-reminder/Changelog
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/user-reminder/locale/
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/config/user-reminder/class_userReminderConfig.inc
@@ -2466,7 +2466,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %files audit
 %defattr(0644,root,root,755)
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-audit/AUTHORS
-%doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-audit/COPYING
+%doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-audit/LICENSE
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-audit/Changelog
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/audit/class_auditEvent.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/config/audit/class_auditConfig.inc
@@ -2481,7 +2481,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %files renater-partage
 %defattr(0644,root,root,755)
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-renater-partage/AUTHORS
-%doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-renater-partage/COPYING
+%doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-renater-partage/LICENSE
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-renater-partage/Changelog
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/systems/services/renater-partage/
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/groups/renater-partage/
@@ -2492,7 +2492,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %files posix
 %defattr(0644,root,root,755)
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-posix/AUTHORS
-%doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-posix/COPYING
+%doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-posix/LICENSE
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-posix/Changelog
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/posix/locale/
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/groups/posix/
@@ -2507,7 +2507,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/alias-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-alias-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-alias-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-alias-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-alias-schema/LICENSE
 
 
 %files argonaut-schema
@@ -2516,7 +2516,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/argonaut-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-argonaut-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-argonaut-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-argonaut-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-argonaut-schema/LICENSE
 
 
 %files autofs-schema
@@ -2525,7 +2525,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/autofs-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-autofs-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-autofs-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-autofs-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-autofs-schema/LICENSE
 
 
 %files cyrus-schema
@@ -2534,7 +2534,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/cyrus-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-cyrus-schema/LICENSE
 
 
 %files debconf-schema
@@ -2544,7 +2544,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/debconf-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-debconf-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-debconf-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-debconf-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-debconf-schema/LICENSE
 
 
 %files dhcp-schema
@@ -2554,7 +2554,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/dhcp-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dhcp-schema/LICENSE
 
 
 %files dns-schema
@@ -2565,7 +2565,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/dns-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dns-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dns-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dns-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dns-schema/LICENSE
 
 
 %files dovecot-schema
@@ -2574,7 +2574,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/dovecot-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dovecot-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dovecot-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dovecot-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dovecot-schema/LICENSE
 
 
 %files dsa-schema
@@ -2583,7 +2583,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/dsa-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dsa-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dsa-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dsa-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-dsa-schema/LICENSE
 
 
 %files fai-schema
@@ -2593,7 +2593,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/fai-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fai-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fai-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fai-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fai-schema/LICENSE
 
 
 %files freeradius-schema
@@ -2602,7 +2602,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/freeradius.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-freeradius-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-freeradius-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-freeradius-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-freeradius-schema/LICENSE
 
 
 %files fusioninventory-schema
@@ -2613,7 +2613,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/fusioninventory-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fusioninventory-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fusioninventory-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fusioninventory-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-fusioninventory-schema/LICENSE
 
 
 %files gpg-schema
@@ -2625,7 +2625,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/gpg-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-gpg-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-gpg-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-gpg-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-gpg-schema/LICENSE
 
 
 %files ipmi-schema
@@ -2634,7 +2634,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/ipmi-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ipmi-schema/LICENSE
 
 
 %files mail-schema
@@ -2644,7 +2644,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/mail-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-mail-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-mail-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-mail-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-mail-schema/LICENSE
 
 
 %files nagios-schema
@@ -2654,7 +2654,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/netways.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-nagios-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-nagios-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-nagios-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-nagios-schema/LICENSE
 
 
 %files netgroups-schema
@@ -2663,7 +2663,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/netgroups-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-netgroups-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-netgroups-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-netgroups-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-netgroups-schema/LICENSE
 
 
 %files opsi-schema
@@ -2673,7 +2673,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/opsi-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-opsi-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-opsi-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-opsi-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-opsi-schema/LICENSE
 
 
 %files puppet-schema
@@ -2683,7 +2683,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/puppet-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-puppet-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-puppet-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-puppet-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-puppet-schema/LICENSE
 
 
 %files pureftpd-schema
@@ -2692,7 +2692,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/pureftpd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-pureftpd-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-pureftpd-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-pureftpd-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-pureftpd-schema/LICENSE
 
 
 %files quota-schema
@@ -2702,7 +2702,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/quota-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-quota-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-quota-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-quota-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-quota-schema/LICENSE
 
 
 %files repository-schema
@@ -2712,7 +2712,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/repository-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-repository-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-repository-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-repository-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-repository-schema/LICENSE
 
 
 %files samba-schema
@@ -2722,7 +2722,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/samba.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-samba-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-samba-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-samba-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-samba-schema/LICENSE
 
 
 %files sogo-schema
@@ -2733,7 +2733,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/calEntry.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sogo-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sogo-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sogo-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sogo-schema/LICENSE
 
 
 %files squid-schema
@@ -2742,7 +2742,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/proxy-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-squid-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-squid-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-squid-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-squid-schema/LICENSE
 
 
 %files ssh-schema
@@ -2751,7 +2751,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/openssh-lpk.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ssh-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ssh-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ssh-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ssh-schema/LICENSE
 
 
 %files sudo-schema
@@ -2761,7 +2761,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/sudo.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sudo-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sudo-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sudo-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sudo-schema/LICENSE
 
 
 %files supann-schema
@@ -2772,7 +2772,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/supann-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann-schema/LICENSE
 
 
 %files sympa-schema
@@ -2782,7 +2782,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/sympa-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sympa-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sympa-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sympa-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-sympa-schema/LICENSE
 
 
 %files systems-schema
@@ -2793,7 +2793,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/service-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-systems-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-systems-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-systems-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-systems-schema/LICENSE
 
 
 %files weblink-schema
@@ -2802,7 +2802,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/weblink-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-weblink-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-weblink-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-weblink-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-weblink-schema/LICENSE
 
 
 %files webservice-schema
@@ -2811,14 +2811,14 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/webservice-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice-schema/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice-schema/LICENSE
 
 %files applications-schema
 %defattr(0644,root,root,755)
 %attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/applications-fd-conf.schema
 %attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/applications-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-applications-schema/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-applications-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-applications-schema/LICENSE
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-applications-schema/Changelog
 
 %files ejbca-schema
@@ -2826,7 +2826,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/ejbca-fd-conf.schema
 %attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/ejbca-fd.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ejbca-schema/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ejbca-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ejbca-schema/LICENSE
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ejbca-schema/Changelog
 
 %files personal-schema
@@ -2834,21 +2834,21 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/personal-fd.schema
 %attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/personal-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-personal-schema/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-personal-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-personal-schema/LICENSE
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-personal-schema/Changelog
 
 %files ppolicy-schema
 %defattr(0644,root,root,755)
 %attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/ppolicy-fd-conf.schema
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ppolicy-schema/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ppolicy-schema/COPYING
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ppolicy-schema/LICENSE
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-ppolicy-schema/Changelog
 
 %files subcontracting-schema
 %defattr(0644,root,root,755)
 %attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/subcontracting-fd.schema
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-subcontracting-schema/AUTHORS
-%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-subcontracting-schema/COPYING
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-subcontracting-schema/LICENSE
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-subcontracting-schema/Changelog
 
 %files newsletter-schema
@@ -2856,7 +2856,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/newsletter-fd-conf.schema
 %attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/newsletter-fd.schema
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-newsletter-schema/AUTHORS
-%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-newsletter-schema/COPYING
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-newsletter-schema/LICENSE
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-newsletter-schema/Changelog
 
 %files community-schema
@@ -2864,28 +2864,28 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/community-fd-conf.schema
 %attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/community-fd.schema
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-community-schema/AUTHORS
-%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-community-schema/COPYING
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-community-schema/LICENSE
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-community-schema/Changelog
 
 %files postfix-schema
 %defattr(0644,root,root,755)
 %attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/postfix-fd.schema
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-postfix-schema/AUTHORS
-%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-postfix-schema/COPYING
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-postfix-schema/LICENSE
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-postfix-schema/Changelog
 
 %files spamassassin-schema
 %defattr(0644,root,root,755)
 %attr (-,root,root)     %{_sysconfdir}/openldap/schema/fusiondirectory/spamassassin-fd.schema
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-spamassassin-schema/AUTHORS
-%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-spamassassin-schema/COPYING
+%doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-spamassassin-schema/LICENSE
 %doc %attr(-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-spamassassin-schema/Changelog
 
 %files user-reminder-schema
 %defattr(0644,root,root,755)
 %attr (-,root,root)       %{_sysconfdir}/openldap/schema/fusiondirectory/user-reminder-fd-conf.schema
 %doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-user-reminder-schema/AUTHORS
-%doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-user-reminder-schema/COPYING
+%doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-user-reminder-schema/LICENSE
 %doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-user-reminder-schema/Changelog
 
 %files audit-schema
@@ -2893,19 +2893,22 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root)       %{_sysconfdir}/openldap/schema/fusiondirectory/audit-fd-conf.schema
 %attr (-,root,root)       %{_sysconfdir}/openldap/schema/fusiondirectory/audit-fd.schema
 %doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-audit-schema/AUTHORS
-%doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-audit-schema/COPYING
+%doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-audit-schema/LICENSE
 %doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-audit-schema/Changelog
 
 %files renater-partage-schema
 %defattr(0644,root,root,755)
 %attr (-,root,root)       %{_sysconfdir}/openldap/schema/fusiondirectory/renater-partage-fd.schema
 %doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-renater-partage-schema/AUTHORS
-%doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-renater-partage-schema/COPYING
+%doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-renater-partage-schema/LICENSE
 %doc %attr (-,root,root)  %{_datadir}/doc/fusiondirectory-plugin-renater-partage-schema/Changelog
 
 ########################
 
 %changelog
+* Fri Sep 29 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
+- Fixes #5666 Rename COPYING in LICENSE
+
 * Mon Jul 24 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.3-1
 - Fixes #5658 Fixed spec file for new plugins folders organization
 

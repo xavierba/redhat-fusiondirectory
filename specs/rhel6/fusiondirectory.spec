@@ -168,8 +168,8 @@ cp contrib/man/%{name}.conf.5.gz %{buildroot}%{_datadir}/man/man5
 # Copy docs
 mkdir -p %{buildroot}%{_datadir}/doc/{%{name},%{name}-schema}
 mkdir -p %{buildroot}%{_datadir}/doc/%{name}/examples/
-cp ./AUTHORS ./Changelog ./COPYING %{buildroot}%{_datadir}/doc/%{name}/
-cp ./AUTHORS ./Changelog ./COPYING %{buildroot}%{_datadir}/doc/%{name}-schema/
+cp ./AUTHORS ./Changelog ./LICENSE %{buildroot}%{_datadir}/doc/%{name}/
+cp ./AUTHORS ./Changelog ./LICENSE %{buildroot}%{_datadir}/doc/%{name}-schema/
 cp contrib/%{name}.conf %{buildroot}%{_datadir}/doc/%{name}/
 cp -a contrib/docs/ %{buildroot}%{_datadir}/doc/%{name}/
 cp -a contrib/images/ %{buildroot}%{_datadir}/doc/%{name}/
@@ -378,7 +378,7 @@ fi
 %{_mandir}/man1/%{name}-insert-schema.1.gz
 
 %{_datadir}/doc/%{name}-schema/AUTHORS
-%{_datadir}/doc/%{name}-schema/COPYING
+%{_datadir}/doc/%{name}-schema/LICENSE
 %{_datadir}/doc/%{name}-schema/Changelog
 
 %{_sysconfdir}/openldap/schema/%{name}/core-fd.schema
@@ -400,6 +400,9 @@ fi
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Fri Sep 29 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
+- Fixes #5666 Rename COPYING in LICENSE
+
 * Fri Jun 16 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2-1
 - Fixes #5618 Correct the date error in changelog
 - Fixes #5621 Correct specfile with rpmlint help
