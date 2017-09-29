@@ -65,7 +65,6 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
   if [ "${cur_plugin}" = "developers" ] ; then
     mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
     mkdir -p %{buildroot}%{_datadir}/fusiondirectory/plugins/addons
-    mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/plugins/debug-help
     cp -a ./CODING %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
     cp -a ./Doxyfile %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
     cp -a ./FDStandard %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
@@ -1513,8 +1512,6 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/doc/fusiondirectory-developers/list.xsd
 %attr (-,root,root) %{_datadir}/doc/fusiondirectory-developers/simple-plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/debug-help
-%attr (-,root,root) %{_datadir}/fusiondirectory/html/plugins/debug-help
-%attr (-,root,root) %{_datadir}/fusiondirectory/html/plugins/debug-help/images
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-developers/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-developers/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-developers/COPYING
