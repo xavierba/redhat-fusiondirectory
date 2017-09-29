@@ -2342,7 +2342,6 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/roles/class_applicationRights.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/config/applications/class_applicationsPluginConfig.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/plugins/applications/images/default_icon.png
-%attr (-,root,root) %{_datadir}/fusiondirectory/html/plugins/applications/images/default_icon.svg
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/applications/locale/
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-applications/AUTHORS
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-applications/COPYING
