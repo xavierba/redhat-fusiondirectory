@@ -63,14 +63,7 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
 
   # Plugin developers
   if [ "${cur_plugin}" = "developers" ] ; then
-    mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
     mkdir -p %{buildroot}%{_datadir}/fusiondirectory/plugins/addons
-    cp -a ./CODING %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
-    cp -a ./Doxyfile %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
-    cp -a ./FDStandard %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
-    cp -a ./filter.xsd  %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
-    cp -a ./list.xsd %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
-    cp -a ./simple-plugin %{buildroot}%{_datadir}/doc/fusiondirectory-developers/
     cp -a ./debug-help/addons/. %{buildroot}%{_datadir}/fusiondirectory/plugins/addons/
 
   else
@@ -1503,12 +1496,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 
 
 %files developers
-%defattr(0644,root,root,755)
-%attr (-,root,root) %{_datadir}/doc/fusiondirectory-developers/
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/addons/debug-help
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-developers/AUTHORS
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-developers/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-developers/LICENSE
 
 
 %files dhcp
@@ -2906,11 +2894,10 @@ LDAP schema for FusionDirectory renater-partage plugin
 ########################
 
 %changelog
-* Fri Sep 29 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
-- Fixes #5666 Rename COPYING in LICENSE
-
-* Mon Jul 24 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.3-1
+* Fri Sep 29 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.3-1
 - Fixes #5658 Fixed spec file for new plugins folders organization
+- Fixes #5666 Rename COPYING in LICENSE
+- Fixes #5667 Remove no longer files in developer plugin
 
 * Tue Jun 27 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2-1
 - Fixes #5613 Rename class_groupMail.inc in class_mailGroup.inc
