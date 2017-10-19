@@ -1497,6 +1497,9 @@ LDAP schema for FusionDirectory renater-partage plugin
 
 %files developers
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/addons/debugHelp
+%attr (-,root,root) %{_datadir}/doc/fusiondirectory-plugin-developers/AUTHORS
+%attr (-,root,root) %{_datadir}/doc/fusiondirectory-plugin-developers/Changelog
+%attr (-,root,root) %{_datadir}/doc/fusiondirectory-plugin-developers/LICENSE
 
 
 %files dhcp
