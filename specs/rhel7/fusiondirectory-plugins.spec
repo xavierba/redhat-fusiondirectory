@@ -2233,6 +2233,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/class_workstationGeneric.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/tabs_server.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/class_phoneGeneric.inc
+%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/class_ipHostPlugin.inc
 # Config section
 # Files
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/config/systems/class_systemsPluginConfig.inc
@@ -2901,6 +2902,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 * Thu Oct 19 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.3-1
 - Adapt developers plugin to new plugin convention
 - Fixes #5344 We should find a way to translate description of sudo options
+- Fixes #5705 add ip non mandatory in the systems plugins
 
 * Thu Oct 19 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
 - Fixes #5658 Fixed spec file for new plugins folders organization
