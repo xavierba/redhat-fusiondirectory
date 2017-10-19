@@ -322,6 +322,7 @@ fi
 %{_datadir}/%{name}/html/include/%{name}.js
 %{_datadir}/%{name}/html/include/pulldown.js
 %{_datadir}/%{name}/html/include/pwdStrength.js
+%{_datadir}/%{name}/html/include/tsorter.js
 %{_datadir}/%{name}/html/javascript/
 %{_datadir}/%{name}/ihtml
 %{_datadir}/%{name}/include/exporter
@@ -400,6 +401,9 @@ fi
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Thu Oct 19 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.3-1
+- Fixes #5708 Add a way to sort tables
+
 * Fri Sep 29 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
 - Fixes #5666 Rename COPYING in LICENSE
 

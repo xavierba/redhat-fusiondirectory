@@ -64,7 +64,7 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
   # Plugin developers
   if [ "${cur_plugin}" = "developers" ] ; then
     mkdir -p %{buildroot}%{_datadir}/fusiondirectory/plugins/addons
-    cp -a ./debug-help/addons/. %{buildroot}%{_datadir}/fusiondirectory/plugins/addons/
+    cp -a ./addons/debugHelp/ %{buildroot}%{_datadir}/fusiondirectory/plugins/addons/
 
   else
 
@@ -1393,6 +1393,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/services/argonaut/class_argonautFuseLTSPConfig.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/services/argonaut/class_argonautFuseFAIConfig.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/argonaut/class_argonautClient.inc
+%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/argonaut/class_deploymentTimeframe.inc
 # HTML section
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/argonaut-dns.png
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/argonaut-fuse.png
@@ -1497,8 +1498,10 @@ LDAP schema for FusionDirectory renater-partage plugin
 
 %files developers
 %defattr(0644,root,root,755)
-%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/addons/debug-help
-
+%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/addons/debugHelp
+%attr (-,root,root) %{_datadir}/doc/fusiondirectory-plugin-developers/AUTHORS
+%attr (-,root,root) %{_datadir}/doc/fusiondirectory-plugin-developers/Changelog
+%attr (-,root,root) %{_datadir}/doc/fusiondirectory-plugin-developers/LICENSE
 
 %files dhcp
 %defattr(0644,root,root,755)
@@ -2108,6 +2111,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/sudo/class_sudoOption.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/sudo/tabs_sudo.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/sudo/class_sudoManagement.inc
+%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/sudo/class_sudoOptions.inc
 # Config section
 # Files
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/config/sudo/class_sudoConfig.inc
@@ -2230,6 +2234,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/class_workstationGeneric.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/tabs_server.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/class_phoneGeneric.inc
+%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/class_ipHostPlugin.inc
 # Config section
 # Files
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/config/systems/class_systemsPluginConfig.inc
@@ -2895,6 +2900,12 @@ LDAP schema for FusionDirectory renater-partage plugin
 ########################
 
 %changelog
+* Thu Oct 19 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.3-1
+- Adapt developers plugin to new plugin convention
+- Fixes #5344 We should find a way to translate description of sudo options
+- Fixes #5705 add ip non mandatory in the systems plugins
+- Fixes #5700 We should be able to forbid deployments outside of a given time frame
+
 * Fri Sep 29 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
 - Fixes #5658 Fixed spec file for new plugins folders organization
 - Fixes #5666 Rename COPYING in LICENSE
