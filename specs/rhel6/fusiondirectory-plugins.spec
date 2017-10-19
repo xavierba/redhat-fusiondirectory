@@ -2110,6 +2110,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/sudo/class_sudoOption.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/sudo/tabs_sudo.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/sudo/class_sudoManagement.inc
+%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/sudo/class_sudoOptions.inc
 # Config section
 # Files
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/config/sudo/class_sudoConfig.inc
@@ -2899,6 +2900,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %changelog
 * Thu Oct 19 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.3-1
 - Adapt developers plugin to new plugin convention
+- Fixes #5344 We should find a way to translate description of sudo options
 
 * Fri Sep 29 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
 - Fixes #5658 Fixed spec file for new plugins folders organization
