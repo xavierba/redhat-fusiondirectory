@@ -64,7 +64,7 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
   # Plugin developers
   if [ "${cur_plugin}" = "developers" ] ; then
     mkdir -p %{buildroot}%{_datadir}/fusiondirectory/plugins/addons
-    cp -a ./debug-help/addons/. %{buildroot}%{_datadir}/fusiondirectory/plugins/addons/
+    cp -a ./debugHelp/addons/. %{buildroot}%{_datadir}/fusiondirectory/plugins/addons/
 
   else
 
@@ -1496,7 +1496,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 
 
 %files developers
-%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/addons/debug-help
+%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/addons/debugHelp
 
 
 %files dhcp
@@ -2894,7 +2894,10 @@ LDAP schema for FusionDirectory renater-partage plugin
 ########################
 
 %changelog
-* Fri Sep 29 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.3-1
+* Thu Oct 19 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.3-1
+- Adapt developers plugin to new plugin convention
+
+* Thu Oct 19 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
 - Fixes #5658 Fixed spec file for new plugins folders organization
 - Fixes #5666 Rename COPYING in LICENSE
 - Fixes #5667 Remove no longer files in developer plugin
