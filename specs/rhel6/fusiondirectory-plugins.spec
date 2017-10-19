@@ -64,7 +64,7 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
   # Plugin developers
   if [ "${cur_plugin}" = "developers" ] ; then
     mkdir -p %{buildroot}%{_datadir}/fusiondirectory/plugins/addons
-    cp -a ./debugHelp/addons/. %{buildroot}%{_datadir}/fusiondirectory/plugins/addons/
+    cp -a ./addons/debugHelp/. %{buildroot}%{_datadir}/fusiondirectory/plugins/addons/
 
   else
 
