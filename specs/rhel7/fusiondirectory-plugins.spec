@@ -1393,6 +1393,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/services/argonaut/class_argonautFuseLTSPConfig.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/services/argonaut/class_argonautFuseFAIConfig.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/argonaut/class_argonautClient.inc
+%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/argonaut/class_deploymentTimeframe.inc
 # HTML section
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/argonaut-dns.png
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/argonaut-fuse.png
@@ -2903,6 +2904,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 - Adapt developers plugin to new plugin convention
 - Fixes #5344 We should find a way to translate description of sudo options
 - Fixes #5705 add ip non mandatory in the systems plugins
+- Fixes #5700 We should be able to forbid deployments outside of a given time frame
 
 * Thu Oct 19 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
 - Fixes #5658 Fixed spec file for new plugins folders organization
