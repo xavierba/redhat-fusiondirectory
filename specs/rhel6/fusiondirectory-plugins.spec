@@ -1876,6 +1876,9 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/addons/opsi/main.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/addons/opsi/opsiimport.tpl
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/addons/opsi/class_opsiImport.inc
+%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/addons/dashboard/class_dashBoardOpsi.inc
+%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/addons/dashboard/opsi_profiles.tpl
+%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/addons/dashboard/opsi_stats.tpl
 # Admin section
 # Files
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/services/opsi/class_serviceOPSI.inc
@@ -1886,6 +1889,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/opsi/class_opsiProductProperties.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/opsi/class_opsiSoftwareList.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/opsi/class_opsiOnDemandList.inc
+%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/systems/opsi/class_opsiLogView.inc
 # Config section
 # Files
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/config/opsi/class_opsiConfig.inc
@@ -2900,7 +2904,8 @@ LDAP schema for FusionDirectory renater-partage plugin
 ########################
 
 %changelog
-* Thu Oct 19 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.3-1
+* Tue Dec 05 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.3-1
+- Fixes #5670 Add opsi dashboard
 - Adapt developers plugin to new plugin convention
 - Fixes #5344 We should find a way to translate description of sudo options
 - Fixes #5705 add ip non mandatory in the systems plugins
