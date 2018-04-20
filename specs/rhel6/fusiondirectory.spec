@@ -399,7 +399,8 @@ fi
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
-* Fri Sep 29 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
+* Fri Apr 20 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
+- Fixes #5672 Adapt packages to the removal of the contrib/docs directory
 - Fixes #5666 Rename COPYING in LICENSE
 
 * Fri Jun 16 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2-1
