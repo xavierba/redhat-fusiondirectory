@@ -2900,7 +2900,8 @@ LDAP schema for FusionDirectory renater-partage plugin
 ########################
 
 %changelog
-* Fri Sep 29 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
+* Fri Apr 20 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
+- Fixes #5673 Adapt packages for stuff that are moved to dev-tools
 - Fixes #5666 Rename COPYING in LICENSE
 
 * Mon Jul 24 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.3-1
