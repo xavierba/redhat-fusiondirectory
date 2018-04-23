@@ -23,6 +23,7 @@ allow httpd_fdir_content_t fs_t : filesystem { associate };
 # Privileges for httpd process
 allow httpd_t httpd_fdir_content_t:file manage_file_perms;; 
 allow httpd_t httpd_fdir_content_t:dir manage_dir_perms;
+allow httpd_t httpd_fdir_content_t:lnk_file { getattr read };
 
 # Privileges for local users (root)
 allow unconfined_t httpd_fdir_content_t:file all_file_perms; 
