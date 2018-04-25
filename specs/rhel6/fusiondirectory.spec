@@ -363,6 +363,8 @@ fi
 %{_datadir}/%{name}/include/class_SnapshotDialogs.inc
 %{_datadir}/%{name}/include/class_exceptions.inc
 %{_datadir}/%{name}/include/class_templateHandling.inc
+%{_datadir}/%{name}/include/class_Combinations.inc
+%{_datadir}/%{name}/include/class_Language.inc
 %{_datadir}/%{name}/locale
 %{_datadir}/%{name}/plugins
 %{_datadir}/%{name}/setup
