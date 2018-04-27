@@ -300,7 +300,7 @@ if ! [[ -d /usr/share/fusiondirectory/html/javascript/prototype ]] ; then
 fi
 
 # Link javascript scriptaculous if not exist
-if ! [[ -d /usr/share/fusiondirectory/html/javascript/prototype ]] ; then
+if ! [[ -d /usr/share/fusiondirectory/html/javascript/scriptaculous ]] ; then
   ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/scriptaculous
 fi
 
@@ -363,6 +363,7 @@ fi
 %{_datadir}/%{name}/include/class_SnapshotDialogs.inc
 %{_datadir}/%{name}/include/class_exceptions.inc
 %{_datadir}/%{name}/include/class_templateHandling.inc
+%{_datadir}/%{name}/include/class_Combinations.inc
 %{_datadir}/%{name}/locale
 %{_datadir}/%{name}/plugins
 %{_datadir}/%{name}/setup
