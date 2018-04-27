@@ -400,9 +400,12 @@ fi
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
-* Fri Apr 20 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
-- Fixes #5672 Adapt packages to the removal of the contrib/docs directory
-- Fixes #5666 Rename COPYING in LICENSE
+* Fri Apr 27 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
+- [Added] fusiondirectory#5678 Add include/class_Combinations.inc
+- [Changed] fusiondirectory#5666 Change file COPYING into LICENCE
+- [Changed] fusiondirectory#5672 Adapt packages to the removal of the contrib/docs directory
+- [Fixed] fusiondirectory#5671 Scriptaculous is used in plugins but not loaded into browser
+- [Fixed] fusiondirectory#5675 Error when checking LDAP when we install FD
 
 * Fri Jun 16 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2-1
 - Fixes #5618 Correct the date error in changelog
