@@ -1,7 +1,7 @@
 # This is the header.spec file
 Name:       fusiondirectory
 Version:    _VERSION_
-Release:    _RELEASE_ 
+Release:    _RELEASE_
 Summary:    Web Based LDAP Administration Program
 
 Group:      Applications/System
@@ -31,7 +31,7 @@ Requires:   httpd, gettext, perl-ExtUtils-MakeMaker, prototype, prototype-httpd,
 
 Requires:   php-Smarty3, php-Smarty3-gettext, php-pear-CAS
 
-%description 
+%description
 FusionDirectory is a combination of system-administrator and end-user web
 interface, designed to handle LDAP based setups.
 Provided is access to posix, shadow, samba, proxy, fax, and Kerberos
@@ -83,7 +83,7 @@ SEPolicy needed for Fusiondirectory.
 
 # Source FD-core
 # Extract Source
-%setup -T -D -b 0 
+%setup -T -D -b 0
 
 # Apply all the patches
 %if %{?rhel} >= 7
@@ -139,7 +139,7 @@ for i in $DIRS ; do
   cp -ua $i %{buildroot}%{_datadir}/%{name}
 done
 
-# Create spool and cache directories 
+# Create spool and cache directories
 install -d -m 0770 %{buildroot}/var/spool/%{name}/
 install -d -m 0770 %{buildroot}/var/cache/%{name}/{tmp,fai}/
 
@@ -168,10 +168,9 @@ cp contrib/man/%{name}.conf.5.gz %{buildroot}%{_datadir}/man/man5
 # Copy docs
 mkdir -p %{buildroot}%{_datadir}/doc/{%{name},%{name}-schema}
 mkdir -p %{buildroot}%{_datadir}/doc/%{name}/examples/
-cp ./AUTHORS ./Changelog ./COPYING %{buildroot}%{_datadir}/doc/%{name}/
-cp ./AUTHORS ./Changelog ./COPYING %{buildroot}%{_datadir}/doc/%{name}-schema/
+cp ./AUTHORS ./Changelog ./LICENSE %{buildroot}%{_datadir}/doc/%{name}/
+cp ./AUTHORS ./Changelog ./LICENSE %{buildroot}%{_datadir}/doc/%{name}-schema/
 cp contrib/%{name}.conf %{buildroot}%{_datadir}/doc/%{name}/
-cp -a contrib/docs/ %{buildroot}%{_datadir}/doc/%{name}/
 cp -a contrib/images/ %{buildroot}%{_datadir}/doc/%{name}/
 cp -a contrib/apache/* %{buildroot}%{_datadir}/doc/%{name}/examples/
 cp -a contrib/lighttpd/* %{buildroot}%{_datadir}/doc/%{name}/examples/
@@ -253,7 +252,7 @@ if [ $1 = 0 ] ; then
   if [ -d /var/cache/fusiondirectory ]; then
     # Remove cache directory
     rm -Rf /var/cache/fusiondirectory
-    
+
     # Remove spool directory
     rm -Rf /var/spool/fusiondirectory
   fi
@@ -301,7 +300,7 @@ if ! [[ -d /usr/share/fusiondirectory/html/javascript/prototype ]] ; then
 fi
 
 # Link javascript scriptaculous if not exist
-if ! [[ -d /usr/share/fusiondirectory/html/javascript/prototype ]] ; then
+if ! [[ -d /usr/share/fusiondirectory/html/javascript/scriptaculous ]] ; then
   ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/scriptaculous
 fi
 
@@ -309,10 +308,6 @@ fi
 %defattr(-,root,root,-)
 %{_mandir}/man1/%{name}-setup.1.gz
 %{_mandir}/man5/%{name}.conf.5.gz
-
-%{_datadir}/doc/%{name}/AUTHORS
-%{_datadir}/doc/%{name}/COPYING
-%{_datadir}/doc/%{name}/Changelog
 
 %{_sbindir}/%{name}-setup
 %{_datadir}/%{name}/html/images
@@ -368,6 +363,7 @@ fi
 %{_datadir}/%{name}/include/class_SnapshotDialogs.inc
 %{_datadir}/%{name}/include/class_exceptions.inc
 %{_datadir}/%{name}/include/class_templateHandling.inc
+%{_datadir}/%{name}/include/class_Combinations.inc
 %{_datadir}/%{name}/locale
 %{_datadir}/%{name}/plugins
 %{_datadir}/%{name}/setup
@@ -382,7 +378,7 @@ fi
 %{_mandir}/man1/%{name}-insert-schema.1.gz
 
 %{_datadir}/doc/%{name}-schema/AUTHORS
-%{_datadir}/doc/%{name}-schema/COPYING
+%{_datadir}/doc/%{name}-schema/LICENSE
 %{_datadir}/doc/%{name}-schema/Changelog
 
 %{_sysconfdir}/openldap/schema/%{name}/core-fd.schema
@@ -404,16 +400,23 @@ fi
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Mon Jun 11 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
+- [Added] fusiondirectory#5678 Add include/class_Combinations.inc
+- [Changed] fusiondirectory#5666 Change file COPYING into LICENCE
+- [Changed] fusiondirectory#5672 Adapt packages to the removal of the contrib/docs directory
+- [Fixed] fusiondirectory#5671 Scriptaculous is used in plugins but not loaded into browser
+- [Fixed] fusiondirectory#5675 Error when checking LDAP when we install FD
+
 * Fri Jun 16 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2-1
 - Fixes #5618 Correct the date error in changelog
 - Fixes #5621 Correct specfile with rpmlint help
 - Fixes #5435 Set an if condition for linking javascript libs
 
-* Tue Jun 06 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1.1-1 
+* Tue Jun 06 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1.1-1
 - New upstream release
 
 * Wed May 17 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-2
-- Add php-Smarty3-gettext as dependance 
+- Add php-Smarty3-gettext as dependance
 
 * Fri Apr 28 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.1-1
 - Fixes #5108 Package class_exceptions.inc
