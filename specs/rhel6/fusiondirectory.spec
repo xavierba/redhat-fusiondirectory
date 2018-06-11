@@ -400,7 +400,7 @@ fi
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
-* Fri Apr 27 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
+* Mon Jun 11 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
 - [Added] fusiondirectory#5678 Add include/class_Combinations.inc
 - [Changed] fusiondirectory#5666 Change file COPYING into LICENCE
 - [Changed] fusiondirectory#5672 Adapt packages to the removal of the contrib/docs directory
