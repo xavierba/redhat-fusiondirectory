@@ -168,8 +168,8 @@ cp contrib/man/%{name}.conf.5.gz %{buildroot}%{_datadir}/man/man5
 # Copy docs
 mkdir -p %{buildroot}%{_datadir}/doc/{%{name},%{name}-schema}
 mkdir -p %{buildroot}%{_datadir}/doc/%{name}/examples/
-cp ./AUTHORS ./Changelog ./LICENSE %{buildroot}%{_datadir}/doc/%{name}/
-cp ./AUTHORS ./Changelog ./LICENSE %{buildroot}%{_datadir}/doc/%{name}-schema/
+cp ./AUTHORS.md ./Changelog ./LICENSE %{buildroot}%{_datadir}/doc/%{name}/
+cp ./AUTHORS.md ./Changelog ./LICENSE %{buildroot}%{_datadir}/doc/%{name}-schema/
 cp contrib/%{name}.conf %{buildroot}%{_datadir}/doc/%{name}/
 cp -a contrib/images/ %{buildroot}%{_datadir}/doc/%{name}/
 cp -a contrib/apache/* %{buildroot}%{_datadir}/doc/%{name}/examples/
@@ -377,7 +377,7 @@ fi
 %defattr(-,root,root,-)
 %{_mandir}/man1/%{name}-insert-schema.1.gz
 
-%{_datadir}/doc/%{name}-schema/AUTHORS
+%{_datadir}/doc/%{name}-schema/AUTHORS.md
 %{_datadir}/doc/%{name}-schema/LICENSE
 %{_datadir}/doc/%{name}-schema/Changelog
 
