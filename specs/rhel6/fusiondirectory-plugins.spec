@@ -2486,6 +2486,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/renater-partage/locale/
 %attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/personal/mail/mail-methods/class_mail-methods-renater-partage.inc
 %attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/renater-partage.png
+%attr (-,root,root)     %{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/renater-partage.svg
 
 %files posix
 %defattr(0644,root,root,755)
