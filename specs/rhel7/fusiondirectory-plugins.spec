@@ -2901,6 +2901,10 @@ LDAP schema for FusionDirectory renater-partage plugin
 ########################
 
 %changelog
+* Sat Sep 01 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.2-1
+- [Changed] fusiondirectory#5690 AUTHORS as been Renamed AUTHORS.md
+- [Changed] fusiondirectory#5692 Change the partage icon to be the new one
+
 * Mon Jun 11 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
 - [Changed] fusiondirectory#5666 Change file COPYING into LICENCE
 - [Changed] fusiondirectory#5673 Adapt packages for stuff that are moved to dev-tools
