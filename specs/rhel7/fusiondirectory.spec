@@ -168,8 +168,8 @@ cp contrib/man/%{name}.conf.5.gz %{buildroot}%{_datadir}/man/man5
 # Copy docs
 mkdir -p %{buildroot}%{_datadir}/doc/{%{name},%{name}-schema}
 mkdir -p %{buildroot}%{_datadir}/doc/%{name}/examples/
-cp ./AUTHORS ./Changelog ./LICENSE %{buildroot}%{_datadir}/doc/%{name}/
-cp ./AUTHORS ./Changelog ./LICENSE %{buildroot}%{_datadir}/doc/%{name}-schema/
+cp ./AUTHORS.md ./Changelog ./LICENSE %{buildroot}%{_datadir}/doc/%{name}/
+cp ./AUTHORS.md ./Changelog ./LICENSE %{buildroot}%{_datadir}/doc/%{name}-schema/
 cp contrib/%{name}.conf %{buildroot}%{_datadir}/doc/%{name}/
 cp -a contrib/images/ %{buildroot}%{_datadir}/doc/%{name}/
 cp -a contrib/apache/* %{buildroot}%{_datadir}/doc/%{name}/examples/
@@ -364,6 +364,7 @@ fi
 %{_datadir}/%{name}/include/class_exceptions.inc
 %{_datadir}/%{name}/include/class_templateHandling.inc
 %{_datadir}/%{name}/include/class_Combinations.inc
+%{_datadir}/%{name}/include/class_CSRFProtection.inc
 %{_datadir}/%{name}/locale
 %{_datadir}/%{name}/plugins
 %{_datadir}/%{name}/setup
@@ -377,7 +378,7 @@ fi
 %defattr(-,root,root,-)
 %{_mandir}/man1/%{name}-insert-schema.1.gz
 
-%{_datadir}/doc/%{name}-schema/AUTHORS
+%{_datadir}/doc/%{name}-schema/AUTHORS.md
 %{_datadir}/doc/%{name}-schema/LICENSE
 %{_datadir}/doc/%{name}-schema/Changelog
 
@@ -400,6 +401,10 @@ fi
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Sat Sep 01 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.2-1
+- [Changed] fusiondirectory#5690 AUTHORS as been Renamed AUTHORS.md
+- [Security] fusiondirectory#5691 The file include/class_CSRFProtection.inc needs to be packaged
+
 * Mon Jun 11 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
 - [Added] fusiondirectory#5678 Add include/class_Combinations.inc
 - [Changed] fusiondirectory#5666 Change file COPYING into LICENCE

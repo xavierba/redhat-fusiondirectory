@@ -1,3 +1,17 @@
+## %"FusionDirectory 1.2.2" - 2018-09-01
+
+### Changed
+
+#### fusiondirectory
+- fusiondirectory#5690 AUTHORS as been Remamed AUTHORS.md
+- fusiondirectory#5692 Change the partage icon to be the new one
+
+### Security
+
+#### fusiondirectory
+- fusiondirectory#5691 The file include/class_CSRFProtection.inc needs to be packaged
+
+
 ## %"FusionDirectory 1.2.1" - 2018-06-11
 
 ### Added
