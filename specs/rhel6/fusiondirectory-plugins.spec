@@ -2303,7 +2303,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/AUTHORS.md
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/LICENSE
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-webservice/jsonrpc.php.doc
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/jsonrpc.php.doc
 
 %files ejbca
 %defattr(0644,root,root,755)
