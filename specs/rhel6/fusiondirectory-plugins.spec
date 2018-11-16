@@ -132,6 +132,12 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
       cp ../../fusiondirectory-%{version}/{AUTHORS.md,Changelog,LICENSE} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
     fi
 
+    # Doc section
+    if [ -d ./contrib/doc ] ; then
+      mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
+      cp -a ./contrib/doc/. %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
+    fi
+
     # Docs section
     if [ -d ./contrib/docs ] ; then
       mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
