@@ -132,9 +132,9 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
     fi
 
     # Docs section
-    if [ -d ./contrib/doc ] ; then
+    if [ -d ./contrib/docs ] ; then
       mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
-      cp -a ./contrib/doc/. %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
+      cp -a ./contrib/docs/. %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
     fi
 
     # Etc section

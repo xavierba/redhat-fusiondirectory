@@ -172,6 +172,7 @@ cp ./AUTHORS.md ./Changelog ./LICENSE %{buildroot}%{_datadir}/doc/%{name}/
 cp ./AUTHORS.md ./Changelog ./LICENSE %{buildroot}%{_datadir}/doc/%{name}-schema/
 cp contrib/%{name}.conf %{buildroot}%{_datadir}/doc/%{name}/
 cp -a contrib/images/ %{buildroot}%{_datadir}/doc/%{name}/
+cp -a contrib/docs/* %{buildroot}%{_datadir}/doc/%{name}/
 cp -a contrib/apache/* %{buildroot}%{_datadir}/doc/%{name}/examples/
 cp -a contrib/lighttpd/* %{buildroot}%{_datadir}/doc/%{name}/examples/
 
