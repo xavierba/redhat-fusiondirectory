@@ -132,10 +132,16 @@ for cur_plugin_line in ${PLUGINS_LIST} ; do
       cp ../../fusiondirectory-%{version}/{AUTHORS.md,Changelog,LICENSE} %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}-schema/
     fi
 
-    # Docs section
+    # Doc section
     if [ -d ./contrib/doc ] ; then
       mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
       cp -a ./contrib/doc/. %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
+    fi
+
+    # Docs section
+    if [ -d ./contrib/docs ] ; then
+      mkdir -p %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
+      cp -a ./contrib/docs/. %{buildroot}%{_datadir}/doc/fusiondirectory-plugin-${cur_plugin}/
     fi
 
     # Etc section
@@ -2297,6 +2303,7 @@ LDAP schema for FusionDirectory renater-partage plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/AUTHORS.md
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/LICENSE
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-webservice/jsonrpc.php.doc
 
 %files ejbca
 %defattr(0644,root,root,755)
@@ -2901,6 +2908,9 @@ LDAP schema for FusionDirectory renater-partage plugin
 ########################
 
 %changelog
+* Sun Nov 18 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.3-1
+- [Added] fusiondirectory#5694 Add the pdf with the oid of fusiondirectory in the contrib dir of the core
+
 * Sat Sep 01 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.2-1
 - [Changed] fusiondirectory#5690 AUTHORS as been Renamed AUTHORS.md
 - [Changed] fusiondirectory#5692 Change the partage icon to be the new one

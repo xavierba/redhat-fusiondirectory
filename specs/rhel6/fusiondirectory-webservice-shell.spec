@@ -30,7 +30,7 @@ cp ./webservice/contrib/bin/* %{buildroot}/usr/bin/
 chmod +x %{buildroot}/usr/bin/*
 
 mkdir -p %{buildroot}/usr/share/doc/fusiondirectory-webservice-shell/
-cp ./webservice/contrib/docs/* %{buildroot}/usr/share/doc/fusiondirectory-webservice-shell/
+cp ./{Changelog.md,LICENSE} %{buildroot}%{_datadir}/doc/fusiondirectory-webservice-shell/
 
 mkdir -p %{buildroot}/usr/share/man/man1/
 gzip ./webservice/contrib/man/*
@@ -42,10 +42,14 @@ rm -Rf %{buildroot}
 %files
 %defattr(0644,root,root)
 %attr(0755,root,root) /usr/bin/fusiondirectory-shell
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-webservice-shell/jsonrpc.php.doc
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-webservice-shell/Changelog.md
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-webservice-shell/LICENSE
 %attr(-,root,root) %{_datadir}/man/man1/fusiondirectory-shell.1.gz
 
 %changelog
+* Sun Nov 18 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.3-1
+- [Added] fusiondirectory#5694 Add the pdf with the oid of fusiondirectory in the contrib dir of the core
+
 * Sat Sep 01 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.2-1
 - New upstream release
 

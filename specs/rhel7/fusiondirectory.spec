@@ -171,6 +171,7 @@ mkdir -p %{buildroot}%{_datadir}/doc/%{name}/examples/
 cp ./AUTHORS.md ./Changelog ./LICENSE %{buildroot}%{_datadir}/doc/%{name}/
 cp ./AUTHORS.md ./Changelog ./LICENSE %{buildroot}%{_datadir}/doc/%{name}-schema/
 cp contrib/%{name}.conf %{buildroot}%{_datadir}/doc/%{name}/
+cp -a contrib/docs/ %{buildroot}%{_datadir}/doc/%{name}/
 cp -a contrib/images/ %{buildroot}%{_datadir}/doc/%{name}/
 cp -a contrib/apache/* %{buildroot}%{_datadir}/doc/%{name}/examples/
 cp -a contrib/lighttpd/* %{buildroot}%{_datadir}/doc/%{name}/examples/
@@ -401,6 +402,9 @@ fi
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Sun Nov 18 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.3-1
+- [Added] fusiondirectory#5694 Add the pdf with the oid of fusiondirectory in the contrib dir of the core
+
 * Sat Sep 01 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.2-1
 - [Changed] fusiondirectory#5690 AUTHORS as been Renamed AUTHORS.md
 - [Security] fusiondirectory#5691 The file include/class_CSRFProtection.inc needs to be packaged
