@@ -2908,6 +2908,9 @@ LDAP schema for FusionDirectory renater-partage plugin
 ########################
 
 %changelog
+* Sun Nov 18 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.3-1
+- [Added] fusiondirectory#5694 Add the pdf with the oid of fusiondirectory in the contrib dir of the core
+
 * Sat Sep 01 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.2-1
 - [Changed] fusiondirectory#5690 AUTHORS as been Renamed AUTHORS.md
 - [Changed] fusiondirectory#5692 Change the partage icon to be the new one

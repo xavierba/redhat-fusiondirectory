@@ -402,6 +402,9 @@ fi
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Sun Nov 18 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.3-1
+- [Added] fusiondirectory#5694 Add the pdf with the oid of fusiondirectory in the contrib dir of the core
+
 * Sat Sep 01 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.2-1
 - [Changed] fusiondirectory#5690 AUTHORS as been Renamed AUTHORS.md
 - [Security] fusiondirectory#5691 The file include/class_CSRFProtection.inc needs to be packaged
