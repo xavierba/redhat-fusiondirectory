@@ -1,3 +1,10 @@
+## %"FusionDirectory 1.2.3" - 2018-11-18
+
+### Added
+
+#### fusiondirectory
+- fusiondirectory#5694 Add the pdf with the oid of fusiondirectory in the contrib dir of the core
+
 ## %"FusionDirectory 1.2.2" - 2018-09-01
 
 ### Changed
