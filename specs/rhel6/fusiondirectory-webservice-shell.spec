@@ -47,6 +47,9 @@ rm -Rf %{buildroot}
 %attr(-,root,root) %{_datadir}/man/man1/fusiondirectory-shell.1.gz
 
 %changelog
+* Sun Nov 18 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.3-1
+- [Added] fusiondirectory#5694 Add the pdf with the oid of fusiondirectory in the contrib dir of the core
+
 * Sat Sep 01 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.2-1
 - New upstream release
 
