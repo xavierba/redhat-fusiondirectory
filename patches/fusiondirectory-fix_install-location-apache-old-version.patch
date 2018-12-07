@@ -6,4 +6,5 @@
 +Alias /fusiondirectory /usr/share/fusiondirectory/html
  
  <IfModule mod_php5.c>
- <Location /fusiondirectory>
+ <Directory /fusiondirectory>
+
