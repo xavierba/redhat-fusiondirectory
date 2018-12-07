@@ -411,6 +411,14 @@ Requires: fusiondirectory >= %{version}
 %description supann
 This Plugin aims to provide a full LDAP interface to SUPANN schema
 
+%package supann-ext
+Group:    Applications/System
+Summary:  This Plugin aims to provide a supann extension to go with the sinaps service
+Requires: fusiondirectory >= %{version}
+
+%description supann-ext
+This Plugin aims to provide a supann extension to go with the sinaps service
+
 %package sympa
 Group:    Applications/System
 Summary:  Management of alias list of sympa
@@ -840,6 +848,15 @@ Requires: fusiondirectory-schema >= %{version}
 LDAP schema for FusionDirectory supann plugin
 
 
+%package supann-ext-schema
+Group:    Applications/System
+Summary:  LDAP schema for FusionDirectory supann-ext plugin
+Requires: fusiondirectory-schema >= %{version}
+
+%description supann-ext-schema
+LDAP schema for FusionDirectory supann-ext plugin
+
+
 
 %package sympa-schema
 Group:    Applications/System
@@ -1095,6 +1112,10 @@ LDAP schema for FusionDirectory renater-partage plugin
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
+%post supann-ext
+%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
+
+
 %post sympa
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
@@ -1279,6 +1300,10 @@ LDAP schema for FusionDirectory renater-partage plugin
 
 
 %postun supann
+%{_sbindir}/fusiondirectory-setup --update-cache --update-locales
+
+
+%postun supann-ext
 %{_sbindir}/fusiondirectory-setup --update-cache --update-locales
 
 
@@ -2192,6 +2217,13 @@ LDAP schema for FusionDirectory renater-partage plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/LICENSE
 
+%files supann-ext
+%defattr(0644,root,root,755)
+%attr (-,root,root) %{_datadir}/plugins/admin/supannStructures/class_supannStructureExt.inc
+%attr (-,root,root) %{_datadir}/locale/plugins/supann-ext
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/AUTHORS.md
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/Changelog
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/LICENSE
 
 %files sympa
 %defattr(0644,root,root,755)
@@ -2780,6 +2812,12 @@ LDAP schema for FusionDirectory renater-partage plugin
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann-schema/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann-schema/LICENSE
 
+%files supann-ext-schema
+%defattr(0644,root,root,755)
+%attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/supann-ext-fd.schema
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann-schema/AUTHORS.md
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann-schema/Changelog
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann-schema/LICENSE
 
 %files sympa-schema
 %defattr(0644,root,root,755)
