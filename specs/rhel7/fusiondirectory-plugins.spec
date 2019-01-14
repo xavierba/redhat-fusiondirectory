@@ -2219,8 +2219,8 @@ LDAP schema for FusionDirectory renater-partage plugin
 
 %files supann-ext
 %defattr(0644,root,root,755)
-%attr (-,root,root) %{_datadir}/plugins/admin/supannStructures/class_supannStructureExt.inc
-%attr (-,root,root) %{_datadir}/locale/plugins/supann-ext
+%attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/supannStructures/class_supannStructureExt.inc
+%attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/supann-ext
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/AUTHORS.md
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/Changelog
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/LICENSE
