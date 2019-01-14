@@ -2221,9 +2221,9 @@ LDAP schema for FusionDirectory renater-partage plugin
 %defattr(0644,root,root,755)
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/admin/supannStructures/class_supannStructureExt.inc
 %attr (-,root,root) %{_datadir}/fusiondirectory/locale/plugins/supann-ext
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/AUTHORS.md
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/LICENSE
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann-ext/AUTHORS.md
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann-ext/Changelog
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann-ext/LICENSE
 
 %files sympa
 %defattr(0644,root,root,755)
@@ -2815,9 +2815,9 @@ LDAP schema for FusionDirectory renater-partage plugin
 %files supann-ext-schema
 %defattr(0644,root,root,755)
 %attr (-,root,root) %{_sysconfdir}/openldap/schema/fusiondirectory/supann-ext-fd.schema
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann-schema/AUTHORS.md
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann-schema/Changelog
-%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann-schema/LICENSE
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann-ext-schema/AUTHORS.md
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann-ext-schema/Changelog
+%doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann-ext-schema/LICENSE
 
 %files sympa-schema
 %defattr(0644,root,root,755)
