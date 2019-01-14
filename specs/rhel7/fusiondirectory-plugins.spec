@@ -2990,7 +2990,7 @@ interface, designed to handle LDAP based network infrastructures.
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-sinaps-schema/AUTHORS.md
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-sinaps-schema/LICENSE
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-sinaps-schema/Changelog
-%attr (-,root,root)       %{_sysconfdir}/openldap/schema/fusiondirectory/fusiondirectory/sinaps-fd-conf.schema
+%attr (-,root,root)       %{_sysconfdir}/openldap/schema/fusiondirectory/sinaps-fd-conf.schema
 
 ########################
 
