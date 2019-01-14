@@ -2177,10 +2177,10 @@ LDAP schema for FusionDirectory renater-partage plugin
 # Files
 %attr (-,root,root) %{_datadir}/fusiondirectory/plugins/config/supann/class_supannConfig.inc
 # Files contrib supann
-%attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/corps
+%attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/corps_SUPANN
 %attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/eturegimeinscription_SISE
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/discipline_EXAMPLE
-%attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/entite
+%attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/entite_SUPANN
 %doc %attr(-,root,root) %{_datadir}/doc/fusiondirectory-plugin-supann/examples/etuelementpedagogique_EXAMPLE
 %attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/diplome_SISE
 %doc %attr(-,root,root) %{_sysconfdir}/fusiondirectory/supann/etablissement_SUPANN
