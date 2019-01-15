@@ -2531,11 +2531,9 @@ interface, designed to handle LDAP based network infrastructures.
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-audit/AUTHORS.md
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-audit/LICENSE
 %doc %attr (-,root,root)     %{_datadir}/doc/fusiondirectory-plugin-audit/Changelog
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/audit/class_auditEvent.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/config/audit/class_auditConfig.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/audit/locale/
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/audit/class_auditManagement.inc
-%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/audit/main.inc
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/admin/audit/
+%attr (-,root,root)     %{_datadir}/fusiondirectory/plugins/config/audit/
+%attr (-,root,root)     %{_datadir}/fusiondirectory/locale/plugins/audit/
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/icons/16/apps/audit.png
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/svg/16/apps/audit.svg
 %attr (-,root,root) %{_datadir}/fusiondirectory/html/themes/breezy/svg/48/apps/audit.svg
