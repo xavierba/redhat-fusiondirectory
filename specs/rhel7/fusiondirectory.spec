@@ -22,7 +22,7 @@ Patch5:     %{name}-fix_smarty3-location.patch
 Patch6:     %{name}-fix_install-location-apache-old-version.patch
 
 
-Requires:   php >= 7, php-ldap >= 7, php-imap >= 7, php-mbstring >= 7, php-gd >= 7, php-pecl-imagick >= 7
+Requires:   php >= 7, php-ldap >= 7, php-imap >= 7, php-mbstring >= 7, php-gd >= 7, php-pecl-imagick
 
 Requires:   perl-Path-Class, perl-Digest-SHA, perl-File-Copy-Recursive, perl-Archive-Extract, perl-XML-Twig
 Requires:   perl-Crypt-CBC, perl-LDAP, perl, perl-Crypt-Rijndael
