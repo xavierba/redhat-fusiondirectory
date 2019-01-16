@@ -29,6 +29,8 @@ Requires:   perl-Crypt-CBC, perl-LDAP, perl, perl-Crypt-Rijndael
 
 Requires:   httpd, gettext, perl-ExtUtils-MakeMaker, prototype, prototype-httpd, scriptaculous, scriptaculous-httpd
 
+Requires:   php-Smarty3, php-Smarty3-gettext, php-pear-CAS
+
 %description
 FusionDirectory is a combination of system-administrator and end-user web
 interface, designed to handle LDAP based setups.
