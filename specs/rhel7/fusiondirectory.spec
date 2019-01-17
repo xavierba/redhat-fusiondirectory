@@ -368,6 +368,7 @@ fi
 %{_datadir}/%{name}/include/class_Combinations.inc
 %{_datadir}/%{name}/include/class_Language.inc
 %{_datadir}/%{name}/include/class_CSRFProtection.inc
+%{_datadir}/%{name}/include/class_ldapSizeLimit.inc
 %{_datadir}/%{name}/locale
 %{_datadir}/%{name}/plugins
 %{_datadir}/%{name}/setup
