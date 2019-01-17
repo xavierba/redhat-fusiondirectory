@@ -29,7 +29,7 @@ Requires:   perl-Crypt-CBC, perl-LDAP, perl, perl-Crypt-Rijndael
 
 Requires:   httpd, gettext, perl-ExtUtils-MakeMaker, prototype, prototype-httpd, scriptaculous, scriptaculous-httpd
 
-Requires:   php-Smarty3, php-Smarty3-gettext, php-pear-CAS
+Requires:   php-Smarty, php-pear-CAS
 
 %description
 FusionDirectory is a combination of system-administrator and end-user web
@@ -149,7 +149,7 @@ mkdir -p %{buildroot}%{_datadir}/man/man5/
 mkdir -p %{buildroot}%{_sysconfdir}/%{name}/
 mkdir -p %{buildroot}%{_sbindir}
 mkdir -p %{buildroot}%{_sysconfdir}/openldap/schema/%{name}/
-mkdir -p %{buildroot}%{_datadir}/php/Smarty3/plugins/
+mkdir -p %{buildroot}%{_datadir}/php/Smarty/plugins/
 mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/javascript/
 
 # Set the rights
@@ -177,9 +177,9 @@ cp -a contrib/apache/* %{buildroot}%{_datadir}/doc/%{name}/examples/
 cp -a contrib/lighttpd/* %{buildroot}%{_datadir}/doc/%{name}/examples/
 
 # Move smarty functions and create php lib directory if it exist
-cp contrib/smarty/plugins/function.msgPool.php %{buildroot}%{_datadir}/php/Smarty3/plugins/function.msgPool.php
-cp contrib/smarty/plugins/function.filePath.php %{buildroot}%{_datadir}/php/Smarty3/plugins/function.filePath.php
-cp contrib/smarty/plugins/block.render.php %{buildroot}%{_datadir}/php/Smarty3/plugins/block.render.php
+cp contrib/smarty/plugins/function.msgPool.php %{buildroot}%{_datadir}/php/Smarty/plugins/function.msgPool.php
+cp contrib/smarty/plugins/function.filePath.php %{buildroot}%{_datadir}/php/Smarty/plugins/function.filePath.php
+cp contrib/smarty/plugins/block.render.php %{buildroot}%{_datadir}/php/Smarty/plugins/block.render.php
 
 # Move the schemas
 cp -a contrib/openldap/* %{buildroot}%{_sysconfdir}/openldap/schema/%{name}/
@@ -373,9 +373,9 @@ fi
 %{_datadir}/%{name}/setup
 %config %{_sysconfdir}/%{name}/%{name}-apache.conf
 %{_datadir}/doc/%{name}/
-%{_datadir}/php/Smarty3/plugins/block.render.php
-%{_datadir}/php/Smarty3/plugins/function.msgPool.php
-%{_datadir}/php/Smarty3/plugins/function.filePath.php
+%{_datadir}/php/Smarty/plugins/block.render.php
+%{_datadir}/php/Smarty/plugins/function.msgPool.php
+%{_datadir}/php/Smarty/plugins/function.filePath.php
 
 %files schema
 %defattr(-,root,root,-)
