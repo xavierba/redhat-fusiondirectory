@@ -1,10 +1,18 @@
---- a/contrib/apache/fusiondirectory-apache.conf	2014-03-20 16:19:56.336917487 +0100
-+++ b/contrib/apache/fusiondirectory-apache.conf	2014-03-20 16:19:40.690919965 +0100
-@@ -1,5 +1,5 @@
+--- a/contrib/apache/fusiondirectory-apache.conf	2019-01-21 14:52:16.484691501 +0100
++++ b/contrib/apache/fusiondirectory-apache.conf	2019-01-22 10:40:50.986843472 +0100
+@@ -1,14 +1,8 @@
  # Include FusionDirectory to your web service
 -Alias /fusiondirectory /var/www/fusiondirectory/html
 +Alias /fusiondirectory /usr/share/fusiondirectory/html
  
- <IfModule mod_php5.c>
- <Directory /fusiondirectory>
-
+-<IfModule mod_php5.c>
+-<Directory /var/www/fusiondirectory/html>
+-    php_admin_flag engine on
+-    php_admin_flag expose_php off
+-    php_admin_value upload_tmp_dir /var/spool/fusiondirectory/
+-    php_admin_value session.cookie_lifetime 0
++<Directory /usr/share/fusiondirectory/html>
+ # Remove the comment from the line below if you use fusiondirectory-setup --encrypt-passwords
+ #   include /etc/fusiondirectory/fusiondirectory.secrets
+ </Directory>
+-</IfModule>
