@@ -28,7 +28,7 @@ Requires:   perl-Crypt-CBC, perl-LDAP, perl, perl-Crypt-Rijndael
 
 Requires:   httpd, gettext, perl-ExtUtils-MakeMaker, prototype, prototype-httpd, scriptaculous, scriptaculous-httpd
 
-Requires:   php-Smarty, php-Smarty3-gettext, php-pear-CAS
+Requires:   php-Smarty >= 3.1.32, php-Smarty3-gettext, php-pear-CAS
 
 %description
 FusionDirectory is a combination of system-administrator and end-user web
