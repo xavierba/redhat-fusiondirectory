@@ -405,11 +405,27 @@ fi
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
-* Thu Oct 19 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.3-1
-- Fixes #5708 Add a way to sort tables
+* Mon Jan 28 2019 Jonathan SWAELENS <jonathan@opensides.be> - 1.3-1
+- [Added] fusiondirectory#5676 New file include/class_Language.inc
+- [Added] fusiondirectory#5703 to use the backport of LDAP size limit refactor from 1.4 we need to add the include/class_ldapSizeLimit.inc
+- [Changed] fusiondirectory#5687 select to install vith scl 7.x a version for centos 6 and 7
+- [Changed] fusiondirectory#5702 Make FD work with official php-Smarty
+- [Changed] fusiondirectory#5705 It looks like directory does not work on /fusiondirectory in fusiondirectory-apache.conf
+- [Changed] fusiondirectory#5706 Force php-Smarty to 3.1.32 from remi's repo
 
-* Fri Sep 29 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
-- Fixes #5666 Rename COPYING in LICENSE
+* Sun Nov 18 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.3-1
+- [Added] fusiondirectory#5694 Add the pdf with the oid of fusiondirectory in the contrib dir of the core
+
+* Sat Sep 01 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.2-1
+- [Changed] fusiondirectory#5690 AUTHORS as been Renamed AUTHORS.md
+- [Security] fusiondirectory#5691 The file include/class_CSRFProtection.inc needs to be packaged
+
+* Mon Jun 11 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
+- [Added] fusiondirectory#5678 Add include/class_Combinations.inc
+- [Changed] fusiondirectory#5666 Change file COPYING into LICENCE
+- [Changed] fusiondirectory#5672 Adapt packages to the removal of the contrib/docs directory
+- [Fixed] fusiondirectory#5671 Scriptaculous is used in plugins but not loaded into browser
+- [Fixed] fusiondirectory#5675 Error when checking LDAP when we install FD
 
 * Fri Jun 16 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2-1
 - Fixes #5618 Correct the date error in changelog

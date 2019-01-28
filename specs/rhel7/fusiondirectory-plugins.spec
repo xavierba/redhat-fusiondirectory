@@ -2988,17 +2988,28 @@ interface, designed to handle LDAP based network infrastructures.
 ########################
 
 %changelog
-* Tue Dec 05 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.3-1
-- Fixes #5670 Add opsi dashboard
-- Adapt developers plugin to new plugin convention
-- Fixes #5344 We should find a way to translate description of sudo options
-- Fixes #5705 add ip non mandatory in the systems plugins
-- Fixes #5700 We should be able to forbid deployments outside of a given time frame
+* Mon Jan 28 2019 Jonathan SWAELENS <jonathan@opensides.be> - 1.3-1
+- [Added] fusiondirectory#5686 Package supann-ext
+- [Added] fusiondirectory#5698 Package supann-ext
+- [Added] fusiondirectory#5699 package the sinaps plugin for 1.3
+- [Added] fusiondirectory#5700 Update audit plugin for selecting range of date
+- [Changed] fusiondirectory#5665 Plugins folder should be reorganized to ease packaging
+- [Changed] fusiondirectory#5670 Install the new files for OPSI dashboard in RPM build
+- [Changed] fusiondirectory#5677 New file in sudo plugin
+- [Changed] fusiondirectory#5697 Renaming of supann sources
+- [Changed] fusiondirectory#5704 Update fusiondirectory-plugins spec file so that it match fusiondirectory.spec
+- [Removed] fusiondirectory#5667 Remove files no longer in the developer plugin
 
-* Thu Oct 19 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
-- Fixes #5658 Fixed spec file for new plugins folders organization
-- Fixes #5666 Rename COPYING in LICENSE
-- Fixes #5667 Remove no longer files in developer plugin
+* Sun Nov 18 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.3-1
+- [Added] fusiondirectory#5694 Add the pdf with the oid of fusiondirectory in the contrib dir of the core
+
+* Sat Sep 01 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.2-1
+- [Changed] fusiondirectory#5690 AUTHORS as been Renamed AUTHORS.md
+- [Changed] fusiondirectory#5692 Change the partage icon to be the new one
+
+* Mon Jun 11 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.1-1
+- [Changed] fusiondirectory#5666 Change file COPYING into LICENCE
+- [Changed] fusiondirectory#5673 Adapt packages for stuff that are moved to dev-tools
 
 * Tue Jun 27 2017 Jonathan SWAELENS <jonathan@opensides.be> - 1.2-1
 - Fixes #5613 Rename class_groupMail.inc in class_mailGroup.inc
