@@ -170,7 +170,6 @@ cp contrib/smarty/plugins/block.render.php %{buildroot}%{_datadir}/php/Smarty3/p
 
 # Move the schemas
 cp -a contrib/openldap/* %{buildroot}%{_sysconfdir}/openldap/schema/%{name}/
-mkdir -p %{buildroot}%{_datadir}/doc/%{name}/
 
 # Move executables
 cp contrib/bin/* %{buildroot}%{_sbindir}
