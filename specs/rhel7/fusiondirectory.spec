@@ -84,8 +84,6 @@ SEPolicy needed for Fusiondirectory.
 
 ############################
 
-%global webconfdir        %{_sysconfdir}/httpd/conf.d/
-%global docdir            %{_datadir}/doc/
 %global selinux_policyver %(%{__sed} -e 's,.*selinux-policy-\\([^/]*\\)/.*,\\1,' /usr/share/selinux/devel/policyhelp || echo 0.0.0)
 
 # SELinux policy variants
