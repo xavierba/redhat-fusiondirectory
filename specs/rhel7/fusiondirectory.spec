@@ -179,7 +179,9 @@ cp -a contrib/openldap/* %{buildroot}%{_sysconfdir}/openldap/schema/%{name}/
 cp contrib/bin/* %{buildroot}%{_sbindir}
 
 # Move apache configuration
-cp contrib/apache/%{name}-apache.conf %{buildroot}%{_sysconfdir}/%{name}/
+mkdir -p %{buildroot}%{_sysconfdir}/httpd/conf.d/
+install -pm 644 contrib/apache/%{name}-apache.conf \
+  %{buildroot}%{_sysconfdir}/httpd/conf.d/
 
 ############################
 # SELINUX INSTALL
@@ -226,16 +228,6 @@ fi
 
 %postun
 if [ $1 = 0 ] ; then
-  if [ -d /etc/httpd/conf.d ]; then
-    # Remove FusionDirectory include
-    [ -L /etc/httpd/conf.d/fusiondirectory.conf ] && rm -f /etc/httpd/conf.d/fusiondirectory.conf
-
-    # Restart servers
-    if [ -x /usr/sbin/httpd ]; then
-      service httpd restart
-    fi
-  fi
-
   if [ -d /var/cache/fusiondirectory ]; then
     # Remove cache directory
     rm -Rf /var/cache/fusiondirectory
@@ -256,27 +248,6 @@ rm -Rf /var/spool/fusiondirectory/
 
 # Create all cache and directories we need after install
 %{_sbindir}/%{name}-setup -y --check-directories --update-cache --update-locales
-
-if [ -d /etc/httpd/conf.d ]; then
-
-  # Copy FusionDirectory configuration to conf.d directories
-  if [ ! -L /etc/httpd/conf.d/fusiondirectory.conf ]; then
-
-    # Remove old instances of this file
-    if [ -f /etc/httpd/conf.d/fusiondirectory.conf ]; then
-      echo "Found old fusiondirectory apache configuration in /etc/httpd/conf.d - moving it to fusiondirectory.conf.orig..."
-      echo "Please check for changes in /etc/fusiondirectory/fusiondirectory-apache.conf if you modified this file!"
-      mv /etc/httpd/conf.d/fusiondirectory.conf /etc/httpd/conf.d/fusiondirectory.conf.orig
-    fi
-
-    echo "Making /fusiondirectory available in /etc/httpd/conf.d"
-
-    # Add FusionDirectory include file
-    ln -s /etc/fusiondirectory/fusiondirectory-apache.conf /etc/httpd/conf.d/fusiondirectory.conf
-  fi
-
-  service httpd reload
-fi
 
 # Link fusiondirectory.conf to cache/template directory
 ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondirectory/template/fusiondirectory.conf
@@ -356,7 +327,7 @@ fi
 %{_datadir}/%{name}/locale
 %{_datadir}/%{name}/plugins
 %{_datadir}/%{name}/setup
-%config %{_sysconfdir}/%{name}/%{name}-apache.conf
+%config(noreplace) %{_sysconfdir}/httpd/conf.d/%{name}-apache.conf
 %{_datadir}/doc/%{name}/
 %{_datadir}/php/Smarty3/plugins/block.render.php
 %{_datadir}/php/Smarty3/plugins/function.msgPool.php
