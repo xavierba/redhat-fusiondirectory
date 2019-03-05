@@ -4,7 +4,6 @@ Version:    _VERSION_
 Release:    _RELEASE_
 Summary:    Web Based LDAP Administration Program
 
-Group:      Applications/System
 License:    GPLv2
 URL:        http://www.%{name}.org
 
@@ -41,7 +40,6 @@ and can write user adapted sieve scripts.
 
 # This is the package.spec file
 %package schema
-Group:      Applications/System
 Summary:    Schema Definitions for the %{name} package
 Requires:   openldap-clients, schema2ldif
 
@@ -54,7 +52,6 @@ Contains the Schema definition files for the %{name} admin package.
 ############################
 
 %package selinux
-Group:      Applications/System
 Summary:    SELinux policy for Fusiondirectory
 Requires:   selinux-policy >= %{selinux_policyver}
 Requires:   %{name} = %{version}-%{release}
