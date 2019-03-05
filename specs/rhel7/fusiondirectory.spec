@@ -5,7 +5,7 @@ Release:    _RELEASE_
 Summary:    Web Based LDAP Administration Program
 
 License:    GPLv2
-URL:        http://www.%{name}.org
+URL:        https://www.fusiondirectory.org
 
 Buildarch:  noarch
 Source0:    https://repos.fusiondirectory.org/sources/%{name}/%{name}-%{version}.tar.gz
