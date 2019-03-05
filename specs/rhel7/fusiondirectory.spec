@@ -151,7 +151,7 @@ mkdir -p %{buildroot}%{_datadir}/php/Smarty3/plugins/
 mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/javascript/
 
 # Set the rights
-chmod 750 contrib/bin/*
+chmod 755 contrib/bin/*
 
 # Move man files
 cp contrib/man/%{name}-setup.1 %{buildroot}%{_mandir}/man1
