@@ -119,7 +119,6 @@ do
   mv %{name}.pp %{name}.pp.${selinuxvariant}
   make NAME=${selinuxvariant} -f /usr/share/selinux/devel/Makefile clean
 done
-cd -
 
 ############################
 
