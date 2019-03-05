@@ -299,7 +299,6 @@ if ! [[ -d /usr/share/fusiondirectory/html/javascript/scriptaculous ]] ; then
 fi
 
 %files
-%defattr(-,root,root,-)
 %{_mandir}/man1/%{name}-setup.1.gz
 %{_mandir}/man5/%{name}.conf.5.gz
 
@@ -369,7 +368,6 @@ fi
 %{_datadir}/php/Smarty3/plugins/function.filePath.php
 
 %files schema
-%defattr(-,root,root,-)
 %{_mandir}/man1/%{name}-insert-schema.1.gz
 
 %{_datadir}/doc/%{name}-schema/AUTHORS.md
@@ -389,7 +387,6 @@ fi
 ############################
 
 %files selinux
-%defattr(-,root,root,0755)
 %doc SELinux/%{name}.te
 %doc SELinux/%{name}.fc
 %{_datadir}/selinux/*/%{name}.pp
