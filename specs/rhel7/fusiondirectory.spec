@@ -125,8 +125,6 @@ cd -
 
 # This is the install.spec file
 %install
-rm -Rf %{buildroot}
-
 # Installation of FD-core
 # Create /usr/share/fusiondirectory/
 mkdir -p %{buildroot}%{_datadir}/%{name}
