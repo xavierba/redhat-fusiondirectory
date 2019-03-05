@@ -20,18 +20,12 @@ Patch4:     %{name}-fix_pear-location.patch
 Patch5:     %{name}-fix_smarty3-location.patch
 Patch6:     %{name}-fix_install-location-apache-old-version.patch
 
+BuildRequires: perl-generators
+
 Requires:   gettext
 Requires:   httpd
-Requires:   perl
-Requires:   perl-Archive-Extract
-Requires:   perl-Crypt-CBC
 Requires:   perl-Crypt-Rijndael
-Requires:   perl-Digest-SHA
 Requires:   perl-ExtUtils-MakeMaker
-Requires:   perl-File-Copy-Recursive
-Requires:   perl-LDAP
-Requires:   perl-Path-Class
-Requires:   perl-XML-Twig
 Requires:   php >= 5.4
 Requires:   php-gd >= 5.4
 Requires:   php-imap >= 5.4
