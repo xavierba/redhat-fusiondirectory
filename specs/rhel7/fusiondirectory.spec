@@ -158,8 +158,6 @@ cp contrib/man/%{name}.conf.5 %{buildroot}%{_mandir}/man5
 # Copy docs
 mkdir -p %{buildroot}%{_datadir}/doc/{%{name},%{name}-schema}
 mkdir -p %{buildroot}%{_datadir}/doc/%{name}/examples/
-cp ./AUTHORS.md ./Changelog ./LICENSE %{buildroot}%{_datadir}/doc/%{name}/
-cp ./AUTHORS.md ./Changelog ./LICENSE %{buildroot}%{_datadir}/doc/%{name}-schema/
 cp contrib/%{name}.conf %{buildroot}%{_datadir}/doc/%{name}/
 cp -a contrib/docs/ %{buildroot}%{_datadir}/doc/%{name}/
 cp -a contrib/images/ %{buildroot}%{_datadir}/doc/%{name}/
@@ -292,6 +290,8 @@ if ! [[ -d /usr/share/fusiondirectory/html/javascript/scriptaculous ]] ; then
 fi
 
 %files
+%license LICENSE
+%doc AUTHORS.md Changelog
 %{_mandir}/man1/%{name}-setup.1.*
 %{_mandir}/man5/%{name}.conf.5.*
 
@@ -361,11 +361,9 @@ fi
 %{_datadir}/php/Smarty3/plugins/function.filePath.php
 
 %files schema
+%license LICENSE
+%doc AUTHORS.md Changelog
 %{_mandir}/man1/%{name}-insert-schema.1.*
-
-%{_datadir}/doc/%{name}-schema/AUTHORS.md
-%{_datadir}/doc/%{name}-schema/LICENSE
-%{_datadir}/doc/%{name}-schema/Changelog
 
 %{_sysconfdir}/openldap/schema/%{name}/core-fd.schema
 %{_sysconfdir}/openldap/schema/%{name}/ldapns.schema
