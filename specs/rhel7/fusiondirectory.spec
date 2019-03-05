@@ -1,7 +1,7 @@
 # This is the header.spec file
 Name:       fusiondirectory
-Version:    _VERSION_
-Release:    _RELEASE_
+Version:    1.2.3
+Release:    1
 Summary:    Web Based LDAP Administration Program
 
 License:    GPLv2
