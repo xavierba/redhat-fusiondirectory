@@ -183,6 +183,14 @@ mkdir -p %{buildroot}%{_sysconfdir}/httpd/conf.d/
 install -pm 644 contrib/apache/%{name}-apache.conf \
   %{buildroot}%{_sysconfdir}/httpd/conf.d/
 
+# Link javascript prototype
+ln -s /usr/share/prototype \
+  %{buildroot}%{_datadir}/%{name}/html/javascript/prototype
+
+# Link javascript scriptaculous
+ln -s /usr/share/scriptaculous \
+  %{buildroot}%{_datadir}/%{name}/html/javascript/scriptaculous
+
 ############################
 # SELINUX INSTALL
 ############################
@@ -235,10 +243,6 @@ if [ $1 = 0 ] ; then
     # Remove spool directory
     rm -Rf /var/spool/fusiondirectory
   fi
-
-  # Delete javascript libraries symlinks
-  [ -L /usr/share/fusiondirectory/html/javascript/prototype ] && rm -f /usr/share/fusiondirectory/html/javascript/prototype
-  [ -L /usr/share/fusiondirectory/html/javascript/scriptaculous ] && rm -f /usr/share/fusiondirectory/html/javascript/scriptaculous
 fi
 
 %post
@@ -251,16 +255,6 @@ rm -Rf /var/spool/fusiondirectory/
 
 # Link fusiondirectory.conf to cache/template directory
 ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondirectory/template/fusiondirectory.conf
-
-# Link javascript profotype if not exist
-if ! [[ -d /usr/share/fusiondirectory/html/javascript/prototype ]] ; then
-  ln -s /usr/share/prototype /usr/share/fusiondirectory/html/javascript/prototype
-fi
-
-# Link javascript scriptaculous if not exist
-if ! [[ -d /usr/share/fusiondirectory/html/javascript/scriptaculous ]] ; then
-  ln -s /usr/share/scriptaculous /usr/share/fusiondirectory/html/javascript/scriptaculous
-fi
 
 %files
 %license LICENSE
