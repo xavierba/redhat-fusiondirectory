@@ -20,15 +20,33 @@ Patch4:     %{name}-fix_pear-location.patch
 Patch5:     %{name}-fix_smarty3-location.patch
 Patch6:     %{name}-fix_install-location-apache-old-version.patch
 
+Requires:   gettext
+Requires:   httpd
+Requires:   perl
+Requires:   perl-Archive-Extract
+Requires:   perl-Crypt-CBC
+Requires:   perl-Crypt-Rijndael
+Requires:   perl-Digest-SHA
+Requires:   perl-ExtUtils-MakeMaker
+Requires:   perl-File-Copy-Recursive
+Requires:   perl-LDAP
+Requires:   perl-Path-Class
+Requires:   perl-XML-Twig
+Requires:   php >= 5.4
+Requires:   php-gd >= 5.4
+Requires:   php-imap >= 5.4
+Requires:   php-ldap >= 5.4
+Requires:   php-mbstring >= 5.4
+Requires:   php-openssl >= 5.4
+Requires:   php-pear-CAS
+Requires:   php-pecl-imagick
+Requires:   php-Smarty3
+Requires:   php-Smarty3-gettext
+Requires:   prototype
+Requires:   prototype-httpd
+Requires:   scriptaculous
+Requires:   scriptaculous-httpd
 
-Requires:   php >= 5.4, php-ldap >= 5.4, php-imap >= 5.4, php-mbstring >= 5.4, php-pecl-imagick, php-gd >= 5.4, php-openssl >= 5.4
-
-Requires:   perl-Path-Class, perl-Digest-SHA, perl-File-Copy-Recursive, perl-Archive-Extract, perl-XML-Twig
-Requires:   perl-Crypt-CBC, perl-LDAP, perl, perl-Crypt-Rijndael
-
-Requires:   httpd, gettext, perl-ExtUtils-MakeMaker, prototype, prototype-httpd, scriptaculous, scriptaculous-httpd
-
-Requires:   php-Smarty3, php-Smarty3-gettext, php-pear-CAS
 
 %description
 FusionDirectory is a combination of system-administrator and end-user web
@@ -41,7 +59,8 @@ and can write user adapted sieve scripts.
 # This is the package.spec file
 %package schema
 Summary:    Schema Definitions for the %{name} package
-Requires:   openldap-clients, schema2ldif
+Requires:   openldap-clients
+Requires:   schema2ldif
 
 %description schema
 Contains the Schema definition files for the %{name} admin package.
@@ -55,7 +74,9 @@ Contains the Schema definition files for the %{name} admin package.
 Summary:    SELinux policy for Fusiondirectory
 Requires:   selinux-policy >= %{selinux_policyver}
 Requires:   %{name} = %{version}-%{release}
-BuildRequires:    checkpolicy, selinux-policy-devel, /usr/share/selinux/devel/policyhelp
+BuildRequires:    checkpolicy
+BuildRequires:    selinux-policy-devel
+BuildRequires:    /usr/share/selinux/devel/policyhelp
 
 %description selinux
 This package contains the binary modules and sources files of the
