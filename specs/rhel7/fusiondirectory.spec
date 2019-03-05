@@ -139,8 +139,8 @@ install -d -m 0770 %{buildroot}/var/spool/%{name}/
 install -d -m 0770 %{buildroot}/var/cache/%{name}/{tmp,fai}/
 
 # Create other directories
-mkdir -p %{buildroot}%{_datadir}/man/man1/
-mkdir -p %{buildroot}%{_datadir}/man/man5/
+mkdir -p %{buildroot}%{_mandir}/man1/
+mkdir -p %{buildroot}%{_mandir}/man5/
 mkdir -p %{buildroot}%{_sysconfdir}/%{name}/
 mkdir -p %{buildroot}%{_sbindir}
 mkdir -p %{buildroot}%{_sysconfdir}/openldap/schema/%{name}/
@@ -150,15 +150,10 @@ mkdir -p %{buildroot}%{_datadir}/fusiondirectory/html/javascript/
 # Set the rights
 chmod 750 contrib/bin/*
 
-# Prepare the man pages
-gzip contrib/man/%{name}.conf.5
-gzip contrib/man/%{name}-setup.1
-gzip contrib/man/%{name}-insert-schema.1
-
 # Move man files
-cp contrib/man/%{name}-setup.1.gz %{buildroot}%{_datadir}/man/man1
-cp contrib/man/%{name}-insert-schema.1.gz %{buildroot}%{_datadir}/man/man1
-cp contrib/man/%{name}.conf.5.gz %{buildroot}%{_datadir}/man/man5
+cp contrib/man/%{name}-setup.1 %{buildroot}%{_mandir}/man1
+cp contrib/man/%{name}-insert-schema.1 %{buildroot}%{_mandir}/man1
+cp contrib/man/%{name}.conf.5 %{buildroot}%{_mandir}/man5
 
 # Copy docs
 mkdir -p %{buildroot}%{_datadir}/doc/{%{name},%{name}-schema}
@@ -297,8 +292,8 @@ if ! [[ -d /usr/share/fusiondirectory/html/javascript/scriptaculous ]] ; then
 fi
 
 %files
-%{_mandir}/man1/%{name}-setup.1.gz
-%{_mandir}/man5/%{name}.conf.5.gz
+%{_mandir}/man1/%{name}-setup.1.*
+%{_mandir}/man5/%{name}.conf.5.*
 
 %{_sbindir}/%{name}-setup
 %{_datadir}/%{name}/html/images
@@ -366,7 +361,7 @@ fi
 %{_datadir}/php/Smarty3/plugins/function.filePath.php
 
 %files schema
-%{_mandir}/man1/%{name}-insert-schema.1.gz
+%{_mandir}/man1/%{name}-insert-schema.1.*
 
 %{_datadir}/doc/%{name}-schema/AUTHORS.md
 %{_datadir}/doc/%{name}-schema/LICENSE
