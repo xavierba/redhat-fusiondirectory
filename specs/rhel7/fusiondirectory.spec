@@ -83,7 +83,7 @@ SEPolicy needed for Fusiondirectory.
 %setup -T -D -b 0
 
 # Apply all the patches
-%if %{?rhel} >= 7
+%if 0%{?rhel} >= 7
 %patch0 -p1
 %else
 %patch6 -p1
