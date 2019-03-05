@@ -74,13 +74,7 @@ SEPolicy needed for Fusiondirectory.
 
 # This is the prep.spec file
 %prep
-
-# Create build directory
-%setup -c -q -n %{name}-%{version}
-
-# Source FD-core
-# Extract Source
-%setup -T -D -b 0
+%setup -q
 
 # Apply all the patches
 %if 0%{?rhel} >= 7 || 0%{?fedora}
