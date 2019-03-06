@@ -216,13 +216,8 @@ fi
 
 %postun
 if [ $1 = 0 ] ; then
-  if [ -d /var/cache/fusiondirectory ]; then
-    # Remove cache directory
-    rm -Rf /var/cache/fusiondirectory
-
-    # Remove spool directory
-    rm -Rf /var/spool/fusiondirectory
-  fi
+  [ -d /var/cache/fusiondirectory ] && rm -rf /var/cache/fusiondirectory
+  [ -d /var/spool/fusiondirectory ] && rm -rf /var/spool/fusiondirectory
 fi
 
 %post
