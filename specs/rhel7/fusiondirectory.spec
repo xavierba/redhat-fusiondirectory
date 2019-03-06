@@ -61,7 +61,7 @@ Contains the Schema definition files for the %{name} admin package.
 
 
 %package selinux
-Summary:    SELinux policy for Fusiondirectory
+Summary:    SELinux policy for FusionDirectory
 Requires:   selinux-policy >= %{_selinux_policy_version}
 Requires:   %{name} = %{version}-%{release}
 BuildRequires:    checkpolicy
@@ -70,7 +70,7 @@ BuildRequires:    selinux-policy
 
 %description selinux
 This package contains the binary modules and sources files of the
-SELinux policy needed for Fusiondirectory.
+SELinux policy needed for FusionDirectory.
 
 
 %prep
