@@ -35,7 +35,11 @@ Requires:   php-mbstring >= 5.4
 Requires:   php-openssl >= 5.4
 Requires:   php-pear-CAS
 Requires:   php-pecl-imagick
+%if 0%{?el6}
 Requires:   php-Smarty3
+%else
+Requires:   php-Smarty
+%endif
 Requires:   php-Smarty3-gettext
 Requires:   prototype
 Requires:   prototype-httpd
