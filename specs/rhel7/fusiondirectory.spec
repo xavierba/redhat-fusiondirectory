@@ -40,6 +40,7 @@ Requires:   php-Smarty3
 %else
 Requires:   php-Smarty
 %endif
+# Not availables in Fedora/EPEL
 Requires:   php-Smarty3-gettext
 Requires:   prototype
 Requires:   prototype-httpd
@@ -58,6 +59,7 @@ and can write user adapted sieve scripts.
 %package schema
 Summary:    Schema Definitions for the %{name} package
 Requires:   openldap-clients
+# Not available in Fedora/EPEL
 Requires:   schema2ldif
 
 %description schema
