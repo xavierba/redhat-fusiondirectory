@@ -67,7 +67,7 @@ BuildRequires:    selinux-policy
 
 %description selinux
 This package contains the binary modules and sources files of the
-SEPolicy needed for Fusiondirectory.
+SELinux policy needed for Fusiondirectory.
 
 
 # SELinux policy variants
