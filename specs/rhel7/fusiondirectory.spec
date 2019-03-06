@@ -1,4 +1,3 @@
-# This is the header.spec file
 Name:       fusiondirectory
 Version:    1.2.3
 Release:    1
@@ -49,7 +48,6 @@ accounts. It is able to manage the Postfix/Cyrus server combination
 and can write user adapted sieve scripts.
 
 
-# This is the package.spec file
 %package schema
 Summary:    Schema Definitions for the %{name} package
 Requires:   openldap-clients
@@ -58,10 +56,6 @@ Requires:   schema2ldif
 %description schema
 Contains the Schema definition files for the %{name} admin package.
 
-
-############################
-# SELINUX PACKAGE
-############################
 
 %package selinux
 Summary:    SELinux policy for Fusiondirectory
@@ -75,14 +69,11 @@ BuildRequires:    selinux-policy
 This package contains the binary modules and sources files of the
 SEPolicy needed for Fusiondirectory.
 
-############################
 
 # SELinux policy variants
 %global selinux_variants mls strict targeted
 
-############################
 
-# This is the prep.spec file
 %prep
 %setup -q
 
@@ -99,10 +90,6 @@ SEPolicy needed for Fusiondirectory.
 %patch4 -p1
 %patch5 -p1
 
-############################
-# SELINUX PREP
-############################
-
 # SELinux build environment setup
 mkdir SELinux
 cp -p %{SOURCE1} %{SOURCE2} SELinux
@@ -110,9 +97,6 @@ cp -p %{SOURCE1} %{SOURCE2} SELinux
 # Change version of fusiondirectory.te
 sed -i 's/_SELINUX-VERSION_/%{version}/g' SELinux/%{name}.te
 
-############################
-# SELINUX BUILD
-############################
 
 %build
 # Build SELinux binary policy module
@@ -124,9 +108,7 @@ do
   make NAME=${selinuxvariant} -f /usr/share/selinux/devel/Makefile clean
 done
 
-############################
 
-# This is the install.spec file
 %install
 # Installation of FD-core
 # Create /usr/share/fusiondirectory/
@@ -194,10 +176,6 @@ ln -s /usr/share/prototype \
 ln -s /usr/share/scriptaculous \
   %{buildroot}%{_datadir}/%{name}/html/javascript/scriptaculous
 
-############################
-# SELINUX INSTALL
-############################
-
 # Install SELinux Policy Module
 for selinuxvariant in %{selinux_variants}
 do
@@ -206,12 +184,6 @@ do
     %{buildroot}%{_datadir}/selinux/${selinuxvariant}/%{name}.pp
 done
 
-############################
-
-
-############################
-# POST / POSTUN SELINUX
-############################
 
 %post selinux
 # SELinux post and postun scriptlets
@@ -342,10 +314,6 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 %{_sysconfdir}/openldap/schema/fusiondirectory/template-fd.schema
 %{_sbindir}/%{name}-insert-schema
 
-
-############################
-# FILES SELINUX
-############################
 
 %files selinux
 %doc SELinux/%{name}.te
