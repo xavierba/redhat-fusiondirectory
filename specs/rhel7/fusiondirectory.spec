@@ -24,8 +24,7 @@ BuildRequires: perl-generators
 
 Requires:   gettext
 Requires:   httpd
-Requires:   perl-Crypt-Rijndael
-Requires:   perl-ExtUtils-MakeMaker
+Requires:   perl(Crypt::Rijndael)
 Requires:   php >= 5.4
 Requires:   php-gd >= 5.4
 Requires:   php-imap >= 5.4
