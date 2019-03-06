@@ -168,9 +168,12 @@ cp -a contrib/apache/* %{buildroot}%{_datadir}/doc/%{name}/examples/
 cp -a contrib/lighttpd/* %{buildroot}%{_datadir}/doc/%{name}/examples/
 
 # Move smarty functions and create php lib directory if it exist
-cp contrib/smarty/plugins/function.msgPool.php %{buildroot}%{_datadir}/php/Smarty3/plugins/function.msgPool.php
-cp contrib/smarty/plugins/function.filePath.php %{buildroot}%{_datadir}/php/Smarty3/plugins/function.filePath.php
-cp contrib/smarty/plugins/block.render.php %{buildroot}%{_datadir}/php/Smarty3/plugins/block.render.php
+cp contrib/smarty/plugins/function.msgPool.php \
+  %{buildroot}%{_datadir}/php/Smarty3/plugins/function.msgPool.php
+cp contrib/smarty/plugins/function.filePath.php \
+  %{buildroot}%{_datadir}/php/Smarty3/plugins/function.filePath.php
+cp contrib/smarty/plugins/block.render.php \
+  %{buildroot}%{_datadir}/php/Smarty3/plugins/block.render.php
 
 # Move the schemas
 cp -a contrib/openldap/* %{buildroot}%{_sysconfdir}/openldap/schema/%{name}/
