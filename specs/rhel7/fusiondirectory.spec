@@ -1,3 +1,6 @@
+# SELinux policy variants
+%global selinux_variants mls strict targeted
+
 Name:       fusiondirectory
 Version:    1.2.3
 Release:    1
@@ -68,10 +71,6 @@ BuildRequires:    selinux-policy
 %description selinux
 This package contains the binary modules and sources files of the
 SELinux policy needed for Fusiondirectory.
-
-
-# SELinux policy variants
-%global selinux_variants mls strict targeted
 
 
 %prep
