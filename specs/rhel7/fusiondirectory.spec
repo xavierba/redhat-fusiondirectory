@@ -230,6 +230,7 @@ rm -Rf /var/spool/fusiondirectory/
 # Link fusiondirectory.conf to cache/template directory
 ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondirectory/template/fusiondirectory.conf
 
+
 %files
 %license LICENSE
 %doc AUTHORS.md Changelog
@@ -243,6 +244,7 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 %{_datadir}/php/Smarty3/plugins/block.render.php
 %{_datadir}/php/Smarty3/plugins/function.msgPool.php
 %{_datadir}/php/Smarty3/plugins/function.filePath.php
+
 
 %files schema
 %license LICENSE
@@ -261,6 +263,7 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 %doc SELinux/%{name}.te
 %doc SELinux/%{name}.fc
 %{_datadir}/selinux/*/%{name}.pp
+
 
 %changelog
 * Sun Nov 18 2018 Jonathan SWAELENS <jonathan@opensides.be> - 1.2.3-1
