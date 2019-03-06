@@ -4,7 +4,7 @@ Version:    1.2.3
 Release:    1
 Summary:    Web Based LDAP Administration Program
 
-License:    GPLv2
+License:    GPLv2+
 URL:        https://www.fusiondirectory.org
 
 Buildarch:  noarch
