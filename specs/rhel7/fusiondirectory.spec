@@ -24,8 +24,8 @@ Patch6:     %{name}-fix_install-location-apache-old-version.patch
 
 BuildRequires: perl-generators
 
+Requires(pre): httpd
 Requires:   gettext
-Requires:   httpd
 Requires:   perl(Crypt::Rijndael)
 Requires:   php >= 5.4
 Requires:   php-gd >= 5.4
@@ -244,6 +244,10 @@ ln -s /usr/share/doc/fusiondirectory/fusiondirectory.conf  /var/cache/fusiondire
 %{_datadir}/php/Smarty3/plugins/block.render.php
 %{_datadir}/php/Smarty3/plugins/function.msgPool.php
 %{_datadir}/php/Smarty3/plugins/function.filePath.php
+%dir /var/cache/%{name}/
+%attr(-,root,apache) %{_localstatedir}/cache/%{name}/tmp/
+%attr(-,root,apache) %{_localstatedir}/cache/%{name}/fai/
+%attr(-,root,apache) %{_localstatedir}/spool/%{name}/
 
 
 %files schema
