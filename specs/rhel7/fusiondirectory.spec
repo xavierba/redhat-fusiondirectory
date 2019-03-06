@@ -220,10 +220,6 @@ if [ $1 = 0 ] ; then
 fi
 
 %post
-# Remove cache and spool
-rm -Rf /var/cache/fusiondirectory/
-rm -Rf /var/spool/fusiondirectory/
-
 # Create all cache and directories we need after install
 %{_sbindir}/%{name}-setup -y --check-directories --update-cache --update-locales
 
